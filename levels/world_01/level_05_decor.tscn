@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_kkfnv"]
+[ext_resource type="Script" path="res://scripts/game/decor_arrow.gd" id="2_v2sf0"]
+
+[node name="Decor" type="Node2D" unique_id=622449981]
+script = ExtResource("1_kkfnv")
+
+[node name="DropHere" type="Node2D" parent="." unique_id=109966875]
+position = Vector2(544, 224)
+script = ExtResource("2_v2sf0")
+direction = "down"
+color = Color(0.55, 0.05, 0.08, 1)

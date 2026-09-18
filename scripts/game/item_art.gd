@@ -34,7 +34,8 @@ static func _draw_shape(ci: CanvasItem, type: int, s: float, col: Color, t: floa
 		"torus": _torus(ci, s, col)
 		"sphere": _sphere(ci, s, col)
 		"cone": _cone(ci, s, col)
-		"weight": _weight(ci, s, col)
+		"weight", "weight_red": _weight(ci, s, col)
+		"block_red", "block_blue": _alert_block(ci, s, col)
 		_:
 			if ItemDefs.kind(type) == ItemDefs.Kind.KEY:
 				_key(ci, s, col)
@@ -116,6 +117,20 @@ static func _weight(ci: CanvasItem, s: float, c: Color) -> void:
 	_poly(ci, arrow, c, c.darkened(0.6), s * 0.03)
 	ci.draw_colored_polygon(pts(s, [-0.16, -0.44, -0.04, -0.44, -0.04, -0.1, -0.26, -0.1]), c.lightened(0.35))
 	ci.draw_line(Vector2(-0.3, -0.06) * s, Vector2(0.0, 0.3) * s, Color(0.7, 1.0, 1.0, 0.8), s * 0.03, true)
+
+
+## Glossy square block with an exclamation mark.
+static func _alert_block(ci: CanvasItem, s: float, c: Color) -> void:
+	var r := Rect2(Vector2(-0.44, -0.44) * s, Vector2(0.88, 0.88) * s)
+	ci.draw_colored_polygon(rrect(r, s * 0.08), c.darkened(0.55))
+	var inner := r.grow(-s * 0.05)
+	for k in 6: # soft glow from the top-left
+		var f := 1.0 - k / 6.0
+		ci.draw_colored_polygon(rrect(Rect2(inner.position, inner.size * Vector2(1, 1)).grow(-s * 0.03 * k), s * 0.06), c.lerp(c.lightened(0.55), k / 6.0 * 0.8))
+	ci.draw_circle(Vector2(-0.2, -0.2) * s, s * 0.12, Color(1, 1, 1, 0.55))
+	var mark := c.darkened(0.7)
+	ci.draw_colored_polygon(pts(s, [-0.06, -0.3, 0.06, -0.3, 0.035, 0.1, -0.035, 0.1]), mark)
+	ci.draw_circle(Vector2(0, 0.24) * s, s * 0.055, mark)
 
 
 static func _cone(ci: CanvasItem, s: float, c: Color) -> void:

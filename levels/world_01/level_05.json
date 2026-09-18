@@ -1,46 +1,100 @@
 {
+	"version": 1,
+	"name": "Acid Drop",
+	"moves": 12,
+	"time": 115,
+	"terrain": [
+		"------------",
+		"------.....-",
+		"------#....-",
+		"------##.##-",
+		"------.....-",
+		"------.....-",
+		"------.....-",
+		"-.....-#aa#-",
+		"-.....-#aa#-",
+		"-.....-#aa#-",
+		"-.....-#aa#-",
+		"------------"
+	],
 	"items": [
 		{
-			"type": "star",
+			"type": "cone",
+			"x": 3,
+			"y": 7,
+			"aim": true
+		},
+		{
+			"type": "cone",
+			"x": 3,
+			"y": 10,
+			"aim": true
+		},
+		{
+			"type": "weight_red",
+			"x": 7,
+			"y": 2,
+			"aim": true
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 2,
+			"aim": true
+		},
+		{
+			"type": "block_blue",
+			"x": 1,
+			"y": 8
+		},
+		{
+			"type": "block_red",
+			"x": 1,
+			"y": 9
+		},
+		{
+			"type": "block_red",
+			"x": 2,
+			"y": 8
+		},
+		{
+			"type": "block_blue",
+			"x": 2,
+			"y": 9
+		},
+		{
+			"type": "block_blue",
 			"x": 3,
 			"y": 8
 		},
 		{
-			"aim": true,
-			"type": "star",
-			"x": 6,
-			"y": 7
+			"type": "block_red",
+			"x": 3,
+			"y": 9
 		},
 		{
-			"type": "crystal",
+			"type": "block_red",
 			"x": 4,
 			"y": 8
 		},
 		{
-			"type": "crystal",
-			"x": 7,
-			"y": 3
+			"type": "block_blue",
+			"x": 4,
+			"y": 9
+		},
+		{
+			"type": "block_blue",
+			"x": 5,
+			"y": 8
+		},
+		{
+			"type": "block_red",
+			"x": 5,
+			"y": 9
 		}
 	],
-	"moves": 8,
-	"name": "Silent Tower",
-	"optimal": 4,
-	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--.......---",
-		"--.......---",
-		"--.#...##---",
-		"--.#.....---",
-		"--.#.....---",
-		"--.......---",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"pipes": [],
+	"handcrafted": true,
+	"optimal": 8
 }

@@ -25,6 +25,9 @@ const DEFS := [
 	["sphere", Gravity.NONE, Kind.NORMAL, 0],
 	["cone", Gravity.NONE, Kind.NORMAL, 0],
 	["weight", Gravity.FALL, Kind.NORMAL, 0],
+	["weight_red", Gravity.FALL, Kind.NORMAL, 0],
+	["block_red", Gravity.NONE, Kind.NORMAL, 0],
+	["block_blue", Gravity.NONE, Kind.NORMAL, 0],
 	["bomb", Gravity.NONE, Kind.BOMB, 0],
 	["key_red", Gravity.NONE, Kind.KEY, LockColor.RED],
 	["key_green", Gravity.NONE, Kind.KEY, LockColor.GREEN],
@@ -92,6 +95,9 @@ static func color(t: int) -> Color:
 		"sphere": return Color(0.62, 0.26, 0.80)
 		"cone": return Color(0.80, 0.54, 0.58)
 		"weight": return Color(0.36, 0.56, 0.92)
+		"weight_red": return Color(0.92, 0.32, 0.4)
+		"block_red": return Color(0.86, 0.2, 0.22)
+		"block_blue": return Color(0.2, 0.3, 0.9)
 	if kind(t) == Kind.KEY:
 		return lock_color(key_color(t))
 	return Color.WHITE
