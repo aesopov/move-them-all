@@ -18,20 +18,6 @@
 		"############",
 		"############"
 	],
-	"skins": [
-		"bb....bbbbbb",
-		"bb...bbbbbbb",
-		"........bbbb",
-		"bb...bbbbbbb",
-		"bb...bbbbbbb",
-		".......bbbbb",
-		"bb...bbbbbbb",
-		"bb...bbbbbbb",
-		"bbbbbbbbbbbb",
-		"bbbbbbbbbbbb",
-		"bbbbbbbbbbbb",
-		"bbbbbbbbbbbb"
-	],
 	"items": [
 		{
 			"type": "key_red",
