@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/decor_pipe.gd" id="3"]
+
+[node name="Decor" type="Node2D"]
+script = ExtResource("1")
+fit_cells = Rect2i(0, 0, 13, 12)
+
+[node name="ChamberShadows" type="Node2D" parent="."]
+show_behind_parent = true
+script = ExtResource("2")
+regions = Array[Rect2]([Rect2(256, 128, 128, 64), Rect2(576, 128, 128, 64), Rect2(256, 352, 128, 64), Rect2(576, 352, 128, 64)])
+colors = Array[Color]([Color(0.035, 0.07, 0.18, 1), Color(0.035, 0.07, 0.18, 1), Color(0.035, 0.07, 0.18, 1), Color(0.035, 0.07, 0.18, 1)])
+
+[node name="ConnectedTube" type="Node2D" parent="."]
+script = ExtResource("3")
+points = PackedVector2Array(768, 32, 800, 32, 800, 480, 768, 480)

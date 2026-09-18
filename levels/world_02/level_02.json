@@ -1,52 +1,59 @@
 {
+	"version": 1,
+	"name": "Locks Above the Water",
+	"theme": "waterfall",
+	"moves": 95,
+	"time": 600,
+	"terrain": [
+		"############",
+		"#----------#",
+		"#-----###--#",
+		"#-----#-#--#",
+		"#---###-####",
+		"#####-#.#-##",
+		"....###.####",
+		"............",
+		"#.###.###.#.",
+		"wwwwwwwwwww#",
+		"wwwwwwwwwwww",
+		"wwwwwwwwwwww"
+	],
 	"items": [
 		{
-			"type": "shell",
-			"x": 6,
-			"y": 8
-		},
-		{
+			"type": "key_blue",
+			"x": 1,
+			"y": 6,
 			"aim": true,
-			"type": "shell",
-			"x": 5,
-			"y": 5
+			"gravity": "fall"
 		},
 		{
-			"type": "crystal",
-			"x": 2,
-			"y": 5
+			"type": "weight",
+			"x": 0,
+			"y": 7,
+			"lock": "green",
+			"aim": true
 		},
 		{
-			"type": "crystal",
-			"x": 5,
-			"y": 8
+			"type": "mover_green",
+			"x": 1,
+			"y": 7
 		},
 		{
+			"type": "key_green",
+			"x": 11,
+			"y": 7,
+			"lock": "blue",
 			"aim": true,
-			"type": "rock",
-			"x": 7,
-			"y": 8
+			"gravity": "fall"
+		},
+		{
+			"type": "weight",
+			"x": 11,
+			"y": 8,
+			"aim": true
 		}
 	],
-	"moves": 5,
-	"name": "Sleepy Pocket",
-	"optimal": 2,
-	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"--.......---",
-		"--....#..---",
-		"--.......---",
-		"--.......---",
-		"--..##...---",
-		"--.......---",
-		"--......w---",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 65,
-	"version": 1
+	"pipes": [],
+	"handcrafted": true
 }

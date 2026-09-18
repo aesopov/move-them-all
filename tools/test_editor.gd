@@ -23,10 +23,6 @@ func _initialize() -> void:
 	var b: Board = ed.board
 	print("teleport link: ", b.teleport_to[c.call(3, 1)] == c.call(7, 3), " two-way: ", b.teleport_to[c.call(7, 3)] == c.call(3, 1))
 	print("lock set: ", b.it_lock[b.item_at[c.call(8, 1)]] == 1, " aim: ", b.it_aim[b.item_at[c.call(1, 1)]] == 1)
-	ed._solve()
-	for i in 10:
-		await process_frame
-	print("status: ", ed._status.text.replace("\n", " | "))
 	ed._dest_opt.select(0)
 	ed._name.text = "Editor Smoke Test"
 	ed.board.name = "Editor Smoke Test"

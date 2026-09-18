@@ -113,10 +113,102 @@ func _init() -> void:
 	b.play(0, Board.RIGHT)
 	b.play(0, Board.RIGHT)
 	check(b.is_won(), "pipe transports and match")
+	# A landing exit permits a return only while the piece is on the exit cell.
+	for leave_direction in [Board.UP, Board.RIGHT]:
+		b = Board.new()
+		var entry := Board.cell_of(7, 5)
+		var landing := Board.cell_of(7, 3)
+		b.pipe_mouth[entry] = Board.DOWN
+		b.pipe_mouth[landing] = Board.DOWN
+		b.pipe_to[entry] = landing
+		b.pipe_to[landing] = entry
+		b.pipe_landing[landing] = 1
+		var traveler := b.add_item(ItemDefs.index_of("cube"), Board.cell_of(7, 6))
+		b.play(traveler, Board.UP)
+		check(b.it_cell[traveler] == landing, "tube deposits piece on landing cell")
+		var saved := Board.from_dict(b.to_dict()).clone()
+		check(saved.pipe_landing[landing] == 1, "landing exit survives serialization and undo clone")
+		b.play(traveler, Board.DOWN)
+		check(b.it_cell[traveler] == Board.cell_of(7, 6), "down from landing returns through tube")
+		b.play(traveler, Board.UP)
+		b.play(traveler, leave_direction)
+		check(b.it_cell[traveler] == b.step(landing, leave_direction), "piece can leave landing")
+		check(not b.can_move(traveler, Board.opposite(leave_direction)), "cannot reenter landing after leaving")
+		var second := b.add_item(ItemDefs.index_of("torus"), Board.cell_of(7, 6))
+		b.add_item(ItemDefs.index_of("cone"), landing)
+		check(not b.can_move(second, Board.UP), "occupied landing blocks tube entry")
+	# Real elbows route between their two ports in either direction.
+	for entry_side in [Board.UP, Board.RIGHT]:
+		b = Board.new()
+		var elbow := Board.cell_of(5, 5)
+		b.pipe_mouth[elbow] = Board.UP
+		b.pipe_ports[elbow] = (1 << Board.UP) | (1 << Board.RIGHT)
+		var exit_side := Board.RIGHT if entry_side == Board.UP else Board.UP
+		var id := b.add_item(ItemDefs.index_of("cube"), b.step(elbow, entry_side))
+		b.play(id, Board.opposite(entry_side))
+		check(b.it_cell[id] == b.step(elbow, exit_side), "elbow routes from %s" % Board.DIR_NAMES[entry_side])
+		b.play(id, Board.opposite(exit_side))
+		check(b.it_cell[id] == b.step(elbow, entry_side), "elbow permits reverse trip")
+		b.add_item(ItemDefs.index_of("torus"), b.step(elbow, exit_side))
+		check(not b.can_move(id, Board.opposite(entry_side)), "blocked elbow exit prevents entry")
+		check(Board.from_dict(b.to_dict()).clone().pipe_ports[elbow] == b.pipe_ports[elbow], "elbow ports survive save and clone")
+	# Level 16 combines a landing from below with direct elbow traversal.
+	b = Board.new()
+	var lower := Board.cell_of(7, 5)
+	var upper := Board.cell_of(7, 3)
+	b.pipe_mouth[lower] = Board.DOWN
+	b.pipe_to[lower] = upper
+	b.pipe_mouth[upper] = Board.DOWN
+	b.pipe_to[upper] = lower
+	b.pipe_landing[upper] = 1
+	b.pipe_ports[upper] = (1 << Board.UP) | (1 << Board.RIGHT)
+	var passenger := b.add_item(ItemDefs.index_of("cube"), Board.cell_of(7, 6))
+	b.play(passenger, Board.UP)
+	check(b.it_cell[passenger] == upper, "lower tube stops on elbow, not above it")
+	b.play(passenger, Board.DOWN)
+	check(b.it_cell[passenger] == Board.cell_of(7, 6), "elbow occupant can return down")
+	b.play(passenger, Board.UP)
+	b.play(passenger, Board.RIGHT)
+	check(b.it_cell[passenger] == Board.cell_of(8, 3), "landed piece can leave elbow to right")
+	b.play(passenger, Board.LEFT)
+	check(b.it_cell[passenger] == Board.cell_of(7, 2), "entering elbow from right exits above")
+	b.play(passenger, Board.DOWN)
+	check(b.it_cell[passenger] == Board.cell_of(8, 3), "entering elbow from above exits right")
 	# bomb
 	b = mk(["%c", "B."])
 	b.play(1, Board.DETONATE)
 	check(b.is_won() and b.terrain[0] == Board.T.FLOOR, "bomb destroys and breaks wall")
+	# Both colours of utility boxes survive manual and automatic blasts.
+	for box_name in ["block_red", "block_blue", "mover_green", "mover_red"]:
+		for automatic in [false, true]:
+			b = Board.new()
+			var bomb := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(4, 4))
+			var box := b.add_item(ItemDefs.index_of(box_name), Board.cell_of(5, 4))
+			var target := b.add_item(ItemDefs.index_of("crystal"), Board.cell_of(4, 3))
+			b.terrain[Board.cell_of(3, 4)] = Board.T.BREAKABLE
+			if automatic:
+				b.settle()
+			else:
+				b.play(bomb, Board.DETONATE)
+			check(b.it_cell[box] == Board.cell_of(5, 4), box_name + " survives bomb (automatic=%s)" % automatic)
+			check(b.it_cell[target] == -1 and b.terrain[Board.cell_of(3, 4)] == Board.T.FLOOR, "blast still destroys ordinary pieces and cracked walls")
+	# Bombs always fall, even with a legacy gravity override.
+	b = Board.new()
+	var bomb_id := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1), 0, false, ItemDefs.Gravity.NONE)
+	b.terrain[Board.cell_of(3, 4)] = Board.T.WALL
+	b.settle()
+	check(b.it_cell[bomb_id] == Board.cell_of(3, 3) and not b.can_move(bomb_id, Board.UP), "bomb always falls and cannot move up")
+	# Contact triggers before the bomb can fall past the cracked obstacle.
+	b = Board.new()
+	bomb_id = b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1))
+	b.terrain[Board.cell_of(4, 3)] = Board.T.BREAKABLE
+	b.settle()
+	check(b.it_cell[bomb_id] == -1 and b.terrain[Board.cell_of(4, 3)] == Board.T.FLOOR, "falling bomb detonates on contact with cracked obstacle")
+	b = Board.new()
+	bomb_id = b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1))
+	b.terrain[Board.cell_of(4, 1)] = Board.T.BREAKABLE
+	b.settle()
+	check(b.it_cell[bomb_id] == -1 and b.terrain[Board.cell_of(4, 1)] == Board.T.FLOOR, "bomb contact detonates before gravity")
 	# surround
 	b = Board.new()
 	var P := ItemDefs.index_of("plant")
@@ -126,9 +218,28 @@ func _init() -> void:
 	b.play(3, Board.LEFT) # plant (2,3)->(1,3) ; not adjacent to (1,1)
 	b.play(3, Board.UP)   # -> (1,2) completes surround
 	check(b.is_won(), "surround explodes all 5")
-	# solver
-	b = mk(["c..#", "...#", "..c#"])
-	var r := Solver.bfs(b, 5, 5000)
-	check(r.found and r.solution.size() == 3, "bfs finds 3-move solution (got %d)" % r.solution.size())
+	# Four-direction boxes move, but never participate in combination explosions.
+	for mover_name in ["mover_green", "mover_red"]:
+		var mover_type := ItemDefs.index_of(mover_name)
+		b = Board.new()
+		b.add_item(mover_type, Board.cell_of(3, 3))
+		b.add_item(mover_type, Board.cell_of(5, 3))
+		b.play(1, Board.LEFT)
+		check(b.it_cell[0] == Board.cell_of(3, 3) and b.it_cell[1] == Board.cell_of(4, 3), mover_name + " moves next to its pair without exploding")
+		for mover_in_center in [true, false]:
+			b = Board.new()
+			var normal_type := ItemDefs.index_of("crystal")
+			b.add_item(mover_type if mover_in_center else normal_type, Board.cell_of(4, 4))
+			for direction in 4:
+				b.add_item(normal_type if mover_in_center else mover_type, b.step(Board.cell_of(4, 4), direction))
+			check(b.settle().is_empty(), mover_name + " does not participate in surround matches (center=%s)" % mover_in_center)
+	# No-moves detection remains a direct rule check.
+	b = Board.new()
+	check(not b.has_legal_move(), "empty board has no legal move")
+	b.add_item(ItemDefs.index_of("crystal"), 0)
+	check(b.has_legal_move(), "movable item has a legal move")
+	b.terrain.fill(Board.T.WALL)
+	b.terrain[0] = Board.T.FLOOR
+	check(not b.has_legal_move(), "trapped item has no legal move")
 	print("FAILS: ", fails)
 	quit(fails)

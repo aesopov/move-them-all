@@ -1,7 +1,7 @@
 class_name Board
 extends RefCounted
-## Pure game-state + rules. No nodes, no rendering: the game, the level editor,
-## the hint solver and the level generator all share this one implementation.
+## Pure game-state + rules. No nodes, no rendering: the game and
+## level editor share this one implementation.
 ##
 ## play() mutates the board and returns a list of animation "steps"; each step is
 ## an Array of event Dictionaries that happen simultaneously:
@@ -47,6 +47,10 @@ var teleport_to := PackedInt32Array()
 var pipe_mouth := PackedInt32Array()
 ## -1 = pipe has no target (exit only), else target pipe cell.
 var pipe_to := PackedInt32Array()
+## Landing exits can only be entered through their linked tube.
+var pipe_landing := PackedByteArray()
+## Two-port elbows route directly between their open sides.
+var pipe_ports := PackedByteArray()
 var item_at := PackedInt32Array()
 
 var it_type := PackedInt32Array()
@@ -67,6 +71,8 @@ func _init() -> void:
 	teleport_to.fill(-2)
 	pipe_mouth.resize(N)
 	pipe_mouth.fill(-1)
+	pipe_ports.resize(N)
+	pipe_landing.resize(N)
 	pipe_to.resize(N)
 	pipe_to.fill(-1)
 	item_at.resize(N)
@@ -112,6 +118,8 @@ func clone() -> Board:
 	b.teleport_to = teleport_to.duplicate()
 	b.pipe_mouth = pipe_mouth.duplicate()
 	b.pipe_to = pipe_to.duplicate()
+	b.pipe_landing = pipe_landing.duplicate()
+	b.pipe_ports = pipe_ports.duplicate()
 	b.item_at = item_at.duplicate()
 	b.it_type = it_type.duplicate()
 	b.it_cell = it_cell.duplicate()
@@ -171,14 +179,6 @@ func aims_left() -> int:
 func is_won() -> bool:
 	return aims_left() == 0 and aims_total() > 0
 
-
-func state_key() -> int:
-	var a := it_cell.duplicate()
-	a.append_array(it_lock)
-	a.append(hash(terrain))
-	return hash(a)
-
-
 # ---------------------------------------------------------------------------
 # Serialization
 # ---------------------------------------------------------------------------
@@ -223,6 +223,13 @@ func to_dict() -> Dictionary:
 			var p := {"x": c % W, "y": c / W, "mouth": DIR_NAMES[pipe_mouth[c]]}
 			if pipe_to[c] >= 0:
 				p["to"] = [pipe_to[c] % W, pipe_to[c] / W]
+			if pipe_landing[c]:
+				p["landing"] = true
+			if pipe_ports[c]:
+				p["ports"] = []
+				for direction in 4:
+					if pipe_ports[c] & (1 << direction):
+						p.ports.append(DIR_NAMES[direction])
 			pipes.append(p)
 	var d := {
 		"version": 1, "name": name, "moves": move_limit, "time": time_limit,
@@ -260,6 +267,11 @@ static func from_dict(d: Dictionary) -> Board:
 			b.teleport_to[c] = cell_of(int(t.to[0]), int(t.to[1]))
 	for p in d.get("pipes", []):
 		var c := cell_of(int(p.x), int(p.y))
+		for port in p.get("ports", []):
+			var direction := dir_from_name(str(port))
+			if direction >= 0:
+				b.pipe_ports[c] |= 1 << direction
+		b.pipe_landing[c] = int(bool(p.get("landing", false)))
 		b.pipe_mouth[c] = maxi(dir_from_name(str(p.get("mouth", "up"))), 0)
 		if p.has("to"):
 			b.pipe_to[c] = cell_of(int(p.to[0]), int(p.to[1]))
@@ -286,15 +298,38 @@ static func from_dict(d: Dictionary) -> Board:
 func _resolve(i: int, from: int, d: int, depth: int) -> Variant:
 	if depth > 8:
 		return null
+	if pipe_landing[from] and d == pipe_mouth[from]:
+		var target := pipe_to[from]
+		if target < 0:
+			return null
+		var back = _resolve(i, target, pipe_mouth[target], depth + 1)
+		if back != null:
+			back.path = [["pipe_in", from], ["pipe_out", target]] + back.path
+		return back
 	var p := step(from, d)
 	if p < 0 or item_at[p] != -1:
+		return null
+	if pipe_ports[p]:
+		var entered := opposite(d)
+		if not pipe_ports[p] & (1 << entered):
+			return null
+		for exit_direction in 4:
+			if exit_direction != entered and pipe_ports[p] & (1 << exit_direction):
+				var routed = _resolve(i, p, exit_direction, depth + 1)
+				if routed != null:
+					routed.path = [["pipe_in", p], ["pipe_out", p]] + routed.path
+				return routed
 		return null
 	if pipe_mouth[p] != -1:
 		# Pipes only accept items coming in through their opening,
 		# and only if the item can slide out of the target pipe.
-		if pipe_to[p] < 0 or pipe_mouth[p] != opposite(d):
+		if pipe_landing[p] or pipe_to[p] < 0 or pipe_mouth[p] != opposite(d):
 			return null
 		var q := pipe_to[p]
+		if pipe_landing[q]:
+			if item_at[q] != -1:
+				return null
+			return {"path": [["pipe_in", p], ["pipe_out", q]], "final": q, "sink": ""}
 		var r = _resolve(i, q, pipe_mouth[q], depth + 1)
 		if r == null:
 			return null
@@ -327,6 +362,8 @@ func _commit(i: int, r: Dictionary, ev: Array) -> void:
 
 ## Effective gravity of item i (per-piece override or the type's default).
 func grav(i: int) -> int:
+	if ItemDefs.kind(it_type[i]) == ItemDefs.Kind.BOMB:
+		return ItemDefs.Gravity.FALL
 	return it_grav[i] if it_grav[i] >= 0 else ItemDefs.gravity(it_type[i])
 
 
@@ -355,6 +392,15 @@ func can_move(i: int, d: int) -> bool:
 	return r != null
 
 
+## One-step availability check for the no-moves-left screen; no search.
+func has_legal_move() -> bool:
+	for i in it_type.size():
+		for direction in 5:
+			if can_move(i, direction):
+				return true
+	return false
+
+
 ## Performs a player action. d = direction or DETONATE. Returns [] if illegal.
 func play(i: int, d: int) -> Array:
 	if not can_move(i, d):
@@ -379,6 +425,9 @@ func settle() -> Array:
 		var contact := _unlock_step()
 		if not contact.is_empty():
 			steps.append(contact)
+		var blast := _bomb_contact_step()
+		if not blast.is_empty():
+			steps.append(blast)
 		for _g in GameConfig.MAX_GRAVITY_STEPS:
 			var g := _gravity_step()
 			if g.is_empty():
@@ -387,6 +436,9 @@ func settle() -> Array:
 			contact = _unlock_step()
 			if not contact.is_empty():
 				steps.append(contact)
+			blast = _bomb_contact_step()
+			if not blast.is_empty():
+				steps.append(blast)
 		var u := _unlock_step()
 		if not u.is_empty():
 			steps.append(u)
@@ -397,6 +449,20 @@ func settle() -> Array:
 			continue
 		break
 	return steps
+
+
+## Trigger before gravity and after each falling step so contact cannot be skipped.
+func _bomb_contact_step() -> Array:
+	var events := []
+	for i in it_type.size():
+		if it_cell[i] < 0 or it_lock[i] != 0 or ItemDefs.kind(it_type[i]) != ItemDefs.Kind.BOMB:
+			continue
+		for direction in 4:
+			var neighbor := step(it_cell[i], direction)
+			if neighbor >= 0 and terrain[neighbor] == T.BREAKABLE:
+				_detonate(i, events)
+				break
+	return events
 
 
 func _gravity_step() -> Array:
@@ -549,7 +615,7 @@ func _detonate(b: int, ev: Array) -> void:
 				terrain[nb] = T.FLOOR
 				ev.append({"e": "break", "cell": nb})
 			var j := item_at[nb]
-			if j >= 0 and it_lock[j] == 0:
+			if j >= 0 and it_lock[j] == 0 and not ItemDefs.blast_proof(it_type[j]):
 				if ItemDefs.kind(it_type[j]) == ItemDefs.Kind.BOMB:
 					chain.append(j)
 				else:

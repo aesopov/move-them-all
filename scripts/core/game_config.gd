@@ -56,7 +56,7 @@ const ANIM_UNLOCK := 0.25
 # --- Input -------------------------------------------------------------------
 ## While the button is held, the dragged item keeps stepping (one cell at a time)
 ## towards the cell under the pointer, and stops when it gets there.
-## false: every cell an item travels counts as a move (matches the solver and the built-in move limits).
+## false: every cell an item travels counts as a move (matches the built-in move limits).
 ## true: one continuous drag counts as a single move, however far the item travels.
 const DRAG_COUNTS_AS_ONE_MOVE := false
 

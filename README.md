@@ -14,7 +14,7 @@ Open the folder in Godot 4.7+ and press Play, or run:
 ```
 
 Debug flags (after `--`): `--level=res://levels/world_03/level_05.json`, `--scene=editor|select|welcome`,
-`--autoplay` (the solver plays the level), `--screenshot=/path.png [--frames=N]`.
+`--screenshot=/path.png [--frames=N]`.
 
 ## Rules
 
@@ -37,6 +37,7 @@ Debug flags (after `--`): `--level=res://levels/world_03/level_05.json`, `--scen
 * **Locks & keys** (red, green, yellow, blue): a key next to a locked item of its colour unlocks it and
   the key is used up. Locked items don't match, don't sink and survive bombs.
 * **Bombs**: tap one to detonate it (costs a move). It destroys every unlocked item and cracked wall in the 3×3 around it.
+  Bombs always fall and detonate beside cracked walls, including during a fall.
   Match explosions also set off neighbouring bombs and break neighbouring cracked walls.
 * **Water / lava / acid**: an item that enters one is destroyed. They share the same rule and differ only in look and effect.
 * **Teleports**: stepping onto a teleport moves the item to its linked teleport, but only if that cell is empty.
@@ -44,7 +45,11 @@ Debug flags (after `--`): `--level=res://levels/world_03/level_05.json`, `--scen
   own link (A→B→C needs a separate move off and back onto B).
 * **Pipes**: a pipe only accepts an item that enters through its opening. The item comes out of the linked pipe's opening
   and ends on the cell beside it. If that cell is blocked, the pipe acts like a wall.
-  Gravity can carry items through pipes too.
+  A two-port elbow (`"ports": ["up", "right"]`) routes arrivals directly out of its other opening,
+  in either direction; an occupied or blocked exit prevents entry.
+  Gravity can carry items through pipes too. A pipe with `"landing": true` deposits arrivals on its own cell.
+  From there, moving in its `mouth` direction returns through its linked pipe; after leaving onto ordinary floor,
+  the piece cannot re-enter the landing cell.
 * **Limits**: the move and time limits are bonus targets. Going over them only loses the bonus.
   (`FAIL_ON_MOVE_LIMIT` / `FAIL_ON_TIME_LIMIT` turn them into hard limits.) The level only fails when no
   legal move is left.
@@ -64,7 +69,6 @@ Item types (gravity, behaviour) are table rows in [`scripts/core/item_defs.gd`](
 | `scenes/components/*.tscn` | Reusable pieces instanced by the screens: `legend_row`, `overlay` (pause/win/lose), `world_row`, `level_button`, `tool_button`. |
 | `ui/theme.tres` | Project-wide theme (`gui/theme/custom`): colours, fonts, button/panel styles, and type variations such as `HeaderLabel`, `DimLabel`, `HudValue`, `TitleLabel`, `BigButton`, `ToolButton`, `OverlayPanel`. |
 | `scripts/core/board.gd` | The rules engine. Pure data, no nodes. `play()` returns animation steps. |
-| `scripts/core/solver.gd` | BFS / random-playout solver (used by hints, the designer and the generator). |
 | `scripts/game/` | Board view and animation, item art, effects, world themes and backdrops, game screen logic. |
 | `scripts/editor/level_editor.gd` | Level designer logic. |
 | `scripts/ui/` | Welcome, level select, and the component scripts. |
@@ -122,19 +126,16 @@ a textured, clipped hint panel with sample pieces, a text label, and arrows.
   "pipes": [{"x": 6, "y": 4, "mouth": "left", "to": [6, 7]}] }
 ```
 
-Regenerate the built-in levels (each one is verified solvable):
+Run gameplay and editor checks:
 
-```
-tools/generate_all.sh            # all worlds in parallel
-Godot --headless --script res://tools/generate_levels.gd -- --world=3 --level=5
+```sh
 Godot --headless --script res://tools/validate_levels.gd
 Godot --headless --script res://tools/test_rules.gd
 Godot --headless --script res://tools/test_drag.gd
 Godot --headless --script res://tools/test_editor.gd
 ```
 
-The first level of worlds 2 to 8 is a handcrafted tutorial (`TUTORIALS` in the generator). Level 1-1 is a
-hand-made JSON file protected by `"handcrafted": true`.
+Levels are authored in JSON or the editor. Validation checks their structure, not solutions.
 
 ## Art assets
 

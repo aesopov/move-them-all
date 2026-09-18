@@ -28,8 +28,6 @@ var progress := {}
 
 
 var _shot_path := ""
-## Debug: the game screen plays the solver's solution by itself.
-var autoplay := false
 var _shot_frames := 0
 var _burst := 0
 var _frame := 0
@@ -57,8 +55,6 @@ func _handle_cmdline() -> void:
 			_shot_frames = 90
 		elif a.begins_with("--burst="):
 			_burst = int(v)
-		elif a == "--autoplay":
-			autoplay = true
 		elif a.begins_with("--frames="):
 			_shot_frames = int(v)
 

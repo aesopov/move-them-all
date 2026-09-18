@@ -46,8 +46,6 @@ var origin := Vector2(PAD, PAD)
 var theme_data: Dictionary = WorldTheme.get_palette("jungle")
 var busy := false
 
-var hint_cell := -1
-var hint_dir := -1
 var selected_cell := -1
 var hover_cell := -1
 
@@ -349,7 +347,6 @@ func _drive_drag() -> void:
 ## with no per-cell frame gaps), and one-off effects fire from a scheduler tween.
 func play_steps(steps: Array) -> void:
 	busy = true
-	hint_cell = -1
 	_chains.clear()
 	_sched = create_tween().set_parallel(true)
 	var t := 0.0
@@ -554,14 +551,6 @@ func _draw() -> void:
 			Board.T.WATER, Board.T.LAVA, Board.T.ACID: _draw_liquid(c, t)
 		if board.teleport_to[c] != -2:
 			_draw_teleport(c)
-	if hint_cell >= 0:
-		var r := _cell_rect(hint_cell).grow(-2)
-		var a := 0.5 + 0.5 * sin(_t * 6.0)
-		draw_rect(r, Color(1, 0.9, 0.3, 0.6 + 0.4 * a), false, 3.0)
-		if hint_dir >= 0 and hint_dir < 4:
-			var from := center(hint_cell)
-			var to := from + Vector2(Board.DX[hint_dir], Board.DY[hint_dir]) * cell * 0.9
-			_arrow(from, to, Color(1, 0.9, 0.3, 0.9), 5.0)
 
 
 func _draw_floor(c: int) -> void:
@@ -835,6 +824,16 @@ func _draw_pipe(c: int) -> void:
 	var ctr := center(c)
 	var L := pipe_layer
 	var s := cell
+	if board.pipe_ports[c]:
+		if board.pipe_landing[c]:
+			col.a = 0.65
+		PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), board.pipe_ports[c], col, -2)
+		return
+	if board.pipe_landing[c]:
+		col.a = 0.65
+		PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), 3, col, -2)
+		# The open elbow replaces the misleading single upward arrow.
+		return
 	PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), 0, col, m)
 	# Rotate only the flow arrows; metal lighting remains in board coordinates.
 	L.draw_set_transform(ctr, ang, Vector2.ONE)
@@ -846,8 +845,8 @@ func _draw_pipe(c: int) -> void:
 			break
 	var ac := Color(1, 1, 1, 0.95)
 	if entry and exit:
-		_local_arrow(L, Vector2(0.18 * s, 0), Vector2(-0.3 * s, 0), ac, s)
-		_local_arrow(L, Vector2(-0.3 * s, 0.0), Vector2(0.18 * s, 0), Color(ac, 0.5), s * 0.6)
+		_local_arrow(L, Vector2(0.12 * s, -0.1 * s), Vector2(-0.24 * s, -0.1 * s), ac, s * 0.55)
+		_local_arrow(L, Vector2(-0.24 * s, 0.1 * s), Vector2(0.12 * s, 0.1 * s), ac, s * 0.55)
 	elif entry:
 		_local_arrow(L, Vector2(0.18 * s, 0), Vector2(-0.3 * s, 0), ac, s)
 	elif exit:

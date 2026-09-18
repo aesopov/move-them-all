@@ -26,7 +26,7 @@ static func texture(mask: int, mouth := -1, extent := Vector2i(128, 128), origin
 		for y in extent.y:
 			for x in extent.x:
 				var p := (Vector2(x, y) + Vector2.ONE * 0.5) / Vector2(extent) - Vector2.ONE * 0.5
-				var color := _mouth_pixel(p, mouth) if mouth >= 0 else _tube_pixel(p, mask)
+				var color := _mouth_pixel(p, mouth) if mouth >= 0 else (_open_elbow_pixel(p, mask) if mouth == -2 else _tube_pixel(p, mask))
 				var position := origin + Vector2(x, y)
 				var mottling := _surface_noise(position)
 				var grain := _surface_noise(position * 7.0)
@@ -92,6 +92,29 @@ static func _tube_pixel(p: Vector2, mask: int) -> Color:
 	return col
 
 
+## Open ports on an elbow, without painting straight tubes across its bend.
+static func _open_elbow_pixel(p: Vector2, mask: int) -> Color:
+	var body := _tube_pixel(p, mask)
+	for direction in 4:
+		if not mask & (1 << direction):
+			continue
+		var axis := Vector2(Board.DX[direction], Board.DY[direction])
+		var u := p.dot(axis)
+		var v := p.dot(axis.orthogonal())
+		# Shallow rims stay at the ends; they do not overlap across the bend.
+		if u < 0.37:
+			continue
+		var rim := Vector2((u - 0.44) / 0.06, v / 0.49).length()
+		if u > 0.44:
+			body = Color.TRANSPARENT
+		if rim < 1.0:
+			body = _metal(Vector3(axis.x * 0.25, axis.y * 0.25, 0.94)).lightened(0.08)
+			body = body.lerp(Color(0.055, 0.07, 0.09), smoothstep(0.88, 1.0, rim))
+		if Vector2((u - 0.461) / 0.025, v / 0.365).length() < 1.0:
+			body = Color(0.035, 0.05, 0.065)
+	return body
+
+
 static func _mouth_pixel(p: Vector2, direction: int) -> Color:
 	var axis := Vector2(Board.DX[direction], Board.DY[direction])
 	var across := axis.orthogonal()
@@ -130,6 +153,9 @@ static func draw_path(canvas: CanvasItem, points: PackedVector2Array, cell_size:
 		var direction := (points[i + 1] - points[i]).normalized()
 		var start := points[i] + direction * (half if i > 0 else 0.0)
 		var end := points[i + 1] - direction * (half if i < points.size() - 2 else 0.0)
+		# Adjacent elbows can consume the entire straight segment.
+		if (end - start).dot(direction) <= 0.0:
+			continue
 		var horizontal := absf(direction.x) > 0.5
 		var size := Vector2(absf(end.x - start.x), cell_size) if horizontal else Vector2(cell_size, absf(end.y - start.y))
 		draw_tile(canvas, Rect2((start + end - size) * 0.5, size), 10 if horizontal else 5, tint, -1, cell_size)

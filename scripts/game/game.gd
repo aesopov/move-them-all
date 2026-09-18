@@ -38,21 +38,8 @@ func _ready() -> void:
 	%PauseButton.pressed.connect(_toggle_pause)
 	%UndoButton.pressed.connect(_undo)
 	%RestartButton.pressed.connect(_restart)
-	%HintButton.pressed.connect(_hint)
 	_update_hud()
 	_settle_start.call_deferred()
-	if App.autoplay:
-		_autoplay.call_deferred()
-
-
-func _autoplay() -> void:
-	await get_tree().create_timer(0.5).timeout
-	var r := Solver.bfs(board, 12, 200000)
-	print("autoplay: found=%s moves=%d" % [r.found, r.solution.size()])
-	for m in r.solution:
-		await _on_move(m.x, m.y)
-		await get_tree().create_timer(0.2).timeout
-	print("autoplay: won=%s finished=%s" % [board.is_won(), finished])
 
 
 # ---------------------------------------------------------------------------
@@ -108,14 +95,18 @@ func _legend_entries() -> Array:
 			ItemDefs.Gravity.BUBBLE: motion = "floats up, can't be moved down"
 			_: motion = "stays where you put it"
 		match ItemDefs.kind(t):
+			ItemDefs.Kind.MOVER:
+				txt += ": " + motion + "; does not match"
 			ItemDefs.Kind.BOMB:
-				txt = "Bomb: tap to blow up everything around it"
+				txt = "Bomb: falls; explodes beside cracked walls or when tapped"
 			ItemDefs.Kind.KEY:
 				txt += ": touch a matching lock to open it"
 				if g != ItemDefs.Gravity.NONE:
 					txt += "; " + motion
 			_:
 				txt += ": " + motion
+		if ItemDefs.blast_proof(t):
+			txt += "; survives bombs"
 		out.append(["item", txt, t, 0])
 	for l in locks:
 		out.append(["lock", "Locked: pinned until a %s key touches it" % ItemDefs.LOCK_NAMES[l], 0, l])
@@ -134,7 +125,12 @@ func _legend_entries() -> Array:
 	if has.has("tele"):
 		out.append(["teleport", "Teleport: step on it to jump to its partner (only if the partner is empty)", 0, 0])
 	if has.has("pipe"):
-		out.append(["pipe", "Pipe: enter through the opening, slide out of the linked pipe", 0, 0])
+		if board.pipe_ports.count(0) < Board.N:
+			out.append(["pipe", "Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return.", 0, 0])
+		elif board.pipe_landing.has(1):
+			out.append(["pipe", "Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it.", 0, 0])
+		else:
+			out.append(["pipe", "Pipe: enter through the opening, slide out of the linked pipe", 0, 0])
 	if GameConfig.SURROUND_RULE_ENABLED:
 		out.append(["moves", "Surround an item with 4 items of one other type: all 5 explode", 0, 0])
 	return out
@@ -159,7 +155,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	match event.keycode:
 		KEY_Z: _undo()
 		KEY_R: _restart()
-		KEY_H: _hint()
 		KEY_ESCAPE: _toggle_pause()
 
 
@@ -201,7 +196,7 @@ func _check_end() -> void:
 		reason = "win"
 	elif GameConfig.FAIL_ON_MOVE_LIMIT and board.moves_made >= board.move_limit:
 		reason = "Out of moves!"
-	elif Solver.legal_moves(board).is_empty():
+	elif not board.has_legal_move():
 		reason = "No moves left!"
 	if reason == "":
 		return
@@ -275,22 +270,6 @@ func _settle_start() -> void:
 		_check_end()
 
 
-func _hint() -> void:
-	if view.busy or finished:
-		return
-	_lbl_status.text = "Thinking..."
-	await get_tree().process_frame
-	await get_tree().process_frame
-	var r := Solver.bfs(board, 8, 12000)
-	if r.found and not r.solution.is_empty():
-		var m: Vector2i = r.solution[0]
-		view.hint_cell = board.it_cell[m.x]
-		view.hint_dir = m.y
-		_lbl_status.text = "Solvable in %d more move(s)." % r.solution.size() if r.complete else "Try this move."
-	else:
-		_lbl_status.text = "No hint found. Try Undo or Restart." if r.complete else "Too complex for a quick hint."
-
-
 func _toggle_pause() -> void:
 	if finished:
 		return
@@ -308,7 +287,7 @@ func _toggle_pause() -> void:
 func _win() -> void:
 	finished = true
 	var s := GameConfig.score(board.move_limit, board.moves_made, board.time_limit, elapsed)
-	var best := App.record_score(App.current_path, s.total) if not (App.testing_from_editor or App.autoplay) else false
+	var best := App.record_score(App.current_path, s.total) if not App.testing_from_editor else false
 	var o := _open_overlay("Level Complete!")
 	o.add_rows([
 		["Level complete", str(s.base)],

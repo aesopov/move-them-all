@@ -22,8 +22,8 @@ func _initialize() -> void:
 		{"type": "crystal", "x": 0, "y": 0, "aim": true}, {"type": "crystal", "x": 0, "y": 5, "aim": true}]})
 	await _drag(Vector2i(0, 0), Vector2i(6, 0))
 	fails += _check(game.board.it_cell[0] == Board.cell_of(2, 0) and game.board.moves_made == 2, "drag stops at wall")
-	# 3) Bomb tap
-	await _load({"moves": 10, "time": 60, "terrain": [], "items": [
+	# 3) Bomb tap: a solid ledge keeps the falling bomb at the tap position.
+	await _load({"moves": 10, "time": 60, "terrain": ["............", "............", "............", "..#........."], "items": [
 		{"type": "bomb", "x": 2, "y": 2}, {"type": "star", "x": 3, "y": 2, "aim": true}]})
 	await _drag(Vector2i(2, 2), Vector2i(2, 2))
 	fails += _check(game.board.is_won(), "tap detonates bomb")

@@ -25,6 +25,10 @@ func _initialize() -> void:
 		for i in 128:
 			var xy: Vector2i = [Vector2i(i, 0), Vector2i(127, i), Vector2i(i, 127), Vector2i(0, i)][rear]
 			check(mouth.get_pixelv(xy).is_equal_approx(straight.get_pixelv(xy)), "Mouth rear must match the connecting tube")
+	var elbow := PipeArt.texture(3, -2).get_image()
+	check(elbow.get_pixel(64, 15).a > 0.9, "Elbow has a top opening")
+	check(elbow.get_pixel(113, 64).a > 0.9, "Elbow has a right opening")
+	check(elbow.get_pixel(0, 127).a < 0.01, "Elbow preserves its curved outside silhouette")
 	var horizontal := PipeArt.texture(10).get_image()
 	var vertical := PipeArt.texture(5).get_image()
 	check(horizontal.get_pixel(64, 35).r > horizontal.get_pixel(64, 92).r, "Horizontal tube must be lit from above")

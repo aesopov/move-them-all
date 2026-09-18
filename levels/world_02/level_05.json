@@ -1,47 +1,88 @@
 {
+	"version": 1,
+	"name": "Alternating Descent",
+	"theme": "waterfall",
+	"handcrafted": true,
+	"moves": 35,
+	"time": 240,
+	"terrain": [
+		"---#-----#--",
+		"############",
+		"---#.....#--",
+		"---#.....#--",
+		"---#.#.#.#--",
+		"---#.....#--",
+		"---#.#.#.#--",
+		"---#.....#--",
+		"#####...####",
+		"---#.#.#.#--",
+		"---#######--",
+		"---#-----#--"
+	],
+	"skins": [
+		"...p.....p..",
+		"pppppppppppp",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p..",
+		"pppp.....ppp",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p.."
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "crate",
-			"x": 5,
-			"y": 8
-		},
-		{
-			"type": "crate",
+			"type": "weight",
 			"x": 6,
-			"y": 6
+			"y": 2,
+			"aim": true
 		},
 		{
-			"aim": true,
-			"type": "crystal",
-			"x": 7,
-			"y": 8
+			"type": "weight_red",
+			"x": 6,
+			"y": 3,
+			"aim": true
 		},
 		{
-			"type": "crystal",
-			"x": 5,
-			"y": 4
+			"type": "weight",
+			"x": 6,
+			"y": 4,
+			"aim": true
+		},
+		{
+			"type": "weight_red",
+			"x": 6,
+			"y": 5,
+			"aim": true
+		},
+		{
+			"type": "weight",
+			"x": 6,
+			"y": 6,
+			"aim": true
+		},
+		{
+			"type": "weight_red",
+			"x": 6,
+			"y": 7,
+			"aim": true
+		},
+		{
+			"type": "sphere",
+			"x": 6,
+			"y": 8,
+			"aim": true
+		},
+		{
+			"type": "weight_red",
+			"x": 6,
+			"y": 9,
+			"aim": true
 		}
 	],
-	"moves": 5,
-	"name": "Sunny Hollow",
-	"optimal": 2,
 	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"-.........--",
-		"-.......##--",
-		"-.........--",
-		"-.........--",
-		"-.....###.--",
-		"-.w.....ww--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 65,
-	"version": 1
+	"teleports": []
 }

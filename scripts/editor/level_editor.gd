@@ -1,6 +1,6 @@
 extends Control
 ## Level designer: paint terrain, place items, lock/flag them, place + link
-## teleports and pipes, validate with the solver, test-play and save as JSON.
+## teleports and pipes, test-play and save as JSON.
 ## Layout lives in scenes/level_editor.tscn; the tool palette is built from PALETTE below.
 
 const TOOL_BUTTON := preload("res://scenes/components/tool_button.tscn")
@@ -145,7 +145,6 @@ func _init_props() -> void:
 	for path in App.all_level_paths():
 		_load_opt.add_item(App.level_label(path) + "  (" + path.get_file() + ")")
 		_load_opt.set_item_metadata(_load_opt.item_count - 1, path)
-	%SolveButton.pressed.connect(_solve)
 	%TestButton.pressed.connect(_test)
 	%SaveButton.pressed.connect(_save)
 	%SaveNewButton.pressed.connect(_save_new)
@@ -260,12 +259,17 @@ func _apply(c: int, dragging: bool) -> void:
 					board.it_lock[item] = col if padlock else (0 if board.it_lock[item] == col else col)
 			elif tool.begins_with("gravity:"):
 				if item >= 0:
+					if ItemDefs.kind(board.it_type[item]) == ItemDefs.Kind.BOMB:
+						_set_status("Bombs always fall.")
+						return
 					var g := tool.substr(8)
 					board.it_grav[item] = -1 if g == "default" else ItemDefs.GRAVITY_NAMES.find(g)
 			elif tool.begins_with("pipe:"):
 				board.remove_item_at(c)
 				_clear_teleport(c)
 				board.terrain[c] = Board.T.FLOOR
+				board.pipe_ports[c] = 0
+				board.pipe_landing[c] = 0
 				board.pipe_mouth[c] = int(tool.substr(5))
 
 
@@ -306,6 +310,8 @@ func _clear_teleport(c: int) -> void:
 func _clear_pipe(c: int) -> void:
 	if board.pipe_mouth[c] == -1:
 		return
+	board.pipe_ports[c] = 0
+	board.pipe_landing[c] = 0
 	board.pipe_mouth[c] = -1
 	board.pipe_to[c] = -1
 	for o in Board.N:
@@ -373,30 +379,6 @@ func _validate() -> String:
 			if e.e != "move":
 				return "Warning: things explode/unlock as soon as the level starts."
 	return ""
-
-
-func _solve() -> void:
-	var err := _validate()
-	if err != "" and not err.begins_with("Warning"):
-		_set_status(err)
-		return
-	_set_status("Solving...")
-	await get_tree().process_frame
-	await get_tree().process_frame
-	var r := Solver.bfs(board, 12, 120000)
-	if not r.found:
-		var rng := RandomNumberGenerator.new()
-		var sol := Solver.random_solve(board, 400, 30, rng)
-		if sol.is_empty():
-			_set_status("No solution found." if r.complete else "No solution found within the search budget.")
-			return
-		r = {"solution": sol, "complete": false}
-	var n: int = r.solution.size()
-	_push_undo()
-	board.move_limit = n + 2 + n / 3
-	board.time_limit = int(round((30.0 + board.move_limit * 7.0) / 5.0)) * 5
-	_sync_fields()
-	_set_status("%s solution: %d moves.\nLimits set to %d moves / %ds." % ["Shortest" if r.complete else "A", n, board.move_limit, board.time_limit])
 
 
 func _test() -> void:

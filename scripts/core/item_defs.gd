@@ -4,7 +4,7 @@ extends RefCounted
 ## (and a drawing branch in ItemArt if you want custom art).
 
 enum Gravity { NONE, FALL, BUBBLE }
-enum Kind { NORMAL, BOMB, KEY, PADLOCK }
+enum Kind { NORMAL, BOMB, KEY, PADLOCK, MOVER }
 enum LockColor { NONE, RED, GREEN, YELLOW, BLUE }
 
 const LOCK_NAMES := ["", "red", "green", "yellow", "blue"]
@@ -29,11 +29,11 @@ const DEFS := [
 	["weight_red", Gravity.FALL, Kind.NORMAL, 0],
 	["block_red", Gravity.NONE, Kind.NORMAL, 0],
 	["block_blue", Gravity.NONE, Kind.NORMAL, 0],
-	["mover_green", Gravity.NONE, Kind.NORMAL, 0],
-	["mover_red", Gravity.NONE, Kind.NORMAL, 0],
+	["mover_green", Gravity.NONE, Kind.MOVER, 0],
+	["mover_red", Gravity.NONE, Kind.MOVER, 0],
 	# A standalone lock: place it with a "lock" colour. Pinned; a matching key opens (removes) it.
 	["padlock", Gravity.NONE, Kind.PADLOCK, 0],
-	["bomb", Gravity.NONE, Kind.BOMB, 0],
+	["bomb", Gravity.FALL, Kind.BOMB, 0],
 	["key_red", Gravity.NONE, Kind.KEY, LockColor.RED],
 	["key_green", Gravity.NONE, Kind.KEY, LockColor.GREEN],
 	["key_yellow", Gravity.NONE, Kind.KEY, LockColor.YELLOW],
@@ -68,6 +68,10 @@ static func kind(t: int) -> int:
 
 static func key_color(t: int) -> int:
 	return DEFS[t][3]
+
+
+static func blast_proof(t: int) -> bool:
+	return kind(t) == Kind.MOVER or name_of(t) in ["block_red", "block_blue"]
 
 
 static func matchable(t: int) -> bool:
