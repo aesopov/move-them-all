@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[node name="LevelButton" type="Button" unique_id=1445116800]
+custom_minimum_size = Vector2(74, 54)
+focus_mode = 0
+theme_override_font_sizes/font_size = 18
+text = "1-1"

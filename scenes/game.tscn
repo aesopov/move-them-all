@@ -1,12 +1,278 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/game.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_p57ef"]
+[ext_resource type="Script" path="res://scripts/game/backdrop.gd" id="2_u5sy4"]
+[ext_resource type="Script" path="res://scripts/ui/icon_view.gd" id="3_gee14"]
+[ext_resource type="Script" path="res://scripts/game/board_view.gd" id="4_0tnpc"]
+[ext_resource type="PackedScene" path="res://scenes/components/legend_row.tscn" id="5_vtaks"]
+[ext_resource type="Script" path="res://scripts/ui/legend_row.gd" id="6_kvpfn"]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" unique_id=523798912]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_p57ef")
+
+[node name="Backdrop" type="Control" parent="." unique_id=1498838342]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("2_u5sy4")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1337520739]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Columns" type="HBoxContainer" parent="Margin" unique_id=1068781270]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Main" type="VBoxContainer" parent="Margin/Columns" unique_id=1177869532]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Hud" type="PanelContainer" parent="Margin/Columns/Main" unique_id=1370663745]
+layout_mode = 2
+
+[node name="HudRow" type="HBoxContainer" parent="Margin/Columns/Main/Hud" unique_id=1659102235]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="BackButton" type="Button" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1662311228]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 22
+text = "<"
+
+[node name="Names" type="VBoxContainer" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1745210370]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="LevelLabel" type="Label" parent="Margin/Columns/Main/Hud/HudRow/Names" unique_id=960092760]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudValue"
+theme_override_font_sizes/font_size = 24
+text = "Level 1-1"
+
+[node name="LevelName" type="Label" parent="Margin/Columns/Main/Hud/HudRow/Names" unique_id=638231555]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 14
+text = "Level name"
+
+[node name="Sep1" type="VSeparator" parent="Margin/Columns/Main/Hud/HudRow" unique_id=2026927693]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="FlagIcon" type="Control" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1048768809]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("3_gee14")
+kind = "flag"
+
+[node name="AimsLabel" type="Label" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1573836977]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudValue"
+text = "0 / 1"
+
+[node name="Sep2" type="VSeparator" parent="Margin/Columns/Main/Hud/HudRow" unique_id=411011040]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MovesCaption" type="Label" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1736659574]
+layout_mode = 2
+theme_type_variation = &"HudCaption"
+text = "Moves"
+
+[node name="MovesLabel" type="Label" parent="Margin/Columns/Main/Hud/HudRow" unique_id=525475697]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_type_variation = &"HudValue"
+text = "0 / 10"
+
+[node name="Sep3" type="VSeparator" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1266212161]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ClockIcon" type="Control" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1917396246]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("3_gee14")
+kind = "clock"
+
+[node name="TimeLabel" type="Label" parent="Margin/Columns/Main/Hud/HudRow" unique_id=426795531]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HudValue"
+text = "00:00 / 01:00"
+
+[node name="Spacer" type="Control" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1516763015]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="PauseButton" type="Button" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1065007576]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "||"
+
+[node name="BoardArea" type="CenterContainer" parent="Margin/Columns/Main" unique_id=282313488]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BoardView" type="Control" parent="Margin/Columns/Main/BoardArea" unique_id=495063449]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("4_0tnpc")
+preview_level = "res://levels/world_01/level_01.json"
+fit_px = 648.0
+
+[node name="Side" type="PanelContainer" parent="Margin/Columns" unique_id=389912560]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="SideRows" type="VBoxContainer" parent="Margin/Columns/Side" unique_id=1043473391]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GoalsTitle" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1155441741]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "Level goals"
+
+[node name="GoalRow" type="HBoxContainer" parent="Margin/Columns/Side/SideRows" unique_id=1970990785 instance=ExtResource("5_vtaks")]
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("6_kvpfn")
+text = "Destroy every flagged item"
+
+[node name="MovesGoal" type="HBoxContainer" parent="Margin/Columns/Side/SideRows" unique_id=434704998 instance=ExtResource("5_vtaks")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("6_kvpfn")
+kind = "moves"
+text = "Bonus for finishing within 10 moves"
+
+[node name="TimeGoal" type="HBoxContainer" parent="Margin/Columns/Side/SideRows" unique_id=1372946396 instance=ExtResource("5_vtaks")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("6_kvpfn")
+kind = "clock"
+text = "Bonus for finishing within 01:00"
+
+[node name="Sep1" type="HSeparator" parent="Margin/Columns/Side/SideRows" unique_id=1705220592]
+layout_mode = 2
+
+[node name="ScoreTitle" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1915239417]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "Score"
+
+[node name="ScoreBase" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1647363165]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Level complete   1000"
+
+[node name="ScoreMove" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1112860032]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Each spare move   +300"
+
+[node name="ScoreTime" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=312336881]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Each spare second  +25"
+
+[node name="BestLabel" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=343891144]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"AccentLabel"
+text = "Best: 0"
+
+[node name="Sep2" type="HSeparator" parent="Margin/Columns/Side/SideRows" unique_id=151751254]
+layout_mode = 2
+
+[node name="LegendTitle" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=146366902]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "In this level"
+
+[node name="LegendScroll" type="ScrollContainer" parent="Margin/Columns/Side/SideRows" unique_id=1146068704]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Legend" type="VBoxContainer" parent="Margin/Columns/Side/SideRows/LegendScroll" unique_id=1896435973]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="StatusLabel" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1050189279]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"AccentLabel"
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Columns/Side/SideRows" unique_id=548192040]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="UndoButton" type="Button" parent="Margin/Columns/Side/SideRows/Buttons" unique_id=2045753753]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Undo"
+
+[node name="RestartButton" type="Button" parent="Margin/Columns/Side/SideRows/Buttons" unique_id=567097630]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Restart"
+
+[node name="HintButton" type="Button" parent="Margin/Columns/Side/SideRows/Buttons" unique_id=1245426153]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Hint"
+
+[node name="Help" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1170620315]
+layout_mode = 2
+theme_type_variation = &"SmallDimLabel"
+text = "Drag items to move them.
+Z undo · R restart · H hint · Esc pause"

@@ -1,12 +1,78 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/ui/level_select.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/ui/level_select.gd" id="1_p0wlc"]
+[ext_resource type="Script" path="res://scripts/game/backdrop.gd" id="2_2epne"]
 
-[node name="LevelSelect" type="Control"]
+[node name="LevelSelect" type="Control" unique_id=1179621191]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_p0wlc")
+
+[node name="Backdrop" type="Control" parent="." unique_id=1530951838]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("2_2epne")
+theme_key = "nexus"
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1953793963]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="Margin" unique_id=350789392]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TopBar" type="HBoxContainer" parent="Margin/Layout" unique_id=300334988]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BackButton" type="Button" parent="Margin/Layout/TopBar" unique_id=17731891]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "<  Back"
+
+[node name="Title" type="Label" parent="Margin/Layout/TopBar" unique_id=1545223280]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 40
+text = "Choose a level"
+horizontal_alignment = 1
+
+[node name="TotalScore" type="Label" parent="Margin/Layout/TopBar" unique_id=1481200849]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 20
+text = "Total score: 0"
+
+[node name="DesignerButton" type="Button" parent="Margin/Layout/TopBar" unique_id=224650566]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 18
+text = "Level Designer"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Layout" unique_id=362990592]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="WorldList" type="VBoxContainer" parent="Margin/Layout/Scroll" unique_id=456305186]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12

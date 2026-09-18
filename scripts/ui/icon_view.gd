@@ -1,10 +1,32 @@
+@tool
 class_name IconView
 extends Control
-## Small vector icon: an item type, or one of the symbols below.
+## Small vector icon: an item type, or one of the symbols below. Previews in the editor.
 
-var kind := "item"  # item | flag | clock | moves | teleport | pipe | lock | liquid | wall | breakable
-var item_type := 0
-var extra := 0  # lock colour / liquid terrain
+@export_enum("item", "flag", "clock", "moves", "teleport", "pipe", "lock", "liquid", "wall", "breakable", "swatch")
+var kind := "item":
+	set(v):
+		kind = v
+		queue_redraw()
+## Item type name (see ItemDefs.DEFS) when kind == "item".
+@export var item_name := "crystal":
+	set(v):
+		item_name = v
+		item_type = maxi(ItemDefs.index_of(v), 0)
+		queue_redraw()
+## Lock colour (1-4) for "lock", terrain id for "liquid".
+@export var extra := 0:
+	set(v):
+		extra = v
+		queue_redraw()
+@export var swatch_color := Color(0.5, 0.5, 0.5):
+	set(v):
+		swatch_color = v
+		queue_redraw()
+var item_type := 0:
+	set(v):
+		item_type = v
+		queue_redraw()
 var _t := 0.0
 
 
@@ -19,6 +41,8 @@ static func make(p_kind: String, p_type := 0, p_extra := 0, sz := 30.0) -> IconV
 
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	_t += delta
 	if kind in ["teleport", "liquid", "clock"]:
 		queue_redraw()
@@ -72,6 +96,8 @@ func _draw() -> void:
 		"wall":
 			draw_rect(Rect2(-s * 0.42, -s * 0.42, s * 0.84, s * 0.84), Color(0.55, 0.57, 0.62))
 			draw_rect(Rect2(-s * 0.42, -s * 0.42, s * 0.84, s * 0.2), Color(0.7, 0.72, 0.78))
+		"swatch":
+			draw_colored_polygon(ItemArt.rrect(Rect2(-Vector2.ONE * s * 0.45, Vector2.ONE * s * 0.9), s * 0.15), swatch_color)
 		"breakable":
 			draw_rect(Rect2(-s * 0.42, -s * 0.42, s * 0.84, s * 0.84), Color(0.66, 0.44, 0.28))
 			for k in 3:

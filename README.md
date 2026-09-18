@@ -25,7 +25,7 @@ Debug flags (after `--`): `--level=res://levels/world_03/level_05.json`, `--scen
   ends the drag. Each cell travelled counts as a move (`DRAG_COUNTS_AS_ONE_MOVE` switches this to one move
   per drag). One drag is one undo step.
   *Falling* items can't be moved up. *Bubble* (floating) items can't be moved down.
-  Locked items can be moved, but can't be destroyed.
+  Locked items are pinned: they can't be moved (not even by gravity) or destroyed until unlocked.
 * **Gravity**: after every move, falling items drop and bubble items rise until they are blocked.
 * **Matches**: 2 or more orthogonally connected items of the same type explode.
   **Surround**: an item with items of one other type on all 4 sides → all 5 explode.
@@ -55,12 +55,30 @@ Item types (gravity, behaviour) are table rows in [`scripts/core/item_defs.gd`](
 
 | Path | What |
 |---|---|
+| `scenes/*.tscn` | Screens: `welcome`, `level_select`, `game`, `level_editor`. Layouts are edited in the Godot editor. |
+| `scenes/components/*.tscn` | Reusable pieces instanced by the screens: `legend_row`, `overlay` (pause/win/lose), `world_row`, `level_button`, `tool_button`. |
+| `ui/theme.tres` | Project-wide theme (`gui/theme/custom`): colours, fonts, button/panel styles, and type variations such as `HeaderLabel`, `DimLabel`, `HudValue`, `TitleLabel`, `BigButton`, `ToolButton`, `OverlayPanel`. |
 | `scripts/core/board.gd` | The rules engine. Pure data, no nodes. `play()` returns animation steps. |
 | `scripts/core/solver.gd` | BFS / random-playout solver (used by hints, the designer and the generator). |
-| `scripts/game/` | Board view and animation, item art, effects, world themes and backdrops, game screen. |
-| `scripts/editor/level_editor.gd` | Level designer. |
-| `scripts/ui/` | Welcome screen, level select (temporary), theme and widgets. |
-| `tools/` | Level generator, validator, rule and editor tests (headless). |
+| `scripts/game/` | Board view and animation, item art, effects, world themes and backdrops, game screen logic. |
+| `scripts/editor/level_editor.gd` | Level designer logic. |
+| `scripts/ui/` | Welcome, level select, and the component scripts. |
+| `tools/` | Level generator, validator, rule/drag/designer tests (headless). |
+
+## Editing the UI
+
+- **Layouts** live in the scenes. Scripts only fill in level-specific text and connect signals, and they find
+  nodes by unique name (`%BoardView`, `%MovesLabel`, ...). So you can move, restyle or wrap nodes freely; just keep
+  the `%` names (marked with a `%` in the scene tree) that the scripts use.
+- **Styling** goes in `ui/theme.tres`. To give a label a preset look, set its *Theme Type Variation*
+  (e.g. `HeaderLabel`) instead of overriding colours on each node.
+- **Previews:** the backdrop, board, icons and items are `@tool` scripts, so scenes aren't empty in the editor:
+  - `Backdrop.theme_key` picks the scenery.
+  - `BoardView.preview_level` draws a level file (editor only).
+  - `IconView.kind` / `item_name` picks the icon.
+  - Editor previews are static; animations run only in the game.
+- **Data-driven content** is still created by code, from the component scenes: legend rows, level buttons, world rows,
+  designer palette entries (built from `ItemDefs`) and board items.
 
 ## Levels
 

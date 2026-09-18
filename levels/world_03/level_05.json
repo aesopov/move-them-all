@@ -1,65 +1,63 @@
 {
 	"items": [
 		{
-			"aim": true,
-			"lock": "green",
-			"type": "shell",
+			"type": "crystal",
 			"x": 5,
-			"y": 8
+			"y": 3
 		},
 		{
-			"lock": "green",
-			"type": "shell",
-			"x": 6,
-			"y": 6
-		},
-		{
-			"aim": true,
-			"lock": "green",
-			"type": "star",
-			"x": 6,
-			"y": 7
-		},
-		{
-			"type": "star",
-			"x": 7,
+			"type": "crystal",
+			"x": 8,
 			"y": 5
 		},
 		{
-			"type": "key_green",
+			"aim": true,
+			"lock": "yellow",
+			"type": "crystal",
 			"x": 4,
+			"y": 4
+		},
+		{
+			"type": "shell",
+			"x": 8,
+			"y": 6
+		},
+		{
+			"lock": "green",
+			"type": "shell",
+			"x": 8,
 			"y": 7
 		},
 		{
-			"type": "key_green",
+			"type": "key_yellow",
 			"x": 3,
-			"y": 7
+			"y": 6
 		},
 		{
 			"type": "key_green",
-			"x": 7,
-			"y": 8
+			"x": 2,
+			"y": 3
 		}
 	],
-	"moves": 8,
-	"name": "Gentle Grove",
-	"optimal": 5,
+	"moves": 6,
+	"name": "Crooked Hollow",
+	"optimal": 3,
 	"pipes": [],
 	"teleports": [],
 	"terrain": [
 		"------------",
 		"------------",
-		"-.........--",
-		"-###..###.--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-.#.......--",
-		"-.#.......--",
+		"------------",
+		"--........--",
+		"--.#.....#--",
+		"--.......#--",
+		"--........--",
+		"--...#....--",
+		"--...#....--",
 		"------------",
 		"------------",
 		"------------"
 	],
-	"time": 85,
+	"time": 70,
 	"version": 1
 }

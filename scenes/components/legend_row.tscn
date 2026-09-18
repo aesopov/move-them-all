@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/legend_row.gd" id="1_kfckb"]
+[ext_resource type="Script" path="res://scripts/ui/icon_view.gd" id="2_2n52h"]
+
+[node name="LegendRow" type="HBoxContainer" unique_id=1970990785]
+theme_override_constants/separation = 10
+script = ExtResource("1_kfckb")
+text = "Destroy every flagged item"
+
+[node name="Icon" type="Control" parent="." unique_id=1012274296]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("2_2n52h")
+kind = "flag"
+
+[node name="Text" type="Label" parent="." unique_id=575975471]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BodyLabel"
+text = "Destroy every flagged item"
+vertical_alignment = 1
+autowrap_mode = 3

@@ -1,62 +1,44 @@
 extends Control
-## Gameplay screen: HUD, board, side panel, pause and result overlays.
+## Gameplay screen. Layout lives in scenes/game.tscn; this script fills it in and runs the level.
 
-const CELL := 54.0
+const LEGEND_ROW := preload("res://scenes/components/legend_row.tscn")
+const OVERLAY := preload("res://scenes/components/overlay.tscn")
 
 var board: Board
 var start_board: Board
 var history: Array = []
-var view: BoardView
 var elapsed := 0.0
 var clock_running := false
 var paused := false
 var finished := false
 
-var _lbl_level: Label
-var _lbl_name: Label
-var _lbl_aims: Label
-var _lbl_moves: Label
-var _lbl_time: Label
-var _lbl_status: Label
-var _overlay: Control
+@onready var view: BoardView = %BoardView
+@onready var _lbl_aims: Label = %AimsLabel
+@onready var _lbl_moves: Label = %MovesLabel
+@onready var _lbl_time: Label = %TimeLabel
+@onready var _lbl_status: Label = %StatusLabel
+var _overlay: Overlay
 
 
 func _ready() -> void:
-	theme = App.theme
-	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var td := WorldTheme.for_level(App.locate(App.current_path).x, App.current_data)
 	clock_running = not GameConfig.TIMER_STARTS_ON_FIRST_MOVE
-	var bd := Backdrop.new()
-	add_child(bd)
-	bd.set_theme_data(td)
+	%Backdrop.set_theme_data(td)
 
 	board = Board.from_dict(App.current_data)
 	start_board = board.clone()
 
-	var root := MarginContainer.new()
-	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for side in ["left", "right", "top", "bottom"]:
-		root.add_theme_constant_override("margin_" + side, 16)
-	add_child(root)
-	var cols := UiKit.hbox(18)
-	root.add_child(cols)
-
-	var left := UiKit.vbox(10)
-	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	cols.add_child(left)
-	left.add_child(_build_hud())
-	var center := CenterContainer.new()
-	center.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	left.add_child(center)
-	view = BoardView.new()
 	view.theme_data = td
 	view.aim_marker = str(App.current_data.get("aim_marker", "flag"))
-	center.add_child(view)
-	view.fit_px = CELL * 12
 	view.set_board(board)
 	view.move_requested.connect(_on_move)
 
-	cols.add_child(_build_side())
+	_fill_panels()
+	%BackButton.pressed.connect(_on_back)
+	%PauseButton.pressed.connect(_toggle_pause)
+	%UndoButton.pressed.connect(_undo)
+	%RestartButton.pressed.connect(_restart)
+	%HintButton.pressed.connect(_hint)
 	_update_hud()
 	_settle_start.call_deferred()
 	if App.autoplay:
@@ -74,101 +56,28 @@ func _autoplay() -> void:
 
 
 # ---------------------------------------------------------------------------
-# UI construction
+# Panels (static layout is in the scene; only level-specific text is set here)
 # ---------------------------------------------------------------------------
 
-func _build_hud() -> Control:
-	var p := UiKit.panel()
-	var h := UiKit.hbox(18)
-	p.add_child(h)
-	h.add_child(UiKit.button("<", _on_back, 44, 22))
-	var names := UiKit.vbox(0)
-	var label := App.level_label(App.current_path) if not App.testing_from_editor else "Test play"
-	_lbl_level = UiKit.label(label, 24, Color.WHITE)
-	_lbl_name = UiKit.label(board.name, 14, UiKit.TEXT_DIM)
-	names.add_child(_lbl_level)
-	names.add_child(_lbl_name)
-	names.custom_minimum_size.x = 170
-	h.add_child(names)
-	h.add_child(VSeparator.new())
-	h.add_child(IconView.make("flag", 0, 0, 30))
-	_lbl_aims = UiKit.label("0/0", 22)
-	h.add_child(_lbl_aims)
-	h.add_child(VSeparator.new())
-	h.add_child(UiKit.label("Moves", 16, UiKit.TEXT_DIM))
-	_lbl_moves = UiKit.label("0 / 0", 22)
-	_lbl_moves.custom_minimum_size.x = 80
-	h.add_child(_lbl_moves)
-	h.add_child(VSeparator.new())
-	h.add_child(IconView.make("clock", 0, 0, 28))
-	_lbl_time = UiKit.label("00:00 / 00:00", 22)
-	h.add_child(_lbl_time)
-	var spacer := Control.new()
-	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	h.add_child(spacer)
-	h.add_child(UiKit.button("||", _toggle_pause, 44, 20))
-	for c in h.get_children():
-		if c is VSeparator:
-			c.custom_minimum_size.y = 36
-		if c is Control:
-			c.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	return p
-
-
-func _build_side() -> Control:
-	var p := UiKit.panel()
-	p.custom_minimum_size.x = 300
-	var v := UiKit.vbox(8)
-	p.add_child(v)
-	v.add_child(UiKit.label("Level goals", 22, UiKit.GOLD))
-	v.add_child(_row(IconView.make("flag"), "Destroy every flagged item"))
+func _fill_panels() -> void:
+	%LevelLabel.text = App.level_label(App.current_path) if not App.testing_from_editor else "Test play"
+	%LevelName.text = board.name
 	if GameConfig.FAIL_ON_MOVE_LIMIT:
-		v.add_child(_row(IconView.make("moves"), "Move limit: %d" % board.move_limit))
+		%MovesGoal.setup("moves", "Move limit: %d" % board.move_limit)
 	else:
-		v.add_child(_row(IconView.make("moves"), "Bonus for finishing within %d moves" % board.move_limit))
+		%MovesGoal.setup("moves", "Bonus for finishing within %d moves" % board.move_limit)
 	if GameConfig.FAIL_ON_TIME_LIMIT:
-		v.add_child(_row(IconView.make("clock"), "Time limit: %s" % UiKit.fmt_time(board.time_limit)))
+		%TimeGoal.setup("clock", "Time limit: %s" % UiKit.fmt_time(board.time_limit))
 	else:
-		v.add_child(_row(IconView.make("clock"), "Bonus for finishing within %s" % UiKit.fmt_time(board.time_limit)))
-	v.add_child(HSeparator.new())
-	v.add_child(UiKit.label("Score", 22, UiKit.GOLD))
-	v.add_child(UiKit.label("Level complete   %d" % GameConfig.SCORE_LEVEL_COMPLETE, 15))
-	v.add_child(UiKit.label("Each spare move   +%d" % GameConfig.SCORE_PER_REMAINING_MOVE, 15))
-	v.add_child(UiKit.label("Each spare second  +%d" % GameConfig.SCORE_PER_REMAINING_SECOND, 15))
-	if App.current_path != "" and App.best_score(App.current_path) > 0:
-		v.add_child(UiKit.label("Best: %d" % App.best_score(App.current_path), 15, UiKit.ACCENT))
-	v.add_child(HSeparator.new())
-	v.add_child(UiKit.label("In this level", 22, UiKit.GOLD))
-	var scroll := ScrollContainer.new()
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	var legend := UiKit.vbox(6)
-	legend.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(legend)
-	v.add_child(scroll)
+		%TimeGoal.setup("clock", "Bonus for finishing within %s" % UiKit.fmt_time(board.time_limit))
+	%ScoreBase.text = "Level complete   %d" % GameConfig.SCORE_LEVEL_COMPLETE
+	%ScoreMove.text = "Each spare move   +%d" % GameConfig.SCORE_PER_REMAINING_MOVE
+	%ScoreTime.text = "Each spare second  +%d" % GameConfig.SCORE_PER_REMAINING_SECOND
+	var best := App.best_score(App.current_path) if App.current_path != "" else 0
+	%BestLabel.visible = best > 0
+	%BestLabel.text = "Best: %d" % best
 	for entry in _legend_entries():
-		legend.add_child(_row(entry[0], entry[1]))
-	_lbl_status = UiKit.label("", 15, UiKit.ACCENT)
-	_lbl_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	v.add_child(_lbl_status)
-	var btns := UiKit.hbox(8)
-	btns.add_child(UiKit.button("Undo", _undo))
-	btns.add_child(UiKit.button("Restart", _restart))
-	btns.add_child(UiKit.button("Hint", _hint))
-	v.add_child(btns)
-	v.add_child(UiKit.label("Drag items to move them.\nZ undo · R restart · H hint · Esc pause", 13, UiKit.TEXT_DIM))
-	return p
-
-
-func _row(icon: Control, text: String) -> Control:
-	var h := UiKit.hbox(10)
-	h.add_child(icon)
-	var l := UiKit.label(text, 15)
-	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	h.add_child(l)
-	return h
+		%Legend.add_child(LEGEND_ROW.instantiate().setup(entry[0], entry[1], entry[2], entry[3]))
 
 
 func _legend_entries() -> Array:
@@ -195,9 +104,9 @@ func _legend_entries() -> Array:
 					ItemDefs.Gravity.FALL: txt += ": falls, can't be moved up"
 					ItemDefs.Gravity.BUBBLE: txt += ": floats up, can't be moved down"
 					_: txt += ": stays where you put it"
-		out.append([IconView.make("item", t), txt])
+		out.append(["item", txt, t, 0])
 	for l in locks:
-		out.append([IconView.make("lock", 0, l), "Locked: needs a %s key before it can explode" % ItemDefs.LOCK_NAMES[l]])
+		out.append(["lock", "Locked: pinned until a %s key touches it" % ItemDefs.LOCK_NAMES[l], 0, l])
 	var has := {}
 	for c in Board.N:
 		has[board.terrain[c]] = true
@@ -207,15 +116,15 @@ func _legend_entries() -> Array:
 			has["pipe"] = true
 	for liq in [Board.T.WATER, Board.T.LAVA, Board.T.ACID]:
 		if has.has(liq):
-			out.append([IconView.make("liquid", 0, liq), "%s: destroys items that fall in" % Board.LIQUID_NAMES[liq].capitalize()])
+			out.append(["liquid", "%s: destroys items that fall in" % Board.LIQUID_NAMES[liq].capitalize(), 0, liq])
 	if has.has(Board.T.BREAKABLE):
-		out.append([IconView.make("breakable"), "Cracked wall: bombs and explosions break it"])
+		out.append(["breakable", "Cracked wall: bombs and explosions break it", 0, 0])
 	if has.has("tele"):
-		out.append([IconView.make("teleport"), "Teleport: step on it to jump to its partner (only if the partner is empty)"])
+		out.append(["teleport", "Teleport: step on it to jump to its partner (only if the partner is empty)", 0, 0])
 	if has.has("pipe"):
-		out.append([IconView.make("pipe"), "Pipe: enter through the opening, slide out of the linked pipe"])
+		out.append(["pipe", "Pipe: enter through the opening, slide out of the linked pipe", 0, 0])
 	if GameConfig.SURROUND_RULE_ENABLED:
-		out.append([IconView.make("moves"), "Surround an item with 4 items of one other type: all 5 explode"])
+		out.append(["moves", "Surround an item with 4 items of one other type: all 5 explode", 0, 0])
 	return out
 
 
@@ -301,7 +210,10 @@ func _update_hud() -> void:
 	_lbl_aims.text = "%d / %d" % [total - board.aims_left(), total]
 	_lbl_moves.text = "%d / %d" % [board.moves_made, board.move_limit]
 	var warn := board.move_limit - board.moves_made <= 2
-	_lbl_moves.add_theme_color_override("font_color", Color(1, 0.5, 0.4) if warn else UiKit.TEXT)
+	if warn:
+		_lbl_moves.add_theme_color_override("font_color", Color(1, 0.5, 0.4))
+	else:
+		_lbl_moves.remove_theme_color_override("font_color")
 	_update_time()
 
 
@@ -310,7 +222,10 @@ func _update_time() -> void:
 		return
 	_lbl_time.text = "%s / %s" % [UiKit.fmt_time(elapsed), UiKit.fmt_time(board.time_limit)]
 	var warn := board.time_limit - elapsed < 10
-	_lbl_time.add_theme_color_override("font_color", Color(1, 0.5, 0.4) if warn else UiKit.TEXT)
+	if warn:
+		_lbl_time.add_theme_color_override("font_color", Color(1, 0.5, 0.4))
+	else:
+		_lbl_time.remove_theme_color_override("font_color")
 
 
 func _undo() -> void:
@@ -373,74 +288,53 @@ func _toggle_pause() -> void:
 		_close_overlay()
 		return
 	paused = true
-	var v := _open_overlay("Paused")
-	v.add_child(UiKit.button("Resume", _toggle_pause, 220, 22))
-	v.add_child(UiKit.button("Restart", _restart, 220, 22))
-	v.add_child(UiKit.button("Quit to menu", _on_back, 220, 22))
+	var o := _open_overlay("Paused")
+	o.add_button("Resume", _toggle_pause)
+	o.add_button("Restart", _restart)
+	o.add_button("Quit to menu", _on_back)
 
 
 func _win() -> void:
 	finished = true
 	var s := GameConfig.score(board.move_limit, board.moves_made, board.time_limit, elapsed)
 	var best := App.record_score(App.current_path, s.total) if not (App.testing_from_editor or App.autoplay) else false
-	var v := _open_overlay("Level Complete!")
-	var grid := GridContainer.new()
-	grid.columns = 2
-	grid.add_theme_constant_override("h_separation", 30)
-	for row in [
+	var o := _open_overlay("Level Complete!")
+	o.add_rows([
 		["Level complete", str(s.base)],
 		["%d spare moves x %d" % [s.moves_left, GameConfig.SCORE_PER_REMAINING_MOVE], "+%d" % s.move_bonus],
 		["%d spare seconds x %d" % [s.secs_left, GameConfig.SCORE_PER_REMAINING_SECOND], "+%d" % s.time_bonus],
-	]:
-		grid.add_child(UiKit.label(row[0], 18, UiKit.TEXT_DIM))
-		grid.add_child(UiKit.label(row[1], 18, UiKit.TEXT, HORIZONTAL_ALIGNMENT_RIGHT))
-	v.add_child(grid)
-	v.add_child(UiKit.label("Score: %d" % s.total, 34, UiKit.GOLD, HORIZONTAL_ALIGNMENT_CENTER))
+	])
+	o.add_text("Score: %d" % s.total, "ScoreLabel", 34)
 	if best:
-		v.add_child(UiKit.label("New best!", 18, UiKit.ACCENT, HORIZONTAL_ALIGNMENT_CENTER))
+		o.add_text("New best!", "AccentLabel", 18)
 	if App.testing_from_editor:
-		v.add_child(UiKit.button("Back to editor", _on_back, 240, 22))
+		o.add_button("Back to editor", _on_back)
 	else:
 		var nxt := App.next_level(App.current_path)
 		if nxt != "":
-			v.add_child(UiKit.button("Next level", func(): App.start_level(nxt), 240, 22))
-		v.add_child(UiKit.button("Level select", _on_back, 240, 22))
-	v.add_child(UiKit.button("Play again", _restart, 240, 22))
+			o.add_button("Next level", func(): App.start_level(nxt))
+		o.add_button("Level select", _on_back)
+	o.add_button("Play again", _restart)
 
 
 func _lose(reason: String) -> void:
 	finished = true
-	var v := _open_overlay(reason)
-	v.add_child(UiKit.label("The flagged items survived this time.", 18, UiKit.TEXT_DIM, HORIZONTAL_ALIGNMENT_CENTER))
-	v.add_child(UiKit.button("Try again", _restart, 240, 22))
+	var o := _open_overlay(reason)
+	o.add_text("The flagged items survived this time.")
+	o.add_button("Try again", _restart)
 	if not history.is_empty():
-		v.add_child(UiKit.button("Undo last move", func():
+		o.add_button("Undo last move", func():
 			_close_overlay()
 			finished = false
-			_undo(), 240, 22))
-	v.add_child(UiKit.button("Back to editor" if App.testing_from_editor else "Level select", _on_back, 240, 22))
+			_undo())
+	o.add_button("Back to editor" if App.testing_from_editor else "Level select", _on_back)
 
 
-func _open_overlay(title: String) -> VBoxContainer:
+func _open_overlay(title: String) -> Overlay:
 	_close_overlay()
-	var dim := ColorRect.new()
-	dim.color = Color(0.02, 0.03, 0.07, 0.7)
-	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	add_child(dim)
-	var cc := CenterContainer.new()
-	cc.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	dim.add_child(cc)
-	var p := UiKit.panel()
-	p.add_theme_stylebox_override("panel", UiKit.box(UiKit.PANEL, UiKit.GOLD.darkened(0.3), 18, 3, 28))
-	cc.add_child(p)
-	var v := UiKit.vbox(12)
-	v.alignment = BoxContainer.ALIGNMENT_CENTER
-	p.add_child(v)
-	v.add_child(UiKit.title(title, 44))
-	_overlay = dim
-	dim.modulate.a = 0.0
-	create_tween().tween_property(dim, "modulate:a", 1.0, 0.25)
-	return v
+	_overlay = OVERLAY.instantiate()
+	add_child(_overlay)
+	return _overlay.set_title(title)
 
 
 func _close_overlay() -> void:

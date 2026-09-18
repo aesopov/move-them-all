@@ -1,14 +1,20 @@
+@tool
 class_name Backdrop
 extends Control
 ## Full-screen procedural scenery behind the board (hills, falls, icicles, lava...).
+## Previews in the editor; pick the look with `theme_key` (a WorldTheme.PALETTES key).
 
+@export var theme_key := "jungle":
+	set(v):
+		theme_key = v
+		theme_data = WorldTheme.get_palette(v)
+		queue_redraw()
 var theme_data: Dictionary = WorldTheme.get_palette("jungle")
 var _t := 0.0
 var _motes: Array = []
 
 
 func _ready() -> void:
-	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 7
@@ -22,6 +28,8 @@ func set_theme_data(d: Dictionary) -> void:
 
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	_t += delta
 	queue_redraw()
 

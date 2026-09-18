@@ -25,7 +25,6 @@ var editor_data: Variant = null
 var editor_path := ""
 
 var progress := {}
-var theme: Theme
 
 
 var _shot_path := ""
@@ -37,7 +36,6 @@ var _frame := 0
 
 
 func _ready() -> void:
-	theme = UiKit.make_theme()
 	_load_progress()
 	scan_levels()
 	_handle_cmdline()
@@ -46,6 +44,8 @@ func _ready() -> void:
 ## Debug helpers:  godot -- --level=res://levels/world_01/level_01.json
 ##                 godot -- --scene=editor --screenshot=/tmp/shot.png
 func _handle_cmdline() -> void:
+	if get_tree().get_script() != null:
+		return # running a tool script (godot --script ...): its args aren't ours
 	for a in OS.get_cmdline_user_args():
 		var v := a.get_slice("=", 1)
 		if a.begins_with("--level="):

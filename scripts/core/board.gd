@@ -333,6 +333,8 @@ func can_move(i: int, d: int) -> bool:
 		return false
 	if d == DETONATE:
 		return GameConfig.TAP_TO_DETONATE_BOMB and ItemDefs.kind(it_type[i]) == ItemDefs.Kind.BOMB and it_lock[i] == 0
+	if it_lock[i] != 0:
+		return false # locked items are pinned until a key opens them
 	if not gravity_allows(i, d):
 		return false
 	item_at[c] = -1
@@ -386,13 +388,13 @@ func _gravity_step() -> Array:
 	for y in range(H - 1, -1, -1):
 		for x in W:
 			var i := item_at[y * W + x]
-			if i >= 0 and not moved[i] and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.FALL:
+			if i >= 0 and not moved[i] and it_lock[i] == 0 and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.FALL:
 				if _auto_move(i, DOWN, ev):
 					moved[i] = 1
 	for y in H:
 		for x in W:
 			var i := item_at[y * W + x]
-			if i >= 0 and not moved[i] and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.BUBBLE:
+			if i >= 0 and not moved[i] and it_lock[i] == 0 and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.BUBBLE:
 				if _auto_move(i, UP, ev):
 					moved[i] = 1
 	return ev

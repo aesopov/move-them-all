@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/world_row.gd" id="1_0x0ep"]
+
+[node name="WorldRow" type="PanelContainer" unique_id=2033193414]
+script = ExtResource("1_0x0ep")
+
+[node name="Row" type="HBoxContainer" parent="." unique_id=850515414]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Head" type="VBoxContainer" parent="Row" unique_id=894577661]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Number" type="Label" parent="Row/Head" unique_id=1079833135]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"AccentLabel"
+theme_override_font_sizes/font_size = 14
+text = "World 1"
+
+[node name="Title" type="Label" parent="Row/Head" unique_id=287753833]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Jungle Meadow"
+
+[node name="Progress" type="Label" parent="Row/Head" unique_id=2082328999]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SmallDimLabel"
+text = "0 / 10 completed"
+
+[node name="Levels" type="HFlowContainer" parent="Row" unique_id=878846458]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8

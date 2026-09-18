@@ -1,3 +1,4 @@
+@tool
 class_name ItemNode
 extends Node2D
 ## Visual for one item. Position/scale are animated by BoardView.
@@ -25,7 +26,7 @@ func setup(p_id: int, p_type: int, p_lock: int, p_aim: bool, p_cell: float) -> v
 
 
 func _process(delta: float) -> void:
-	if _animated:
+	if _animated and not Engine.is_editor_hint():
 		_t += delta
 		queue_redraw()
 

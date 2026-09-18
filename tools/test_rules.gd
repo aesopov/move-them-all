@@ -49,6 +49,12 @@ func _init() -> void:
 	check(b.is_won(), "key unlocks, then match")
 	b = mk(["Lc"])
 	check(b.settle().is_empty() and not b.is_won(), "locked item doesn't match")
+	b = mk(["..", "L.", ".."])
+	check(not b.can_move(0, Board.RIGHT) and not b.can_move(0, Board.UP), "locked item can't be moved")
+	b = Board.new()
+	var sh := b.add_item(ItemDefs.index_of("shell"), Board.cell_of(0, 0), ItemDefs.LockColor.RED)
+	b.settle()
+	check(b.it_cell[sh] == Board.cell_of(0, 0), "locked item ignores gravity")
 	# liquid
 	b = mk(["s.", "#w"])
 	b.play(0, Board.RIGHT)

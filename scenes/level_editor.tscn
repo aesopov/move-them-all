@@ -1,12 +1,260 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_1mfi1"]
+[ext_resource type="Script" path="res://scripts/game/board_view.gd" id="2_5u7ie"]
 
-[node name="LevelEditor" type="Control"]
+[node name="LevelEditor" type="Control" unique_id=583498671]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_1mfi1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=722883065]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.055, 0.082, 0.145, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1433764813]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Columns" type="HBoxContainer" parent="Margin" unique_id=1422271853]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PalettePanel" type="PanelContainer" parent="Margin/Columns" unique_id=53631481]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="PaletteScroll" type="ScrollContainer" parent="Margin/Columns/PalettePanel" unique_id=978709713]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Palette" type="VBoxContainer" parent="Margin/Columns/PalettePanel/PaletteScroll" unique_id=126611003]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Middle" type="VBoxContainer" parent="Margin/Columns" unique_id=2034567069]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TitleRow" type="HBoxContainer" parent="Margin/Columns/Middle" unique_id=1784538548]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Margin/Columns/Middle/TitleRow" unique_id=1690417716]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 26
+text = "Level Designer"
+
+[node name="ToolHint" type="Label" parent="Margin/Columns/Middle/TitleRow" unique_id=1414555968]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+
+[node name="BoardArea" type="CenterContainer" parent="Margin/Columns/Middle" unique_id=1857515183]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BoardView" type="Control" parent="Margin/Columns/Middle/BoardArea" unique_id=1232172376]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_5u7ie")
+preview_level = "res://levels/world_01/level_01.json"
+cell = 50.0
+editor_mode = true
+show_links = true
+
+[node name="Help" type="Label" parent="Margin/Columns/Middle" unique_id=1567095253]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 14
+text = "Left-click: apply tool (drag to paint)  ·  Right-click: erase  ·  Ctrl+Z: undo"
+horizontal_alignment = 1
+
+[node name="PropsPanel" type="PanelContainer" parent="Margin/Columns" unique_id=268718678]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="Props" type="VBoxContainer" parent="Margin/Columns/PropsPanel" unique_id=541999095]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LevelTitle" type="Label" parent="Margin/Columns/PropsPanel/Props" unique_id=1419671124]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 20
+text = "Level"
+
+[node name="NameCaption" type="Label" parent="Margin/Columns/PropsPanel/Props" unique_id=1492876170]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 14
+text = "Name"
+
+[node name="NameEdit" type="LineEdit" parent="Margin/Columns/PropsPanel/Props" unique_id=888860641]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Fields" type="GridContainer" parent="Margin/Columns/PropsPanel/Props" unique_id=1395858576]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="MovesCaption" type="Label" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=1122483731]
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Move limit"
+
+[node name="MovesSpin" type="SpinBox" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=109504574]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 999.0
+value = 10.0
+
+[node name="TimeCaption" type="Label" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=1031007540]
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Time (sec)"
+
+[node name="TimeSpin" type="SpinBox" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=590316710]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 5.0
+max_value = 3600.0
+step = 5.0
+value = 120.0
+
+[node name="ThemeCaption" type="Label" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=490944311]
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Theme"
+
+[node name="ThemeOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=286770925]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "World default"
+popup/item_0/id = 0
+
+[node name="MarkerCaption" type="Label" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=1371025613]
+layout_mode = 2
+theme_type_variation = &"BodyLabel"
+text = "Goal marker"
+
+[node name="MarkerOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=1591916059]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Flag"
+popup/item_0/id = 0
+popup/item_1/text = "Arrow"
+popup/item_1/id = 1
+
+[node name="SolveButton" type="Button" parent="Margin/Columns/PropsPanel/Props" unique_id=156678399]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Solve & set limits"
+
+[node name="TestButton" type="Button" parent="Margin/Columns/PropsPanel/Props" unique_id=1304232634]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Test play"
+
+[node name="Sep1" type="HSeparator" parent="Margin/Columns/PropsPanel/Props" unique_id=223708709]
+layout_mode = 2
+
+[node name="FileTitle" type="Label" parent="Margin/Columns/PropsPanel/Props" unique_id=1309134332]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 20
+text = "File"
+
+[node name="DestOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props" unique_id=1628862922]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "My levels (user://)"
+popup/item_0/id = 0
+
+[node name="SaveRow" type="HBoxContainer" parent="Margin/Columns/PropsPanel/Props" unique_id=1508631883]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SaveButton" type="Button" parent="Margin/Columns/PropsPanel/Props/SaveRow" unique_id=657060400]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Save"
+
+[node name="SaveNewButton" type="Button" parent="Margin/Columns/PropsPanel/Props/SaveRow" unique_id=1365857214]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Save as new"
+
+[node name="LoadOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props" unique_id=1270619412]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+clip_text = true
+fit_to_longest_item = false
+
+[node name="LoadRow" type="HBoxContainer" parent="Margin/Columns/PropsPanel/Props" unique_id=2113310630]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LoadButton" type="Button" parent="Margin/Columns/PropsPanel/Props/LoadRow" unique_id=1735534412]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Load"
+
+[node name="NewButton" type="Button" parent="Margin/Columns/PropsPanel/Props/LoadRow" unique_id=1071083321]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "New"
+
+[node name="ClearButton" type="Button" parent="Margin/Columns/PropsPanel/Props/LoadRow" unique_id=1114687763]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Clear"
+
+[node name="Sep2" type="HSeparator" parent="Margin/Columns/PropsPanel/Props" unique_id=1955673577]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="Margin/Columns/PropsPanel/Props" unique_id=238998977]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"AccentLabel"
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="Margin/Columns/PropsPanel/Props" unique_id=1378720892]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Back to menu"

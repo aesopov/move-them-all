@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/icon_view.gd" id="1_3x4vo"]
+
+[node name="ToolButton" type="Button" unique_id=900718111]
+custom_minimum_size = Vector2(0, 38)
+focus_mode = 0
+theme_type_variation = &"ToolButton"
+toggle_mode = true
+text = "Wall"
+alignment = 0
+
+[node name="Icon" type="Control" parent="." unique_id=1210280643]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 36.0
+offset_bottom = 33.0
+mouse_filter = 2
+script = ExtResource("1_3x4vo")
+kind = "wall"

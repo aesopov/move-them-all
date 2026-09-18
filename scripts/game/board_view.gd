@@ -1,3 +1,4 @@
+@tool
 class_name BoardView
 extends Control
 ## Renders a Board and animates the event steps returned by Board.play().
@@ -18,14 +19,24 @@ const PIPE_COLORS := [
 	Color(0.85, 0.25, 0.3), Color(0.6, 0.35, 0.9), Color(0.9, 0.8, 0.2),
 ]
 
-var board: Board
-var cell := 56.0
+## Editor-only: a level to draw so the scene isn't empty while you lay it out.
+@export_file("*.json") var preview_level := "":
+	set(v):
+		preview_level = v
+		if is_node_ready() and Engine.is_editor_hint():
+			_load_preview()
 ## When > 0, the view zooms so the non-void part of the board fits this many pixels.
-var fit_px := 0.0
+@export var fit_px := 0.0
+## Cell size in pixels (ignored when fit_px > 0).
+@export var cell := 56.0
+## Level designer mode: reports cell presses/drags instead of moving items.
+@export var editor_mode := false
+## Draw teleport / pipe link arrows (designer).
+@export var show_links := false
+
+var board: Board
 var max_cell := 78.0
 var origin := Vector2(PAD, PAD)
-var editor_mode := false
-var show_links := false
 var theme_data: Dictionary = WorldTheme.get_palette("jungle")
 ## "flag" (default) or "arrow" (classic marker above the goal item). Levels may set "aim_marker".
 var aim_marker := "flag"
@@ -64,6 +75,18 @@ func _ready() -> void:
 	add_child(fx_layer)
 	pipe_layer.draw.connect(_draw_overlay)
 	_update_size()
+	if Engine.is_editor_hint():
+		_load_preview()
+
+
+func _load_preview() -> void:
+	if preview_level == "" or not FileAccess.file_exists(preview_level):
+		return
+	var d = JSON.parse_string(FileAccess.get_file_as_string(preview_level))
+	if d is Dictionary:
+		theme_data = WorldTheme.for_level(0, d)
+		aim_marker = str(d.get("aim_marker", "flag"))
+		set_board(Board.from_dict(d))
 
 
 func set_cell_size(s: float) -> void:
@@ -124,6 +147,8 @@ func cell_at(p: Vector2) -> int:
 
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	_t += delta
 	if not editor_mode:
 		_drive_drag()
