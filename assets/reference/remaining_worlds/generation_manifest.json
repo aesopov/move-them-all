@@ -1,0 +1,506 @@
+[
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "background",
+    "dest": "assets/backgrounds/ice.png",
+    "prompt": "Generate a wide 16:9 game background for Frozen Portals, polished hand-painted 2D casual puzzle game consistent with colorful painted stone sprites. Frozen ice-cavern cliffside at twilight, huge icicles framing top corners, snowy ledges and frozen blue waterfalls along far left and right, small rope bridge and warm lanterns on far left, faint aurora. Deep cold blue softly shaded low-detail center for puzzle board overlay; details concentrated outer edges and bottom. Upper-left lighting, atmospheric depth. No characters, text, grid, UI or pieces. Save the output image."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "floor_a",
+    "dest": "assets/tiles/ice/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Frozen Portals, polished hand-painted casual puzzle game. Material: deep muted navy slate with fine frost grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "floor_b",
+    "dest": "assets/tiles/ice/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Frozen Portals, polished hand-painted casual puzzle game. Material: deep muted navy slate with fine frost grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "wall",
+    "dest": "assets/tiles/ice/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Frozen Portals, polished hand-painted casual puzzle game. Material: pale blue-grey granite with frosty beveled edges, tiny ice deposits. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/ice/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Frozen Portals, polished hand-painted casual puzzle game. Material: pale blue-grey granite with frosty beveled edges, tiny ice deposits. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/ice/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Frozen Portals, polished hand-painted casual puzzle game. Material: pale blue-grey granite with frosty beveled edges, tiny ice deposits. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/ice/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Frozen Portals, polished hand-painted casual puzzle game. Material: pale blue-grey granite with frosty beveled edges, tiny ice deposits. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/ice/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Frozen Portals, polished hand-painted casual puzzle game. Material: pale blue-grey granite with frosty beveled edges, tiny ice deposits. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ice",
+    "name": "Frozen Portals",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/ice/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Frozen Portals, polished hand-painted casual puzzle game. Material: pale blue-grey granite with frosty beveled edges, tiny ice deposits. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "background",
+    "dest": "assets/backgrounds/ruins.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Old Pipeworks, a polished hand-painted 2D casual puzzle game. Scene: overgrown ancient ruins, mossy columns, tarnished brass and copper pipes and valves along outer edges, small pipe waterfalls, misty olive courtyard. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "floor_a",
+    "dest": "assets/tiles/ruins/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Old Pipeworks, polished hand-painted casual puzzle game. Material: dark muted olive slate, subtle mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "floor_b",
+    "dest": "assets/tiles/ruins/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Old Pipeworks, polished hand-painted casual puzzle game. Material: dark muted olive slate, subtle mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "wall",
+    "dest": "assets/tiles/ruins/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Old Pipeworks, polished hand-painted casual puzzle game. Material: weathered grey limestone with sparse moss in crevices and tiny verdigris stains. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/ruins/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Old Pipeworks, polished hand-painted casual puzzle game. Material: weathered grey limestone with sparse moss in crevices and tiny verdigris stains. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/ruins/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Old Pipeworks, polished hand-painted casual puzzle game. Material: weathered grey limestone with sparse moss in crevices and tiny verdigris stains. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/ruins/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Old Pipeworks, polished hand-painted casual puzzle game. Material: weathered grey limestone with sparse moss in crevices and tiny verdigris stains. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/ruins/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Old Pipeworks, polished hand-painted casual puzzle game. Material: weathered grey limestone with sparse moss in crevices and tiny verdigris stains. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "ruins",
+    "name": "Old Pipeworks",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/ruins/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Old Pipeworks, polished hand-painted casual puzzle game. Material: weathered grey limestone with sparse moss in crevices and tiny verdigris stains. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "background",
+    "dest": "assets/backgrounds/cave.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Deep Quarry, a polished hand-painted 2D casual puzzle game. Scene: underground quarry, wooden mine supports and ladders left, rails and mine carts bottom, lanterns, stalactites, brown rock and sparse ore. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "floor_a",
+    "dest": "assets/tiles/cave/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Deep Quarry, polished hand-painted casual puzzle game. Material: dark muted brown shale, fine rough grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "floor_b",
+    "dest": "assets/tiles/cave/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Deep Quarry, polished hand-painted casual puzzle game. Material: dark muted brown shale, fine rough grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "wall",
+    "dest": "assets/tiles/cave/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Deep Quarry, polished hand-painted casual puzzle game. Material: warm grey-brown rugged quarry rock, faint iron deposits and layered stone. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/cave/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Deep Quarry, polished hand-painted casual puzzle game. Material: warm grey-brown rugged quarry rock, faint iron deposits and layered stone. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/cave/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Deep Quarry, polished hand-painted casual puzzle game. Material: warm grey-brown rugged quarry rock, faint iron deposits and layered stone. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/cave/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Deep Quarry, polished hand-painted casual puzzle game. Material: warm grey-brown rugged quarry rock, faint iron deposits and layered stone. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/cave/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Deep Quarry, polished hand-painted casual puzzle game. Material: warm grey-brown rugged quarry rock, faint iron deposits and layered stone. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "cave",
+    "name": "Deep Quarry",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/cave/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Deep Quarry, polished hand-painted casual puzzle game. Material: warm grey-brown rugged quarry rock, faint iron deposits and layered stone. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "background",
+    "dest": "assets/backgrounds/volcano.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Volcano, a polished hand-painted 2D casual puzzle game. Scene: volcanic cavern, lava falls at outer edges, black basalt rocks, embers and smoky dark center. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "floor_a",
+    "dest": "assets/tiles/volcano/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Volcano, polished hand-painted casual puzzle game. Material: dark charcoal basalt, subdued fine volcanic grain, no bright glowing center. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "floor_b",
+    "dest": "assets/tiles/volcano/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Volcano, polished hand-painted casual puzzle game. Material: dark charcoal basalt, subdued fine volcanic grain, no bright glowing center. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "wall",
+    "dest": "assets/tiles/volcano/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Volcano, polished hand-painted casual puzzle game. Material: charcoal grey basalt with warm edge highlights, tiny ember-orange mineral seams, solid rock. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/volcano/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Volcano, polished hand-painted casual puzzle game. Material: charcoal grey basalt with warm edge highlights, tiny ember-orange mineral seams, solid rock. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/volcano/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Volcano, polished hand-painted casual puzzle game. Material: charcoal grey basalt with warm edge highlights, tiny ember-orange mineral seams, solid rock. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/volcano/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Volcano, polished hand-painted casual puzzle game. Material: charcoal grey basalt with warm edge highlights, tiny ember-orange mineral seams, solid rock. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/volcano/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Volcano, polished hand-painted casual puzzle game. Material: charcoal grey basalt with warm edge highlights, tiny ember-orange mineral seams, solid rock. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "volcano",
+    "name": "Volcano",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/volcano/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Volcano, polished hand-painted casual puzzle game. Material: charcoal grey basalt with warm edge highlights, tiny ember-orange mineral seams, solid rock. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "background",
+    "dest": "assets/backgrounds/swamp.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Acid Swamp, a polished hand-painted 2D casual puzzle game. Scene: enchanted swamp, mangrove roots, hanging moss, luminous green acid pools only at edges and bottom, reeds and mushrooms, green fog. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "floor_a",
+    "dest": "assets/tiles/swamp/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Acid Swamp, polished hand-painted casual puzzle game. Material: dark muted olive mudstone, damp grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "floor_b",
+    "dest": "assets/tiles/swamp/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Acid Swamp, polished hand-painted casual puzzle game. Material: dark muted olive mudstone, damp grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "wall",
+    "dest": "assets/tiles/swamp/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Acid Swamp, polished hand-painted casual puzzle game. Material: grey-green swamp rock, sparse moss on outer edges, damp worn facets. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/swamp/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Acid Swamp, polished hand-painted casual puzzle game. Material: grey-green swamp rock, sparse moss on outer edges, damp worn facets. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/swamp/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Acid Swamp, polished hand-painted casual puzzle game. Material: grey-green swamp rock, sparse moss on outer edges, damp worn facets. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/swamp/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Acid Swamp, polished hand-painted casual puzzle game. Material: grey-green swamp rock, sparse moss on outer edges, damp worn facets. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/swamp/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Acid Swamp, polished hand-painted casual puzzle game. Material: grey-green swamp rock, sparse moss on outer edges, damp worn facets. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "swamp",
+    "name": "Acid Swamp",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/swamp/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Acid Swamp, polished hand-painted casual puzzle game. Material: grey-green swamp rock, sparse moss on outer edges, damp worn facets. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "background",
+    "dest": "assets/backgrounds/sky.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Sky Isles, a polished hand-painted 2D casual puzzle game. Scene: floating islands at outer edges, small waterfalls spilling into clouds, distant birds, clear blue sky, soft clouds, quiet blue shaded center. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "floor_a",
+    "dest": "assets/tiles/sky/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Sky Isles, polished hand-painted casual puzzle game. Material: dark muted desaturated blue slate, delicate mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "floor_b",
+    "dest": "assets/tiles/sky/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Sky Isles, polished hand-painted casual puzzle game. Material: dark muted desaturated blue slate, delicate mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "wall",
+    "dest": "assets/tiles/sky/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Sky Isles, polished hand-painted casual puzzle game. Material: pale blue-white limestone, softly weathered rounded facets, tiny tufts of grass only at corners. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/sky/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Sky Isles, polished hand-painted casual puzzle game. Material: pale blue-white limestone, softly weathered rounded facets, tiny tufts of grass only at corners. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/sky/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Sky Isles, polished hand-painted casual puzzle game. Material: pale blue-white limestone, softly weathered rounded facets, tiny tufts of grass only at corners. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/sky/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Sky Isles, polished hand-painted casual puzzle game. Material: pale blue-white limestone, softly weathered rounded facets, tiny tufts of grass only at corners. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/sky/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Sky Isles, polished hand-painted casual puzzle game. Material: pale blue-white limestone, softly weathered rounded facets, tiny tufts of grass only at corners. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "sky",
+    "name": "Sky Isles",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/sky/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Sky Isles, polished hand-painted casual puzzle game. Material: pale blue-white limestone, softly weathered rounded facets, tiny tufts of grass only at corners. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "background",
+    "dest": "assets/backgrounds/crystal.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Crystal Caves, a polished hand-painted 2D casual puzzle game. Scene: underground crystal cavern, violet and cyan crystal clusters along outer edges and bottom, softly glowing cavern, quiet deep indigo center. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "floor_a",
+    "dest": "assets/tiles/crystal/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Crystal Caves, polished hand-painted casual puzzle game. Material: dark muted indigo stone, subtle mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "floor_b",
+    "dest": "assets/tiles/crystal/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Crystal Caves, polished hand-painted casual puzzle game. Material: dark muted indigo stone, subtle mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "wall",
+    "dest": "assets/tiles/crystal/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Crystal Caves, polished hand-painted casual puzzle game. Material: lavender grey stone with tiny amethyst inclusions at edges, chunky rock faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/crystal/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Crystal Caves, polished hand-painted casual puzzle game. Material: lavender grey stone with tiny amethyst inclusions at edges, chunky rock faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/crystal/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Crystal Caves, polished hand-painted casual puzzle game. Material: lavender grey stone with tiny amethyst inclusions at edges, chunky rock faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/crystal/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Crystal Caves, polished hand-painted casual puzzle game. Material: lavender grey stone with tiny amethyst inclusions at edges, chunky rock faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/crystal/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Crystal Caves, polished hand-painted casual puzzle game. Material: lavender grey stone with tiny amethyst inclusions at edges, chunky rock faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "crystal",
+    "name": "Crystal Caves",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/crystal/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Crystal Caves, polished hand-painted casual puzzle game. Material: lavender grey stone with tiny amethyst inclusions at edges, chunky rock faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "background",
+    "dest": "assets/backgrounds/nexus.png",
+    "prompt": "Use case: stylized-concept. One wide 16:9 background for Nexus, a polished hand-painted 2D casual puzzle game. Scene: ancient cosmic sanctuary, floating stone arches at edges, distant stars and nebula, violet and magenta rim light, quiet dark indigo center. Composition: calm, slightly darker, low-detail central area because a puzzle board covers center-left. All landmarks concentrated far left, far right and bottom; atmospheric depth and soft vignette. Upper-left light, rich but controlled colors, painted stylized forms. Full bleed opaque image. No text, UI, grid, characters, pieces or logos."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "floor_a",
+    "dest": "assets/tiles/nexus/floor_a.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Nexus, polished hand-painted casual puzzle game. Material: dark muted violet slate, faint fine mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "floor_b",
+    "dest": "assets/tiles/nexus/floor_b.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette floor tile for Nexus, polished hand-painted casual puzzle game. Material: dark muted violet slate, faint fine mineral grain. Very low contrast, flat quiet center for bright game pieces. Thin worn bevel, only subtle scratches, no large cracks, no grass or plants.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. Single continuous unsegmented cell face."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "wall",
+    "dest": "assets/tiles/nexus/wall.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Nexus, polished hand-painted casual puzzle game. Material: pale violet-grey ancient stone, restrained magenta mineral veins at edges, weathered rounded faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "wall_cracked",
+    "dest": "assets/tiles/nexus/wall_cracked.png",
+    "prompt": "Use case: stylized-concept. ONE square silhouette solid rock obstacle sprite for Nexus, polished hand-painted casual puzzle game. Material: pale violet-grey ancient stone, restrained magenta mineral veins at edges, weathered rounded faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective. Clearly destructible: deep branching cracks across face and one chipped corner. Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "wall_2x1_a",
+    "dest": "assets/tiles/nexus/wall_2x1_a.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Nexus, polished hand-painted casual puzzle game. Material: pale violet-grey ancient stone, restrained magenta mineral veins at edges, weathered rounded faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "wall_2x1_b",
+    "dest": "assets/tiles/nexus/wall_2x1_b.png",
+    "prompt": "Use case: stylized-concept. ONE horizontal rectangular silhouette exactly 2:1 solid rock obstacle sprite for Nexus, polished hand-painted casual puzzle game. Material: pale violet-grey ancient stone, restrained magenta mineral veins at edges, weathered rounded faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "wall_1x2_a",
+    "dest": "assets/tiles/nexus/wall_1x2_a.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Nexus, polished hand-painted casual puzzle game. Material: pale violet-grey ancient stone, restrained magenta mineral veins at edges, weathered rounded faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant A: balanced irregular stone proportions. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  },
+  {
+    "key": "nexus",
+    "name": "Nexus",
+    "asset": "wall_1x2_b",
+    "dest": "assets/tiles/nexus/wall_1x2_b.png",
+    "prompt": "Use case: stylized-concept. ONE vertical rectangular silhouette exactly 1:2 solid rock obstacle sprite for Nexus, polished hand-painted casual puzzle game. Material: pale violet-grey ancient stone, restrained magenta mineral veins at edges, weathered rounded faces. Several chunky irregular rounded slabs forming one continuous rectangular obstacle, recessed dark joints, soft bevels, upper-left highlights, polished painted detail. Not a building, no upright perspective.  Variant B: broader central slab, asymmetrical small edge chips and different subtle grain. Top-down orthographic face, no visible side extrusion, match existing casual puzzle stone art. Tight framing: silhouette nearly fills image with only 1-2% transparent margin. Genuine transparent background outside silhouette and rounded corners. No ground, cast shadow outside silhouette, text, labels, logos, grid, scene, extra objects or sprite sheet. No distinct cell divisions inside the rectangular obstacle."
+  }
+]

@@ -1,0 +1,582 @@
+{
+  "asset_count": 72,
+  "checks": "All files readable; expected aspect ratios; tile alpha includes full transparency.",
+  "assets": [
+    {
+      "path": "assets/backgrounds/ice.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/ice/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ice/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/ruins.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/ruins/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/ruins/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/cave.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/cave/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/cave/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/volcano.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/volcano/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/volcano/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/swamp.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/swamp/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/swamp/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/sky.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/sky/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/sky/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/crystal.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/crystal/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/crystal/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/backgrounds/nexus.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/tiles/nexus/floor_a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/floor_b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/wall.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/wall_cracked.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/wall_2x1_a.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/wall_2x1_b.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/wall_1x2_a.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiles/nexus/wall_1x2_b.png",
+      "dimensions": [
+        887,
+        1774
+      ],
+      "mode": "RGBA"
+    }
+  ]
+}
