@@ -1,0 +1,69 @@
+# 05: Pipes and teleports
+
+## How the game uses them (keep in mind)
+
+- **Pipe**: occupies one cell and has one **opening (mouth)** facing up, right, down or left. An item enters
+  through the mouth of one pipe and slides out of the mouth of its linked pipe. The game draws one sprite
+  **with the mouth pointing RIGHT** and rotates it, so generate every pipe piece that way.
+- Pipes are **colour-coded by linked pair** (green, blue, orange, red, purple, yellow). Two options:
+  1. **Tintable (recommended):** one light-grey/white pipe; Godot tints it with `modulate`.
+  2. **Pre-coloured:** six colour variants (edit the tintable one: "recolour to glossy blue").
+- A flow **arrow** is drawn on top by the game, so leave the pipe body plain.
+- **Teleport**: a floor pad an item can stand on. Also colour-coded per pair, so it's tintable too.
+  The swirl should be a separate layer so the game can spin it.
+
+## Pipe pieces (128×128, mouth pointing right)
+
+```
+A sprite sheet of three game pipe pieces in a horizontal row, each in an equal square cell, top-down view,
+flat solid pure magenta (#FF00FF) background, no text, no arrows.
+1) Pipe end: a thick glossy light-grey metal pipe running horizontally from the left edge of the square to a
+   wider raised rim/collar near the right edge, the opening facing right with a dark inner hole visible.
+2) Straight pipe: the same pipe running edge to edge horizontally, no rim, a subtle ring joint in the middle.
+3) Elbow: the same pipe entering from the left edge and bending 90 degrees to exit through the bottom edge.
+Pipe diameter about 60% of the tile, cylinder shading with a bright highlight stripe along the top and a darker
+underside, clean dark outline.
+Style: polished 2D casual mobile puzzle game art, soft cel shading, light from the top-left. Neutral light grey
+so it can be colour-tinted in engine.
+```
+
+Pre-coloured variant edit: `Recolour all pipes to glossy [green #3FB84C | blue #4080F2 | orange #F28026 | red #D9404D | purple #9959E6 | yellow #E6CC33], keep shading and outlines.`
+
+**Pipe in a wall** (optional; the reference images show pipes embedded in walls):
+
+```
+A square stone wall block with a glossy light-grey metal pipe mouth sticking out of its right face, a thick rim
+around the opening, dark inner hole, top-down view, on flat pure magenta (#FF00FF) background, no text.
+Polished casual mobile game art, soft cel shading.
+```
+
+## Teleport pad (128×128)
+
+Two layers so the swirl can rotate independently:
+
+```
+Two square game sprites side by side on a flat solid pure green (#00FF00) background, top-down view, no text.
+Left: a teleport pad base: a round stone-and-metal platform ring filling 85% of the tile, with a raised glowing
+rim and small rune notches around it, the center a dark hollow well. Neutral light-grey/white colours so it can
+be tinted in engine.
+Right: the matching swirl layer: a bright spiral vortex of three curved light arms, white core fading to
+transparent at the edges, sized to fit inside the base's well. Nothing else.
+Style: polished 2D casual mobile puzzle game art, soft cel shading, magical glow.
+```
+
+Coloured versions (if not tinting): edit with `Make the glow and swirl [purple #B861FF | cyan #40CCFF | orange #FF8C33 | pink #FF66B3 | green #66F280 | yellow #FFE64D]`.
+
+**Inactive / unlinked teleport** (the game shows a grey one):
+
+```
+The same teleport pad base, but dormant: no swirl, dull grey stone, the rim unlit, a few cracks, a faint dust
+haze in the well. Flat pure green (#00FF00) background, top-down, no text. Polished casual mobile game art.
+```
+
+## Teleport effect (optional)
+
+```
+A 6-frame horizontal sprite strip of a magical teleport burst: a small spark, then a swirling ring of light
+expanding outward, then sparkles dispersing and fading. Each frame an equal square, white and pale-cyan light
+(to be tinted in engine), on a pure black background (for additive blending), no text.
+```

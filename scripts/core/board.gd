@@ -1,0 +1,547 @@
+class_name Board
+extends RefCounted
+## Pure game-state + rules. No nodes, no rendering: the game, the level editor,
+## the hint solver and the level generator all share this one implementation.
+##
+## play() mutates the board and returns a list of animation "steps"; each step is
+## an Array of event Dictionaries that happen simultaneously:
+##   {"e":"move", "id", "from", "path":[[kind, cell]...], "sink":"" | "water"|"lava"|"acid"}
+##       path kinds: "slide" (move to cell), "tele" (vanish, reappear at cell),
+##                   "pipe_in" (slide into pipe cell), "pipe_out" (emerge from pipe cell)
+##   {"e":"destroy", "id", "cause": "match"|"blast"|"bomb"}
+##   {"e":"unlock", "id", "key"}
+##   {"e":"break", "cell"}
+##   {"e":"blast", "cell"}
+
+const W := 12
+const H := 12
+const N := W * H
+
+enum T { FLOOR, WALL, BREAKABLE, WATER, LAVA, ACID, VOID }
+const TERRAIN_CHARS := ".#%wla-"
+## Wall skins are purely visual (rules treat every skin as a plain wall).
+enum WallSkin { NONE, BRICK, PIPE }
+const SKIN_CHARS := ".bp"
+const SKIN_NAMES := ["", "brick", "pipe"]
+const KNOWN_KEYS := ["version", "name", "moves", "time", "terrain", "skins", "items", "teleports", "pipes"]
+const LIQUID_NAMES := {3: "water", 4: "lava", 5: "acid"}
+
+enum { UP, RIGHT, DOWN, LEFT }
+const DETONATE := 4
+const DIR_NAMES := ["up", "right", "down", "left"]
+const DX := [0, 1, 0, -1]
+const DY := [-1, 0, 1, 0]
+
+var name := ""
+var move_limit := 10
+var time_limit := 120
+
+var terrain := PackedByteArray()
+var wall_skin := PackedByteArray()
+## Extra level fields the rules don't use but must survive load/save
+## (e.g. "theme", "aim_marker", "handcrafted", "optimal").
+var meta := {}
+## -2 = no teleport, -1 = teleport without target, >=0 target cell.
+var teleport_to := PackedInt32Array()
+## -1 = no pipe, else direction the pipe's opening faces.
+var pipe_mouth := PackedInt32Array()
+## -1 = pipe has no target (exit only), else target pipe cell.
+var pipe_to := PackedInt32Array()
+var item_at := PackedInt32Array()
+
+var it_type := PackedInt32Array()
+var it_cell := PackedInt32Array() # -1 = destroyed / removed
+var it_lock := PackedInt32Array()
+var it_aim := PackedByteArray()
+
+var moves_made := 0
+
+
+func _init() -> void:
+	terrain.resize(N)
+	terrain.fill(T.FLOOR)
+	wall_skin.resize(N)
+	teleport_to.resize(N)
+	teleport_to.fill(-2)
+	pipe_mouth.resize(N)
+	pipe_mouth.fill(-1)
+	pipe_to.resize(N)
+	pipe_to.fill(-1)
+	item_at.resize(N)
+	item_at.fill(-1)
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+static func cell_of(x: int, y: int) -> int:
+	return y * W + x
+
+
+static func to_xy(c: int) -> Vector2i:
+	return Vector2i(c % W, c / W)
+
+
+static func opposite(d: int) -> int:
+	return (d + 2) % 4
+
+
+static func dir_from_name(s: String) -> int:
+	return DIR_NAMES.find(s)
+
+
+func step(c: int, d: int) -> int:
+	var x: int = c % W + DX[d]
+	var y: int = c / W + DY[d]
+	if x < 0 or y < 0 or x >= W or y >= H:
+		return -1
+	return y * W + x
+
+
+func clone() -> Board:
+	var b := Board.new()
+	b.name = name
+	b.move_limit = move_limit
+	b.time_limit = time_limit
+	b.terrain = terrain.duplicate()
+	b.wall_skin = wall_skin.duplicate()
+	b.meta = meta.duplicate(true)
+	b.teleport_to = teleport_to.duplicate()
+	b.pipe_mouth = pipe_mouth.duplicate()
+	b.pipe_to = pipe_to.duplicate()
+	b.item_at = item_at.duplicate()
+	b.it_type = it_type.duplicate()
+	b.it_cell = it_cell.duplicate()
+	b.it_lock = it_lock.duplicate()
+	b.it_aim = it_aim.duplicate()
+	b.moves_made = moves_made
+	return b
+
+
+func add_item(type: int, c: int, lock := 0, aim := false) -> int:
+	var id := it_type.size()
+	it_type.append(type)
+	it_cell.append(c)
+	it_lock.append(lock)
+	it_aim.append(1 if aim else 0)
+	item_at[c] = id
+	return id
+
+
+func remove_item_at(c: int) -> void:
+	var i := item_at[c]
+	if i >= 0:
+		it_cell[i] = -1
+		item_at[c] = -1
+
+
+func is_solid_terrain(c: int) -> bool:
+	var t := terrain[c]
+	return t == T.WALL or t == T.BREAKABLE or t == T.VOID or pipe_mouth[c] != -1
+
+
+func is_liquid(c: int) -> bool:
+	return terrain[c] >= T.WATER and terrain[c] <= T.ACID
+
+
+func alive(i: int) -> bool:
+	return it_cell[i] >= 0
+
+
+func aims_total() -> int:
+	var n := 0
+	for a in it_aim:
+		n += a
+	return n
+
+
+func aims_left() -> int:
+	var n := 0
+	for i in it_type.size():
+		if it_aim[i] and it_cell[i] >= 0:
+			n += 1
+	return n
+
+
+func is_won() -> bool:
+	return aims_left() == 0 and aims_total() > 0
+
+
+func state_key() -> int:
+	var a := it_cell.duplicate()
+	a.append_array(it_lock)
+	a.append(hash(terrain))
+	return hash(a)
+
+
+# ---------------------------------------------------------------------------
+# Serialization
+# ---------------------------------------------------------------------------
+
+func to_dict() -> Dictionary:
+	var rows := []
+	var skin_rows := []
+	var any_skin := false
+	for y in H:
+		var s := ""
+		var k := ""
+		for x in W:
+			var c := cell_of(x, y)
+			s += TERRAIN_CHARS[terrain[c]]
+			var sk := wall_skin[c] if terrain[c] == T.WALL else 0
+			k += SKIN_CHARS[sk]
+			any_skin = any_skin or sk != 0
+		rows.append(s)
+		skin_rows.append(k)
+	var items := []
+	for i in it_type.size():
+		var c := it_cell[i]
+		if c < 0:
+			continue
+		var d := {"type": ItemDefs.name_of(it_type[i]), "x": c % W, "y": c / W}
+		if it_aim[i]:
+			d["aim"] = true
+		if it_lock[i] != 0:
+			d["lock"] = ItemDefs.LOCK_NAMES[it_lock[i]]
+		items.append(d)
+	var teles := []
+	var pipes := []
+	for c in N:
+		if teleport_to[c] != -2:
+			var t := {"x": c % W, "y": c / W}
+			if teleport_to[c] >= 0:
+				t["to"] = [teleport_to[c] % W, teleport_to[c] / W]
+			teles.append(t)
+		if pipe_mouth[c] != -1:
+			var p := {"x": c % W, "y": c / W, "mouth": DIR_NAMES[pipe_mouth[c]]}
+			if pipe_to[c] >= 0:
+				p["to"] = [pipe_to[c] % W, pipe_to[c] / W]
+			pipes.append(p)
+	var d := {
+		"version": 1, "name": name, "moves": move_limit, "time": time_limit,
+		"terrain": rows, "items": items, "teleports": teles, "pipes": pipes,
+	}
+	if any_skin:
+		d["skins"] = skin_rows
+	d.merge(meta)
+	return d
+
+
+static func from_dict(d: Dictionary) -> Board:
+	var b := Board.new()
+	b.name = str(d.get("name", ""))
+	b.move_limit = int(d.get("moves", 10))
+	b.time_limit = int(d.get("time", 120))
+	var rows: Array = d.get("terrain", [])
+	for y in mini(rows.size(), H):
+		var row: String = rows[y]
+		for x in mini(row.length(), W):
+			var t := TERRAIN_CHARS.find(row[x])
+			b.terrain[cell_of(x, y)] = maxi(t, 0)
+	var skins: Array = d.get("skins", [])
+	for y in mini(skins.size(), H):
+		var row: String = skins[y]
+		for x in mini(row.length(), W):
+			b.wall_skin[cell_of(x, y)] = maxi(SKIN_CHARS.find(row[x]), 0)
+	for k in d:
+		if not k in KNOWN_KEYS:
+			b.meta[k] = d[k]
+	for t in d.get("teleports", []):
+		var c := cell_of(int(t.x), int(t.y))
+		b.teleport_to[c] = -1
+		if t.has("to"):
+			b.teleport_to[c] = cell_of(int(t.to[0]), int(t.to[1]))
+	for p in d.get("pipes", []):
+		var c := cell_of(int(p.x), int(p.y))
+		b.pipe_mouth[c] = maxi(dir_from_name(str(p.get("mouth", "up"))), 0)
+		if p.has("to"):
+			b.pipe_to[c] = cell_of(int(p.to[0]), int(p.to[1]))
+	for it in d.get("items", []):
+		var type := ItemDefs.index_of(str(it.type))
+		if type < 0:
+			continue
+		var c := cell_of(int(it.x), int(it.y))
+		if b.item_at[c] >= 0:
+			continue
+		var lock := ItemDefs.LOCK_NAMES.find(str(it.get("lock", "")))
+		b.add_item(type, c, maxi(lock, 0), bool(it.get("aim", false)))
+	return b
+
+
+# ---------------------------------------------------------------------------
+# Movement
+# ---------------------------------------------------------------------------
+
+## Where would item i end up if it leaves cell `from` in direction d?
+## The item's own cell must already be cleared from item_at by the caller.
+## Returns null when blocked, else {"path", "final", "sink"}.
+func _resolve(i: int, from: int, d: int, depth: int) -> Variant:
+	if depth > 8:
+		return null
+	var p := step(from, d)
+	if p < 0 or item_at[p] != -1:
+		return null
+	if pipe_mouth[p] != -1:
+		# Pipes only accept items coming in through their opening,
+		# and only if the item can slide out of the target pipe.
+		if pipe_to[p] < 0 or pipe_mouth[p] != opposite(d):
+			return null
+		var q := pipe_to[p]
+		var r = _resolve(i, q, pipe_mouth[q], depth + 1)
+		if r == null:
+			return null
+		r.path = [["pipe_in", p], ["pipe_out", q]] + r.path
+		return r
+	var t := terrain[p]
+	if t == T.WALL or t == T.BREAKABLE or t == T.VOID:
+		return null
+	if t >= T.WATER and t <= T.ACID:
+		if it_lock[i] != 0:
+			return null # locked items can't be destroyed, so they can't sink either
+		return {"path": [["slide", p]], "final": p, "sink": LIQUID_NAMES[t]}
+	var tt := teleport_to[p]
+	if tt >= 0 and tt != p and item_at[tt] == -1:
+		return {"path": [["slide", p], ["tele", tt]], "final": tt, "sink": ""}
+	return {"path": [["slide", p]], "final": p, "sink": ""}
+
+
+func _commit(i: int, r: Dictionary, ev: Array) -> void:
+	var from := it_cell[i]
+	if item_at[from] == i:
+		item_at[from] = -1
+	ev.append({"e": "move", "id": i, "from": from, "path": r.path, "sink": r.sink})
+	if r.sink != "":
+		it_cell[i] = -1
+	else:
+		it_cell[i] = r.final
+		item_at[r.final] = i
+
+
+func gravity_allows(i: int, d: int) -> bool:
+	var g := ItemDefs.gravity(it_type[i])
+	if g == ItemDefs.Gravity.FALL and d == UP:
+		return false
+	if g == ItemDefs.Gravity.BUBBLE and d == DOWN:
+		return false
+	return true
+
+
+func can_move(i: int, d: int) -> bool:
+	var c := it_cell[i]
+	if c < 0:
+		return false
+	if d == DETONATE:
+		return GameConfig.TAP_TO_DETONATE_BOMB and ItemDefs.kind(it_type[i]) == ItemDefs.Kind.BOMB and it_lock[i] == 0
+	if not gravity_allows(i, d):
+		return false
+	item_at[c] = -1
+	var r = _resolve(i, c, d, 0)
+	item_at[c] = i
+	return r != null
+
+
+## Performs a player action. d = direction or DETONATE. Returns [] if illegal.
+func play(i: int, d: int) -> Array:
+	if not can_move(i, d):
+		return []
+	moves_made += 1
+	var ev := []
+	if d == DETONATE:
+		_detonate(i, ev)
+	else:
+		var c := it_cell[i]
+		item_at[c] = -1
+		_commit(i, _resolve(i, c, d, 0), ev)
+	var steps := [ev]
+	steps.append_array(settle())
+	return steps
+
+
+## Runs gravity / unlocking / explosions until nothing changes.
+func settle() -> Array:
+	var steps := []
+	for _guard in 100:
+		for _g in GameConfig.MAX_GRAVITY_STEPS:
+			var g := _gravity_step()
+			if g.is_empty():
+				break
+			steps.append(g)
+		var u := _unlock_step()
+		if not u.is_empty():
+			steps.append(u)
+			continue
+		var m := _match_step()
+		if not m.is_empty():
+			steps.append(m)
+			continue
+		break
+	return steps
+
+
+func _gravity_step() -> Array:
+	var ev := []
+	var moved := PackedByteArray()
+	moved.resize(it_type.size())
+	for y in range(H - 1, -1, -1):
+		for x in W:
+			var i := item_at[y * W + x]
+			if i >= 0 and not moved[i] and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.FALL:
+				if _auto_move(i, DOWN, ev):
+					moved[i] = 1
+	for y in H:
+		for x in W:
+			var i := item_at[y * W + x]
+			if i >= 0 and not moved[i] and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.BUBBLE:
+				if _auto_move(i, UP, ev):
+					moved[i] = 1
+	return ev
+
+
+func _auto_move(i: int, d: int, ev: Array) -> bool:
+	var c := it_cell[i]
+	item_at[c] = -1
+	var r = _resolve(i, c, d, 0)
+	if r == null:
+		item_at[c] = i
+		return false
+	_commit(i, r, ev)
+	return true
+
+
+func _unlock_step() -> Array:
+	var ev := []
+	for k in it_type.size():
+		if it_cell[k] < 0 or it_lock[k] != 0 or ItemDefs.kind(it_type[k]) != ItemDefs.Kind.KEY:
+			continue
+		var col := ItemDefs.key_color(it_type[k])
+		for d in 4:
+			var nb := step(it_cell[k], d)
+			if nb < 0:
+				continue
+			var j := item_at[nb]
+			if j >= 0 and it_lock[j] == col:
+				it_lock[j] = 0
+				ev.append({"e": "unlock", "id": j, "key": k})
+				_kill(k, "key", ev, false)
+				break
+	return ev
+
+
+func _matchable(i: int) -> bool:
+	return it_lock[i] == 0 and ItemDefs.matchable(it_type[i])
+
+
+func _match_step() -> Array:
+	var n := it_type.size()
+	var mark := PackedByteArray()
+	mark.resize(n)
+	var seen := PackedByteArray()
+	seen.resize(N)
+	var any := false
+	for c in N:
+		var i := item_at[c]
+		if i < 0 or seen[c] or not _matchable(i):
+			continue
+		seen[c] = 1
+		var group := [c]
+		var k := 0
+		while k < group.size():
+			var g: int = group[k]
+			k += 1
+			for d in 4:
+				var nb := step(g, d)
+				if nb < 0 or seen[nb]:
+					continue
+				var j := item_at[nb]
+				if j >= 0 and _matchable(j) and it_type[j] == it_type[i]:
+					seen[nb] = 1
+					group.append(nb)
+		if group.size() >= GameConfig.MIN_MATCH_GROUP:
+			any = true
+			for g in group:
+				mark[item_at[g]] = 1
+	if GameConfig.SURROUND_RULE_ENABLED:
+		for c in N:
+			var i := item_at[c]
+			if i < 0 or not _matchable(i):
+				continue
+			var bt := -1
+			var ok := true
+			var nbs := []
+			for d in 4:
+				var nb := step(c, d)
+				var j := item_at[nb] if nb >= 0 else -1
+				if j < 0 or not _matchable(j) or it_type[j] == it_type[i] or (bt != -1 and it_type[j] != bt):
+					ok = false
+					break
+				bt = it_type[j]
+				nbs.append(j)
+			if ok:
+				any = true
+				mark[i] = 1
+				for j in nbs:
+					mark[j] = 1
+	if not any:
+		return []
+	var ev := []
+	var cells := []
+	for i in n:
+		if mark[i]:
+			cells.append(it_cell[i])
+			_kill(i, "match", ev)
+	var bombs := []
+	for c in cells:
+		for d in 4:
+			var nb := step(c, d)
+			if nb < 0:
+				continue
+			if GameConfig.MATCH_BREAKS_ADJACENT_WALLS and terrain[nb] == T.BREAKABLE:
+				terrain[nb] = T.FLOOR
+				ev.append({"e": "break", "cell": nb})
+			var j := item_at[nb]
+			if GameConfig.MATCH_TRIGGERS_ADJACENT_BOMBS and j >= 0 and it_lock[j] == 0 \
+					and ItemDefs.kind(it_type[j]) == ItemDefs.Kind.BOMB:
+				bombs.append(j)
+	for b in bombs:
+		if it_cell[b] >= 0:
+			_detonate(b, ev)
+	return ev
+
+
+func _detonate(b: int, ev: Array) -> void:
+	var c := it_cell[b]
+	_kill(b, "bomb", ev)
+	ev.append({"e": "blast", "cell": c})
+	var r := GameConfig.BOMB_RADIUS
+	var cx := c % W
+	var cy := c / W
+	var chain := []
+	for y in range(cy - r, cy + r + 1):
+		for x in range(cx - r, cx + r + 1):
+			if x < 0 or y < 0 or x >= W or y >= H:
+				continue
+			var nb := y * W + x
+			if terrain[nb] == T.BREAKABLE:
+				terrain[nb] = T.FLOOR
+				ev.append({"e": "break", "cell": nb})
+			var j := item_at[nb]
+			if j >= 0 and it_lock[j] == 0:
+				if ItemDefs.kind(it_type[j]) == ItemDefs.Kind.BOMB:
+					chain.append(j)
+				else:
+					_kill(j, "blast", ev)
+	for j in chain:
+		if it_cell[j] >= 0:
+			_detonate(j, ev)
+
+
+func _kill(i: int, cause: String, ev: Array, emit := true) -> void:
+	var c := it_cell[i]
+	if c < 0:
+		return
+	if item_at[c] == i:
+		item_at[c] = -1
+	it_cell[i] = -1
+	if emit:
+		ev.append({"e": "destroy", "id": i, "cause": cause})

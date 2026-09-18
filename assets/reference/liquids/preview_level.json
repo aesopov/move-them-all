@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "name": "Liquid Art Preview",
+  "theme": "jungle",
+  "terrain": [
+    "------------",
+    "------------",
+    "-..........-",
+    "-..........-",
+    "-..........-",
+    "-..........-",
+    "-www.lll.aa-",
+    "-www.lll.aa-",
+    "-www.lll.aa-",
+    "-www.lll.aa-",
+    "-..........-",
+    "------------"
+  ],
+  "items": [
+    {
+      "type": "crystal",
+      "x": 2,
+      "y": 3,
+      "aim": true
+    },
+    {
+      "type": "star",
+      "x": 6,
+      "y": 3
+    }
+  ],
+  "pipes": [],
+  "teleports": [],
+  "moves": 20,
+  "time": 120
+}
