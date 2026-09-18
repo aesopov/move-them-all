@@ -34,18 +34,6 @@ var autoplay := false
 var _shot_frames := 0
 var _burst := 0
 var _frame := 0
-## Debug: log frames slower than 20 ms (--frametimes).
-var _frametimes := false
-var _last_usec := 0
-var _ft_sum := {}
-var _ft_n := {}
-var _ft_max := {}
-
-
-func _exit_tree() -> void:
-	if _frametimes:
-		for k in _ft_n:
-			print("%s: %d frames, avg %.1f ms, max %.1f ms" % [k, _ft_n[k], _ft_sum[k] / _ft_n[k], _ft_max[k]])
 
 
 func _ready() -> void:
@@ -71,26 +59,11 @@ func _handle_cmdline() -> void:
 			_burst = int(v)
 		elif a == "--autoplay":
 			autoplay = true
-		elif a == "--frametimes":
-			_frametimes = true
 		elif a.begins_with("--frames="):
 			_shot_frames = int(v)
 
 
 func _process(_delta: float) -> void:
-	if _frametimes:
-		var now := Time.get_ticks_usec()
-		if _last_usec > 0:
-			var ms := (now - _last_usec) / 1000.0
-			var scene := get_tree().current_scene
-			var busy: bool = scene != null and "view" in scene and scene.view != null and scene.view.busy
-			var k := "busy" if busy else "idle"
-			_ft_sum[k] = _ft_sum.get(k, 0.0) + ms
-			_ft_n[k] = _ft_n.get(k, 0) + 1
-			_ft_max[k] = maxf(_ft_max.get(k, 0.0), ms)
-			if ms > 100.0:
-				print("stall: %.0f ms (%s) ending at %d" % [ms, k, Time.get_ticks_msec()])
-		_last_usec = now
 	if _shot_path == "":
 		return
 	_shot_frames -= 1

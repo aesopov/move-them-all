@@ -64,7 +64,6 @@ func _ready() -> void:
 	add_child(fx_layer)
 	pipe_layer.draw.connect(_draw_overlay)
 	_update_size()
-	Fx.warm_up(fx_layer, size / 2.0)
 
 
 func set_cell_size(s: float) -> void:
@@ -303,28 +302,65 @@ func shake(i: int) -> void:
 # Animation
 # ---------------------------------------------------------------------------
 
+## Plays the steps from Board.play() as one timeline. All tweens are built up front:
+## each item gets a single chained tween (so a multi-cell fall is one smooth motion
+## with no per-cell frame gaps), and one-off effects fire from a scheduler tween.
 func play_steps(steps: Array) -> void:
 	busy = true
 	hint_cell = -1
+	_chains.clear()
+	_sched = create_tween().set_parallel(true)
+	var t := 0.0
 	for si in steps.size():
-		var dur := 0.0
+		var hold := 0.0
 		for e in steps[si]:
-			print("EV ", Time.get_ticks_msec(), " ", e.e, " ", e.get("cause", ""), " ", e.get("sink", ""), " ", e.get("path", []).map(func(p): return p[0]))
-			dur = maxf(dur, _play_event(e, si > 0))
-		if dur > 0.0:
-			await get_tree().create_timer(dur).timeout
-	await get_tree().create_timer(0.05).timeout
+			hold = maxf(hold, _schedule_event(e, si > 0, t))
+		t += hold
+	_sched.tween_interval(maxf(t, 0.01))
+	await _sched.finished
+	_chains.clear()
 	_sync()
 	busy = false
 
 
-func _play_event(e: Dictionary, auto: bool) -> float:
+var _sched: Tween
+## ItemNode -> [Tween, end_time]: the item's animation chain for the current timeline.
+var _chains := {}
+
+
+## Returns the node's tween, padded with an interval so the next tweener starts at `start`.
+func _chain(n: Node, start: float) -> Tween:
+	var entry: Array = _chains.get(n, [])
+	var tw: Tween
+	var end := 0.0
+	if entry.is_empty():
+		tw = n.create_tween()
+	else:
+		tw = entry[0]
+		end = entry[1]
+	if start - end > 0.0005:
+		tw.tween_interval(start - end)
+	_chains[n] = [tw, maxf(start, end)]
+	return tw
+
+
+func _chain_end(n: Node, end: float) -> void:
+	_chains[n][1] = end
+
+
+func _at(start: float, f: Callable) -> void:
+	_sched.tween_callback(f).set_delay(start)
+
+
+## Schedules one event at time `start`; returns how long the timeline should
+## wait before the next step may begin.
+func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 	match e.e:
 		"move":
 			var n: ItemNode = nodes.get(e.id)
 			if n == null:
 				return 0.0
-			var tw := create_tween()
+			var tw := _chain(n, start)
 			var total := 0.0
 			var slide := GameConfig.ANIM_FALL if auto else GameConfig.ANIM_SLIDE
 			for seg in e.path:
@@ -352,14 +388,19 @@ func _play_event(e: Dictionary, auto: bool) -> float:
 							n.position = target
 							n.show())
 						total += GameConfig.ANIM_PIPE
+			_chain_end(n, start + total)
 			if e.sink != "":
 				var sink: String = e.sink
-				tw.tween_callback(func(): _explode(e.id, sink))
-				total += GameConfig.ANIM_DESTROY * 0.6
+				var id: int = e.id
+				_at(start + total, func(): _explode(id, sink))
+				total += GameConfig.ANIM_DESTROY * 0.5
 			return total
 		"destroy":
-			_explode(e.id, e.cause)
-			return GameConfig.ANIM_DESTROY
+			var id: int = e.id
+			var cause: String = e.cause
+			_at(start, func(): _explode(id, cause))
+			# Let the next step (usually items falling into the gap) start while the pop fades.
+			return GameConfig.ANIM_DESTROY * 0.55
 		"unlock":
 			var item: ItemNode = nodes.get(e.id)
 			var key: ItemNode = nodes.get(e.key)
@@ -367,25 +408,35 @@ func _play_event(e: Dictionary, auto: bool) -> float:
 				return 0.0
 			if key:
 				nodes.erase(e.key)
-				var tw := create_tween()
-				tw.tween_property(key, "position", key.position.lerp(item.position, 0.6), GameConfig.ANIM_UNLOCK * 0.6)
-				tw.parallel().tween_property(key, "scale", Vector2(0.4, 0.4), GameConfig.ANIM_UNLOCK * 0.6)
+				var tw := _chain(key, start)
+				var d := GameConfig.ANIM_UNLOCK * 0.6
+				# Target is where the locked item will be at that moment (it may still be falling).
+				tw.tween_callback(func():
+					var kt := key.create_tween().set_parallel(true)
+					kt.tween_property(key, "position", key.position.lerp(item.position, 0.6), d)
+					kt.tween_property(key, "scale", Vector2(0.4, 0.4), d))
+				tw.tween_interval(d)
 				tw.tween_callback(func():
 					Fx.destroy(fx_layer, item.position, ItemDefs.lock_color(item.lock), "key", cell)
 					item.lock = 0
 					item.queue_redraw()
 					key.queue_free())
+				_chain_end(key, start + d)
 			else:
-				item.lock = 0
-				item.queue_redraw()
+				_at(start, func():
+					item.lock = 0
+					item.queue_redraw())
 			return GameConfig.ANIM_UNLOCK
 		"break":
-			view_terrain[e.cell] = Board.T.FLOOR
-			Fx.debris(fx_layer, center(e.cell), Color(0.65, 0.45, 0.3))
-			return 0.15
+			var c: int = e.cell
+			_at(start, func():
+				view_terrain[c] = Board.T.FLOOR
+				Fx.debris(fx_layer, center(c), Color(0.65, 0.45, 0.3)))
+			return 0.12
 		"blast":
-			Fx.blast(fx_layer, center(e.cell), cell)
-			return 0.25
+			var c: int = e.cell
+			_at(start, func(): Fx.blast(fx_layer, center(c), cell))
+			return 0.2
 	return 0.0
 
 
