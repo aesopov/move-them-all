@@ -808,14 +808,27 @@ func _draw_liquid(c: int, t: int) -> void:
 	else:
 		draw_rect(r, cols[0])
 	var sd := c * 13
-	for k in 3:
-		var px := x0 + fposmod(sd * (k + 3) * 7.0 + _t * 12.0 * (k + 1), r.size.x)
-		var py := r.position.y + cell * (0.35 + 0.2 * k) + sin(_t * 2.0 + k + sd) * 3.0
-		if t == Board.T.WATER:
+	if t == Board.T.WATER:
+		# Ripples drift sideways with the current.
+		for k in 3:
+			var px := x0 + fposmod(sd * (k + 3) * 7.0 + _t * 12.0 * (k + 1), r.size.x)
+			var py := r.position.y + cell * (0.35 + 0.2 * k) + sin(_t * 2.0 + k + sd) * 3.0
 			draw_line(Vector2(px - cell * 0.1, py), Vector2(px + cell * 0.1, py), Color(cols[1], 0.5), 2.0)
-		else:
-			var bub := 0.5 + 0.5 * sin(_t * (2.0 + k) + sd)
-			draw_circle(Vector2(px, py), cell * (0.04 + 0.05 * bub), Color(cols[1], 0.35 + 0.4 * bub))
+		return
+	# Acid / lava: bubbles rise through the cell, wobble a little, grow, and fade out
+	# just under the surface (the top cell) or at the cell's top edge (deeper cells,
+	# where the cell above carries on the effect).
+	var top := r.position.y + (cell * 0.22 if surface else 0.0)
+	var span := r.end.y - top
+	for k in 3:
+		var speed := cell * (0.35 + 0.15 * k)
+		var rise := fposmod(_t * speed + sd * (k + 2) * 5.0, span)
+		var progress := rise / span
+		var px := x0 + r.size.x * (0.2 + 0.3 * k) + sin(_t * 3.0 + k * 2.0 + sd) * cell * 0.05
+		var py := r.end.y - rise
+		var radius := cell * (0.035 + 0.04 * progress)
+		var alpha := 0.75 * minf(1.0, (1.0 - progress) * 4.0) * minf(1.0, progress * 6.0)
+		draw_circle(Vector2(px, py), radius, Color(cols[1], alpha))
 
 
 ## Entrances (have a target) spin; exit-only teleports (only targeted) are a calm disc;
