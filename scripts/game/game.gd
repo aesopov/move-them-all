@@ -67,6 +67,7 @@ func _autoplay() -> void:
 	await get_tree().create_timer(0.5).timeout
 	var r := Solver.bfs(board, 12, 200000)
 	print("autoplay: found=%s moves=%d" % [r.found, r.solution.size()])
+	await get_tree().create_timer(1.0).timeout # keep the solver's frame out of --frametimes stats
 	for m in r.solution:
 		await _on_move(m.x, m.y)
 		await get_tree().create_timer(0.2).timeout

@@ -47,19 +47,6 @@ static func burst(parent: Node, pos: Vector2, col: Color, amount := 22, speed :=
 	p.finished.connect(p.queue_free)
 
 
-## The GL Compatibility renderer compiles a shader the first time something new is drawn.
-## For particles that caused a 0.3-0.8 s freeze on the first explosion of a level.
-## Drawing a nearly invisible burst on the first frames compiles it during level load instead.
-static func warm_up(parent: Node, pos: Vector2) -> void:
-	var holder := Node2D.new()
-	holder.modulate = Color(1, 1, 1, 0.01)
-	parent.add_child(holder)
-	burst(holder, pos, Color.WHITE, 4, 10.0, 0.0, 0.3, 0.2)
-	flash(holder, pos, Color.WHITE, 4.0, 0.3)
-	flash(holder, pos, Color.WHITE, 4.0, 0.3, false)
-	holder.get_tree().create_timer(1.0).timeout.connect(holder.queue_free)
-
-
 static func flash(parent: Node, pos: Vector2, col: Color, radius: float, time := 0.3, ring := true) -> void:
 	var f := Flash.new()
 	f.position = pos

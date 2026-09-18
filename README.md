@@ -60,7 +60,7 @@ Item types (gravity, behaviour) are table rows in [`scripts/core/item_defs.gd`](
 | `scripts/game/` | Board view and animation, item art, effects, world themes and backdrops, game screen. |
 | `scripts/editor/level_editor.gd` | Level designer. |
 | `scripts/ui/` | Welcome screen, level select (temporary), theme and widgets. |
-| `tools/` | Level generator, validator, rule and editor tests (headless). |
+| `tools/` | Level generator, validator, asset preparation scripts (headless). |
 
 ## Levels
 
@@ -85,9 +85,6 @@ Regenerate the built-in levels (each one is verified solvable):
 tools/generate_all.sh            # all worlds in parallel
 Godot --headless --script res://tools/generate_levels.gd -- --world=3 --level=5
 Godot --headless --script res://tools/validate_levels.gd
-Godot --headless --script res://tools/test_rules.gd
-Godot --headless --script res://tools/test_drag.gd
-Godot --headless --script res://tools/test_editor.gd
 ```
 
 The first level of worlds 2 to 8 is a handcrafted tutorial (`TUTORIALS` in the generator). Level 1-1 is a
