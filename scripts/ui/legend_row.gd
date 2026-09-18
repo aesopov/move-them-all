@@ -4,7 +4,7 @@ extends HBoxContainer
 ## One "icon + text" line (level goals, "In this level" legend). Scene: scenes/components/legend_row.tscn
 ## kind / text are exported so rows placed in a scene can be edited in the Inspector.
 
-@export_enum("item", "flag", "clock", "moves", "teleport", "pipe", "lock", "liquid", "wall", "breakable", "swatch")
+@export_enum("none", "item", "flag", "clock", "moves", "teleport", "pipe", "lock", "liquid", "wall", "breakable", "swatch")
 var kind := "flag":
 	set(v):
 		kind = v
@@ -34,6 +34,7 @@ func _apply() -> void:
 	var label := get_node_or_null("%Text") as Label
 	if icon == null or label == null:
 		return
+	icon.visible = kind != "none"
 	icon.kind = kind
 	icon.item_type = item_type
 	icon.extra = extra

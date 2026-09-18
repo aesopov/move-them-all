@@ -33,13 +33,17 @@ const PIPE_COLORS := [
 @export var editor_mode := false
 ## Draw teleport / pipe link arrows (designer).
 @export var show_links := false
+## Load the level's decoration scene (<level>_decor.tscn) when previewing in the editor.
+@export var show_decor := true
+
+## Decoration scene (see LevelDecor) currently shown on top of the board, if any.
+var decor_path := ""
+var _decor: LevelDecor
 
 var board: Board
 var max_cell := 78.0
 var origin := Vector2(PAD, PAD)
 var theme_data: Dictionary = WorldTheme.get_palette("jungle")
-## "flag" (default) or "arrow" (classic marker above the goal item). Levels may set "aim_marker".
-var aim_marker := "flag"
 var busy := false
 
 var hint_cell := -1
@@ -55,7 +59,6 @@ var _t := 0.0
 var _drag_item := -1
 var _pointer := Vector2.ZERO
 var _dragged := false
-var _blocked_dir := -1
 ## Incremented on every press, so the game can group the steps of one drag.
 var gesture := -1
 var _mouse_btn := 0
@@ -85,7 +88,8 @@ func _load_preview() -> void:
 	var d = JSON.parse_string(FileAccess.get_file_as_string(preview_level))
 	if d is Dictionary:
 		theme_data = WorldTheme.for_level(0, d)
-		aim_marker = str(d.get("aim_marker", "flag"))
+		if show_decor:
+			set_decor(LevelDecor.decor_path_for(preview_level))
 		set_board(Board.from_dict(d))
 
 
@@ -107,12 +111,40 @@ func _update_size() -> void:
 				var p := Board.to_xy(c)
 				lo = lo.min(p)
 				hi = hi.max(p)
+		if _decor and _decor.fit_cells.has_area():
+			lo = lo.min(_decor.fit_cells.position)
+			hi = hi.max(_decor.fit_cells.end - Vector2i.ONE)
 		if hi.x >= 0:
 			cells = Vector2(hi - lo + Vector2i.ONE)
 			cell = minf(fit_px / maxf(cells.x, cells.y), max_cell)
 			origin -= Vector2(lo) * cell
 	custom_minimum_size = cells * cell + Vector2.ONE * PAD * 2
 	size = custom_minimum_size
+	if _decor:
+		_decor.position = origin
+		_decor.scale = Vector2.ONE * cell / LevelDecor.CELL_PX
+
+
+## Shows a level decoration scene (or none for ""/missing). Call before set_board().
+func set_decor(path: String) -> void:
+	if path == decor_path:
+		return
+	decor_path = path
+	if _decor:
+		_decor.queue_free()
+		_decor = null
+	if path == "" or not ResourceLoader.exists(path):
+		return
+	var d := (load(path) as PackedScene).instantiate()
+	if not d is LevelDecor:
+		push_warning("%s: root must use level_decor.gd" % path)
+		d.free()
+		return
+	_decor = d
+	_decor.embedded = true
+	add_child(_decor)
+	move_child(_decor, items_layer.get_index()) # above the board, below the items
+	_update_size()
 
 
 func set_board(b: Board) -> void:
@@ -178,8 +210,8 @@ func _sync() -> void:
 			n = ItemNode.new()
 			items_layer.add_child(n)
 			nodes[i] = n
+		n.show_goal = editor_mode # goals are hidden in play, shown in the level designer
 		n.setup(i, board.it_type[i], board.it_lock[i], board.it_aim[i] == 1, cell)
-		n.marker = aim_marker
 		n.position = center(c)
 		n.scale = Vector2.ONE
 		n.modulate = Color.WHITE
@@ -193,10 +225,13 @@ func _compute_groups() -> void:
 	for c in Board.N:
 		if board.teleport_to[c] != -2:
 			var t := board.teleport_to[c]
-			var k := mini(c, t) if t >= 0 and board.teleport_to[t] == c else c
-			# one-way chains share the colour of their target so pairs read clearly
-			if t >= 0 and board.teleport_to[t] != c:
-				k = mini(c, t)
+			# A pair (one-way or two-way) shares one colour, keyed by its lower cell.
+			var k := mini(c, t) if t >= 0 else c
+			if t < 0:
+				for o in Board.N:
+					if board.teleport_to[o] == c:
+						k = mini(o, c)
+						break
 			if not keys.has(k):
 				keys[k] = keys.size()
 			_tele_col[c] = GROUP_COLORS[keys[k] % GROUP_COLORS.size()]
@@ -242,7 +277,6 @@ func _gui_input(event: InputEvent) -> void:
 			_drag_item = board.item_at[c]
 			_pointer = event.position
 			_dragged = false
-			_blocked_dir = -1
 			gesture += 1
 		elif _drag_item >= 0:
 			var i := _drag_item
@@ -297,30 +331,13 @@ func _drive_drag() -> void:
 		if delta.y != 0: dirs.append(vert)
 		if delta.x != 0: dirs.append(horiz)
 	if dirs.is_empty():
-		_blocked_dir = -1
 		return
+	# A drag towards a blocked cell counts as dragging (no bomb tap on release), but does nothing.
+	_dragged = true
 	for d in dirs:
 		if board.can_move(i, d):
-			_dragged = true
-			_blocked_dir = -1
 			move_requested.emit(i, d)
 			return
-	# Blocked: shake once per blocked direction, not every frame.
-	_dragged = true
-	if dirs[0] != _blocked_dir:
-		_blocked_dir = dirs[0]
-		shake(i)
-
-
-func shake(i: int) -> void:
-	var n: ItemNode = nodes.get(i)
-	if n == null:
-		return
-	var base := n.position
-	var tw := create_tween()
-	for k in 4:
-		tw.tween_property(n, "position", base + Vector2(5 if k % 2 == 0 else -5, 0), 0.04)
-	tw.tween_property(n, "position", base, 0.04)
 
 
 # ---------------------------------------------------------------------------
@@ -791,9 +808,25 @@ func _draw_liquid(c: int, t: int) -> void:
 			draw_circle(Vector2(px, py), cell * (0.04 + 0.05 * bub), Color(cols[1], 0.35 + 0.4 * bub))
 
 
+## Entrances (have a target) spin; exit-only teleports (only targeted) are a calm disc;
+## teleports nothing links to or from are grey.
 func _draw_teleport(c: int) -> void:
 	var ctr := center(c)
-	var linked := board.teleport_to[c] >= 0
+	var entrance := board.teleport_to[c] >= 0
+	var exit_only := not entrance and board.teleport_to.has(c)
+	if exit_only:
+		var ecol: Color = _tele_col.get(c, GROUP_COLORS[0])
+		var btex := AssetLib.teleport("base")
+		if btex:
+			draw_texture_rect(btex, _cell_rect(c), false, ecol)
+		else:
+			draw_colored_polygon(ItemArt.rrect(_cell_rect(c).grow(-cell * 0.08), cell * 0.18), ecol.darkened(0.55))
+			draw_circle(ctr, cell * 0.36, ecol.darkened(0.3))
+		for k in 3:
+			draw_arc(ctr, cell * (0.1 + 0.09 * k), 0, TAU, 24, ecol.lightened(0.1 + 0.12 * k), cell * 0.03, true)
+		draw_circle(ctr, cell * 0.05, ecol.lightened(0.5))
+		return
+	var linked := entrance
 	var col: Color = _tele_col.get(c, GROUP_COLORS[0]) if linked else Color(0.55, 0.55, 0.6)
 	var base_tex := AssetLib.teleport("base")
 	if base_tex:

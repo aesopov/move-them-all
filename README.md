@@ -1,7 +1,7 @@
 # Merge Them All
 
 A Godot 4 (4.7+) 2D puzzle game: 12×12 boards, 110 levels in 11 themed worlds, and a built-in level designer.
-Garden Gate, Jungle terrain and scenery, core items, colored keys, lock badges, goal flags and water/lava/acid tiles include generated PNG art in `assets/`; missing assets use procedural drawing as a fallback.
+Garden Gate, Jungle terrain and scenery, core items, colored keys, lock badges, the designer's goal flag and water/lava/acid tiles include generated PNG art in `assets/`; missing assets use procedural drawing as a fallback.
 Original artwork and generation prompts are preserved in `assets/reference/`.
 Run `bash tools/prepare_garden_assets.sh` (requires ImageMagick) to rebuild the Garden Gate sprites from the source sheets.
 
@@ -18,7 +18,8 @@ Debug flags (after `--`): `--level=res://levels/world_03/level_05.json`, `--scen
 
 ## Rules
 
-* **Goal**: destroy every item with a flag (`aim: true`).
+* **Goal**: destroy every goal piece (`aim: true`). Goal pieces aren't marked on the board; the HUD's
+  Goals counter shows progress. The level designer shows them with a flag.
 * **Moving**: press an item and drag. While the button is held, the item keeps stepping one cell at a time
   towards the pointer (up/down/left/right only). It stops at obstacles and other items. Every step is resolved
   (gravity, matches, teleports...), so the item can fall or explode on the way. A teleport or pipe jump
@@ -86,8 +87,28 @@ Item types (gravity, behaviour) are table rows in [`scripts/core/item_defs.gd`](
 Designer levels go to `levels/custom/` (when running from the editor) or `user://levels/`.
 
 Optional fields: `"skins"` (12 rows: `b` brick wall, `p` pipe frame; visual only), `"theme"` (override the
-world's look, e.g. `"garden"`), `"aim_marker": "arrow"`, and `"handcrafted": true` (the generator never
-overwrites the level). Level 1-1 "Garden Gate" uses all of them.
+world's look, e.g. `"garden"`), and `"handcrafted": true` (the generator never overwrites the level;
+levels 1-1 and 1-2 use it).
+
+### Level decorations (built in the Godot editor)
+
+A level can have a decoration scene next to it: `level_02.json` → `level_02_decor.tscn`. It is purely visual
+(the rules never see it) and is drawn over the board, aligned to the grid at any zoom. Open it in the Godot
+editor: the level's board is shown underneath with a cell grid (64 px per cell; cell `(x, y)` spans
+`x*64 … x*64+64`). Use any Godot nodes:
+
+- **`DecorItem`**: a picture of an item for hints (can't be moved or destroyed). Set `item_name`, `lock` and `size`.
+- **`DecorArrow`**: a hint arrow. Set `direction`, `color` and `length`; it bobs in-game.
+- **`Label`**: text with any font, size, colour, outline or rotation (use `LabelSettings`).
+- **`Sprite2D` / `Polygon2D` / `TextureRect`**: as many texture layers as you like.
+- **Clip masks**: set `Clip Children` on a node, and its children only draw inside it.
+
+The root node (`LevelDecor`) has two settings:
+- `fit_cells`: the cells the game must keep in view when zooming. This matters for hints outside the playfield, e.g. `Rect2i(0, 0, 10, 10)`.
+- `preview_level`: an optional override for the level drawn underneath.
+
+Children draw above the board and below the pieces; set `z_index = 1` to draw above the pieces. Level 1-2 is the example:
+a textured, clipped hint panel with sample pieces, a text label, and arrows.
 
 ```json
 { "name": "Portal Hop", "moves": 5, "time": 75,

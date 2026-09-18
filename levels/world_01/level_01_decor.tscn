@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_ef880"]
+[ext_resource type="Script" path="res://scripts/game/decor_arrow.gd" id="2_rh40r"]
+
+[node name="Decor" type="Node2D" unique_id=2086091622]
+script = ExtResource("1_ef880")
+
+[node name="HintArrow" type="Node2D" parent="." unique_id=553897656]
+position = Vector2(416, 288)
+script = ExtResource("2_rh40r")
+direction = "down"

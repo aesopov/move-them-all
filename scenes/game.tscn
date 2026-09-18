@@ -81,13 +81,11 @@ custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="FlagIcon" type="Control" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1048768809]
-custom_minimum_size = Vector2(30, 30)
+[node name="GoalsCaption" type="Label" parent="Margin/Columns/Main/Hud/HudRow"]
 layout_mode = 2
 size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_gee14")
-kind = "flag"
+theme_type_variation = &"HudCaption"
+text = "Goals"
 
 [node name="AimsLabel" type="Label" parent="Margin/Columns/Main/Hud/HudRow" unique_id=1573836977]
 unique_name_in_owner = true
@@ -173,7 +171,8 @@ text = "Level goals"
 layout_mode = 2
 theme_override_constants/separation = 10
 script = ExtResource("6_kvpfn")
-text = "Destroy every flagged item"
+kind = "none"
+text = "Destroy all goal pieces. The Goals counter at the top shows your progress."
 
 [node name="MovesGoal" type="HBoxContainer" parent="Margin/Columns/Side/SideRows" unique_id=434704998 instance=ExtResource("5_vtaks")]
 unique_name_in_owner = true

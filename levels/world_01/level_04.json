@@ -1,51 +1,69 @@
 {
-	"items": [
-		{
-			"type": "star",
-			"x": 7,
-			"y": 8
-		},
-		{
-			"type": "star",
-			"x": 6,
-			"y": 5
-		},
-		{
-			"aim": true,
-			"type": "crystal",
-			"x": 7,
-			"y": 5
-		},
-		{
-			"type": "crystal",
-			"x": 6,
-			"y": 7
-		},
-		{
-			"type": "crystal",
-			"x": 5,
-			"y": 3
-		}
-	],
-	"moves": 5,
-	"name": "Hidden Grove",
-	"optimal": 2,
-	"pipes": [],
-	"teleports": [],
+	"version": 1,
+	"name": "Through the Pipe",
+	"moves": 7,
+	"time": 80,
 	"terrain": [
 		"------------",
 		"------------",
+		"--...---...-",
+		"--#.#---...-",
+		"--...---...-",
+		"--...---...-",
+		"--...---...-",
+		"--...---#.#-",
+		"--...---...-",
 		"------------",
-		"---......---",
-		"---......---",
-		"---#.....---",
-		"---......---",
-		"---......---",
-		"---......---",
-		"------------",
-		"------------",
-		"------------"
+		"wwwwwwwwwwww",
+		"wwwwwwwwwwww"
 	],
-	"time": 65,
-	"version": 1
+	"items": [
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 2,
+			"aim": true
+		},
+		{
+			"type": "balloon",
+			"x": 4,
+			"y": 2,
+			"aim": true
+		},
+		{
+			"type": "balloon",
+			"x": 8,
+			"y": 8,
+			"aim": true
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 8,
+			"aim": true
+		}
+	],
+	"teleports": [],
+	"pipes": [
+		{
+			"x": 4,
+			"y": 8,
+			"mouth": "left",
+			"to": [
+				8,
+				2
+			]
+		},
+		{
+			"x": 8,
+			"y": 2,
+			"mouth": "right",
+			"to": [
+				4,
+				8
+			]
+		}
+	],
+	"handcrafted": true,
+	"optimal": 4
 }

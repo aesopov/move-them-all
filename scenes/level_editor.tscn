@@ -153,21 +153,6 @@ item_count = 1
 popup/item_0/text = "World default"
 popup/item_0/id = 0
 
-[node name="MarkerCaption" type="Label" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=1371025613]
-layout_mode = 2
-theme_type_variation = &"BodyLabel"
-text = "Goal marker"
-
-[node name="MarkerOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=1591916059]
-unique_name_in_owner = true
-layout_mode = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "Flag"
-popup/item_0/id = 0
-popup/item_1/text = "Arrow"
-popup/item_1/id = 1
-
 [node name="SolveButton" type="Button" parent="Margin/Columns/PropsPanel/Props" unique_id=156678399]
 unique_name_in_owner = true
 layout_mode = 2

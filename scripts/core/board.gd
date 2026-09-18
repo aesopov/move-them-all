@@ -39,7 +39,7 @@ var time_limit := 120
 var terrain := PackedByteArray()
 var wall_skin := PackedByteArray()
 ## Extra level fields the rules don't use but must survive load/save
-## (e.g. "theme", "aim_marker", "handcrafted", "optimal").
+## (e.g. "theme", "handcrafted", "optimal").
 var meta := {}
 ## -2 = no teleport, -1 = teleport without target, >=0 target cell.
 var teleport_to := PackedInt32Array()

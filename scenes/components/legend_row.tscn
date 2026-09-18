@@ -6,7 +6,7 @@
 [node name="LegendRow" type="HBoxContainer" unique_id=1970990785]
 theme_override_constants/separation = 10
 script = ExtResource("1_kfckb")
-text = "Destroy every flagged item"
+text = "Legend text"
 
 [node name="Icon" type="Control" parent="." unique_id=1012274296]
 unique_name_in_owner = true
@@ -22,6 +22,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BodyLabel"
-text = "Destroy every flagged item"
+text = "Legend text"
 vertical_alignment = 1
 autowrap_mode = 3

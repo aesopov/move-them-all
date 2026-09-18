@@ -4,11 +4,8 @@ extends RefCounted
 ## scaled by `s` (the cell size), so it stays crisp at any resolution.
 
 
-static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, aim := false, t := 0.0, marker := "flag") -> void:
-	if aim and marker == "flag":
-		var pulse := 0.5 + 0.5 * sin(t * 3.0)
-		ci.draw_circle(Vector2.ZERO, s * (0.44 + 0.02 * pulse), Color(1.0, 0.85, 0.3, 0.16 + 0.1 * pulse))
-		ci.draw_arc(Vector2.ZERO, s * 0.45, 0, TAU, 32, Color(1.0, 0.85, 0.3, 0.45 + 0.3 * pulse), s * 0.03, true)
+## goal_marker: draw the goal flag (only the level designer does; goals are hidden in play).
+static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marker := false, t := 0.0) -> void:
 	var col := ItemDefs.color(type)
 	var tex := AssetLib.item(ItemDefs.name_of(type))
 	if tex:
@@ -17,11 +14,8 @@ static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, aim := fal
 		_draw_shape(ci, type, s, col, t)
 	if lock != 0:
 		draw_lock(ci, s, lock, Vector2(s * 0.14, s * 0.18), 0.85)
-	if aim:
-		if marker == "arrow":
-			_aim_arrow(ci, s, t)
-		else:
-			_flag(ci, s, t)
+	if goal_marker:
+		_flag(ci, s, t)
 
 
 static func _draw_shape(ci: CanvasItem, type: int, s: float, col: Color, t: float) -> void:
@@ -40,22 +34,12 @@ static func _draw_shape(ci: CanvasItem, type: int, s: float, col: Color, t: floa
 		"torus": _torus(ci, s, col)
 		"sphere": _sphere(ci, s, col)
 		"cone": _cone(ci, s, col)
+		"weight": _weight(ci, s, col)
 		_:
 			if ItemDefs.kind(type) == ItemDefs.Kind.KEY:
 				_key(ci, s, col)
 			else:
 				ci.draw_circle(Vector2.ZERO, s * 0.35, col)
-
-
-## Classic goal marker: a glossy blue arrow bobbing in the cell above, pointing down at the item.
-static func _aim_arrow(ci: CanvasItem, s: float, t: float) -> void:
-	var y := -s * 0.98 + sin(t * 4.0) * s * 0.05
-	var c := Color(0.55, 0.62, 1.0)
-	var body := pts(s, [-0.1, -0.3, 0.1, -0.3, 0.1, 0.0, 0.26, 0.0, 0.0, 0.3, -0.26, 0.0, -0.1, 0.0])
-	for i in body.size():
-		body[i] += Vector2(0, y)
-	_poly(ci, body, c, Color(0.2, 0.25, 0.7), s * 0.025)
-	ci.draw_colored_polygon(PackedVector2Array([body[0], body[1], body[2] + Vector2(-s * 0.1, 0), body[6] + Vector2(0, 0)]), Color(1, 1, 1, 0.45))
 
 
 static func _shade(c: Color, k: float) -> Color:
@@ -118,6 +102,20 @@ static func _sphere(ci: CanvasItem, s: float, c: Color) -> void:
 		var f := 1.0 - k * 0.14
 		ci.draw_circle(Vector2(-0.07, -0.08) * s * (1.0 - f), r * f * 0.98, c.lerp(c.lightened(0.45), k / 6.0))
 	ci.draw_colored_polygon(ellipse(Vector2(-0.14, -0.16) * s, s * 0.1, s * 0.065, -0.7), Color(1, 1, 1, 0.75))
+
+
+## A heavy down-arrow block on a stone base: it falls.
+static func _weight(ci: CanvasItem, s: float, c: Color) -> void:
+	var base := pts(s, [-0.3, 0.28, 0.3, 0.28, 0.34, 0.42, -0.34, 0.42])
+	_poly(ci, base, Color(0.62, 0.62, 0.68), Color(0.25, 0.25, 0.3), s * 0.03)
+	var arrow := pts(s, [-0.16, -0.44, 0.16, -0.44, 0.16, -0.06, 0.38, -0.06, 0.0, 0.36, -0.38, -0.06, -0.16, -0.06])
+	var depth := arrow.duplicate() # extruded copy behind the face
+	for i in depth.size():
+		depth[i] += Vector2(0.07, 0.05) * s
+	ci.draw_colored_polygon(depth, c.darkened(0.5))
+	_poly(ci, arrow, c, c.darkened(0.6), s * 0.03)
+	ci.draw_colored_polygon(pts(s, [-0.16, -0.44, -0.04, -0.44, -0.04, -0.1, -0.26, -0.1]), c.lightened(0.35))
+	ci.draw_line(Vector2(-0.3, -0.06) * s, Vector2(0.0, 0.3) * s, Color(0.7, 1.0, 1.0, 0.8), s * 0.03, true)
 
 
 static func _cone(ci: CanvasItem, s: float, c: Color) -> void:

@@ -3,7 +3,7 @@ class_name IconView
 extends Control
 ## Small vector icon: an item type, or one of the symbols below. Previews in the editor.
 
-@export_enum("item", "flag", "clock", "moves", "teleport", "pipe", "lock", "liquid", "wall", "breakable", "swatch")
+@export_enum("none", "item", "flag", "clock", "moves", "teleport", "pipe", "lock", "liquid", "wall", "breakable", "swatch")
 var kind := "item":
 	set(v):
 		kind = v

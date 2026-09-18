@@ -21,7 +21,6 @@ var _group := ButtonGroup.new()
 @onready var _load_opt: OptionButton = %LoadOption
 @onready var _dest_opt: OptionButton = %DestOption
 @onready var _theme_opt: OptionButton = %ThemeOption
-@onready var _marker_opt: OptionButton = %MarkerOption
 @onready var _tool_hint: Label = %ToolHint
 
 const TOOL_HINTS := {
@@ -136,12 +135,6 @@ func _init_props() -> void:
 		else:
 			board.meta["theme"] = key
 		_apply_theme_preview())
-	_marker_opt.item_selected.connect(func(i):
-		if i == 1:
-			board.meta["aim_marker"] = "arrow"
-		else:
-			board.meta.erase("aim_marker")
-		_apply_theme_preview())
 	if App.can_write_project():
 		_dest_opt.add_item("Project (res://levels/custom)", 1)
 		_dest_opt.select(1)
@@ -162,7 +155,7 @@ func _init_props() -> void:
 ## Preview with the level's own theme, else its world's (custom levels: crystal caves).
 func _apply_theme_preview() -> void:
 	view.theme_data = WorldTheme.for_level(App.locate(current_path).x, board.meta)
-	view.aim_marker = str(board.meta.get("aim_marker", "flag"))
+	view.set_decor(LevelDecor.decor_path_for(current_path) if current_path != "" else "")
 	view.refresh()
 
 
@@ -356,7 +349,6 @@ func _sync_fields() -> void:
 	for i in _theme_opt.item_count:
 		if _theme_opt.get_item_metadata(i) == board.meta.get("theme"):
 			_theme_opt.select(i)
-	_marker_opt.select(1 if board.meta.get("aim_marker") == "arrow" else 0)
 	_apply_theme_preview()
 
 

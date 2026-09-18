@@ -29,7 +29,7 @@ func _ready() -> void:
 	start_board = board.clone()
 
 	view.theme_data = td
-	view.aim_marker = str(App.current_data.get("aim_marker", "flag"))
+	view.set_decor(LevelDecor.decor_path_for(App.current_path if not App.testing_from_editor else App.editor_path))
 	view.set_board(board)
 	view.move_requested.connect(_on_move)
 
@@ -158,7 +158,6 @@ func _on_move(i: int, d: int) -> void:
 	if finished or paused or view.busy:
 		return
 	if not board.can_move(i, d):
-		view.shake(i)
 		return
 	# One undo entry per drag gesture, however many cells it covered.
 	var same_gesture := view.gesture == _last_gesture and view.gesture >= 0
@@ -320,7 +319,7 @@ func _win() -> void:
 func _lose(reason: String) -> void:
 	finished = true
 	var o := _open_overlay(reason)
-	o.add_text("The flagged items survived this time.")
+	o.add_text("Some goal pieces survived this time.")
 	o.add_button("Try again", _restart)
 	if not history.is_empty():
 		o.add_button("Undo last move", func():

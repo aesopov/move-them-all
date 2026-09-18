@@ -1,6 +1,8 @@
 # 09: Level 1 "Garden Gate" (classic look)
 
-Assets for `levels/world_01/level_01.json` (theme `garden`, goal marker `arrow`).
+Assets for the classic look (theme `garden`: brick tiles, pipe frame, shapes). Levels 1-1 and 1-2 now use the
+normal World 1 theme, so of this file only the **item shapes** (pyramid, cube, torus, sphere, cone) are in use.
+The rest is kept for any level that sets `"theme": "garden"`.
 The game already draws all of these in code. Drop the PNGs at the listed paths and they take over automatically
 (see `scripts/game/asset_lib.gd`). Nothing else needs changing.
 
@@ -28,9 +30,17 @@ all the same size, readable at 64 px.
 ```
 > The torus is green, so the key is magenta. Slice into `pyramid.png`, `cube.png`, `torus.png`, `sphere.png`, `cone.png`.
 
-## Goal arrow (64×64)
+**Weight** (falling piece, level 1-4), `assets/items/weight.png`:
+```
+A heavy glossy steel-blue 3D arrow block pointing straight down, sitting on a small grey stone base, beveled edges
+with a cyan edge highlight, clearly heavy. Centered on a flat solid pure green (#00FF00) background, no text.
+Clean glossy 3D-rendered game sprite, soft studio lighting from the top-left, thin dark outline, readable at 64 px.
+```
 
-The game draws it bobbing in the cell above each goal item. If you want a sprite for the menu or tutorial:
+## Hint arrow (64×64)
+
+Hint arrows are `DecorArrow` nodes in level decoration scenes (drawn in code). If you want a sprite instead,
+use it in a decoration scene as a `Sprite2D`:
 ```
 A glossy periwinkle-blue 3D arrow pointing straight down, rounded edges, a white highlight on the upper left, thin
 darker blue outline. Centered on a flat solid pure green (#00FF00) background, no text.
