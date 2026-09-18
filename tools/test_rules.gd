@@ -58,6 +58,26 @@ func _init() -> void:
 	check(not b.can_move(pl, Board.LEFT), "padlock can't be moved")
 	b.play(ky, Board.RIGHT)
 	check(b.it_cell[pl] < 0 and b.it_cell[ky] < 0 and b.is_won(), "key opens padlock, both disappear")
+	# Contact unlocks before a falling key can drop out of reach.
+	for standalone in [true, false]:
+		b = Board.new()
+		var target := b.add_item(ItemDefs.index_of("padlock" if standalone else "shell"), Board.cell_of(0, 2), ItemDefs.LockColor.RED)
+		var key := b.add_item(ItemDefs.index_of("key_red"), Board.cell_of(2, 2), 0, false, ItemDefs.Gravity.FALL)
+		var events := b.play(key, Board.LEFT)
+		check(b.it_cell[key] == -1 and b.it_lock[target] == 0, "falling key unlocks on horizontal contact (standalone=%s)" % standalone)
+		check(events[1][0].e == "unlock", "unlock animation precedes gravity")
+		check(b.it_cell[target] == -1 if standalone else b.it_cell[target] == Board.cell_of(0, Board.H - 1), "opened lock disappears or released item falls")
+	# Falling past a lock also counts as contact, even without a supporting floor.
+	b = Board.new()
+	var falling_key := b.add_item(ItemDefs.index_of("key_red"), Board.cell_of(1, 0), 0, false, ItemDefs.Gravity.FALL)
+	var passing_lock := b.add_item(ItemDefs.index_of("padlock"), Board.cell_of(0, 3), ItemDefs.LockColor.RED)
+	b.settle()
+	check(b.it_cell[falling_key] == -1 and b.it_cell[passing_lock] == -1, "key unlocks between gravity ticks")
+	b = Board.new()
+	var wrong_key := b.add_item(ItemDefs.index_of("key_green"), Board.cell_of(2, 2), 0, false, ItemDefs.Gravity.FALL)
+	var red_lock := b.add_item(ItemDefs.index_of("padlock"), Board.cell_of(0, 2), ItemDefs.LockColor.RED)
+	b.play(wrong_key, Board.LEFT)
+	check(b.it_cell[wrong_key] == Board.cell_of(1, Board.H - 1) and b.it_lock[red_lock] == ItemDefs.LockColor.RED, "wrong-color key still falls without unlocking")
 	# per-piece gravity override: a falling key
 	b = Board.new()
 	var fk := b.add_item(ItemDefs.index_of("key_red"), Board.cell_of(0, 0), 0, false, ItemDefs.Gravity.FALL)

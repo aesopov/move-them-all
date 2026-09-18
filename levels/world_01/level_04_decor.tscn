@@ -1,25 +1,11 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_jc8ll"]
+[ext_resource type="Script" path="res://scripts/game/decor_pipe.gd" id="2_pipe"]
 
 [node name="Decor" type="Node2D" unique_id=1528955987]
 script = ExtResource("1_jc8ll")
 
-[node name="TubeOutline" type="Line2D" parent="." unique_id=1701392557]
+[node name="Tube" type="Node2D" parent="."]
+script = ExtResource("2_pipe")
 points = PackedVector2Array(320, 544, 416, 544, 416, 160, 512, 160)
-width = 39.68
-default_color = Color(0.099999994, 0.288, 0.12, 1)
-joint_mode = 2
-
-[node name="Tube" type="Line2D" parent="." unique_id=1871828974]
-points = PackedVector2Array(320, 544, 416, 544, 416, 160, 512, 160)
-width = 33.28
-default_color = Color(0.25, 0.72, 0.3, 1)
-joint_mode = 2
-
-[node name="TubeShine" type="Line2D" parent="." unique_id=1516119657]
-position = Vector2(-6.4, -6.4)
-points = PackedVector2Array(320, 544, 416, 544, 416, 160, 512, 160)
-width = 7.68
-default_color = Color(0.5875, 0.846, 0.615, 1)
-joint_mode = 2

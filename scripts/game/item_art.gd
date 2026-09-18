@@ -125,7 +125,11 @@ static func _weight(ci: CanvasItem, s: float, c: Color) -> void:
 
 ## A standalone padlock piece, drawn big in its lock colour.
 static func _padlock(ci: CanvasItem, s: float, lock: int) -> void:
-	var tex := AssetLib.overlay("lock_%s" % ItemDefs.LOCK_NAMES[lock]) if lock > 0 else null
+	var tex: Texture2D = null
+	if lock > 0 and lock < ItemDefs.LOCK_NAMES.size():
+		tex = AssetLib.item("padlock_%s" % ItemDefs.LOCK_NAMES[lock])
+		if tex == null:
+			tex = AssetLib.overlay("lock_%s" % ItemDefs.LOCK_NAMES[lock])
 	if tex:
 		ci.draw_texture_rect(tex, Rect2(Vector2(-0.4, -0.42) * s, Vector2(0.8, 0.84) * s), false)
 	else:

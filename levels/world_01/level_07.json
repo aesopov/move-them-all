@@ -1,56 +1,118 @@
 {
+	"version": 1,
+	"name": "Keys Above the Fire",
+	"theme": "jungle",
+	"moves": 60,
+	"time": 360,
+	"terrain": [
+		"##....######",
+		"##...#######",
+		"........####",
+		"##...#######",
+		"##...#######",
+		".......#####",
+		"##...#######",
+		"##lll#######",
+		"############",
+		"############",
+		"############",
+		"############"
+	],
+	"skins": [
+		"bb....bbbbbb",
+		"bb...bbbbbbb",
+		"........bbbb",
+		"bb...bbbbbbb",
+		"bb...bbbbbbb",
+		".......bbbbb",
+		"bb...bbbbbbb",
+		"bb...bbbbbbb",
+		"bbbbbbbbbbbb",
+		"bbbbbbbbbbbb",
+		"bbbbbbbbbbbb",
+		"bbbbbbbbbbbb"
+	],
 	"items": [
 		{
-			"type": "plant",
-			"x": 2,
-			"y": 3
-		},
-		{
-			"aim": true,
-			"type": "plant",
-			"x": 1,
-			"y": 6
-		},
-		{
-			"type": "star",
-			"x": 8,
-			"y": 3
-		},
-		{
-			"type": "star",
-			"x": 9,
-			"y": 5
-		},
-		{
-			"type": "crystal",
-			"x": 2,
-			"y": 7
-		},
-		{
-			"type": "crystal",
+			"type": "key_red",
 			"x": 5,
-			"y": 2
+			"y": 0,
+			"gravity": "fall",
+			"aim": true
+		},
+		{
+			"type": "key_green",
+			"x": 0,
+			"y": 2,
+			"gravity": "fall",
+			"aim": true
+		},
+		{
+			"type": "padlock",
+			"x": 1,
+			"y": 2,
+			"lock": "red",
+			"aim": true
+		},
+		{
+			"type": "padlock",
+			"x": 5,
+			"y": 2,
+			"lock": "green",
+			"aim": true
+		},
+		{
+			"type": "key_red",
+			"x": 6,
+			"y": 2,
+			"gravity": "fall",
+			"aim": true
+		},
+		{
+			"type": "key_red",
+			"x": 7,
+			"y": 2,
+			"gravity": "fall",
+			"aim": true
+		},
+		{
+			"type": "mover_green",
+			"x": 3,
+			"y": 3
+		},
+		{
+			"type": "mover_red",
+			"x": 3,
+			"y": 4
+		},
+		{
+			"type": "weight_red",
+			"x": 0,
+			"y": 5,
+			"aim": true
+		},
+		{
+			"type": "padlock",
+			"x": 1,
+			"y": 5,
+			"lock": "red",
+			"aim": true
+		},
+		{
+			"type": "padlock",
+			"x": 5,
+			"y": 5,
+			"lock": "red",
+			"aim": true
+		},
+		{
+			"type": "weight_red",
+			"x": 6,
+			"y": 5,
+			"aim": true
 		}
 	],
-	"moves": 7,
-	"name": "Lost Corner",
-	"optimal": 3,
-	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-......#..--",
-		"-......#..--",
-		"-......##.--",
-		"-..##.#.#.--",
-		"-.....#.#.--",
-		"-.........--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"pipes": [],
+	"handcrafted": true
 }

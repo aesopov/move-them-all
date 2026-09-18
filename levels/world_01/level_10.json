@@ -1,67 +1,62 @@
 {
+	"version": 1,
+	"name": "Falling into Place",
+	"theme": "jungle",
+	"moves": 15,
+	"time": 180,
+	"terrain": [
+		"............",
+		".##########.",
+		".#........#.",
+		".#.#....#.#.",
+		".#........#.",
+		".#...##...#.",
+		".#...##...#.",
+		".#........#.",
+		".#.#....#.#.",
+		".#........#.",
+		".##########.",
+		"............"
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "star",
+			"type": "weight_red",
 			"x": 3,
-			"y": 2
+			"y": 2,
+			"aim": true
 		},
 		{
-			"type": "star",
+			"type": "weight_red",
+			"x": 8,
+			"y": 2,
+			"aim": true
+		},
+		{
+			"type": "weight",
 			"x": 5,
-			"y": 4
+			"y": 4,
+			"aim": true
 		},
 		{
-			"type": "plant",
-			"x": 4,
-			"y": 9
+			"type": "weight_red",
+			"x": 6,
+			"y": 4,
+			"aim": true
 		},
 		{
-			"type": "plant",
-			"x": 10,
-			"y": 1
+			"type": "weight",
+			"x": 3,
+			"y": 7,
+			"aim": true
 		},
 		{
-			"aim": true,
-			"type": "plant",
-			"x": 2,
-			"y": 8
-		},
-		{
-			"type": "crystal",
-			"x": 7,
-			"y": 1
-		},
-		{
-			"type": "crystal",
-			"x": 1,
-			"y": 6
-		},
-		{
-			"type": "crystal",
-			"x": 7,
-			"y": 10
+			"type": "weight",
+			"x": 8,
+			"y": 7,
+			"aim": true
 		}
 	],
-	"moves": 13,
-	"name": "Misty Pocket",
-	"optimal": 8,
-	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"-..........-",
-		"-.#........-",
-		"-.#........-",
-		"-..........-",
-		"-..........-",
-		"-....###...-",
-		"-#.........-",
-		"-..........-",
-		"-.......#..-",
-		"-.......#..-",
-		"------------"
-	],
-	"time": 120,
-	"version": 1
+	"pipes": [],
+	"handcrafted": true
 }

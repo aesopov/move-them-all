@@ -16,6 +16,7 @@ automatically** instead of its procedural art (see `scripts/game/asset_lib.gd`).
 | [07_menu_ui.md](07_menu_ui.md) | Logo, welcome screen, level-select cards, panels, buttons, icons, banners, mascot |
 | [08_effects.md](08_effects.md) | Particle sprites and explosion flipbooks |
 | [09_level1_classic.md](09_level1_classic.md) | Level 1 "Garden Gate": pyramid, cube, torus, sphere, cone, brick tiles, pipe-frame pieces, garden background |
+| [10_new_pieces.md](10_new_pieces.md) | Blue/red weights, alert blocks, four-way movers and standalone padlocks |
 
 ## Style bible (keep it consistent)
 
@@ -74,8 +75,8 @@ assets/
   tiles/skins/  ✓ brick.png ✓ pipe_straight.png ✓ pipe_elbow.png ✓ pipe_ball.png ✓ pipe_block.png
   backgrounds/  ✓ <theme>.png
   liquids/      ✓ water_surface.png water_body.png lava_surface.png ... acid_body.png
-  pipes/        pipe_mouth.png pipe_straight.png pipe_elbow.png
-  teleports/    teleport_base.png teleport_swirl.png
+  pipes/        ✓ pipe_mouth.png pipe_straight.png pipe_elbow.png pipe_tee.png pipe_cross.png pipe_cap.png
+  teleports/    ✓ teleport_base.png teleport_swirl.png
   backgrounds/  menu.png  level_select.png
   frames/       <theme>_frame_9slice.png
   ui/           logo.png panel_9slice.png button_*.png icons.png banner.png mascot.png world_card_<theme>.png

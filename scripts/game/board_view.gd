@@ -521,6 +521,8 @@ func _cell_rect(c: int) -> Rect2:
 func _draw() -> void:
 	if board == null:
 		return
+	var grouped_walls := AssetLib.tile(theme_data.key, "wall_2x1_a") != null and AssetLib.tile(theme_data.key, "wall_1x2_a") != null
+	var wall_layout := WallArt.layout(board, view_terrain) if grouped_walls else {}
 	var frame: Color = theme_data.frame
 	# Frame: union of expanded non-void cells, two tones.
 	# Skinned walls (brick, pipe) are scenery / their own frame, so they get no border.
@@ -545,7 +547,9 @@ func _draw() -> void:
 				match board.wall_skin[c]:
 					Board.WallSkin.BRICK: _draw_brick_wall(c)
 					Board.WallSkin.PIPE: _draw_pipe_wall(c)
-					_: _draw_wall(c)
+					_:
+						if not grouped_walls or wall_layout.has(c) or not WallArt.eligible(board, view_terrain, c):
+							_draw_wall(c, wall_layout.get(c, Vector2i.ONE))
 			Board.T.BREAKABLE: _draw_breakable(c)
 			Board.T.WATER, Board.T.LAVA, Board.T.ACID: _draw_liquid(c, t)
 		if board.teleport_to[c] != -2:
@@ -585,7 +589,19 @@ func _framed(c: int) -> bool:
 	return t != Board.T.VOID and not (t == Board.T.WALL and board.wall_skin[c] != Board.WallSkin.NONE)
 
 
-func _draw_wall(c: int) -> void:
+func _draw_wall(c: int, footprint := Vector2i.ONE) -> void:
+	if footprint != Vector2i.ONE:
+		var variant := "a" if ((c * 17 + c / Board.W) % 3) == 0 else "b"
+		var name := "wall_%dx%d_%s" % [footprint.x, footprint.y, variant]
+		var large := WallArt.texture(theme_data.key, name)
+		if large:
+			draw_texture_rect(large, Rect2(_cell_rect(c).position, Vector2(footprint) * cell).grow(-cell * 0.02), false)
+			return
+		# Missing optional art must not hide the second collision cell.
+		for y in footprint.y:
+			for x in footprint.x:
+				_draw_wall(c + y * Board.W + x)
+		return
 	var tex := AssetLib.tile(theme_data.key, "wall")
 	if tex:
 		draw_texture_rect(tex, _cell_rect(c), false)
@@ -685,95 +701,13 @@ func _draw_brick_wall(c: int) -> void:
 
 ## Metal pipe frame that auto-joins with neighbouring pipe-skinned walls.
 func _draw_pipe_wall(c: int) -> void:
-	var n := []
+	# Modular pipes share centered, full-width ports in every orientation.
+	var mask := 0
 	for d in 4:
-		n.append(_is_skin(board.step(c, d), Board.WallSkin.PIPE))
-	var ctr := center(c)
-	var r := _cell_rect(c)
-	var vertical: bool = (n[Board.UP] or n[Board.DOWN]) and not (n[Board.LEFT] or n[Board.RIGHT])
-	var corner: bool = (n[Board.UP] or n[Board.DOWN]) and (n[Board.LEFT] or n[Board.RIGHT])
-	var count := 0
-	for v in n:
-		count += 1 if v else 0
-	# Piece choice mirrors the classic frame: top-left elbow, bottom-right plain block,
-	# other corners / junctions get a block with a glass ball.
-	var piece := "pipe_straight"
-	if count > 2 or (corner and not (n[Board.RIGHT] and n[Board.DOWN])):
-		piece = "pipe_block" if (count == 2 and n[Board.LEFT] and n[Board.UP]) else "pipe_ball"
-	elif corner:
-		piece = "pipe_elbow"
-	var tex := AssetLib.skin(piece)
-	if tex:
-		draw_set_transform(ctr, PI / 2 if vertical and piece == "pipe_straight" else 0.0, Vector2.ONE)
-		draw_texture_rect(tex, Rect2(-Vector2.ONE * cell * 0.5, Vector2.ONE * cell), false)
-		draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-		return
-	match piece:
-		"pipe_elbow":
-			_pipe_elbow(Vector2(r.end.x, r.end.y), PI, PI * 1.5)
-			return
-		"pipe_block", "pipe_ball":
-			_pipe_block(r, piece == "pipe_ball")
-			return
-	draw_set_transform(ctr, PI / 2 if vertical else 0.0, Vector2.ONE)
-	_pipe_tube(cell)
-	var x := c % Board.W
-	var y := c / Board.W
-	if (x + y) % 3 == 0:
-		_pipe_collar(-cell * 0.5)
-	draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-
-
-const PIPE_METAL := Color(0.62, 0.64, 0.68)
-
-
-func _pipe_shade(v: float) -> Color:
-	# v in 0..1 across the tube: dark rims, bright band a third of the way down.
-	var k := 0.35 + 0.75 * pow(sin(PI * v), 0.6) + 0.35 * exp(-pow((v - 0.3) / 0.08, 2.0))
-	return PIPE_METAL * Color(k, k, k, 1.0)
-
-
-func _pipe_tube(length: float) -> void:
-	var w := cell * 0.84
-	var strips := 12
-	for k in strips:
-		var v := (k + 0.5) / strips
-		draw_rect(Rect2(-length * 0.5, -w * 0.5 + w * k / strips, length, w / strips + 0.6), _pipe_shade(v))
-	draw_line(Vector2(-length * 0.5, -w * 0.5), Vector2(length * 0.5, -w * 0.5), Color(0.1, 0.1, 0.12), 2.0)
-	draw_line(Vector2(-length * 0.5, w * 0.5), Vector2(length * 0.5, w * 0.5), Color(0.1, 0.1, 0.12), 2.0)
-
-
-func _pipe_collar(x: float) -> void:
-	var w := cell * 0.92
-	var t := cell * 0.16
-	draw_rect(Rect2(x, -w * 0.5, t, w), Color(0.08, 0.08, 0.1))
-	draw_rect(Rect2(x + t * 0.25, -w * 0.5 + 3, t * 0.5, w - 6), Color(0.55, 0.57, 0.6))
-
-
-func _pipe_elbow(corner: Vector2, a0: float, a1: float) -> void:
-	var w := cell * 0.84
-	var strips := 12
-	for k in strips:
-		var v := (k + 0.5) / strips
-		var rad := cell * 0.5 - w * 0.5 + w * (1.0 - v)
-		draw_arc(corner, rad, a0, a1, 24, _pipe_shade(v), w / strips + 0.8, true)
-	draw_arc(corner, cell * 0.5 - w * 0.5, a0, a1, 24, Color(0.1, 0.1, 0.12), 2.0, true)
-	draw_arc(corner, cell * 0.5 + w * 0.5, a0, a1, 24, Color(0.1, 0.1, 0.12), 2.0, true)
-
-
-func _pipe_block(r: Rect2, ball: bool) -> void:
-	var g := r.grow(-1)
-	draw_rect(g, Color(0.2, 0.2, 0.22))
-	var inner := g.grow(-3)
-	for k in 10:
-		var u := k / 10.0
-		draw_rect(Rect2(inner.position + Vector2(0, inner.size.y * u), Vector2(inner.size.x, inner.size.y / 10.0 + 0.6)),
-			PIPE_METAL.lightened(0.35 - u * 0.5))
-	draw_line(inner.position, inner.end, Color(1, 1, 1, 0.25), 2.0, true)
-	if ball:
-		draw_set_transform(r.get_center(), 0, Vector2.ONE)
-		ItemArt._sphere(self, cell * 0.95, Color(0.1, 0.55, 0.6))
-		draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+		var nb := board.step(c, d)
+		if _is_skin(nb, Board.WallSkin.PIPE) or (nb >= 0 and board.pipe_mouth[nb] == d):
+			mask |= 1 << d
+	PipeArt.draw_tile(self, _cell_rect(c), mask)
 
 
 func _liquid_colors(t: int) -> Array:
@@ -900,20 +834,10 @@ func _draw_pipe(c: int) -> void:
 	var ang := Vector2(Board.DX[m], Board.DY[m]).angle()
 	var ctr := center(c)
 	var L := pipe_layer
-	L.draw_set_transform(ctr, ang, Vector2.ONE)
 	var s := cell
-	var tex := AssetLib.pipe("mouth")
-	if tex:
-		L.draw_texture_rect(tex, Rect2(Vector2.ONE * -s * 0.5, Vector2.ONE * s), false, col)
-	else:
-		var body := Rect2(-0.5 * s, -0.3 * s, 0.82 * s, 0.6 * s)
-		L.draw_colored_polygon(ItemArt.rrect(body.grow(2), s * 0.08), col.darkened(0.6))
-		L.draw_colored_polygon(ItemArt.rrect(body, s * 0.08), col)
-		L.draw_colored_polygon(ItemArt.rrect(Rect2(-0.46 * s, -0.24 * s, 0.74 * s, 0.12 * s), s * 0.05), col.lightened(0.35))
-		var rim := Rect2(0.26 * s, -0.42 * s, 0.22 * s, 0.84 * s)
-		L.draw_colored_polygon(ItemArt.rrect(rim.grow(2), s * 0.06), col.darkened(0.6))
-		L.draw_colored_polygon(ItemArt.rrect(rim, s * 0.06), col.lightened(0.1))
-		L.draw_colored_polygon(ItemArt.rrect(Rect2(0.4 * s, -0.3 * s, 0.08 * s, 0.6 * s), s * 0.03), col.darkened(0.7))
+	PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), 0, col, m)
+	# Rotate only the flow arrows; metal lighting remains in board coordinates.
+	L.draw_set_transform(ctr, ang, Vector2.ONE)
 	var entry := board.pipe_to[c] >= 0
 	var exit := false
 	for o in Board.N:
