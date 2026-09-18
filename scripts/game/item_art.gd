@@ -6,6 +6,9 @@ extends RefCounted
 
 ## goal_marker: draw the goal flag (only the level designer does; goals are hidden in play).
 static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marker := false, t := 0.0) -> void:
+	if ItemDefs.kind(type) == ItemDefs.Kind.PADLOCK:
+		_padlock(ci, s, lock)
+		return
 	var col := ItemDefs.color(type)
 	var tex := AssetLib.item(ItemDefs.name_of(type))
 	if tex:
@@ -36,6 +39,7 @@ static func _draw_shape(ci: CanvasItem, type: int, s: float, col: Color, t: floa
 		"cone": _cone(ci, s, col)
 		"weight", "weight_red": _weight(ci, s, col)
 		"block_red", "block_blue": _alert_block(ci, s, col)
+		"mover_green", "mover_red": _mover(ci, s, col)
 		_:
 			if ItemDefs.kind(type) == ItemDefs.Kind.KEY:
 				_key(ci, s, col)
@@ -117,6 +121,30 @@ static func _weight(ci: CanvasItem, s: float, c: Color) -> void:
 	_poly(ci, arrow, c, c.darkened(0.6), s * 0.03)
 	ci.draw_colored_polygon(pts(s, [-0.16, -0.44, -0.04, -0.44, -0.04, -0.1, -0.26, -0.1]), c.lightened(0.35))
 	ci.draw_line(Vector2(-0.3, -0.06) * s, Vector2(0.0, 0.3) * s, Color(0.7, 1.0, 1.0, 0.8), s * 0.03, true)
+
+
+## A standalone padlock piece, drawn big in its lock colour.
+static func _padlock(ci: CanvasItem, s: float, lock: int) -> void:
+	var tex := AssetLib.overlay("lock_%s" % ItemDefs.LOCK_NAMES[lock]) if lock > 0 else null
+	if tex:
+		ci.draw_texture_rect(tex, Rect2(Vector2(-0.4, -0.42) * s, Vector2(0.8, 0.84) * s), false)
+	else:
+		draw_lock(ci, s, maxi(lock, 1), Vector2(0, s * 0.1), 1.9, false)
+
+
+## Dark coloured tile with a four-way arrow: "move me anywhere".
+static func _mover(ci: CanvasItem, s: float, c: Color) -> void:
+	var r := Rect2(Vector2(-0.46, -0.46) * s, Vector2(0.92, 0.92) * s)
+	ci.draw_rect(r, c)
+	ci.draw_rect(r, c.darkened(0.5), false, s * 0.03)
+	var a := Color(0.3, 0.45, 1.0)
+	ci.draw_rect(Rect2(Vector2(-0.3, -0.05) * s, Vector2(0.6, 0.1) * s), a)
+	ci.draw_rect(Rect2(Vector2(-0.05, -0.3) * s, Vector2(0.1, 0.6) * s), a)
+	for d in 4:
+		var v := Vector2(Board.DX[d], Board.DY[d])
+		var tip := v * s * 0.42
+		ci.draw_colored_polygon(PackedVector2Array([tip, tip - v * s * 0.16 + v.orthogonal() * s * 0.13, tip - v * s * 0.16 - v.orthogonal() * s * 0.13]), a)
+	ci.draw_rect(Rect2(Vector2(-0.06, -0.06) * s, Vector2(0.12, 0.12) * s), c)
 
 
 ## Glossy square block with an exclamation mark.
@@ -333,8 +361,9 @@ static func _key(ci: CanvasItem, s: float, c: Color) -> void:
 	ci.draw_arc(ring, s * 0.1, PI - PI / 4, PI * 1.6 - PI / 4, 8, c.lightened(0.5), s * 0.03, true)
 
 
-static func draw_lock(ci: CanvasItem, s: float, lock: int, at: Vector2, k: float) -> void:
-	ci.draw_circle(Vector2.ZERO, s * 0.4 * k, Color(0.05, 0.07, 0.12, 0.35))
+static func draw_lock(ci: CanvasItem, s: float, lock: int, at: Vector2, k: float, veil := true) -> void:
+	if veil: # dims the locked item underneath
+		ci.draw_circle(Vector2.ZERO, s * 0.4 * k, Color(0.05, 0.07, 0.12, 0.35))
 	if lock > 0 and lock < ItemDefs.LOCK_NAMES.size():
 		var tex := AssetLib.overlay("lock_%s" % ItemDefs.LOCK_NAMES[lock])
 		if tex:

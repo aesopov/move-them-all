@@ -9,7 +9,7 @@ extends RefCounted
 ##       path kinds: "slide" (move to cell), "tele" (vanish, reappear at cell),
 ##                   "pipe_in" (slide into pipe cell), "pipe_out" (emerge from pipe cell)
 ##   {"e":"destroy", "id", "cause": "match"|"blast"|"bomb"}
-##   {"e":"unlock", "id", "key"}
+##   {"e":"unlock", "id", "key", "open": bool}   (open = a standalone padlock was removed)
 ##   {"e":"break", "cell"}
 ##   {"e":"blast", "cell"}
 
@@ -53,6 +53,8 @@ var it_type := PackedInt32Array()
 var it_cell := PackedInt32Array() # -1 = destroyed / removed
 var it_lock := PackedInt32Array()
 var it_aim := PackedByteArray()
+## Per-piece gravity override (ItemDefs.Gravity), or -1 for the type's default.
+var it_grav := PackedInt32Array()
 
 var moves_made := 0
 
@@ -115,16 +117,18 @@ func clone() -> Board:
 	b.it_cell = it_cell.duplicate()
 	b.it_lock = it_lock.duplicate()
 	b.it_aim = it_aim.duplicate()
+	b.it_grav = it_grav.duplicate()
 	b.moves_made = moves_made
 	return b
 
 
-func add_item(type: int, c: int, lock := 0, aim := false) -> int:
+func add_item(type: int, c: int, lock := 0, aim := false, gravity_override := -1) -> int:
 	var id := it_type.size()
 	it_type.append(type)
 	it_cell.append(c)
 	it_lock.append(lock)
 	it_aim.append(1 if aim else 0)
+	it_grav.append(gravity_override)
 	item_at[c] = id
 	return id
 
@@ -204,6 +208,8 @@ func to_dict() -> Dictionary:
 			d["aim"] = true
 		if it_lock[i] != 0:
 			d["lock"] = ItemDefs.LOCK_NAMES[it_lock[i]]
+		if it_grav[i] >= 0:
+			d["gravity"] = ItemDefs.GRAVITY_NAMES[it_grav[i]]
 		items.append(d)
 	var teles := []
 	var pipes := []
@@ -265,7 +271,8 @@ static func from_dict(d: Dictionary) -> Board:
 		if b.item_at[c] >= 0:
 			continue
 		var lock := ItemDefs.LOCK_NAMES.find(str(it.get("lock", "")))
-		b.add_item(type, c, maxi(lock, 0), bool(it.get("aim", false)))
+		var g := ItemDefs.GRAVITY_NAMES.find(str(it.get("gravity", "")))
+		b.add_item(type, c, maxi(lock, 0), bool(it.get("aim", false)), g)
 	return b
 
 
@@ -318,8 +325,13 @@ func _commit(i: int, r: Dictionary, ev: Array) -> void:
 		item_at[r.final] = i
 
 
+## Effective gravity of item i (per-piece override or the type's default).
+func grav(i: int) -> int:
+	return it_grav[i] if it_grav[i] >= 0 else ItemDefs.gravity(it_type[i])
+
+
 func gravity_allows(i: int, d: int) -> bool:
-	var g := ItemDefs.gravity(it_type[i])
+	var g := grav(i)
 	if g == ItemDefs.Gravity.FALL and d == UP:
 		return false
 	if g == ItemDefs.Gravity.BUBBLE and d == DOWN:
@@ -333,8 +345,8 @@ func can_move(i: int, d: int) -> bool:
 		return false
 	if d == DETONATE:
 		return GameConfig.TAP_TO_DETONATE_BOMB and ItemDefs.kind(it_type[i]) == ItemDefs.Kind.BOMB and it_lock[i] == 0
-	if it_lock[i] != 0:
-		return false # locked items are pinned until a key opens them
+	if it_lock[i] != 0 or ItemDefs.kind(it_type[i]) == ItemDefs.Kind.PADLOCK:
+		return false # locked items (and padlocks) are pinned until a key opens them
 	if not gravity_allows(i, d):
 		return false
 	item_at[c] = -1
@@ -388,13 +400,13 @@ func _gravity_step() -> Array:
 	for y in range(H - 1, -1, -1):
 		for x in W:
 			var i := item_at[y * W + x]
-			if i >= 0 and not moved[i] and it_lock[i] == 0 and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.FALL:
+			if i >= 0 and not moved[i] and it_lock[i] == 0 and grav(i) == ItemDefs.Gravity.FALL:
 				if _auto_move(i, DOWN, ev):
 					moved[i] = 1
 	for y in H:
 		for x in W:
 			var i := item_at[y * W + x]
-			if i >= 0 and not moved[i] and it_lock[i] == 0 and ItemDefs.gravity(it_type[i]) == ItemDefs.Gravity.BUBBLE:
+			if i >= 0 and not moved[i] and it_lock[i] == 0 and grav(i) == ItemDefs.Gravity.BUBBLE:
 				if _auto_move(i, UP, ev):
 					moved[i] = 1
 	return ev
@@ -424,8 +436,11 @@ func _unlock_step() -> Array:
 			var j := item_at[nb]
 			if j >= 0 and it_lock[j] == col:
 				it_lock[j] = 0
-				ev.append({"e": "unlock", "id": j, "key": k})
+				var padlock := ItemDefs.kind(it_type[j]) == ItemDefs.Kind.PADLOCK
+				ev.append({"e": "unlock", "id": j, "key": k, "open": padlock})
 				_kill(k, "key", ev, false)
+				if padlock: # a standalone lock disappears once opened
+					_kill(j, "key", ev, false)
 				break
 	return ev
 

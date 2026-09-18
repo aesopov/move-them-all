@@ -88,22 +88,34 @@ func _legend_entries() -> Array:
 		if board.it_cell[i] < 0:
 			continue
 		var t := board.it_type[i]
+		if ItemDefs.kind(t) == ItemDefs.Kind.PADLOCK:
+			var lc := board.it_lock[i]
+			if not seen.has("padlock%d" % lc):
+				seen["padlock%d" % lc] = true
+				out.append(["lock", "Padlock: can't be moved; a %s key opens it" % ItemDefs.LOCK_NAMES[lc], 0, lc])
+			continue
 		if board.it_lock[i] != 0:
 			locks[board.it_lock[i]] = true
-		if seen.has(t):
+		var g := board.grav(i)
+		var seen_key := "%d/%d" % [t, g] # same type with a different gravity gets its own line
+		if seen.has(seen_key):
 			continue
-		seen[t] = true
+		seen[seen_key] = true
 		var txt := ItemDefs.pretty_name(t)
+		var motion := ""
+		match g:
+			ItemDefs.Gravity.FALL: motion = "falls, can't be moved up"
+			ItemDefs.Gravity.BUBBLE: motion = "floats up, can't be moved down"
+			_: motion = "stays where you put it"
 		match ItemDefs.kind(t):
 			ItemDefs.Kind.BOMB:
 				txt = "Bomb: tap to blow up everything around it"
 			ItemDefs.Kind.KEY:
 				txt += ": touch a matching lock to open it"
+				if g != ItemDefs.Gravity.NONE:
+					txt += "; " + motion
 			_:
-				match ItemDefs.gravity(t):
-					ItemDefs.Gravity.FALL: txt += ": falls, can't be moved up"
-					ItemDefs.Gravity.BUBBLE: txt += ": floats up, can't be moved down"
-					_: txt += ": stays where you put it"
+				txt += ": " + motion
 		out.append(["item", txt, t, 0])
 	for l in locks:
 		out.append(["lock", "Locked: pinned until a %s key touches it" % ItemDefs.LOCK_NAMES[l], 0, l])

@@ -4,10 +4,11 @@ extends RefCounted
 ## (and a drawing branch in ItemArt if you want custom art).
 
 enum Gravity { NONE, FALL, BUBBLE }
-enum Kind { NORMAL, BOMB, KEY }
+enum Kind { NORMAL, BOMB, KEY, PADLOCK }
 enum LockColor { NONE, RED, GREEN, YELLOW, BLUE }
 
 const LOCK_NAMES := ["", "red", "green", "yellow", "blue"]
+const GRAVITY_NAMES := ["none", "fall", "bubble"]
 
 # name, gravity, kind, key colour (for keys)
 const DEFS := [
@@ -28,6 +29,10 @@ const DEFS := [
 	["weight_red", Gravity.FALL, Kind.NORMAL, 0],
 	["block_red", Gravity.NONE, Kind.NORMAL, 0],
 	["block_blue", Gravity.NONE, Kind.NORMAL, 0],
+	["mover_green", Gravity.NONE, Kind.NORMAL, 0],
+	["mover_red", Gravity.NONE, Kind.NORMAL, 0],
+	# A standalone lock: place it with a "lock" colour. Pinned; a matching key opens (removes) it.
+	["padlock", Gravity.NONE, Kind.PADLOCK, 0],
 	["bomb", Gravity.NONE, Kind.BOMB, 0],
 	["key_red", Gravity.NONE, Kind.KEY, LockColor.RED],
 	["key_green", Gravity.NONE, Kind.KEY, LockColor.GREEN],
@@ -98,6 +103,9 @@ static func color(t: int) -> Color:
 		"weight_red": return Color(0.92, 0.32, 0.4)
 		"block_red": return Color(0.86, 0.2, 0.22)
 		"block_blue": return Color(0.2, 0.3, 0.9)
+		"mover_green": return Color(0.1, 0.42, 0.14)
+		"mover_red": return Color(0.45, 0.06, 0.06)
+		"padlock": return Color(0.9, 0.35, 0.1)
 	if kind(t) == Kind.KEY:
 		return lock_color(key_color(t))
 	return Color.WHITE

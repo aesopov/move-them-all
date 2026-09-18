@@ -1,52 +1,56 @@
 {
-	"items": [
-		{
-			"type": "star",
-			"x": 2,
-			"y": 2
-		},
-		{
-			"type": "star",
-			"x": 7,
-			"y": 3
-		},
-		{
-			"aim": true,
-			"type": "plant",
-			"x": 4,
-			"y": 6
-		},
-		{
-			"type": "plant",
-			"x": 2,
-			"y": 3
-		},
-		{
-			"aim": true,
-			"type": "plant",
-			"x": 7,
-			"y": 7
-		}
-	],
-	"moves": 7,
-	"name": "Tricky Ledge",
-	"optimal": 3,
-	"pipes": [],
-	"teleports": [],
+	"version": 1,
+	"name": "Bridge the Pit",
+	"moves": 35,
+	"time": 275,
 	"terrain": [
 		"------------",
 		"------------",
-		"--.......---",
-		"--.......---",
-		"--#......---",
-		"--#.....#---",
-		"--#......---",
-		"--.......---",
-		"--.......---",
 		"------------",
 		"------------",
-		"------------"
+		"............",
+		"............",
+		"............",
+		"----....----",
+		"----....----",
+		"----....----",
+		"----aaaa----",
+		"----aaaa----"
 	],
-	"time": 80,
-	"version": 1
+	"items": [
+		{
+			"type": "key_red",
+			"x": 2,
+			"y": 6,
+			"gravity": "fall",
+			"aim": true
+		},
+		{
+			"type": "padlock",
+			"x": 9,
+			"y": 6,
+			"lock": "red",
+			"aim": true
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 6,
+			"aim": true
+		},
+		{
+			"type": "mover_green",
+			"x": 5,
+			"y": 5
+		},
+		{
+			"type": "mover_red",
+			"x": 6,
+			"y": 5
+		}
+	],
+	"teleports": [],
+	"pipes": [],
+	"handcrafted": true,
+	"optimal": 25
 }

@@ -458,16 +458,26 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 					kt.tween_property(key, "position", key.position.lerp(item.position, 0.6), d)
 					kt.tween_property(key, "scale", Vector2(0.4, 0.4), d))
 				tw.tween_interval(d)
+				var opened: bool = e.get("open", false)
+				var id: int = e.id
 				tw.tween_callback(func():
 					Fx.destroy(fx_layer, item.position, ItemDefs.lock_color(item.lock), "key", cell)
-					item.lock = 0
-					item.queue_redraw()
+					if opened:
+						_explode(id, "key") # standalone padlock: gone once opened
+					else:
+						item.lock = 0
+						item.queue_redraw()
 					key.queue_free())
 				_chain_end(key, start + d)
 			else:
+				var opened: bool = e.get("open", false)
+				var id: int = e.id
 				_at(start, func():
-					item.lock = 0
-					item.queue_redraw())
+					if opened:
+						_explode(id, "key")
+					else:
+						item.lock = 0
+						item.queue_redraw())
 			return GameConfig.ANIM_UNLOCK
 		"break":
 			var c: int = e.cell

@@ -55,7 +55,11 @@ static func _palette() -> Array:
 			["void", "Void (outside)", "swatch", Color(0, 0, 0, 0.6)],
 		]],
 		["Items", items],
-		["Modifiers", [["aim", "Goal flag (toggle)", "flag", 0]] + locks + [["unlock", "Remove lock", "swatch", Color(0.5, 0.5, 0.5)]]],
+		["Modifiers", [["aim", "Goal flag (toggle)", "flag", 0]] + locks + [["unlock", "Remove lock", "swatch", Color(0.5, 0.5, 0.5)],
+			["gravity:fall", "Gravity: falls", "swatch", Color(0.9, 0.55, 0.2)],
+			["gravity:bubble", "Gravity: floats", "swatch", Color(0.4, 0.75, 1.0)],
+			["gravity:none", "Gravity: stays", "swatch", Color(0.6, 0.6, 0.6)],
+			["gravity:default", "Gravity: type default", "swatch", Color(0.3, 0.3, 0.35)]]],
 		["Teleports & pipes", [["teleport", "Teleport", "teleport", 0]] + pipes + [["link", "Link (source, then target)", "swatch", UiKit.ACCENT]]],
 		["Other", [["erase", "Eraser", "swatch", Color(0.8, 0.3, 0.3)]]],
 	]
@@ -226,7 +230,7 @@ func _apply(c: int, dragging: bool) -> void:
 			if item >= 0:
 				board.it_aim[item] = 0 if board.it_aim[item] else 1
 		"unlock":
-			if item >= 0:
+			if item >= 0 and ItemDefs.kind(board.it_type[item]) != ItemDefs.Kind.PADLOCK:
 				board.it_lock[item] = 0
 		"teleport":
 			_clear_pipe(c)
@@ -242,14 +246,22 @@ func _apply(c: int, dragging: bool) -> void:
 					_set_status("Items can only be placed on floor.")
 					return
 				board.remove_item_at(c)
-				board.add_item(ItemDefs.index_of(tool.substr(5)), c)
+				var type := ItemDefs.index_of(tool.substr(5))
+				# A padlock is always locked: start it red, recolour with the lock tools.
+				var lock := ItemDefs.LockColor.RED if ItemDefs.kind(type) == ItemDefs.Kind.PADLOCK else 0
+				board.add_item(type, c, lock)
 			elif tool.begins_with("lock:"):
 				if item >= 0:
 					var col := int(tool.substr(5))
 					if ItemDefs.kind(board.it_type[item]) == ItemDefs.Kind.KEY:
 						_set_status("Keys can't be locked.")
 						return
-					board.it_lock[item] = 0 if board.it_lock[item] == col else col
+					var padlock := ItemDefs.kind(board.it_type[item]) == ItemDefs.Kind.PADLOCK
+					board.it_lock[item] = col if padlock else (0 if board.it_lock[item] == col else col)
+			elif tool.begins_with("gravity:"):
+				if item >= 0:
+					var g := tool.substr(8)
+					board.it_grav[item] = -1 if g == "default" else ItemDefs.GRAVITY_NAMES.find(g)
 			elif tool.begins_with("pipe:"):
 				board.remove_item_at(c)
 				_clear_teleport(c)

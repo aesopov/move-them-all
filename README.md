@@ -30,6 +30,10 @@ Debug flags (after `--`): `--level=res://levels/world_03/level_05.json`, `--scen
 * **Gravity**: after every move, falling items drop and bubble items rise until they are blocked.
 * **Matches**: 2 or more orthogonally connected items of the same type explode.
   **Surround**: an item with items of one other type on all 4 sides → all 5 explode.
+* **Padlocks**: a standalone `padlock` piece (placed with a `"lock"` colour) can't be moved, matched or blown up.
+  A key of its colour touching it opens it: the padlock and the key both disappear.
+* **Per-piece gravity**: any item can override its type's gravity with `"gravity": "fall" | "bubble" | "none"`
+  (e.g. a falling key in level 1-6).
 * **Locks & keys** (red, green, yellow, blue): a key next to a locked item of its colour unlocks it and
   the key is used up. Locked items don't match, don't sink and survive bombs.
 * **Bombs**: tap one to detonate it (costs a move). It destroys every unlocked item and cracked wall in the 3×3 around it.
