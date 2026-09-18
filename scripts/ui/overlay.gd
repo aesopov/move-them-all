@@ -22,6 +22,7 @@ func add_text(t: String, variation := "DimLabel", font_size := 18) -> Label:
 	l.theme_type_variation = variation
 	l.add_theme_font_size_override("font_size", font_size)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	get_node("%Body").add_child(l)
 	return l
 
@@ -54,3 +55,13 @@ func add_button(t: String, cb: Callable) -> Button:
 	b.pressed.connect(cb)
 	get_node("%Buttons").add_child(b)
 	return b
+
+
+func _process(_delta: float) -> void:
+	var panel: Control = $Center/Panel
+	var scroll: ScrollContainer = $Center/Panel/Scroll
+	var content: Control = $Center/Panel/Scroll/Content
+	var width := minf(440, size.x - 32)
+	panel.custom_minimum_size.x = width
+	scroll.custom_minimum_size = Vector2(width - 48, minf(content.get_combined_minimum_size().y, size.y - 120))
+	%Title.add_theme_font_size_override("font_size", 30 if size.x < 600 else 44)

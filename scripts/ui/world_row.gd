@@ -31,3 +31,14 @@ func setup(title: String, idx: int, levels: Array) -> WorldRow:
 		grid.add_child(b)
 	(get_node("%Progress") as Label).text = "%d / %d completed" % [done, levels.size()]
 	return self
+
+
+func _ready() -> void:
+	resized.connect(_responsive_layout)
+	_responsive_layout()
+
+func _responsive_layout() -> void:
+	$Row.vertical = size.x < 650
+	$Row/Head.custom_minimum_size.x = 0 if $Row.vertical else 210
+	for button in %Levels.get_children():
+		button.custom_minimum_size = Vector2(70, 58)

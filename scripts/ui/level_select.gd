@@ -5,6 +5,8 @@ const WORLD_ROW := preload("res://scenes/components/world_row.tscn")
 
 
 func _ready() -> void:
+	resized.connect(_responsive_layout)
+	_responsive_layout()
 	App.scan_levels()
 	%BackButton.pressed.connect(func(): App.goto("welcome"))
 	%DesignerButton.pressed.connect(func():
@@ -23,3 +25,14 @@ func _total_score() -> int:
 	for k in App.progress:
 		s += int(App.progress[k])
 	return s
+
+
+func _responsive_layout() -> void:
+	if not is_node_ready(): return
+	var narrow := size.x < 700
+	Responsive.apply_margins($Margin, self, 12 if narrow else 24)
+	$Margin/Layout/TopBar/Title.add_theme_font_size_override("font_size", 26 if narrow else 40)
+	%BackButton.custom_minimum_size = Vector2(68 if narrow else 120, 58)
+	%BackButton.text = "<" if narrow else "<  Back"
+	%TotalScore.visible = not narrow
+	%DesignerButton.visible = not narrow and not OS.has_feature("mobile")

@@ -38,7 +38,7 @@ func _draw() -> void:
 	var sz := size
 	if sz.x < 2 or sz.y < 2:
 		return
-	var tex := AssetLib.background(theme_data.key)
+	var tex := AssetLib.background(theme_data.key, sz.y > sz.x)
 	if tex:
 		# Cover-fit the painted background, then skip procedural scenery.
 		var ts := tex.get_size()

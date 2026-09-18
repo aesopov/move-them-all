@@ -46,7 +46,10 @@ static func skin(name: String) -> Texture2D:
 	return texture("tiles/skins/%s.png" % name)
 
 
-static func background(theme: String) -> Texture2D:
+static func background(theme: String, portrait := false) -> Texture2D:
+	if portrait:
+		var vertical := texture("backgrounds/portrait/%s.png" % theme)
+		if vertical: return vertical
 	return texture("backgrounds/%s.png" % theme)
 
 

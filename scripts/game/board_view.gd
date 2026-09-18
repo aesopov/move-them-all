@@ -27,6 +27,8 @@ const PIPE_COLORS := [
 			_load_preview()
 ## When > 0, the view zooms so the non-void part of the board fits this many pixels.
 @export var fit_px := 0.0
+## Optional rectangular runtime budget, excluding the outer padding.
+var fit_area := Vector2.ZERO
 ## Cell size in pixels (ignored when fit_px > 0).
 @export var cell := 56.0
 ## Level designer mode: reports cell presses/drags instead of moving items.
@@ -53,6 +55,7 @@ var view_terrain := PackedByteArray()
 var nodes := {}
 var _tele_col := {}
 var _pipe_col := {}
+var _touch_index := -1
 var _t := 0.0
 var _drag_item := -1
 var _pointer := Vector2.ZERO
@@ -115,6 +118,8 @@ func _update_size() -> void:
 		if hi.x >= 0:
 			cells = Vector2(hi - lo + Vector2i.ONE)
 			cell = minf(fit_px / maxf(cells.x, cells.y), max_cell)
+			if fit_area.x > 0 and fit_area.y > 0:
+				cell = minf(minf(fit_area.x / cells.x, fit_area.y / cells.y), max_cell)
 			origin -= Vector2(lo) * cell
 	custom_minimum_size = cells * cell + Vector2.ONE * PAD * 2
 	size = custom_minimum_size
@@ -255,6 +260,35 @@ func _compute_groups() -> void:
 # ---------------------------------------------------------------------------
 
 func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			if _touch_index != -1: return
+			_touch_index = event.index
+		elif event.index != _touch_index:
+			return
+		if event.canceled:
+			_touch_index = -1
+			end_drag()
+			accept_event()
+			return
+		var click := InputEventMouseButton.new()
+		click.button_index = MOUSE_BUTTON_LEFT
+		click.position = event.position
+		click.pressed = event.pressed
+		_gui_input(click)
+		if not event.pressed: _touch_index = -1
+		accept_event()
+		return
+	if event is InputEventScreenDrag:
+		if event.index == _touch_index:
+			var motion := InputEventMouseMotion.new()
+			motion.position = event.position
+			_gui_input(motion)
+			accept_event()
+		return
+	# Buttons still use touch-to-mouse emulation; the board handles native touch once.
+	if event is InputEventMouse and event.device == -1:
+		return
 	if board == null:
 		return
 	if event is InputEventMouseButton:

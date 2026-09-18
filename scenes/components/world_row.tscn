@@ -5,7 +5,7 @@
 [node name="WorldRow" type="PanelContainer" unique_id=2033193414]
 script = ExtResource("1_0x0ep")
 
-[node name="Row" type="HBoxContainer" parent="." unique_id=850515414]
+[node name="Row" type="BoxContainer" parent="." unique_id=850515414]
 layout_mode = 2
 theme_override_constants/separation = 14
 

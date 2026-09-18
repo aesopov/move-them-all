@@ -39,6 +39,7 @@ func _ready() -> void:
 	%UndoButton.pressed.connect(_undo)
 	%RestartButton.pressed.connect(_restart)
 	_update_hud()
+	add_child(preload("res://scripts/game/game_layout.gd").new())
 	_settle_start.call_deferred()
 
 
@@ -277,6 +278,7 @@ func _toggle_pause() -> void:
 		paused = false
 		_close_overlay()
 		return
+	view.end_drag()
 	paused = true
 	var o := _open_overlay("Paused")
 	o.add_button("Resume", _toggle_pause)
@@ -338,3 +340,21 @@ func _on_back() -> void:
 		App.goto("editor")
 	else:
 		App.goto("select")
+
+
+func _show_level_info() -> void:
+	if finished or paused:
+		return
+	view.end_drag()
+	paused = true
+	var panel := _open_overlay("Level info")
+	panel.add_text("Destroy all goal pieces. Moves and time are bonus targets.")
+	for entry in _legend_entries():
+		panel.add_text(entry[1])
+	panel.add_button("Back to game", _toggle_pause)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_PAUSED and is_node_ready() and not paused and not finished:
+		view.end_drag()
+		_toggle_pause()

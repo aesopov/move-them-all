@@ -34,6 +34,8 @@ var _frame := 0
 
 
 func _ready() -> void:
+	get_window().size_changed.connect(_update_ui_scale)
+	_update_ui_scale()
 	_load_progress()
 	scan_levels()
 	_handle_cmdline()
@@ -208,3 +210,13 @@ func _load_progress() -> void:
 	var d = JSON.parse_string(FileAccess.get_file_as_string(PROGRESS_PATH))
 	if d is Dictionary:
 		progress = d
+
+
+func _update_ui_scale() -> void:
+	var window := get_window()
+	var portrait := window.size.y > window.size.x
+	var base := Vector2i(480, 854) if portrait else Vector2i(1280, 800)
+	if not portrait and (OS.has_feature("mobile") or window.size.y < 500):
+		base = Vector2i(960, 540)
+	if window.content_scale_size != base:
+		window.content_scale_size = base
