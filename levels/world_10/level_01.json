@@ -1,67 +1,226 @@
 {
+	"version": 2,
+	"name": "The Swing",
+	"theme": "crystal",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"............",
+		"............",
+		".#########..",
+		".##.....##..",
+		".##.....##..",
+		".##.....##..",
+		".##.....##..",
+		".##.....##..",
+		".##.....##..",
+		".#########..",
+		"............",
+		"............"
+	],
 	"items": [
 		{
-			"type": "shell",
-			"x": 6,
-			"y": 3
-		},
-		{
-			"type": "shell",
-			"x": 4,
-			"y": 8
-		},
-		{
-			"type": "plant",
-			"x": 6,
-			"y": 5
-		},
-		{
+			"type": "crystal",
+			"x": 3,
+			"y": 3,
 			"aim": true,
-			"type": "plant",
-			"x": 1,
-			"y": 7
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "111",
+			"match_label": "1"
 		},
 		{
-			"aim": true,
 			"type": "plant",
-			"x": 6,
-			"y": 2
+			"x": 5,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "107",
+			"match_label": "2"
+		},
+		{
+			"type": "crystal",
+			"x": 7,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "111",
+			"match_label": "1"
+		},
+		{
+			"type": "pyramid",
+			"x": 3,
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "torus",
+			"x": 5,
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "202",
+			"match_label": "5"
+		},
+		{
+			"type": "pyramid",
+			"x": 7,
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "star",
+			"x": 5,
+			"y": 5,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "109",
+			"match_label": "3"
+		},
+		{
+			"type": "star",
+			"x": 3,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "109",
+			"match_label": "3"
+		},
+		{
+			"type": "star",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "109",
+			"match_label": "3"
+		},
+		{
+			"type": "torus",
+			"x": 3,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "202",
+			"match_label": "5"
+		},
+		{
+			"type": "pyramid",
+			"x": 5,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "torus",
+			"x": 7,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "202",
+			"match_label": "5"
+		},
+		{
+			"type": "plant",
+			"x": 3,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "107",
+			"match_label": "2"
+		},
+		{
+			"type": "crystal",
+			"x": 5,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "111",
+			"match_label": "1"
+		},
+		{
+			"type": "plant",
+			"x": 7,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "107",
+			"match_label": "2"
 		}
 	],
-	"moves": 7,
-	"name": "Bright Pocket",
-	"optimal": 4,
-	"pipes": [
-		{
-			"mouth": "right",
-			"to": [
-				5,
-				6
-			],
-			"x": 5,
-			"y": 2
-		},
-		{
-			"mouth": "left",
-			"x": 5,
-			"y": 6
-		}
-	],
+	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-....#...#--",
-		"-....##..#--",
-		"-....#...#--",
-		"-.........--",
-		"-....#....--",
-		"-....#....--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL091.UZ3",
+		"number": 91,
+		"sha256": "d40bdc9e7e3b78183fd884ba0eb31201de6e46c385f5a52d6f884b3c99eb95bc"
+	},
+	"skins": [
+		"............",
+		"............",
+		".ppppppppp..",
+		".pp.....pp..",
+		".pp.....pp..",
+		".pp.....pp..",
+		".pp.....pp..",
+		".pp.....pp..",
+		".pp.....pp..",
+		".ppppppppp..",
+		"............",
+		"............"
+	]
 }

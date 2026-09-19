@@ -17,6 +17,7 @@ var finished := false
 @onready var _lbl_moves: Label = %MovesLabel
 @onready var _lbl_time: Label = %TimeLabel
 @onready var _lbl_status: Label = %StatusLabel
+var _target_rows: Array = []
 var _overlay: Overlay
 
 
@@ -64,12 +65,61 @@ func _fill_panels() -> void:
 	var best := App.best_score(App.current_path) if App.current_path != "" else 0
 	%BestLabel.visible = best > 0
 	%BestLabel.text = tr("Best: %d") % best
+	_fill_targets(%TargetCounts, true)
 	for entry in _legend_entries():
 		%Legend.add_child(LEGEND_ROW.instantiate().setup(entry[0], entry[1], entry[2], entry[3]))
 
 
+# Keep initial goal IDs so cleared targets remain visible and undo restores counts.
+func _target_groups() -> Array:
+	var groups := {}
+	for i in start_board.it_type.size():
+		if not start_board.it_aim[i]:
+			continue
+		var t := start_board.it_type[i]
+		var badge := str(start_board.it_meta[i].get("match_label", ""))
+		var key := "%d/%s" % [t, badge]
+		if not groups.has(key):
+			groups[key] = {"type": t, "badge": badge, "ids": []}
+		groups[key].ids.append(i)
+	return groups.values()
+
+
+func _fill_targets(container: Control, track := false) -> void:
+	for group in _target_groups():
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 6)
+		row.tooltip_text = ItemDefs.pretty_name(group.type)
+		var icon := IconView.make("item", group.type, 0, 36)
+		icon.set_process(false)
+		row.add_child(icon)
+		if group.badge != "":
+			var badge := Label.new()
+			badge.text = "#" + group.badge
+			badge.theme_type_variation = "DimLabel"
+			row.add_child(badge)
+		var count := Label.new()
+		row.add_child(count)
+		container.add_child(row)
+		var entry := {"row": row, "count": count, "ids": group.ids}
+		_update_target(entry)
+		if track:
+			_target_rows.append(entry)
+
+
+func _update_target(entry: Dictionary) -> void:
+	var cleared := 0
+	for i in entry.ids:
+		if board.it_cell[i] < 0:
+			cleared += 1
+	entry.count.text = "%d / %d" % [cleared, entry.ids.size()]
+	entry.row.modulate.a = 0.5 if cleared == entry.ids.size() else 1.0
+
+
 func _legend_entries() -> Array:
 	var out := []
+	if board.meta.get("imported", false):
+		out.append(["moves", tr("Matching numbers identify pieces that can merge."), 0, 0])
 	var seen := {}
 	var locks := {}
 	for i in board.it_type.size():
@@ -85,7 +135,7 @@ func _legend_entries() -> Array:
 		if board.it_lock[i] != 0:
 			locks[board.it_lock[i]] = true
 		var g := board.grav(i)
-		var seen_key := "%d/%d" % [t, g] # same type with a different gravity gets its own line
+		var seen_key := "%d/%d/%d" % [t, g, board.it_movable[i]] # same type with a different gravity gets its own line
 		if seen.has(seen_key):
 			continue
 		seen[seen_key] = true
@@ -95,11 +145,12 @@ func _legend_entries() -> Array:
 			ItemDefs.Gravity.FALL: motion = tr("falls, can't be moved up")
 			ItemDefs.Gravity.BUBBLE: motion = tr("floats up, can't be moved down")
 			_: motion = tr("stays where you put it")
+		if not board.it_movable[i]: motion = tr("cannot be moved by hand")
 		match ItemDefs.kind(t):
 			ItemDefs.Kind.MOVER:
 				txt += ": " + motion + tr("; does not match")
 			ItemDefs.Kind.BOMB:
-				txt = tr("Bomb: falls; explodes beside cracked walls or when tapped")
+				txt = tr("Bomb: explodes beside destructible objects or when tapped") + "; " + motion if board.meta.get("imported", false) else tr("Bomb: falls; explodes beside cracked walls or when tapped")
 			ItemDefs.Kind.KEY:
 				txt += tr(": touch a matching lock to open it")
 				if g != ItemDefs.Gravity.NONE:
@@ -126,14 +177,17 @@ func _legend_entries() -> Array:
 	if has.has("tele"):
 		out.append(["teleport", tr("Teleport: step on it to jump to its partner (only if the partner is empty)"), 0, 0])
 	if has.has("pipe"):
-		if board.pipe_ports.count(0) < Board.N:
+		if board.pipe_direct.has(1):
+			out.append(["pipe", tr("Pipe: enter through the opening to reach its linked landing cell"), 0, 0])
+		elif board.pipe_ports.count(0) < Board.N:
 			out.append(["pipe", tr("Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return."), 0, 0])
 		elif board.pipe_landing.has(1):
 			out.append(["pipe", tr("Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it."), 0, 0])
 		else:
 			out.append(["pipe", tr("Pipe: enter through the opening, slide out of the linked pipe"), 0, 0])
 	if GameConfig.SURROUND_RULE_ENABLED:
-		out.append(["moves", tr("Surround an item with 4 items of one other type: all 5 explode"), 0, 0])
+		var surround_text := tr("Surround an item with 4 items of one other group: all 5 explode") if board.meta.get("imported", false) else tr("Surround an item with 4 items of one other type: all 5 explode")
+		out.append(["moves", surround_text, 0, 0])
 	return out
 
 
@@ -213,6 +267,8 @@ func _check_end() -> void:
 
 
 func _update_hud() -> void:
+	for entry in _target_rows:
+		_update_target(entry)
 	var total := board.aims_total()
 	_lbl_aims.text = "%d / %d" % [total - board.aims_left(), total]
 	_lbl_moves.text = "%d / %d" % [board.moves_made, board.move_limit]
@@ -227,8 +283,11 @@ func _update_hud() -> void:
 func _update_time() -> void:
 	if _lbl_time == null:
 		return
-	_lbl_time.text = "%s / %s" % [UiKit.fmt_time(elapsed), UiKit.fmt_time(board.time_limit)]
+	var text := "%s / %s" % [UiKit.fmt_time(elapsed), UiKit.fmt_time(board.time_limit)]
 	var warn := board.time_limit - elapsed < 10
+	if _lbl_time.text == text and _lbl_time.has_theme_color_override("font_color") == warn:
+		return
+	_lbl_time.text = text
 	if warn:
 		_lbl_time.add_theme_color_override("font_color", Color(1, 0.5, 0.4))
 	else:
@@ -349,6 +408,10 @@ func _show_level_info() -> void:
 	paused = true
 	var panel := _open_overlay(tr("Level info"))
 	panel.add_text(tr("Destroy all goal pieces. Moves and time are bonus targets."))
+	var targets := HFlowContainer.new()
+	targets.add_theme_constant_override("h_separation", 16)
+	panel.get_node("%Body").add_child(targets)
+	_fill_targets(targets)
 	for entry in _legend_entries():
 		panel.add_text(entry[1])
 	panel.add_button(tr("Back to game"), _toggle_pause)

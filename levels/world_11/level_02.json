@@ -1,85 +1,128 @@
 {
+	"version": 2,
+	"name": "More troubling water",
+	"theme": "nexus",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"..........#.",
+		"..........#.",
+		"..........#.",
+		"wwwwwwwwww##",
+		"wwwwwwwwww##"
+	],
 	"items": [
 		{
-			"type": "star",
-			"x": 9,
-			"y": 5
-		},
-		{
-			"type": "star",
-			"x": 7,
-			"y": 5
-		},
-		{
-			"type": "bubble",
-			"x": 7,
-			"y": 6
-		},
-		{
+			"type": "pyramid",
+			"x": 0,
+			"y": 0,
 			"aim": true,
-			"lock": "yellow",
-			"type": "bubble",
-			"x": 4,
-			"y": 2
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
 		},
 		{
 			"type": "crystal",
+			"x": 1,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
+		},
+		{
+			"type": "key_blue",
+			"x": 1,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "pyramid",
+			"x": 0,
+			"y": 2,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "plant",
+			"x": 1,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "110",
+			"match_label": "2"
+		},
+		{
+			"type": "pyramid",
+			"x": 1,
+			"y": 3,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "pyramid",
 			"x": 5,
-			"y": 7
-		},
-		{
+			"y": 7,
 			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"lock": "blue",
+			"match_label": "4"
+		},
+		{
 			"type": "crystal",
-			"x": 4,
-			"y": 6
-		},
-		{
-			"type": "key_yellow",
-			"x": 2,
-			"y": 3
-		},
-		{
-			"type": "bomb",
-			"x": 3,
-			"y": 5
+			"x": 11,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
 		}
 	],
-	"moves": 7,
-	"name": "Silent Keep",
-	"optimal": 4,
 	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				7,
-				8
-			],
-			"x": 4,
-			"y": 2
-		},
-		{
-			"to": [
-				4,
-				2
-			],
-			"x": 7,
-			"y": 8
-		}
-	],
-	"terrain": [
-		"------------",
-		"------------",
-		"--....%...--",
-		"--....%...--",
-		"--....%#..--",
-		"--....#...--",
-		"--...%%.##--",
-		"--....#.%.--",
-		"--....%.#.--",
-		"--lll.#.ll--",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL102.UZ3",
+		"number": 102,
+		"sha256": "7498241bcb998748f68f831acdff3d34b91a77a65e0a42184763471a78f05bf6"
+	}
 }

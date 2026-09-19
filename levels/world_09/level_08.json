@@ -1,111 +1,225 @@
 {
+	"version": 2,
+	"name": "Tight fit",
+	"theme": "sky",
+	"imported": true,
+	"moves": 20,
+	"time": 190,
+	"terrain": [
+		"####.#######",
+		"####.#######",
+		"####.#######",
+		"............",
+		".#######.###",
+		".#######.###",
+		".#######.###",
+		".#######.###",
+		".#######.###",
+		".........###",
+		"###.####.###",
+		"###.####.###"
+	],
 	"items": [
 		{
+			"type": "balloon",
+			"x": 4,
+			"y": 0,
 			"aim": true,
-			"type": "bubble",
-			"x": 7,
-			"y": 2
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		},
 		{
+			"type": "crate",
+			"x": 1,
+			"y": 3,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "weight_red",
+			"x": 2,
+			"y": 3,
 			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 3,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 4,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 6,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 7,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
 			"type": "bubble",
 			"x": 2,
-			"y": 4
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "208",
+			"match_label": "4"
+		},
+		{
+			"type": "balloon",
+			"x": 3,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		},
 		{
 			"type": "bubble",
-			"x": 9,
-			"y": 1
-		},
-		{
-			"aim": true,
-			"type": "shell",
-			"x": 7,
-			"y": 9
-		},
-		{
-			"type": "shell",
-			"x": 6,
-			"y": 8
-		},
-		{
-			"type": "shell",
-			"x": 8,
-			"y": 6
-		},
-		{
-			"type": "balloon",
-			"x": 7,
-			"y": 10
-		},
-		{
-			"type": "balloon",
-			"x": 7,
-			"y": 1
-		},
-		{
-			"type": "star",
-			"x": 1,
-			"y": 7
-		},
-		{
-			"type": "star",
-			"x": 3,
-			"y": 6
-		}
-	],
-	"moves": 11,
-	"name": "Tricky Pocket",
-	"optimal": 7,
-	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				7,
-				6
-			],
-			"x": 7,
-			"y": 3
-		},
-		{
-			"to": [
-				7,
-				3
-			],
-			"x": 7,
-			"y": 6
-		},
-		{
-			"to": [
-				6,
-				10
-			],
 			"x": 4,
-			"y": 10
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "208",
+			"match_label": "4"
 		},
 		{
-			"to": [
-				4,
-				10
-			],
+			"type": "balloon",
+			"x": 5,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
+		},
+		{
+			"type": "bubble",
 			"x": 6,
-			"y": 10
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "208",
+			"match_label": "4"
+		},
+		{
+			"type": "balloon",
+			"x": 7,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		}
 	],
-	"terrain": [
-		"------------",
-		"-..........-",
-		"-..........-",
-		"-##.......#-",
-		"-..........-",
-		"-..........-",
-		"-........##-",
-		"-.......#..-",
-		"-..........-",
-		"-...###....-",
-		"-..........-",
-		"------------"
-	],
-	"time": 105,
-	"version": 1
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL088.UZ3",
+		"number": 88,
+		"sha256": "46d253791332d611908a0951d3314a4e1c00613d63d75cf70ba1fe02a5c3f2b2"
+	},
+	"skins": [
+		"...p.p......",
+		"...p.p......",
+		"ppp...pppppp",
+		"............",
+		"..ppppp...pp",
+		".p.....p.p..",
+		".p.....p.p..",
+		".p.....p.p..",
+		"..ppppp..p..",
+		".........p..",
+		"pp...pp..p..",
+		"..p.p..p.p.."
+	]
 }

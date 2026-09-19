@@ -1,57 +1,116 @@
 {
+	"version": 2,
+	"name": "Slow and Steady",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 28,
+	"time": 210,
+	"terrain": [
+		"###.........",
+		"####......##",
+		"#####.....##",
+		"#####.....##",
+		"#..........#",
+		"#...####....",
+		"#...#####...",
+		"#.########..",
+		"##########..",
+		"############",
+		"#..######...",
+		"#.##...##..."
+	],
 	"items": [
 		{
+			"type": "cone",
+			"x": 3,
+			"y": 0,
 			"aim": true,
-			"lock": "blue",
-			"type": "bubble",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "204",
+			"match_label": "3"
+		},
+		{
+			"type": "cone",
+			"x": 4,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "204",
+			"match_label": "3"
+		},
+		{
+			"type": "torus",
 			"x": 5,
-			"y": 3
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
 		},
 		{
-			"type": "bubble",
-			"x": 2,
-			"y": 4
+			"type": "cube",
+			"x": 6,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "200",
+			"match_label": "1"
 		},
 		{
-			"type": "bubble",
-			"x": 8,
-			"y": 2
-		},
-		{
-			"type": "plant",
+			"type": "torus",
 			"x": 7,
-			"y": 5
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
 		},
 		{
-			"type": "plant",
-			"x": 3,
-			"y": 2
+			"type": "cube",
+			"x": 8,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "200",
+			"match_label": "1"
 		},
 		{
-			"type": "key_blue",
-			"x": 3,
-			"y": 4
+			"type": "cube",
+			"x": 9,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "200",
+			"match_label": "1"
 		}
 	],
-	"moves": 4,
-	"name": "Hidden Path",
-	"optimal": 2,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"--..aaaa.---",
-		"--#...#..---",
-		"--....#..---",
-		"--.......---",
-		"--.......---",
-		"--.......---",
-		"--.......---",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 60,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL072.UZ3",
+		"number": 72,
+		"sha256": "3aaed9e8d21ca82f49e29dea59d2de6f142119eda5c8d258fc02986abbcc14b7"
+	}
 }

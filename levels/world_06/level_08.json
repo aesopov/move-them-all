@@ -1,67 +1,213 @@
 {
+	"version": 2,
+	"name": "Squeezed Play",
+	"theme": "cave",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"...#...#....",
+		"...#####....",
+		"...#...#....",
+		"####...#....",
+		".#.....#####",
+		".#........#.",
+		".#........#.",
+		".#........#.",
+		".#......####",
+		"###.....#...",
+		"..#######...",
+		"..#.....#..."
+	],
 	"items": [
 		{
-			"type": "crate",
+			"type": "balloon",
 			"x": 5,
-			"y": 9
-		},
-		{
+			"y": 2,
 			"aim": true,
-			"type": "crate",
-			"x": 1,
-			"y": 8
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		},
 		{
-			"type": "star",
+			"type": "bubble",
+			"x": 5,
+			"y": 3,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 2,
+			"y": 5,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
 			"x": 8,
-			"y": 6
-		},
-		{
-			"type": "star",
-			"x": 6,
-			"y": 5
-		},
-		{
-			"type": "rock",
-			"x": 1,
-			"y": 9
-		},
-		{
+			"y": 6,
 			"aim": true,
-			"type": "rock",
-			"x": 7,
-			"y": 6
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "206",
+			"match_label": "4"
 		},
 		{
-			"type": "bomb",
+			"type": "balloon",
+			"x": 2,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "pyramid",
 			"x": 3,
-			"y": 6
+			"y": 8,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "203",
+			"match_label": "5"
 		},
 		{
-			"type": "bomb",
-			"x": 8,
-			"y": 5
+			"type": "pyramid",
+			"x": 7,
+			"y": 8,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "203",
+			"match_label": "5"
+		},
+		{
+			"type": "crate",
+			"x": 3,
+			"y": 9,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "pyramid",
+			"x": 5,
+			"y": 9,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "203",
+			"match_label": "5"
+		},
+		{
+			"type": "balloon",
+			"x": 7,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		}
 	],
-	"moves": 7,
-	"name": "Quiet Maze",
-	"optimal": 4,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-....%....--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-......%#%--",
-		"-.....%##.--",
-		"-.........--",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL058.UZ3",
+		"number": 58,
+		"sha256": "2c6f8f3f83c0b2c5ab21ddeab317a863657de131d56ed0f02021ca1598d5e518"
+	},
+	"skins": [
+		"............",
+		"....p.p.....",
+		"............",
+		"............",
+		".p..........",
+		".p........p.",
+		"............",
+		".p........p.",
+		".p..........",
+		"............",
+		"...pp.pp....",
+		"............"
+	]
 }

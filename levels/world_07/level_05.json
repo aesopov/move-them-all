@@ -1,62 +1,253 @@
 {
+	"version": 2,
+	"name": "Coastal Finale",
+	"theme": "volcano",
+	"imported": true,
+	"moves": 20,
+	"time": 240,
+	"terrain": [
+		"##..........",
+		"#####.......",
+		".####.......",
+		".##.#.......",
+		".####.......",
+		".....##.....",
+		".....##.....",
+		".......####.",
+		".......#.##.",
+		".......####.",
+		".......#####",
+		"llllllllllll"
+	],
 	"items": [
 		{
-			"type": "shell",
+			"type": "weight_red",
 			"x": 2,
-			"y": 3
-		},
-		{
-			"type": "shell",
-			"x": 5,
-			"y": 4
-		},
-		{
+			"y": 0,
 			"aim": true,
-			"type": "shell",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
 			"x": 3,
-			"y": 4
-		},
-		{
-			"type": "rock",
-			"x": 7,
-			"y": 6
-		},
-		{
+			"y": 0,
 			"aim": true,
-			"type": "rock",
-			"x": 2,
-			"y": 4
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		},
 		{
-			"type": "plant",
-			"x": 7,
-			"y": 3
+			"type": "weight_red",
+			"x": 4,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
 		},
 		{
-			"type": "plant",
-			"x": 2,
-			"y": 6
+			"type": "padlock",
+			"x": 5,
+			"y": 0,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
+		},
+		{
+			"type": "key_red",
+			"x": 0,
+			"y": 2,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300",
+			"lock": "green"
+		},
+		{
+			"type": "cube",
+			"x": 4,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "200",
+			"match_label": "3"
+		},
+		{
+			"type": "cube",
+			"x": 4,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "200",
+			"match_label": "3"
+		},
+		{
+			"type": "key_green",
+			"x": 5,
+			"y": 7,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "cube",
+			"x": 6,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "200",
+			"match_label": "3"
+		},
+		{
+			"type": "padlock",
+			"x": 11,
+			"y": 7,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "red"
+		},
+		{
+			"type": "key_green",
+			"x": 5,
+			"y": 8,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "weight_red",
+			"x": 11,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 11,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		}
 	],
-	"moves": 8,
-	"name": "Wild Garden",
-	"optimal": 5,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"--........--",
-		"--........--",
-		"--........--",
-		"--##.##...--",
-		"--......##--",
-		"--.....###--",
-		"--........--",
-		"--....lll.--",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 5,
+			"y": 2,
+			"to": [
+				2,
+				6
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		},
+		{
+			"x": 2,
+			"y": 5,
+			"to": [
+				6,
+				2
+			],
+			"destination": "cell",
+			"enter": [
+				"down"
+			],
+			"mouth": "up"
+		},
+		{
+			"x": 9,
+			"y": 6,
+			"to": [
+				5,
+				9
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		},
+		{
+			"x": 6,
+			"y": 9,
+			"to": [
+				10,
+				6
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		}
 	],
-	"time": 85,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL065.UZ3",
+		"number": 65,
+		"sha256": "df682ce2eef44f61e5dc803bc3e520fad01a2cb17524334540d9a9a78b1044c7"
+	},
+	"skins": [
+		"............",
+		"............",
+		"...pp.......",
+		"..p.........",
+		"..p.........",
+		"............",
+		"............",
+		".........p..",
+		".........p..",
+		".......pp...",
+		"............",
+		"............"
+	]
 }

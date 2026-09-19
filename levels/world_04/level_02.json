@@ -1,85 +1,190 @@
 {
+	"version": 2,
+	"name": "Hell On The Beach",
+	"theme": "ice",
+	"imported": true,
+	"moves": 27,
+	"time": 130,
+	"terrain": [
+		"............",
+		"............",
+		"............",
+		"...#######..",
+		"...#.....#..",
+		"...#.....#..",
+		"...#.....#..",
+		"...#..#..#..",
+		"...#######..",
+		"....#####...",
+		"...#######..",
+		"...##...##.."
+	],
 	"items": [
 		{
-			"type": "star",
-			"x": 2,
-			"y": 4
-		},
-		{
-			"type": "star",
-			"x": 6,
-			"y": 5
-		},
-		{
-			"aim": true,
-			"type": "star",
+			"type": "weight_red",
 			"x": 4,
-			"y": 6
-		},
-		{
-			"type": "plant",
-			"x": 3,
-			"y": 6
-		},
-		{
+			"y": 4,
 			"aim": true,
-			"type": "plant",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "torus",
 			"x": 7,
-			"y": 3
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "202",
+			"match_label": "5"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "cube",
+			"x": 4,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "200",
+			"match_label": "4"
+		},
+		{
+			"type": "cube",
+			"x": 6,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "200",
+			"match_label": "4"
+		},
+		{
+			"type": "pyramid",
+			"x": 7,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "cube",
+			"x": 8,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "200",
+			"match_label": "4"
+		},
+		{
+			"type": "weight_red",
+			"x": 6,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "cube",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "200",
+			"match_label": "4"
+		},
+		{
+			"type": "weight_red",
+			"x": 8,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
+			"x": 7,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"moves": 7,
-	"name": "Gentle Garden",
-	"optimal": 4,
 	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				8,
-				4
-			],
-			"x": 2,
-			"y": 3
-		},
-		{
-			"to": [
-				3,
-				5
-			],
-			"x": 8,
-			"y": 3
-		},
-		{
-			"to": [
-				2,
-				3
-			],
-			"x": 8,
-			"y": 4
-		},
-		{
-			"to": [
-				8,
-				3
-			],
-			"x": 3,
-			"y": 5
-		}
-	],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--...#...---",
-		"--...#...---",
-		"--...#...---",
-		"--#..#..#---",
-		"--#..#...---",
-		"------------",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL032.UZ3",
+		"number": 32,
+		"sha256": "7b2b9708b109df2c627b4f353d4bc60e45daff8becf74c8613dc29a47a25b1a0"
+	},
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"....ppppp...",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p..",
+		"...p.....p..",
+		"...ppppppp..",
+		"............",
+		"............",
+		"............"
+	]
 }

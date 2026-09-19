@@ -1,64 +1,104 @@
 {
+	"version": 2,
+	"name": "Industrial Dilemma I",
+	"theme": "desert",
+	"imported": true,
+	"moves": 20,
+	"time": 120,
+	"terrain": [
+		"............",
+		".##########.",
+		".#......#.#.",
+		".#......###.",
+		".#........#.",
+		".#........#.",
+		".#........#.",
+		".###......#.",
+		".####.....#.",
+		".#.#......#.",
+		".##########.",
+		"............"
+	],
 	"items": [
 		{
-			"type": "shell",
-			"x": 3,
-			"y": 5
-		},
-		{
-			"aim": true,
-			"lock": "green",
-			"type": "shell",
-			"x": 5,
-			"y": 7
-		},
-		{
-			"lock": "red",
-			"type": "plant",
-			"x": 8,
-			"y": 8
-		},
-		{
-			"lock": "green",
-			"type": "plant",
-			"x": 7,
-			"y": 6
-		},
-		{
-			"type": "key_green",
-			"x": 8,
-			"y": 5
-		},
-		{
-			"type": "key_red",
-			"x": 3,
-			"y": 6
-		},
-		{
-			"type": "key_green",
+			"type": "weight_red",
 			"x": 2,
-			"y": 7
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 3,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 5,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		}
 	],
-	"moves": 6,
-	"name": "Bright Passage",
-	"optimal": 3,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--.......---",
-		"--...#.##---",
-		"--...#...---",
-		"--...#...---",
-		"--.......---",
-		"--.......---",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 70,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL024.UZ3",
+		"number": 24,
+		"sha256": "b06d57d0fc60c21e9d932a0b0bd9fe5fd475dc42004ea6aa492334a86ac00966"
+	}
 }

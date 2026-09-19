@@ -1,93 +1,222 @@
 {
+	"version": 2,
+	"name": "Moon Lagoon 3",
+	"theme": "nexus",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"############",
+		"############"
+	],
 	"items": [
 		{
-			"type": "rock",
-			"x": 9,
-			"y": 2
-		},
-		{
-			"type": "rock",
+			"type": "mover_green",
 			"x": 1,
-			"y": 9
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
 		},
 		{
-			"lock": "green",
-			"type": "rock",
-			"x": 2,
-			"y": 7
-		},
-		{
-			"type": "crystal",
-			"x": 6,
-			"y": 2
-		},
-		{
+			"type": "shell",
+			"x": 4,
+			"y": 6,
 			"aim": true,
-			"lock": "red",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "110",
+			"match_label": "4"
+		},
+		{
+			"type": "plant",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "108",
+			"match_label": "2"
+		},
+		{
+			"type": "mover_green",
+			"x": 10,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "plant",
+			"x": 1,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "108",
+			"match_label": "2"
+		},
+		{
+			"type": "plant",
+			"x": 4,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "108",
+			"match_label": "2"
+		},
+		{
+			"type": "shell",
+			"x": 7,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "110",
+			"match_label": "4"
+		},
+		{
+			"type": "shell",
+			"x": 10,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "110",
+			"match_label": "4"
+		},
+		{
 			"type": "crystal",
-			"x": 8,
-			"y": 8
+			"x": 1,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
 		},
 		{
-			"type": "star",
-			"x": 8,
-			"y": 2
+			"type": "crystal",
+			"x": 4,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
 		},
 		{
-			"type": "star",
-			"x": 3,
-			"y": 5
+			"type": "cube",
+			"x": 7,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "111",
+			"match_label": "5"
 		},
 		{
-			"type": "key_red",
-			"x": 9,
-			"y": 5
+			"type": "cube",
+			"x": 10,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "111",
+			"match_label": "5"
 		},
 		{
-			"type": "key_green",
-			"x": 8,
-			"y": 5
+			"type": "plant",
+			"x": 1,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "108",
+			"match_label": "2"
 		},
 		{
-			"type": "bomb",
-			"x": 3,
-			"y": 8
+			"type": "cube",
+			"x": 4,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "111",
+			"match_label": "5"
+		},
+		{
+			"type": "crystal",
+			"x": 7,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
+		},
+		{
+			"type": "shell",
+			"x": 10,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "110",
+			"match_label": "4"
 		}
 	],
-	"moves": 7,
-	"name": "Lost Crossing",
-	"optimal": 4,
-	"pipes": [
-		{
-			"mouth": "left",
-			"x": 5,
-			"y": 2
-		},
-		{
-			"mouth": "right",
-			"to": [
-				5,
-				2
-			],
-			"x": 5,
-			"y": 9
-		}
-	],
+	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-....#..#%--",
-		"-....%....--",
-		"-....%%%..--",
-		"-....%#...--",
-		"-....%....--",
-		"-.#..#....--",
-		"-.#...ll.l--",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL101.UZ3",
+		"number": 101,
+		"sha256": "462e16adad358098cf260cda1b5f5c3a5d4d7aedd4c0837ebf7ad83fe9e5c8e5"
+	}
 }

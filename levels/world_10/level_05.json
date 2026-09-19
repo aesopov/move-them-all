@@ -1,0 +1,140 @@
+{
+	"version": 2,
+	"name": "Prioritize",
+	"theme": "crystal",
+	"imported": true,
+	"moves": 20,
+	"time": 215,
+	"terrain": [
+		"#.#...#.#...",
+		"...#.#...#.#",
+		".#.....#....",
+		"...#.#...#.#",
+		"#.#...#.#...",
+		"....#.....#.",
+		"#.#...#.#...",
+		"...#.#...#.#",
+		".#.....#....",
+		"...#.#...#.#",
+		"#.#...#.#...",
+		".#..#.....#."
+	],
+	"items": [
+		{
+			"type": "plant",
+			"x": 9,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "111",
+			"match_label": "2"
+		},
+		{
+			"type": "crystal",
+			"x": 11,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
+		},
+		{
+			"type": "plant",
+			"x": 1,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "111",
+			"match_label": "2"
+		},
+		{
+			"type": "crystal",
+			"x": 5,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
+		},
+		{
+			"type": "star",
+			"x": 9,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "109",
+			"match_label": "3"
+		},
+		{
+			"type": "star",
+			"x": 11,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "109",
+			"match_label": "3"
+		},
+		{
+			"type": "plant",
+			"x": 0,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "111",
+			"match_label": "2"
+		},
+		{
+			"type": "star",
+			"x": 2,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "109",
+			"match_label": "3"
+		},
+		{
+			"type": "crystal",
+			"x": 5,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "107",
+			"match_label": "1"
+		}
+	],
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL095.UZ3",
+		"number": 95,
+		"sha256": "df532becf6b7076c6f20b0e10e42f23aeaca1b52e7864fce1c761e7ced78adc8"
+	}
+}

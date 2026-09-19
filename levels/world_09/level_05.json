@@ -1,79 +1,216 @@
 {
+	"version": 2,
+	"name": "Ball Factory II",
+	"theme": "sky",
+	"imported": true,
+	"moves": 20,
+	"time": 195,
+	"terrain": [
+		"##..#.#.....",
+		"....########",
+		".#..#.....##",
+		"##..#.....##",
+		"###.#.....##",
+		"######....##",
+		"########..##",
+		"#########.##",
+		"######.#..##",
+		"##..####..##",
+		"##.#########",
+		"............"
+	],
 	"items": [
 		{
-			"type": "star",
+			"type": "crate",
 			"x": 8,
-			"y": 3
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "t10"
+		},
+		{
+			"type": "crate",
+			"x": 9,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "t09"
+		},
+		{
+			"type": "balloon",
+			"x": 3,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
+		},
+		{
+			"type": "bubble",
+			"x": 4,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
+		},
+		{
+			"type": "bubble",
+			"x": 6,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 7,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
+		},
+		{
+			"type": "bubble",
+			"x": 8,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 9,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
 		},
 		{
 			"type": "star",
-			"x": 9,
-			"y": 5
-		},
-		{
-			"type": "shell",
-			"x": 3,
-			"y": 9
-		},
-		{
-			"aim": true,
-			"type": "shell",
-			"x": 0,
-			"y": 5
-		},
-		{
-			"type": "balloon",
-			"x": 0,
-			"y": 6
-		},
-		{
-			"aim": true,
-			"type": "balloon",
 			"x": 10,
-			"y": 2
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "110",
+			"match_label": "3"
 		},
 		{
-			"type": "balloon",
-			"x": 0,
-			"y": 2
+			"type": "bubble",
+			"x": 11,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
 		}
 	],
-	"moves": 8,
-	"name": "Twisted Keep",
-	"optimal": 5,
-	"pipes": [],
-	"teleports": [
+	"pipes": [
 		{
+			"x": 9,
+			"y": 2,
 			"to": [
-				0,
+				8,
+				9
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 3,
+			"y": 9,
+			"to": [
+				5,
 				4
 			],
-			"x": 6,
-			"y": 2
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
 		},
 		{
+			"x": 9,
+			"y": 9,
 			"to": [
-				6,
+				8,
 				2
 			],
-			"x": 0,
-			"y": 4
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
 		}
 	],
-	"terrain": [
-		"------------",
-		"------------",
-		"...........-",
-		".###.......-",
-		".###.......-",
-		".....###...-",
-		"...........-",
-		"...........-",
-		"..#........-",
-		"...........-",
-		"------------",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL085.UZ3",
+		"number": 85,
+		"sha256": "3cebdbc8fe82557a0d0c262554d8a7e6854920cf9923bd9f2909acc50027edf0"
+	},
+	"skins": [
+		"pp..p.......",
+		".....ppppp..",
+		"....p.....pp",
+		"....p.....pp",
+		".p..p.....pp",
+		".p..pp....pp",
+		".p..pp....pp",
+		"..pppppp..pp",
+		"pppp.p....pp",
+		".p..pp....pp",
+		"p...pppppp.p",
+		"............"
+	]
 }

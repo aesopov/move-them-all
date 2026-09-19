@@ -1,95 +1,172 @@
 {
+	"version": 2,
+	"name": "The Holder Technique",
+	"theme": "ruins",
+	"imported": true,
+	"moves": 51,
+	"time": 120,
+	"terrain": [
+		"######......",
+		"#...........",
+		"######......",
+		"..#.......#.",
+		"..#.########",
+		"..#.#......#",
+		"..#.########",
+		"..#.....#...",
+		"..#.....#...",
+		"..#.........",
+		"..#########.",
+		".#########w."
+	],
 	"items": [
 		{
-			"type": "crystal",
-			"x": 1,
-			"y": 5
+			"type": "weight",
+			"x": 7,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "crystal",
+			"type": "block_blue",
 			"x": 8,
-			"y": 8
+			"y": 0,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "122",
+			"match_label": "11"
 		},
 		{
-			"type": "rock",
+			"type": "block_blue",
+			"x": 7,
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "122",
+			"match_label": "11"
+		},
+		{
+			"type": "key_blue",
+			"x": 6,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "key_green",
+			"x": 7,
+			"y": 5,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "padlock",
+			"x": 8,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
+		},
+		{
+			"type": "padlock",
 			"x": 9,
-			"y": 7
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
 		},
 		{
-			"type": "rock",
-			"x": 3,
-			"y": 9
-		},
-		{
-			"type": "rock",
-			"x": 4,
-			"y": 7
-		},
-		{
-			"aim": true,
-			"type": "star",
-			"x": 8,
-			"y": 6
-		},
-		{
-			"aim": true,
-			"type": "star",
-			"x": 5,
-			"y": 3
+			"type": "bomb",
+			"x": 10,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
 		}
 	],
-	"moves": 6,
-	"name": "Quiet Nook",
-	"optimal": 3,
 	"pipes": [
 		{
-			"mouth": "left",
-			"x": 6,
-			"y": 3
-		},
-		{
-			"mouth": "left",
+			"x": 8,
+			"y": 9,
 			"to": [
-				6,
-				8
+				9,
+				9
 			],
-			"x": 6,
-			"y": 4
-		},
-		{
-			"mouth": "right",
-			"to": [
-				6,
-				3
+			"destination": "cell",
+			"enter": [
+				"right"
 			],
-			"x": 6,
-			"y": 6
-		},
-		{
-			"mouth": "right",
-			"to": [
-				6,
-				4
-			],
-			"x": 6,
-			"y": 8
+			"mouth": "left"
 		}
 	],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.....#....-",
-		"-..........-",
-		"-..........-",
-		"-.....#....-",
-		"-..........-",
-		"-....###...-",
-		"-...#....#.-",
-		"-...#.#..#.-",
-		"------------",
-		"------------"
+	"teleports": [
+		{
+			"x": 1,
+			"y": 1,
+			"to": [
+				5,
+				5
+			],
+			"strict": true
+		},
+		{
+			"x": 5,
+			"y": 5,
+			"to": [
+				1,
+				1
+			],
+			"strict": true
+		}
 	],
-	"time": 70,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL046.UZ3",
+		"number": 46,
+		"sha256": "16ca01e60b16b4375cc7721ef6f21fee6f5928188391fd88c094f5fa2d6ee4c5"
+	},
+	"skins": [
+		"ppppp.......",
+		"p...........",
+		"ppppp.......",
+		"..p.........",
+		"..p.ppppppp.",
+		"..p.p......p",
+		"..p..ppppppp",
+		"..p.....p...",
+		"..p.....p...",
+		"..p.........",
+		"..p.........",
+		"............"
+	]
 }

@@ -1,68 +1,217 @@
 {
+	"version": 2,
+	"name": "The Billboard",
+	"theme": "desert",
+	"imported": true,
+	"moves": 42,
+	"time": 75,
+	"terrain": [
+		"............",
+		".##########.",
+		".##.......#.",
+		".###......#.",
+		".#.....#..#.",
+		".##.###.#.#.",
+		".#...#....#.",
+		".##.###.#.#.",
+		".##########.",
+		"...#....#...",
+		"###########.",
+		"............"
+	],
 	"items": [
 		{
-			"type": "star",
+			"type": "weight_red",
 			"x": 3,
-			"y": 7
-		},
-		{
+			"y": 2,
 			"aim": true,
-			"lock": "red",
-			"type": "star",
-			"x": 2,
-			"y": 7
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
 		},
 		{
+			"type": "torus",
+			"x": 2,
+			"y": 4,
 			"aim": true,
-			"type": "shell",
-			"x": 2,
-			"y": 6
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
 		},
 		{
-			"type": "shell",
+			"type": "torus",
+			"x": 3,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "pyramid",
+			"x": 7,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "torus",
+			"x": 2,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "torus",
+			"x": 4,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "pyramid",
 			"x": 6,
-			"y": 9
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
 		},
 		{
-			"type": "shell",
-			"x": 1,
-			"y": 9
-		},
-		{
-			"type": "crystal",
+			"type": "pyramid",
 			"x": 8,
-			"y": 2
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
 		},
 		{
-			"type": "crystal",
+			"type": "torus",
 			"x": 3,
-			"y": 3
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
 		},
 		{
-			"type": "key_red",
-			"x": 3,
-			"y": 5
+			"type": "pyramid",
+			"x": 7,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "weight_red",
+			"x": 9,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "rock",
+			"x": 11,
+			"y": 10,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": true,
+			"match_group": 15,
+			"source_sprite": "117",
+			"visual": "cracked_stone",
+			"match_label": "15"
+		},
+		{
+			"type": "plant",
+			"x": 8,
+			"y": 11,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 15,
+			"source_sprite": "602",
+			"match_label": "15"
 		}
 	],
-	"moves": 6,
-	"name": "Quiet Nook",
-	"optimal": 3,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"...........-",
-		".###.......-",
-		".....#.....-",
-		"....##.....-",
-		"...........-",
-		"..........#-",
-		"..........#-",
-		"...........-",
-		"...........-",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 0,
+			"y": 11,
+			"to": [
+				11,
+				2
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
 	],
-	"time": 70,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL028.UZ3",
+		"number": 28,
+		"sha256": "0a1875e645e704c4ed24ce90e02096a64c10258c383043d56004e53492a73122"
+	},
+	"skins": [
+		"............",
+		".pp.pppp.pp.",
+		".p........p.",
+		"............",
+		".p........p.",
+		".p........p.",
+		"............",
+		".p........p.",
+		".pp.pppp.pp.",
+		"............",
+		"............",
+		"............"
+	]
 }

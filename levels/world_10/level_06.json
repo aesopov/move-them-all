@@ -1,0 +1,163 @@
+{
+	"version": 2,
+	"name": "Complications",
+	"theme": "crystal",
+	"imported": true,
+	"moves": 20,
+	"time": 215,
+	"terrain": [
+		"############",
+		"############",
+		"###.########",
+		"##...###.###",
+		"###.#.#...##",
+		"##.........#",
+		"###.#...#.##",
+		"####...#####",
+		"###.#.#.####",
+		"##.........#",
+		"###.#.#.#.##",
+		"############"
+	],
+	"items": [
+		{
+			"type": "weight_red",
+			"x": 2,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 9,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 9,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 4,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		}
+	],
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL096.UZ3",
+		"number": 96,
+		"sha256": "b905266c673a7271e80b4f4bc04bfb6a810a669d0b278d4423af71eff5ad8208"
+	}
+}

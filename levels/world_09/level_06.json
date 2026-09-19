@@ -1,90 +1,190 @@
 {
+	"version": 2,
+	"name": "Ball Factory III",
+	"theme": "sky",
+	"imported": true,
+	"moves": 20,
+	"time": 240,
+	"terrain": [
+		"#..###..#...",
+		"##########..",
+		"#..###..###.",
+		"######..####",
+		"#...........",
+		"#...........",
+		"##......####",
+		"###....##...",
+		"####...###.#",
+		"#####.######",
+		"#.#######...",
+		"#...#.#....."
+	],
 	"items": [
 		{
+			"type": "star",
+			"x": 1,
+			"y": 4,
 			"aim": true,
-			"type": "bubble",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "108",
+			"match_label": "3"
+		},
+		{
+			"type": "crystal",
+			"x": 7,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "110",
+			"match_label": "1"
+		},
+		{
+			"type": "star",
+			"x": 8,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "108",
+			"match_label": "3"
+		},
+		{
+			"type": "plant",
+			"x": 1,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "109",
+			"match_label": "2"
+		},
+		{
+			"type": "star",
+			"x": 2,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "108",
+			"match_label": "3"
+		},
+		{
+			"type": "star",
+			"x": 7,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "108",
+			"match_label": "3"
+		},
+		{
+			"type": "crystal",
+			"x": 8,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "110",
+			"match_label": "1"
+		},
+		{
+			"type": "plant",
+			"x": 2,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "109",
+			"match_label": "2"
+		},
+		{
+			"type": "star",
+			"x": 3,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "108",
+			"match_label": "3"
+		},
+		{
+			"type": "crystal",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "110",
+			"match_label": "1"
+		},
+		{
+			"type": "plant",
+			"x": 3,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "109",
+			"match_label": "2"
+		},
+		{
+			"type": "star",
 			"x": 6,
-			"y": 3
-		},
-		{
-			"type": "bubble",
-			"x": 3,
-			"y": 1
-		},
-		{
-			"type": "shell",
-			"x": 3,
-			"y": 10
-		},
-		{
-			"type": "shell",
-			"x": 5,
-			"y": 10
-		},
-		{
+			"y": 8,
 			"aim": true,
-			"type": "balloon",
-			"x": 4,
-			"y": 1
-		},
-		{
-			"type": "balloon",
-			"x": 1,
-			"y": 1
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "108",
+			"match_label": "3"
 		}
 	],
-	"moves": 10,
-	"name": "Lost Tower",
-	"optimal": 6,
 	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				9,
-				3
-			],
-			"x": 4,
-			"y": 3
-		},
-		{
-			"to": [
-				4,
-				3
-			],
-			"x": 9,
-			"y": 3
-		},
-		{
-			"to": [
-				1,
-				7
-			],
-			"x": 10,
-			"y": 6
-		},
-		{
-			"to": [
-				10,
-				6
-			],
-			"x": 1,
-			"y": 7
-		}
-	],
-	"terrain": [
-		"------------",
-		"...........-",
-		"......###..-",
-		"#..........-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"------------"
-	],
-	"time": 100,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL086.UZ3",
+		"number": 86,
+		"sha256": "869936a233795784a4db596d10dc719bd6b671b6c6b89d3ba5f5d0507f8cfa66"
+	},
+	"skins": [
+		"p....p......",
+		"ppppppppp...",
+		"p....p..p...",
+		".pppp...pppp",
+		"p...........",
+		"p...........",
+		"p.......pppp",
+		"ppp.....p...",
+		"p.p.....p...",
+		".ppp...ppppp",
+		"p.ppppppp...",
+		"p...p.p....."
+	]
 }

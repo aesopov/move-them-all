@@ -1,57 +1,253 @@
 {
+	"version": 2,
+	"name": "Confinement III",
+	"theme": "waterfall",
+	"imported": true,
+	"moves": 25,
+	"time": 130,
+	"terrain": [
+		"........#...",
+		"........#...",
+		"........##..",
+		"..#########.",
+		"..##....##..",
+		".........#..",
+		"####...#####",
+		".###.....##.",
+		".##########.",
+		".###........",
+		"............",
+		"............"
+	],
 	"items": [
 		{
+			"type": "plant",
+			"x": 10,
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 11,
+			"source_sprite": "120",
+			"match_label": "11"
+		},
+		{
+			"type": "rock",
+			"x": 2,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": true,
+			"match_group": 11,
+			"source_sprite": "122",
+			"visual": "cracked_stone",
+			"match_label": "11"
+		},
+		{
+			"type": "cone",
+			"x": 3,
+			"y": 5,
 			"aim": true,
-			"type": "rock",
-			"x": 7,
-			"y": 9
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
 		},
 		{
-			"type": "rock",
-			"x": 1,
-			"y": 8
-		},
-		{
-			"type": "shell",
-			"x": 5,
-			"y": 3
-		},
-		{
-			"type": "shell",
+			"type": "weight",
 			"x": 4,
-			"y": 9
-		},
-		{
+			"y": 5,
 			"aim": true,
-			"type": "crate",
-			"x": 1,
-			"y": 9
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "205",
+			"match_label": "5"
 		},
 		{
-			"type": "crate",
-			"x": 9,
-			"y": 6
+			"type": "torus",
+			"x": 5,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 6,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "205",
+			"match_label": "5"
+		},
+		{
+			"type": "torus",
+			"x": 7,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "cone",
+			"x": 8,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
+		},
+		{
+			"type": "weight_red",
+			"x": 4,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 6,
+			"source_sprite": "206",
+			"match_label": "6"
+		},
+		{
+			"type": "pyramid",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "cube",
+			"x": 6,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "200",
+			"match_label": "1"
+		},
+		{
+			"type": "torus",
+			"x": 4,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
+			"x": 5,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 6,
+			"source_sprite": "206",
+			"match_label": "6"
+		},
+		{
+			"type": "torus",
+			"x": 6,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "202",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "205",
+			"match_label": "5"
+		},
+		{
+			"type": "cube",
+			"x": 8,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "200",
+			"match_label": "1"
 		}
 	],
-	"moves": 12,
-	"name": "Crooked Keep",
-	"optimal": 7,
 	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-..#..####--",
-		"-....#....--",
-		"-.........--",
-		"-.........--",
-		"-........#--",
-		"-.........--",
-		"-....w....--",
-		"------------",
-		"------------"
+	"teleports": [
+		{
+			"x": 10,
+			"y": 2,
+			"to": [
+				1,
+				5
+			],
+			"strict": true
+		},
+		{
+			"x": 1,
+			"y": 5
+		}
 	],
-	"time": 115,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL019.UZ3",
+		"number": 19,
+		"sha256": "d5bedc2f136720ce1d7a380c105c3849fdbc8c83c3fb36403ef86bd567442aac"
+	},
+	"skins": [
+		"........p...",
+		"........p...",
+		"............",
+		"............",
+		"............",
+		"............",
+		"pp........pp",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............"
+	]
 }

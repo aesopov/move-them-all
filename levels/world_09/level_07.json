@@ -1,91 +1,163 @@
 {
+	"version": 2,
+	"name": "FILA(tm)",
+	"theme": "sky",
+	"imported": true,
+	"moves": 20,
+	"time": 175,
+	"terrain": [
+		"...#........",
+		"..########..",
+		"..########..",
+		"............",
+		"..######w...",
+		"..########..",
+		"..##........",
+		"..##........",
+		"..##........",
+		"..##........",
+		"#...........",
+		"............"
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "star",
-			"x": 7,
-			"y": 3
-		},
-		{
-			"type": "star",
-			"x": 8,
-			"y": 2
-		},
-		{
-			"type": "star",
+			"type": "weight",
 			"x": 2,
-			"y": 2
-		},
-		{
-			"type": "bubble",
-			"x": 3,
-			"y": 0
-		},
-		{
+			"y": 0,
 			"aim": true,
-			"type": "bubble",
-			"x": 8,
-			"y": 3
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "shell",
+			"type": "weight",
+			"x": 5,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "key_green",
+			"x": 4,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 3,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
 			"x": 6,
-			"y": 5
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "shell",
+			"type": "crate",
 			"x": 9,
-			"y": 10
-		}
-	],
-	"moves": 8,
-	"name": "Bright Hollow",
-	"optimal": 5,
-	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				6,
-				6
-			],
-			"x": 6,
-			"y": 3
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "t09",
+			"lock": "green"
 		},
 		{
-			"to": [
-				6,
-				3
-			],
-			"x": 6,
-			"y": 6
+			"type": "balloon",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		},
 		{
+			"type": "bubble",
 			"x": 2,
-			"y": 7
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "208",
+			"match_label": "3"
 		},
 		{
-			"to": [
-				2,
-				7
-			],
-			"x": 6,
-			"y": 9
+			"type": "balloon",
+			"x": 3,
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 0,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 11,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"terrain": [
-		"...........-",
-		"...........-",
-		"...#.......-",
-		"...........-",
-		"...........-",
-		"#.##.......-",
-		".......#...-",
-		"...........-",
-		"..........#-",
-		"..........#-",
-		"...........-",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL087.UZ3",
+		"number": 87,
+		"sha256": "07d4de0d2e0e2baf17b5a8434073df4174453e0ba429a92ae9fd1a9d73f943d3"
+	}
 }

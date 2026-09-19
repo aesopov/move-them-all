@@ -1,81 +1,214 @@
 {
+	"version": 2,
+	"name": "Confinement IV",
+	"theme": "crystal",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		".....#......",
+		".....#......",
+		".....#......",
+		"...##.####..",
+		"...#.....#..",
+		"##.#.....#..",
+		"...#.....#.#",
+		"...##.####.#",
+		".....#.....#",
+		"############",
+		".#...#.....#",
+		".#...#.....#"
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "plant",
-			"x": 7,
-			"y": 1
-		},
-		{
-			"type": "plant",
+			"type": "sphere",
 			"x": 5,
-			"y": 9
-		},
-		{
-			"type": "plant",
-			"x": 4,
-			"y": 7
-		},
-		{
-			"type": "shell",
-			"x": 2,
-			"y": 9
-		},
-		{
-			"type": "shell",
-			"x": 7,
-			"y": 8
-		},
-		{
-			"type": "rock",
-			"x": 9,
-			"y": 9
-		},
-		{
+			"y": 3,
 			"aim": true,
-			"type": "rock",
-			"x": 7,
-			"y": 9
-		}
-	],
-	"moves": 7,
-	"name": "Twisted Steps",
-	"optimal": 4,
-	"pipes": [
-		{
-			"mouth": "right",
-			"to": [
-				6,
-				9
-			],
-			"x": 6,
-			"y": 4
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
 		},
 		{
-			"mouth": "left",
-			"to": [
-				6,
-				4
-			],
+			"type": "weight",
+			"x": 5,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "cone",
 			"x": 6,
-			"y": 9
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "pyramid",
+			"x": 8,
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "203",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "pyramid",
+			"x": 5,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "203",
+			"match_label": "2"
+		},
+		{
+			"type": "sphere",
+			"x": 7,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
+		},
+		{
+			"type": "sphere",
+			"x": 4,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
+		},
+		{
+			"type": "cube",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "200",
+			"match_label": "5"
+		},
+		{
+			"type": "pyramid",
+			"x": 6,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "203",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "cone",
+			"x": 8,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
+		},
+		{
+			"type": "cone",
+			"x": 5,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
 		}
 	],
+	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"--....#...--",
-		"--....#...--",
-		"--....#...--",
-		"--.###....--",
-		"--...##...--",
-		"--..###...--",
-		"--...##...--",
-		"--.#..#...--",
-		"--........--",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL093.UZ3",
+		"number": 93,
+		"sha256": "60d09563ad759eedfe7599b2c6a6b4234ca38e05c3a632ad0e7c3c5306093953"
+	},
+	"skins": [
+		".....p......",
+		".....p......",
+		".....p......",
+		"...pp.pppp..",
+		"...p.....p..",
+		"pp.p.....p..",
+		"...p.....p.p",
+		"...pp.pppp.p",
+		".....p.....p",
+		".....p.....p",
+		".p...p.....p",
+		".p...p.....p"
+	]
 }

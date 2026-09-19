@@ -1,74 +1,126 @@
 {
+	"version": 2,
+	"name": "Forest Frenzy",
+	"theme": "desert",
+	"imported": true,
+	"moves": 25,
+	"time": 110,
+	"terrain": [
+		"############",
+		"############",
+		"############",
+		"...........#",
+		".#.........#",
+		".#.........#",
+		".#.........#",
+		".#...#.....#",
+		".#...#.....#",
+		".#...#.....#",
+		".#...#######",
+		".#...#######"
+	],
 	"items": [
 		{
+			"type": "weight_red",
+			"x": 5,
+			"y": 3,
 			"aim": true,
-			"lock": "green",
-			"type": "plant",
-			"x": 8,
-			"y": 5
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		},
 		{
-			"type": "plant",
+			"type": "key_red",
+			"x": 5,
+			"y": 4,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
+		},
+		{
+			"type": "weight_red",
+			"x": 5,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
 			"x": 9,
-			"y": 5
-		},
-		{
-			"type": "shell",
-			"x": 2,
-			"y": 5
-		},
-		{
+			"y": 5,
 			"aim": true,
-			"lock": "yellow",
-			"type": "shell",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 8,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "119",
+			"lock": "red"
+		},
+		{
+			"type": "mover_green",
+			"x": 9,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "119"
+		},
+		{
+			"type": "weight",
 			"x": 3,
-			"y": 8
-		},
-		{
-			"type": "shell",
-			"x": 5,
-			"y": 8
-		},
-		{
-			"type": "star",
-			"x": 5,
-			"y": 3
-		},
-		{
-			"type": "star",
-			"x": 1,
-			"y": 7
-		},
-		{
-			"type": "key_yellow",
-			"x": 4,
-			"y": 5
-		},
-		{
-			"type": "key_green",
-			"x": 7,
-			"y": 6
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"moves": 7,
-	"name": "Hidden Tower",
-	"optimal": 4,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-......##.--",
-		"-.........--",
-		"-.........--",
-		"-.#.......--",
-		"-.#..###..--",
-		"-.#.......--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL027.UZ3",
+		"number": 27,
+		"sha256": "1909b523d0bb3178c432cdc3e828b1e765b3c8ae6c5fb7749b192bf29d690532"
+	}
 }

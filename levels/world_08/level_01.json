@@ -1,42 +1,208 @@
 {
+	"version": 2,
+	"name": "Minefield",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 64,
+	"time": 75,
+	"terrain": [
+		"#####....###",
+		"############",
+		"####...###..",
+		"..#.....###.",
+		"..#.....###.",
+		"..#.....#.#.",
+		"####...####.",
+		"#####.#####.",
+		"..#.......#.",
+		"..#.......##",
+		"###.......##",
+		"###aaaaaaa##"
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "bubble",
+			"type": "torus",
 			"x": 4,
-			"y": 5
-		},
-		{
-			"type": "balloon",
-			"x": 7,
-			"y": 5
-		},
-		{
+			"y": 2,
 			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "202",
+			"match_label": "1"
+		},
+		{
+			"type": "bomb",
+			"x": 6,
+			"y": 2,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "torus",
+			"x": 11,
+			"y": 2,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "202",
+			"match_label": "1"
+		},
+		{
+			"type": "bomb",
+			"x": 3,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "bomb",
+			"x": 5,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "bomb",
+			"x": 7,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
 			"type": "balloon",
-			"x": 8,
-			"y": 7
+			"x": 11,
+			"y": 3,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "bomb",
+			"x": 4,
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "bomb",
+			"x": 6,
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "bubble",
+			"x": 11,
+			"y": 4,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "208",
+			"match_label": "3"
+		},
+		{
+			"type": "balloon",
+			"x": 11,
+			"y": 5,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "bubble",
+			"x": 11,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "208",
+			"match_label": "3"
+		},
+		{
+			"type": "balloon",
+			"x": 11,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "bubble",
+			"x": 11,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "208",
+			"match_label": "3"
 		}
 	],
-	"moves": 5,
-	"name": "Bubble Trouble",
-	"optimal": 2,
 	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"---aa....---",
-		"---......---",
-		"---.#..#.---",
-		"---......---",
-		"---.....#---",
-		"---......---",
-		"------------",
-		"------------",
-		"------------",
-		"------------"
+	"teleports": [
+		{
+			"x": 5,
+			"y": 7,
+			"to": [
+				10,
+				2
+			],
+			"strict": true
+		},
+		{
+			"x": 10,
+			"y": 2
+		}
 	],
-	"time": 75,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL071.UZ3",
+		"number": 71,
+		"sha256": "2c502616c2510a8ca809e2fd0242884f88ce2f9636221c6ead3ff060bf26d28f"
+	}
 }

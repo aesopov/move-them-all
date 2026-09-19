@@ -1,53 +1,202 @@
 {
+	"version": 2,
+	"name": "Dropoff",
+	"theme": "ice",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"...##.##....",
+		"...##.##....",
+		"#####.######",
+		"............",
+		"#####.#####.",
+		"...##.##..#.",
+		"#####.#####.",
+		".#.##.##....",
+		"#####.##.###",
+		"...##.##....",
+		"...##.##....",
+		"...##.##...."
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "crystal",
-			"x": 3,
-			"y": 4
-		},
-		{
-			"type": "crystal",
-			"x": 9,
-			"y": 5
-		}
-	],
-	"moves": 5,
-	"name": "Portal Hop",
-	"optimal": 2,
-	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				8,
-				5
-			],
+			"type": "weight",
 			"x": 4,
-			"y": 5
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"to": [
-				4,
-				5
-			],
-			"x": 8,
-			"y": 5
+			"type": "weight",
+			"x": 6,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 7,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
+			"x": 9,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "pyramid",
+			"x": 10,
+			"y": 3,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "pyramid",
+			"x": 11,
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "cone",
+			"x": 11,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
+		},
+		{
+			"type": "cone",
+			"x": 11,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
+		},
+		{
+			"type": "pyramid",
+			"x": 10,
+			"y": 10,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "203",
+			"match_label": "3"
+		},
+		{
+			"type": "cone",
+			"x": 11,
+			"y": 10,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "204",
+			"match_label": "4"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": false,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 11,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--....#...--",
-		"--....#...--",
-		"--....#...--",
-		"--....#...--",
-		"--....#...--",
-		"--....#...--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 75,
-	"version": 1
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL031.UZ3",
+		"number": 31,
+		"sha256": "63fd8ea2cc8fbb57b1498e26a5759f7fcffa66ef0cd5860f4250078b0831114a"
+	},
+	"skins": [
+		"...pp.pp....",
+		"...pp.pp....",
+		"ppp.....pp.p",
+		"............",
+		"ppp.....pp..",
+		"...pp.pp..p.",
+		"p.p.....pp..",
+		".p.pp.pp....",
+		"p.p.p.pp..pp",
+		"...pp.pp....",
+		"...pp.pp....",
+		"...pp.pp...."
+	]
 }

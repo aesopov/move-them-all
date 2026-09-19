@@ -1,68 +1,102 @@
 {
+	"version": 2,
+	"name": "Empire Crisis II",
+	"theme": "waterfall",
+	"imported": true,
+	"moves": 20,
+	"time": 70,
+	"terrain": [
+		"#..#########",
+		"##.......###",
+		"#........###",
+		"#..........#",
+		"##........##",
+		"#..........#",
+		"#..........#",
+		"##........##",
+		"#..##..##..#",
+		"#.########.#",
+		"############",
+		"############"
+	],
 	"items": [
 		{
-			"type": "rock",
-			"x": 7,
-			"y": 5
-		},
-		{
-			"aim": true,
-			"type": "rock",
-			"x": 8,
-			"y": 8
-		},
-		{
-			"aim": true,
 			"type": "crate",
-			"x": 2,
-			"y": 9
+			"x": 1,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "119"
 		},
 		{
-			"type": "crate",
-			"x": 4,
-			"y": 6
-		},
-		{
-			"type": "crate",
-			"x": 9,
-			"y": 9
-		},
-		{
-			"type": "shell",
-			"x": 8,
-			"y": 9
-		},
-		{
-			"type": "shell",
-			"x": 9,
-			"y": 8
-		},
-		{
+			"type": "weight_red",
+			"x": 1,
+			"y": 3,
 			"aim": true,
-			"type": "crystal",
-			"x": 7,
-			"y": 7
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "crate",
+			"x": 1,
+			"y": 6,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "119"
+		},
+		{
+			"type": "weight",
+			"x": 3,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 1,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": false,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": false,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"moves": 11,
-	"name": "Misty Passage",
-	"optimal": 6,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"--........--",
-		"--........--",
-		"--...#....--",
-		"--........--",
-		"--.....#..--",
-		"--..##....--",
-		"--........--",
-		"--..ww....--",
-		"------------",
-		"------------"
-	],
-	"time": 105,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL018.UZ3",
+		"number": 18,
+		"sha256": "80ab93ad2b1a57767c36cdda0d4142f4c9d1a8ce520abb5ac0272be75e5f0f3f"
+	}
 }

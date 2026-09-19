@@ -1,75 +1,115 @@
 {
+	"version": 2,
+	"name": "TrapShaft I",
+	"theme": "ice",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"##.....#####",
+		"###.....####",
+		"####.....###",
+		"#####.....##",
+		"######.....#",
+		"#######.#.##",
+		"#######.#.##",
+		"#######.#ww#",
+		"#####w#.#w##",
+		"####ww#.####",
+		"###www######",
+		"##wwww######"
+	],
 	"items": [
 		{
-			"type": "shell",
-			"x": 7,
-			"y": 3
-		},
-		{
-			"type": "shell",
-			"x": 7,
-			"y": 8
-		},
-		{
-			"type": "plant",
-			"x": 3,
-			"y": 6
-		},
-		{
+			"type": "weight",
+			"x": 6,
+			"y": 0,
 			"aim": true,
-			"type": "plant",
-			"x": 7,
-			"y": 4
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 6,
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "110"
+		},
+		{
+			"type": "weight",
+			"x": 6,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 6,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "110"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "crate",
+			"x": 9,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
 		}
 	],
-	"moves": 7,
-	"name": "Bright Steps",
-	"optimal": 4,
 	"pipes": [],
-	"teleports": [
-		{
-			"x": 7,
-			"y": 3
-		},
-		{
-			"to": [
-				7,
-				7
-			],
-			"x": 5,
-			"y": 5
-		},
-		{
-			"to": [
-				5,
-				5
-			],
-			"x": 7,
-			"y": 7
-		},
-		{
-			"to": [
-				7,
-				3
-			],
-			"x": 2,
-			"y": 8
-		}
-	],
-	"terrain": [
-		"------------",
-		"------------",
-		"--....#...--",
-		"--....#..#--",
-		"--....#..#--",
-		"--.#..#..#--",
-		"--....#.##--",
-		"--.##.#...--",
-		"--....#...--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL034.UZ3",
+		"number": 34,
+		"sha256": "152ac7ceb04209816e9faab6ccb81be71354117710fdab53a7809716c78a68c9"
+	},
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"pppppp......",
+		"pppppp......",
+		"......p.p...",
+		"......p.p...",
+		"......p.p...",
+		"............",
+		"............"
+	]
 }

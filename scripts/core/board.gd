@@ -51,6 +51,12 @@ var pipe_to := PackedInt32Array()
 var pipe_landing := PackedByteArray()
 ## Two-port elbows route directly between their open sides.
 var pipe_ports := PackedByteArray()
+## Imported pipes target a landing cell, not another mouth. Entry masks use
+## movement directions (UP means the piece moves up into the source).
+var pipe_direct := PackedByteArray()
+var pipe_entries := PackedByteArray()
+var teleport_entries := PackedByteArray()
+var teleport_strict := PackedByteArray()
 var item_at := PackedInt32Array()
 
 var it_type := PackedInt32Array()
@@ -59,6 +65,14 @@ var it_lock := PackedInt32Array()
 var it_aim := PackedByteArray()
 ## Per-piece gravity override (ItemDefs.Gravity), or -1 for the type's default.
 var it_grav := PackedInt32Array()
+
+## -1 preserves legacy type-based behavior; 0 explicitly disables matching.
+var it_group := PackedInt32Array()
+var it_movable := PackedByteArray()
+## -1 = legacy defaults, 0 = protected, 1 = destructible.
+var it_destructible := PackedInt32Array()
+## Import provenance / visual hints survive editor saves and undo.
+var it_meta: Array[Dictionary] = []
 
 var moves_made := 0
 
@@ -75,6 +89,11 @@ func _init() -> void:
 	pipe_landing.resize(N)
 	pipe_to.resize(N)
 	pipe_to.fill(-1)
+	pipe_direct.resize(N)
+	pipe_entries.resize(N)
+	teleport_entries.resize(N)
+	teleport_entries.fill(15)
+	teleport_strict.resize(N)
 	item_at.resize(N)
 	item_at.fill(-1)
 
@@ -120,12 +139,20 @@ func clone() -> Board:
 	b.pipe_to = pipe_to.duplicate()
 	b.pipe_landing = pipe_landing.duplicate()
 	b.pipe_ports = pipe_ports.duplicate()
+	b.pipe_direct = pipe_direct.duplicate()
+	b.pipe_entries = pipe_entries.duplicate()
+	b.teleport_entries = teleport_entries.duplicate()
+	b.teleport_strict = teleport_strict.duplicate()
 	b.item_at = item_at.duplicate()
 	b.it_type = it_type.duplicate()
 	b.it_cell = it_cell.duplicate()
 	b.it_lock = it_lock.duplicate()
 	b.it_aim = it_aim.duplicate()
 	b.it_grav = it_grav.duplicate()
+	b.it_group = it_group.duplicate()
+	b.it_movable = it_movable.duplicate()
+	b.it_destructible = it_destructible.duplicate()
+	b.it_meta = it_meta.duplicate(true)
 	b.moves_made = moves_made
 	return b
 
@@ -137,6 +164,10 @@ func add_item(type: int, c: int, lock := 0, aim := false, gravity_override := -1
 	it_lock.append(lock)
 	it_aim.append(1 if aim else 0)
 	it_grav.append(gravity_override)
+	it_group.append(-1)
+	it_movable.append(1)
+	it_destructible.append(-1)
+	it_meta.append({})
 	item_at[c] = id
 	return id
 
@@ -210,6 +241,10 @@ func to_dict() -> Dictionary:
 			d["lock"] = ItemDefs.LOCK_NAMES[it_lock[i]]
 		if it_grav[i] >= 0:
 			d["gravity"] = ItemDefs.GRAVITY_NAMES[it_grav[i]]
+		if it_group[i] >= 0: d["match_group"] = it_group[i]
+		if not it_movable[i]: d["movable"] = false
+		if it_destructible[i] >= 0: d["destructible"] = bool(it_destructible[i])
+		d.merge(it_meta[i])
 		items.append(d)
 	var teles := []
 	var pipes := []
@@ -218,6 +253,8 @@ func to_dict() -> Dictionary:
 			var t := {"x": c % W, "y": c / W}
 			if teleport_to[c] >= 0:
 				t["to"] = [teleport_to[c] % W, teleport_to[c] / W]
+			if teleport_entries[c] != 15: t["enter"] = directions(teleport_entries[c])
+			if teleport_strict[c]: t["strict"] = true
 			teles.append(t)
 		if pipe_mouth[c] != -1:
 			var p := {"x": c % W, "y": c / W, "mouth": DIR_NAMES[pipe_mouth[c]]}
@@ -230,15 +267,35 @@ func to_dict() -> Dictionary:
 				for direction in 4:
 					if pipe_ports[c] & (1 << direction):
 						p.ports.append(DIR_NAMES[direction])
+			if pipe_direct[c]:
+				p["destination"] = "cell"
+				p["enter"] = directions(pipe_entries[c])
 			pipes.append(p)
+	var extended := it_group.count(-1) != it_group.size() or it_movable.has(0) \
+		or it_destructible.count(-1) != it_destructible.size() or pipe_direct.has(1) or teleport_strict.has(1)
 	var d := {
-		"version": 1, "name": name, "moves": move_limit, "time": time_limit,
+		"version": 2 if extended else 1, "name": name, "moves": move_limit, "time": time_limit,
 		"terrain": rows, "items": items, "teleports": teles, "pipes": pipes,
 	}
 	if any_skin:
 		d["skins"] = skin_rows
 	d.merge(meta)
 	return d
+
+
+static func directions(mask: int) -> Array:
+	var result := []
+	for d in 4:
+		if mask & (1 << d): result.append(DIR_NAMES[d])
+	return result
+
+
+static func direction_mask(names: Array) -> int:
+	var mask := 0
+	for name in names:
+		var d := dir_from_name(str(name))
+		if d >= 0: mask |= 1 << d
+	return mask
 
 
 static func from_dict(d: Dictionary) -> Board:
@@ -262,6 +319,8 @@ static func from_dict(d: Dictionary) -> Board:
 			b.meta[k] = d[k]
 	for t in d.get("teleports", []):
 		var c := cell_of(int(t.x), int(t.y))
+		b.teleport_entries[c] = direction_mask(t.get("enter", DIR_NAMES))
+		b.teleport_strict[c] = int(bool(t.get("strict", false)))
 		b.teleport_to[c] = -1
 		if t.has("to"):
 			b.teleport_to[c] = cell_of(int(t.to[0]), int(t.to[1]))
@@ -273,6 +332,8 @@ static func from_dict(d: Dictionary) -> Board:
 				b.pipe_ports[c] |= 1 << direction
 		b.pipe_landing[c] = int(bool(p.get("landing", false)))
 		b.pipe_mouth[c] = maxi(dir_from_name(str(p.get("mouth", "up"))), 0)
+		b.pipe_direct[c] = int(p.get("destination", "pipe") == "cell")
+		b.pipe_entries[c] = direction_mask(p.get("enter", [DIR_NAMES[opposite(b.pipe_mouth[c])]]))
 		if p.has("to"):
 			b.pipe_to[c] = cell_of(int(p.to[0]), int(p.to[1]))
 	for it in d.get("items", []):
@@ -284,7 +345,13 @@ static func from_dict(d: Dictionary) -> Board:
 			continue
 		var lock := ItemDefs.LOCK_NAMES.find(str(it.get("lock", "")))
 		var g := ItemDefs.GRAVITY_NAMES.find(str(it.get("gravity", "")))
-		b.add_item(type, c, maxi(lock, 0), bool(it.get("aim", false)), g)
+		var id := b.add_item(type, c, maxi(lock, 0), bool(it.get("aim", false)), g)
+		b.it_group[id] = int(it.get("match_group", -1))
+		b.it_movable[id] = int(bool(it.get("movable", true)))
+		b.it_destructible[id] = int(bool(it.destructible)) if it.has("destructible") else -1
+		for key in it:
+			if key not in ["type", "x", "y", "aim", "lock", "gravity", "match_group", "movable", "destructible"]:
+				b.it_meta[id][key] = it[key]
 	return b
 
 
@@ -309,6 +376,9 @@ func _resolve(i: int, from: int, d: int, depth: int) -> Variant:
 	var p := step(from, d)
 	if p < 0 or item_at[p] != -1:
 		return null
+	if pipe_direct[p]:
+		if not pipe_entries[p] & (1 << d): return null
+		return _land(i, p, pipe_to[p], true)
 	if pipe_ports[p]:
 		var entered := opposite(d)
 		if not pipe_ports[p] & (1 << entered):
@@ -343,9 +413,28 @@ func _resolve(i: int, from: int, d: int, depth: int) -> Variant:
 			return null # locked items can't be destroyed, so they can't sink either
 		return {"path": [["slide", p]], "final": p, "sink": LIQUID_NAMES[t]}
 	var tt := teleport_to[p]
+	if teleport_strict[p]:
+		if not teleport_entries[p] & (1 << d): return null
+		return _land(i, p, tt, false)
 	if tt >= 0 and tt != p and item_at[tt] == -1:
 		return {"path": [["slide", p], ["tele", tt]], "final": tt, "sink": ""}
 	return {"path": [["slide", p]], "final": p, "sink": ""}
+
+
+## Transport arrivals stop on the exact destination; do not immediately
+## trigger a second transport or advance by an extra cell.
+func _land(i: int, source: int, target: int, pipe: bool) -> Variant:
+	if target < 0 or target >= N or item_at[target] != -1:
+		return null
+	if terrain[target] in [T.WALL, T.BREAKABLE, T.VOID]:
+		return null
+	if pipe_mouth[target] >= 0 and not pipe_direct[target] and not pipe_landing[target]:
+		return null
+	var sink := ""
+	if is_liquid(target):
+		if it_lock[i] != 0: return null
+		sink = LIQUID_NAMES[terrain[target]]
+	return {"path": [["pipe_in" if pipe else "slide", source], ["pipe_out" if pipe else "tele", target]], "final": target, "sink": sink}
 
 
 func _commit(i: int, r: Dictionary, ev: Array) -> void:
@@ -362,8 +451,6 @@ func _commit(i: int, r: Dictionary, ev: Array) -> void:
 
 ## Effective gravity of item i (per-piece override or the type's default).
 func grav(i: int) -> int:
-	if ItemDefs.kind(it_type[i]) == ItemDefs.Kind.BOMB:
-		return ItemDefs.Gravity.FALL
 	return it_grav[i] if it_grav[i] >= 0 else ItemDefs.gravity(it_type[i])
 
 
@@ -382,7 +469,7 @@ func can_move(i: int, d: int) -> bool:
 		return false
 	if d == DETONATE:
 		return GameConfig.TAP_TO_DETONATE_BOMB and ItemDefs.kind(it_type[i]) == ItemDefs.Kind.BOMB and it_lock[i] == 0
-	if it_lock[i] != 0 or ItemDefs.kind(it_type[i]) == ItemDefs.Kind.PADLOCK:
+	if not it_movable[i] or it_lock[i] != 0 or ItemDefs.kind(it_type[i]) == ItemDefs.Kind.PADLOCK:
 		return false # locked items (and padlocks) are pinned until a key opens them
 	if not gravity_allows(i, d):
 		return false
@@ -459,7 +546,11 @@ func _bomb_contact_step() -> Array:
 			continue
 		for direction in 4:
 			var neighbor := step(it_cell[i], direction)
-			if neighbor >= 0 and terrain[neighbor] == T.BREAKABLE:
+			if neighbor < 0: continue
+			var other := item_at[neighbor]
+			# Explicit imported destructibility also controls contact activation.
+			var object_contact := other >= 0 and it_lock[other] == 0 and it_destructible[other] == 1 and destructible(other)
+			if terrain[neighbor] == T.BREAKABLE or object_contact:
 				_detonate(i, events)
 				break
 	return events
@@ -517,8 +608,18 @@ func _unlock_step() -> Array:
 	return ev
 
 
+func match_group(i: int) -> int:
+	# Keep explicit source IDs separate from legacy type IDs.
+	return it_group[i] if it_group[i] >= 0 else 100000 + it_type[i]
+
+
+func destructible(i: int) -> bool:
+	if ItemDefs.blast_proof(it_type[i]): return false
+	return it_destructible[i] != 0
+
+
 func _matchable(i: int) -> bool:
-	return it_lock[i] == 0 and ItemDefs.matchable(it_type[i])
+	return it_lock[i] == 0 and it_group[i] != 0 and ItemDefs.matchable(it_type[i])
 
 
 func _match_step() -> Array:
@@ -543,7 +644,7 @@ func _match_step() -> Array:
 				if nb < 0 or seen[nb]:
 					continue
 				var j := item_at[nb]
-				if j >= 0 and _matchable(j) and it_type[j] == it_type[i]:
+				if j >= 0 and _matchable(j) and match_group(j) == match_group(i):
 					seen[nb] = 1
 					group.append(nb)
 		if group.size() >= GameConfig.MIN_MATCH_GROUP:
@@ -561,10 +662,10 @@ func _match_step() -> Array:
 			for d in 4:
 				var nb := step(c, d)
 				var j := item_at[nb] if nb >= 0 else -1
-				if j < 0 or not _matchable(j) or it_type[j] == it_type[i] or (bt != -1 and it_type[j] != bt):
+				if j < 0 or not _matchable(j) or match_group(j) == match_group(i) or (bt != -1 and match_group(j) != bt):
 					ok = false
 					break
-				bt = it_type[j]
+				bt = match_group(j)
 				nbs.append(j)
 			if ok:
 				any = true
@@ -615,7 +716,7 @@ func _detonate(b: int, ev: Array) -> void:
 				terrain[nb] = T.FLOOR
 				ev.append({"e": "break", "cell": nb})
 			var j := item_at[nb]
-			if j >= 0 and it_lock[j] == 0 and not ItemDefs.blast_proof(it_type[j]):
+			if j >= 0 and it_lock[j] == 0 and destructible(j):
 				if ItemDefs.kind(it_type[j]) == ItemDefs.Kind.BOMB:
 					chain.append(j)
 				else:

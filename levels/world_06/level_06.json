@@ -1,77 +1,157 @@
 {
+	"version": 2,
+	"name": "Simple Plumbing",
+	"theme": "cave",
+	"imported": true,
+	"moves": 20,
+	"time": 225,
+	"terrain": [
+		"############",
+		"############",
+		"####....####",
+		"####....####",
+		"####...#####",
+		"####...#####",
+		"##.....#####",
+		"##.#...#####",
+		"##.#...#####",
+		"##.#########",
+		"##...#######",
+		"############"
+	],
 	"items": [
 		{
-			"type": "rock",
-			"x": 4,
-			"y": 8
-		},
-		{
-			"aim": true,
-			"type": "rock",
-			"x": 3,
-			"y": 6
-		},
-		{
-			"type": "rock",
-			"x": 8,
-			"y": 8
-		},
-		{
-			"aim": true,
-			"type": "crystal",
-			"x": 3,
-			"y": 8
-		},
-		{
-			"type": "crystal",
-			"x": 7,
-			"y": 6
-		},
-		{
-			"type": "crystal",
+			"type": "bubble",
 			"x": 2,
-			"y": 2
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
 		},
 		{
-			"type": "crate",
-			"x": 4,
-			"y": 4
-		},
-		{
-			"type": "crate",
+			"type": "block_blue",
 			"x": 3,
-			"y": 7
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "121",
+			"match_label": "11"
 		},
 		{
-			"type": "bomb",
+			"type": "cube",
+			"x": 2,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "200",
+			"match_label": "2"
+		},
+		{
+			"type": "bubble",
+			"x": 2,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "block_blue",
+			"x": 2,
+			"y": 9,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "121",
+			"match_label": "11"
+		},
+		{
+			"type": "bubble",
+			"x": 2,
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "bubble",
 			"x": 4,
-			"y": 5
-		},
-		{
-			"type": "bomb",
-			"x": 8,
-			"y": 3
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
 		}
 	],
-	"moves": 6,
-	"name": "Misty Pocket",
-	"optimal": 3,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"--........--",
-		"--#..%#%..--",
-		"--%...%...--",
-		"--.......%--",
-		"--.......#--",
-		"--.......#--",
-		"--.......#--",
-		"------------",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 6,
+			"y": 4,
+			"to": [
+				5,
+				8
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 6,
+			"y": 8,
+			"to": [
+				5,
+				4
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		}
 	],
-	"time": 70,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL056.UZ3",
+		"number": 56,
+		"sha256": "6b4d767e221de743c18283605cb39ac8f5889c24caaf58b7b2593e30c84c18d0"
+	},
+	"skins": [
+		".p..........",
+		".p.pppppp...",
+		".p.p....p...",
+		"..pp....p...",
+		"...p...pp...",
+		".ppp...pp...",
+		".p.....pp...",
+		".p.....pp...",
+		".p.p...ppp..",
+		".p.pp.ppp.p.",
+		".p...p....p.",
+		".ppppp....p."
+	]
 }

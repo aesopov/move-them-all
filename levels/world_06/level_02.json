@@ -1,56 +1,179 @@
 {
+	"version": 2,
+	"name": "Orbit II",
+	"theme": "cave",
+	"imported": true,
+	"moves": 51,
+	"time": 150,
+	"terrain": [
+		"###...######",
+		"###.#......#",
+		"##..#####..#",
+		".##.##.....#",
+		".####.....##",
+		"##.........#",
+		"#...##......",
+		"#....#......",
+		"##..##......",
+		"w##.#.....#.",
+		"wwwwwwwwww#.",
+		"wwwwwwwwww#."
+	],
 	"items": [
 		{
-			"type": "star",
-			"x": 7,
-			"y": 7
-		},
-		{
-			"aim": true,
-			"type": "star",
+			"type": "weight",
 			"x": 5,
-			"y": 8
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		},
 		{
-			"type": "crate",
+			"type": "weight_red",
 			"x": 6,
-			"y": 5
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		},
 		{
 			"type": "crate",
-			"x": 2,
-			"y": 3
+			"x": 0,
+			"y": 3,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "509"
 		},
 		{
-			"type": "bomb",
-			"x": 2,
-			"y": 8
-		},
-		{
-			"type": "bomb",
+			"type": "weight",
 			"x": 3,
-			"y": 3
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
+		},
+		{
+			"type": "crate",
+			"x": 0,
+			"y": 4,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "509"
+		},
+		{
+			"type": "block_blue",
+			"x": 6,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "110",
+			"match_label": "11"
+		},
+		{
+			"type": "block_blue",
+			"x": 8,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "110",
+			"match_label": "11"
+		},
+		{
+			"type": "weight_red",
+			"x": 11,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
 		}
 	],
-	"moves": 6,
-	"name": "Lucky Corner",
-	"optimal": 3,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-.........--",
-		"-%#%.....#--",
-		"-.........--",
-		"-.....#...--",
-		"-.....#...--",
-		"-.....%...--",
-		"------------",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 2,
+			"y": 2,
+			"to": [
+				3,
+				5
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		},
+		{
+			"x": 2,
+			"y": 5,
+			"to": [
+				3,
+				2
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
 	],
-	"time": 70,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL052.UZ3",
+		"number": 52,
+		"sha256": "b720678868581b5f755091254a8e0e0137a26c315b22a7e2ebe3b7997541018a"
+	},
+	"skins": [
+		"............",
+		"............",
+		".p..........",
+		".p..........",
+		".p..........",
+		".p..........",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............"
+	]
 }

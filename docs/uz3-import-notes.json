@@ -1,0 +1,2716 @@
+[
+  {
+    "number": 17,
+    "path": "world_02/level_07.json",
+    "items": 7,
+    "goals": 5,
+    "transports": 3,
+    "exit_markers": 1,
+    "notes": []
+  },
+  {
+    "number": 18,
+    "path": "world_02/level_08.json",
+    "items": 6,
+    "goals": 4,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          0
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          1,
+          6
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "path": "world_02/level_09.json",
+    "items": 16,
+    "goals": 14,
+    "transports": 1,
+    "exit_markers": 1,
+    "notes": [
+      {
+        "cell": [
+          10,
+          4
+        ],
+        "reason": "Themed entity art: 120 -> plant"
+      },
+      {
+        "cell": [
+          2,
+          5
+        ],
+        "reason": "Themed entity art: 122 -> rock"
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "path": "world_02/level_10.json",
+    "items": 11,
+    "goals": 4,
+    "transports": 4,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 21,
+    "path": "world_03/level_01.json",
+    "items": 6,
+    "goals": 3,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 22,
+    "path": "world_03/level_02.json",
+    "items": 5,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 23,
+    "path": "world_03/level_03.json",
+    "items": 7,
+    "goals": 2,
+    "transports": 1,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 24,
+    "path": "world_03/level_04.json",
+    "items": 6,
+    "goals": 6,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 25,
+    "path": "world_03/level_05.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          7,
+          2
+        ],
+        "reason": "Themed entity art: 124 -> rock"
+      },
+      {
+        "cell": [
+          8,
+          2
+        ],
+        "reason": "Themed entity art: 124 -> rock"
+      }
+    ]
+  },
+  {
+    "number": 26,
+    "path": "world_03/level_06.json",
+    "items": 16,
+    "goals": 3,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 27,
+    "path": "world_03/level_07.json",
+    "items": 8,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 28,
+    "path": "world_03/level_08.json",
+    "items": 13,
+    "goals": 11,
+    "transports": 1,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          11,
+          10
+        ],
+        "reason": "Themed entity art: 117 -> rock"
+      },
+      {
+        "cell": [
+          8,
+          11
+        ],
+        "reason": "Themed entity art: 602 -> plant"
+      }
+    ]
+  },
+  {
+    "number": 29,
+    "path": "world_03/level_09.json",
+    "items": 4,
+    "goals": 2,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          7
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          4,
+          7
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 30,
+    "path": "world_03/level_10.json",
+    "items": 8,
+    "goals": 2,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          8,
+          1
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          1
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          10,
+          1
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          7,
+          2
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          8,
+          2
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          2
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 31,
+    "path": "world_04/level_01.json",
+    "items": 13,
+    "goals": 13,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 32,
+    "path": "world_04/level_02.json",
+    "items": 12,
+    "goals": 12,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 33,
+    "path": "world_04/level_03.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 1,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          5,
+          2
+        ],
+        "reason": "Themed entity art: 108 -> crate"
+      },
+      {
+        "cell": [
+          10,
+          8
+        ],
+        "reason": "Themed entity art: 604 -> plant"
+      }
+    ]
+  },
+  {
+    "number": 34,
+    "path": "world_04/level_04.json",
+    "items": 6,
+    "goals": 3,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          9,
+          6
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 35,
+    "path": "world_04/level_05.json",
+    "items": 18,
+    "goals": 18,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 36,
+    "path": "world_04/level_06.json",
+    "items": 9,
+    "goals": 3,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          2
+        ],
+        "reason": "Themed entity art: 110 -> crate"
+      },
+      {
+        "cell": [
+          11,
+          10
+        ],
+        "reason": "Themed entity art: 110 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 37,
+    "path": "world_04/level_07.json",
+    "items": 14,
+    "goals": 12,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          11,
+          1
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          10,
+          7
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 38,
+    "path": "world_04/level_08.json",
+    "items": 8,
+    "goals": 5,
+    "transports": 1,
+    "exit_markers": 1,
+    "notes": []
+  },
+  {
+    "number": 39,
+    "path": "world_04/level_09.json",
+    "items": 18,
+    "goals": 14,
+    "transports": 4,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          11,
+          3
+        ],
+        "reason": "Themed entity art: 604 -> plant"
+      },
+      {
+        "cell": [
+          0,
+          8
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          11,
+          8
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          0,
+          10
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 40,
+    "path": "world_04/level_10.json",
+    "items": 5,
+    "goals": 2,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          0
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          0,
+          1
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 41,
+    "path": "world_05/level_01.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          2,
+          2
+        ],
+        "reason": "Themed entity art: 602 -> plant"
+      }
+    ]
+  },
+  {
+    "number": 42,
+    "path": "world_05/level_02.json",
+    "items": 6,
+    "goals": 6,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 43,
+    "path": "world_05/level_03.json",
+    "items": 8,
+    "goals": 8,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          4
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          5,
+          4
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      },
+      {
+        "cell": [
+          6,
+          4
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      },
+      {
+        "cell": [
+          8,
+          4
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          3,
+          5
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      },
+      {
+        "cell": [
+          8,
+          5
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      },
+      {
+        "cell": [
+          4,
+          6
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          6
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      }
+    ]
+  },
+  {
+    "number": 44,
+    "path": "world_05/level_04.json",
+    "items": 8,
+    "goals": 8,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          6,
+          4
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          7,
+          4
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      },
+      {
+        "cell": [
+          6,
+          5
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      },
+      {
+        "cell": [
+          7,
+          5
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      },
+      {
+        "cell": [
+          6,
+          6
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          6
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          6,
+          7
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          7,
+          7
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      }
+    ]
+  },
+  {
+    "number": 45,
+    "path": "world_05/level_05.json",
+    "items": 10,
+    "goals": 10,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          7,
+          3
+        ],
+        "reason": "Themed entity art: c14 -> shell"
+      },
+      {
+        "cell": [
+          8,
+          3
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          5,
+          4
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      },
+      {
+        "cell": [
+          3,
+          6
+        ],
+        "reason": "Themed entity art: c11 -> crystal"
+      },
+      {
+        "cell": [
+          7,
+          7
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      },
+      {
+        "cell": [
+          8,
+          7
+        ],
+        "reason": "Themed entity art: c14 -> shell"
+      },
+      {
+        "cell": [
+          3,
+          8
+        ],
+        "reason": "Themed entity art: c14 -> shell"
+      },
+      {
+        "cell": [
+          6,
+          8
+        ],
+        "reason": "Themed entity art: c12 -> star"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: c14 -> shell"
+      },
+      {
+        "cell": [
+          8,
+          8
+        ],
+        "reason": "Themed entity art: c10 -> plant"
+      }
+    ]
+  },
+  {
+    "number": 46,
+    "path": "world_05/level_06.json",
+    "items": 8,
+    "goals": 1,
+    "transports": 3,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          8,
+          0
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          7,
+          1
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 47,
+    "path": "world_05/level_07.json",
+    "items": 12,
+    "goals": 10,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 48,
+    "path": "world_05/level_08.json",
+    "items": 13,
+    "goals": 10,
+    "transports": 1,
+    "exit_markers": 1,
+    "notes": []
+  },
+  {
+    "number": 49,
+    "path": "world_05/level_09.json",
+    "items": 6,
+    "goals": 4,
+    "transports": 3,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          2,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          2,
+          9
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 50,
+    "path": "world_05/level_10.json",
+    "items": 10,
+    "goals": 2,
+    "transports": 3,
+    "exit_markers": 1,
+    "notes": [
+      {
+        "cell": [
+          3,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          8,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          2,
+          8
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 51,
+    "path": "world_06/level_01.json",
+    "items": 8,
+    "goals": 4,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          0
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          6,
+          0
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 52,
+    "path": "world_06/level_02.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          0,
+          3
+        ],
+        "reason": "Themed entity art: 509 -> crate"
+      },
+      {
+        "cell": [
+          0,
+          4
+        ],
+        "reason": "Themed entity art: 509 -> crate"
+      },
+      {
+        "cell": [
+          6,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          8,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 53,
+    "path": "world_06/level_03.json",
+    "items": 12,
+    "goals": 4,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          2,
+          1
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          3,
+          2
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          2,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          2,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          0,
+          11
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          1,
+          11
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          3,
+          11
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          11
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 54,
+    "path": "world_06/level_04.json",
+    "items": 10,
+    "goals": 5,
+    "transports": 1,
+    "exit_markers": 1,
+    "notes": [
+      {
+        "cell": [
+          9,
+          2
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          8,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          10,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 55,
+    "path": "world_06/level_05.json",
+    "items": 7,
+    "goals": 2,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          8,
+          5
+        ],
+        "reason": "Themed entity art: 135 -> rock"
+      },
+      {
+        "cell": [
+          10,
+          5
+        ],
+        "reason": "Themed entity art: 135 -> rock"
+      }
+    ]
+  },
+  {
+    "number": 56,
+    "path": "world_06/level_06.json",
+    "items": 7,
+    "goals": 5,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          6
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          2,
+          9
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 57,
+    "path": "world_06/level_07.json",
+    "items": 5,
+    "goals": 3,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 58,
+    "path": "world_06/level_08.json",
+    "items": 14,
+    "goals": 13,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          9
+        ],
+        "reason": "Themed entity art: 111 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 59,
+    "path": "world_06/level_09.json",
+    "items": 8,
+    "goals": 5,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          9,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          8,
+          6
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          10,
+          6
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 60,
+    "path": "world_06/level_10.json",
+    "items": 10,
+    "goals": 6,
+    "transports": 1,
+    "exit_markers": 1,
+    "notes": [
+      {
+        "cell": [
+          2,
+          4
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          7,
+          4
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          9,
+          4
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 61,
+    "path": "world_07/level_01.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 62,
+    "path": "world_07/level_02.json",
+    "items": 10,
+    "goals": 10,
+    "transports": 4,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 63,
+    "path": "world_07/level_03.json",
+    "items": 8,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 64,
+    "path": "world_07/level_04.json",
+    "items": 12,
+    "goals": 9,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          4,
+          0
+        ],
+        "reason": "Themed entity art: 122 -> crate"
+      },
+      {
+        "cell": [
+          4,
+          1
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          4,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 65,
+    "path": "world_07/level_05.json",
+    "items": 13,
+    "goals": 8,
+    "transports": 4,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 66,
+    "path": "world_07/level_06.json",
+    "items": 2,
+    "goals": 2,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 67,
+    "path": "world_07/level_07.json",
+    "items": 13,
+    "goals": 12,
+    "transports": 4,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          7
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          1,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          3,
+          8
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          3,
+          9
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          6,
+          9
+        ],
+        "reason": "Themed entity art: 108 -> shell"
+      },
+      {
+        "cell": [
+          7,
+          9
+        ],
+        "reason": "Themed entity art: 107 -> star"
+      },
+      {
+        "cell": [
+          2,
+          10
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          10
+        ],
+        "reason": "Themed entity art: 108 -> shell"
+      },
+      {
+        "cell": [
+          6,
+          11
+        ],
+        "reason": "Themed entity art: 107 -> star"
+      },
+      {
+        "cell": [
+          7,
+          11
+        ],
+        "reason": "Themed entity art: 109 -> cube"
+      },
+      {
+        "cell": [
+          9,
+          11
+        ],
+        "reason": "Themed entity art: 109 -> cube"
+      }
+    ]
+  },
+  {
+    "number": 68,
+    "path": "world_07/level_08.json",
+    "items": 12,
+    "goals": 6,
+    "transports": 5,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 69,
+    "path": "world_07/level_09.json",
+    "items": 14,
+    "goals": 12,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          1
+        ],
+        "reason": "Themed entity art: 135 -> star"
+      },
+      {
+        "cell": [
+          7,
+          1
+        ],
+        "reason": "Themed entity art: 135 -> star"
+      }
+    ]
+  },
+  {
+    "number": 70,
+    "path": "world_07/level_10.json",
+    "items": 8,
+    "goals": 2,
+    "transports": 1,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          9,
+          8
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          10,
+          8
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          9
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          10,
+          9
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          8,
+          10
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          10
+        ],
+        "reason": "Themed entity art: 119 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 71,
+    "path": "world_08/level_01.json",
+    "items": 14,
+    "goals": 8,
+    "transports": 1,
+    "exit_markers": 1,
+    "notes": []
+  },
+  {
+    "number": 72,
+    "path": "world_08/level_02.json",
+    "items": 7,
+    "goals": 7,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 73,
+    "path": "world_08/level_03.json",
+    "items": 20,
+    "goals": 8,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          3
+        ],
+        "reason": "Themed entity art: 600 -> plant"
+      }
+    ]
+  },
+  {
+    "number": 74,
+    "path": "world_08/level_04.json",
+    "items": 11,
+    "goals": 6,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          5
+        ],
+        "reason": "Themed entity art: 138 -> rock"
+      },
+      {
+        "cell": [
+          8,
+          5
+        ],
+        "reason": "Themed entity art: 138 -> rock"
+      }
+    ]
+  },
+  {
+    "number": 75,
+    "path": "world_08/level_05.json",
+    "items": 19,
+    "goals": 17,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 76,
+    "path": "world_08/level_06.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          7,
+          0
+        ],
+        "reason": "Themed entity art: 110 -> crate"
+      },
+      {
+        "cell": [
+          6,
+          4
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          7,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 77,
+    "path": "world_08/level_07.json",
+    "items": 10,
+    "goals": 10,
+    "transports": 4,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 78,
+    "path": "world_08/level_08.json",
+    "items": 10,
+    "goals": 10,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          0
+        ],
+        "reason": "Themed entity art: 116 -> star"
+      },
+      {
+        "cell": [
+          3,
+          0
+        ],
+        "reason": "Themed entity art: 116 -> star"
+      },
+      {
+        "cell": [
+          5,
+          0
+        ],
+        "reason": "Themed entity art: 116 -> star"
+      }
+    ]
+  },
+  {
+    "number": 79,
+    "path": "world_08/level_09.json",
+    "items": 12,
+    "goals": 6,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          5,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          7,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          9,
+          6
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 80,
+    "path": "world_08/level_10.json",
+    "items": 7,
+    "goals": 6,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 81,
+    "path": "world_09/level_01.json",
+    "items": 13,
+    "goals": 13,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> star"
+      },
+      {
+        "cell": [
+          2,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> plant"
+      },
+      {
+        "cell": [
+          3,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> star"
+      },
+      {
+        "cell": [
+          4,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> plant"
+      },
+      {
+        "cell": [
+          5,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> star"
+      },
+      {
+        "cell": [
+          6,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> star"
+      },
+      {
+        "cell": [
+          8,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> plant"
+      },
+      {
+        "cell": [
+          9,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> star"
+      },
+      {
+        "cell": [
+          10,
+          0
+        ],
+        "reason": "Themed entity art: t07 -> plant"
+      },
+      {
+        "cell": [
+          8,
+          9
+        ],
+        "reason": "Themed entity art: t07 -> star"
+      }
+    ]
+  },
+  {
+    "number": 82,
+    "path": "world_09/level_02.json",
+    "items": 14,
+    "goals": 14,
+    "transports": 1,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          2,
+          3
+        ],
+        "reason": "Themed entity art: 118 -> shell"
+      }
+    ]
+  },
+  {
+    "number": 83,
+    "path": "world_09/level_03.json",
+    "items": 8,
+    "goals": 8,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          0,
+          1
+        ],
+        "reason": "Themed entity art: t10 -> crystal"
+      },
+      {
+        "cell": [
+          0,
+          2
+        ],
+        "reason": "Themed entity art: t11 -> star"
+      },
+      {
+        "cell": [
+          1,
+          2
+        ],
+        "reason": "Themed entity art: t14 -> plant"
+      },
+      {
+        "cell": [
+          2,
+          3
+        ],
+        "reason": "Themed entity art: t11 -> star"
+      },
+      {
+        "cell": [
+          2,
+          4
+        ],
+        "reason": "Themed entity art: t10 -> crystal"
+      },
+      {
+        "cell": [
+          3,
+          4
+        ],
+        "reason": "Themed entity art: t14 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          6
+        ],
+        "reason": "Themed entity art: t14 -> plant"
+      },
+      {
+        "cell": [
+          5,
+          6
+        ],
+        "reason": "Themed entity art: t10 -> crystal"
+      }
+    ]
+  },
+  {
+    "number": 84,
+    "path": "world_09/level_04.json",
+    "items": 8,
+    "goals": 6,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          6,
+          3
+        ],
+        "reason": "Themed entity art: 111 -> star"
+      },
+      {
+        "cell": [
+          8,
+          3
+        ],
+        "reason": "Themed entity art: 111 -> star"
+      },
+      {
+        "cell": [
+          9,
+          3
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          10,
+          3
+        ],
+        "reason": "Themed entity art: 111 -> star"
+      },
+      {
+        "cell": [
+          5,
+          4
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          6,
+          4
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          8,
+          4
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          6,
+          5
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      }
+    ]
+  },
+  {
+    "number": 85,
+    "path": "world_09/level_05.json",
+    "items": 11,
+    "goals": 9,
+    "transports": 3,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          8,
+          0
+        ],
+        "reason": "Themed entity art: t10 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          0
+        ],
+        "reason": "Themed entity art: t09 -> crate"
+      },
+      {
+        "cell": [
+          10,
+          11
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      }
+    ]
+  },
+  {
+    "number": 86,
+    "path": "world_09/level_06.json",
+    "items": 12,
+    "goals": 12,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          4
+        ],
+        "reason": "Themed entity art: 108 -> star"
+      },
+      {
+        "cell": [
+          7,
+          4
+        ],
+        "reason": "Themed entity art: 110 -> crystal"
+      },
+      {
+        "cell": [
+          8,
+          4
+        ],
+        "reason": "Themed entity art: 108 -> star"
+      },
+      {
+        "cell": [
+          1,
+          5
+        ],
+        "reason": "Themed entity art: 109 -> plant"
+      },
+      {
+        "cell": [
+          2,
+          5
+        ],
+        "reason": "Themed entity art: 108 -> star"
+      },
+      {
+        "cell": [
+          7,
+          5
+        ],
+        "reason": "Themed entity art: 108 -> star"
+      },
+      {
+        "cell": [
+          8,
+          5
+        ],
+        "reason": "Themed entity art: 110 -> crystal"
+      },
+      {
+        "cell": [
+          2,
+          6
+        ],
+        "reason": "Themed entity art: 109 -> plant"
+      },
+      {
+        "cell": [
+          3,
+          6
+        ],
+        "reason": "Themed entity art: 108 -> star"
+      },
+      {
+        "cell": [
+          7,
+          6
+        ],
+        "reason": "Themed entity art: 110 -> crystal"
+      },
+      {
+        "cell": [
+          3,
+          7
+        ],
+        "reason": "Themed entity art: 109 -> plant"
+      },
+      {
+        "cell": [
+          6,
+          8
+        ],
+        "reason": "Themed entity art: 108 -> star"
+      }
+    ]
+  },
+  {
+    "number": 87,
+    "path": "world_09/level_07.json",
+    "items": 11,
+    "goals": 9,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          9,
+          4
+        ],
+        "reason": "Themed entity art: t09 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 88,
+    "path": "world_09/level_08.json",
+    "items": 15,
+    "goals": 14,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          3
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 89,
+    "path": "world_09/level_09.json",
+    "items": 8,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 90,
+    "path": "world_09/level_10.json",
+    "items": 8,
+    "goals": 6,
+    "transports": 4,
+    "exit_markers": 4,
+    "notes": [
+      {
+        "cell": [
+          3,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 91,
+    "path": "world_10/level_01.json",
+    "items": 15,
+    "goals": 15,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          3,
+          3
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          5,
+          3
+        ],
+        "reason": "Themed entity art: 107 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          3
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          5,
+          5
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          3,
+          6
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          7,
+          6
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          3,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> plant"
+      },
+      {
+        "cell": [
+          5,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> plant"
+      }
+    ]
+  },
+  {
+    "number": 92,
+    "path": "world_10/level_02.json",
+    "items": 12,
+    "goals": 10,
+    "transports": 5,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          8,
+          1
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          6,
+          3
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          3,
+          4
+        ],
+        "reason": "Destination is source solid terrain; transport remains blocked until available"
+      }
+    ]
+  },
+  {
+    "number": 93,
+    "path": "world_10/level_03.json",
+    "items": 14,
+    "goals": 14,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 94,
+    "path": "world_10/level_04.json",
+    "items": 10,
+    "goals": 2,
+    "transports": 2,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          0,
+          2
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          0,
+          3
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          0,
+          4
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          3,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          4,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          5,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      },
+      {
+        "cell": [
+          9,
+          8
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 95,
+    "path": "world_10/level_05.json",
+    "items": 9,
+    "goals": 9,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          9,
+          0
+        ],
+        "reason": "Themed entity art: 111 -> plant"
+      },
+      {
+        "cell": [
+          11,
+          0
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          1,
+          1
+        ],
+        "reason": "Themed entity art: 111 -> plant"
+      },
+      {
+        "cell": [
+          5,
+          2
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          9,
+          2
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          11,
+          2
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          0,
+          3
+        ],
+        "reason": "Themed entity art: 111 -> plant"
+      },
+      {
+        "cell": [
+          2,
+          3
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          5,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      }
+    ]
+  },
+  {
+    "number": 96,
+    "path": "world_10/level_06.json",
+    "items": 11,
+    "goals": 10,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 97,
+    "path": "world_10/level_07.json",
+    "items": 14,
+    "goals": 14,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          7,
+          2
+        ],
+        "reason": "Themed entity art: 107 -> cube"
+      },
+      {
+        "cell": [
+          8,
+          2
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          6,
+          3
+        ],
+        "reason": "Themed entity art: 108 -> shell"
+      },
+      {
+        "cell": [
+          7,
+          3
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          8,
+          3
+        ],
+        "reason": "Themed entity art: 108 -> shell"
+      },
+      {
+        "cell": [
+          4,
+          4
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          5,
+          4
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          6,
+          4
+        ],
+        "reason": "Themed entity art: 109 -> star"
+      },
+      {
+        "cell": [
+          7,
+          4
+        ],
+        "reason": "Themed entity art: 108 -> shell"
+      },
+      {
+        "cell": [
+          1,
+          7
+        ],
+        "reason": "Themed entity art: 111 -> crystal"
+      },
+      {
+        "cell": [
+          2,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          9,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          8,
+          8
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          9,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> cube"
+      }
+    ]
+  },
+  {
+    "number": 98,
+    "path": "world_10/level_08.json",
+    "items": 15,
+    "goals": 14,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          3
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 99,
+    "path": "world_10/level_09.json",
+    "items": 14,
+    "goals": 12,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          7
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          4,
+          7
+        ],
+        "reason": "Themed entity art: 111 -> shell"
+      },
+      {
+        "cell": [
+          7,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          10,
+          7
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          1,
+          8
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> shell"
+      },
+      {
+        "cell": [
+          10,
+          8
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          1,
+          9
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          4,
+          9
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          9
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          10,
+          9
+        ],
+        "reason": "Themed entity art: 111 -> shell"
+      }
+    ]
+  },
+  {
+    "number": 100,
+    "path": "world_10/level_10.json",
+    "items": 15,
+    "goals": 13,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          4,
+          6
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          7,
+          6
+        ],
+        "reason": "Arrow/mover/alert box protected from blasts"
+      },
+      {
+        "cell": [
+          10,
+          6
+        ],
+        "reason": "Themed entity art: 109 -> cube"
+      },
+      {
+        "cell": [
+          1,
+          7
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          7
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          10,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          1,
+          8
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          4,
+          8
+        ],
+        "reason": "Themed entity art: 110 -> star"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> shell"
+      },
+      {
+        "cell": [
+          10,
+          8
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          1,
+          9
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          9
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          9
+        ],
+        "reason": "Themed entity art: 109 -> cube"
+      },
+      {
+        "cell": [
+          10,
+          9
+        ],
+        "reason": "Themed entity art: 109 -> cube"
+      }
+    ]
+  },
+  {
+    "number": 101,
+    "path": "world_11/level_01.json",
+    "items": 16,
+    "goals": 14,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          4,
+          6
+        ],
+        "reason": "Themed entity art: 110 -> shell"
+      },
+      {
+        "cell": [
+          7,
+          6
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          1,
+          7
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          7
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          7,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> shell"
+      },
+      {
+        "cell": [
+          10,
+          7
+        ],
+        "reason": "Themed entity art: 110 -> shell"
+      },
+      {
+        "cell": [
+          1,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          4,
+          8
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          7,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> cube"
+      },
+      {
+        "cell": [
+          10,
+          8
+        ],
+        "reason": "Themed entity art: 111 -> cube"
+      },
+      {
+        "cell": [
+          1,
+          9
+        ],
+        "reason": "Themed entity art: 108 -> plant"
+      },
+      {
+        "cell": [
+          4,
+          9
+        ],
+        "reason": "Themed entity art: 111 -> cube"
+      },
+      {
+        "cell": [
+          7,
+          9
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          10,
+          9
+        ],
+        "reason": "Themed entity art: 110 -> shell"
+      }
+    ]
+  },
+  {
+    "number": 102,
+    "path": "world_11/level_02.json",
+    "items": 8,
+    "goals": 7,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          1,
+          0
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      },
+      {
+        "cell": [
+          1,
+          2
+        ],
+        "reason": "Themed entity art: 110 -> plant"
+      },
+      {
+        "cell": [
+          11,
+          9
+        ],
+        "reason": "Themed entity art: 107 -> crystal"
+      }
+    ]
+  },
+  {
+    "number": 103,
+    "path": "world_11/level_03.json",
+    "items": 9,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          7,
+          7
+        ],
+        "reason": "Themed entity art: 118 -> crate"
+      }
+    ]
+  },
+  {
+    "number": 104,
+    "path": "world_11/level_04.json",
+    "items": 10,
+    "goals": 5,
+    "transports": 0,
+    "exit_markers": 0,
+    "notes": []
+  },
+  {
+    "number": 105,
+    "path": "world_11/level_05.json",
+    "items": 20,
+    "goals": 20,
+    "transports": 7,
+    "exit_markers": 0,
+    "notes": [
+      {
+        "cell": [
+          10,
+          4
+        ],
+        "reason": "Themed entity art: 107 -> cube"
+      },
+      {
+        "cell": [
+          10,
+          6
+        ],
+        "reason": "Themed entity art: 109 -> pyramid"
+      }
+    ]
+  }
+]

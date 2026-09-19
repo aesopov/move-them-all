@@ -1,109 +1,136 @@
 {
+	"version": 2,
+	"name": "The Fourth Element",
+	"theme": "nexus",
+	"imported": true,
+	"moves": 20,
+	"time": 210,
+	"terrain": [
+		".###########",
+		"...###......",
+		".........###",
+		"...##....###",
+		"...##wwww###",
+		"...#########",
+		"......######",
+		"...........#",
+		"...#.......#",
+		"www##......#",
+		"www#########",
+		"www#########"
+	],
 	"items": [
 		{
-			"type": "crystal",
-			"x": 3,
-			"y": 6
-		},
-		{
-			"type": "crystal",
-			"x": 4,
-			"y": 9
-		},
-		{
-			"type": "bubble",
-			"x": 8,
-			"y": 1
-		},
-		{
-			"type": "bubble",
-			"x": 1,
-			"y": 1
-		},
-		{
-			"type": "shell",
-			"x": 3,
-			"y": 9
-		},
-		{
-			"aim": true,
-			"type": "shell",
+			"type": "weight",
 			"x": 9,
-			"y": 7
-		},
-		{
+			"y": 1,
 			"aim": true,
-			"lock": "yellow",
-			"type": "rock",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 10,
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "crate",
 			"x": 7,
-			"y": 3
+			"y": 7,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
 		},
 		{
-			"type": "key_yellow",
-			"x": 6,
-			"y": 1
+			"type": "weight",
+			"x": 8,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "bomb",
+			"type": "weight",
 			"x": 4,
-			"y": 1
-		}
-	],
-	"moves": 7,
-	"name": "Lucky Tower",
-	"optimal": 4,
-	"pipes": [
-		{
-			"mouth": "left",
-			"to": [
-				5,
-				6
-			],
-			"x": 5,
-			"y": 3
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"mouth": "right",
-			"to": [
-				5,
-				3
-			],
-			"x": 5,
-			"y": 6
-		}
-	],
-	"teleports": [
-		{
-			"to": [
-				7,
-				2
-			],
-			"x": 3,
-			"y": 1
-		},
-		{
-			"to": [
-				3,
-				1
-			],
+			"type": "weight_red",
 			"x": 7,
-			"y": 2
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "mover_green",
+			"x": 8,
+			"y": 8,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 8,
+			"y": 9,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
 		}
 	],
-	"terrain": [
-		"------------",
-		"-....#....--",
-		"-....#....--",
-		"-..#.....%--",
-		"-....%.#..--",
-		"-....%.%..--",
-		"-.........--",
-		"-....#....--",
-		"-....#...%--",
-		"-....#.lll--",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL103.UZ3",
+		"number": 103,
+		"sha256": "b82b8a8308c79f42fe15368d00d75deba2b9d36c1bb07dcb09cd57284fd54b85"
+	}
 }

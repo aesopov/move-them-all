@@ -1,0 +1,205 @@
+{
+	"version": 2,
+	"name": "Planned Approach",
+	"theme": "ruins",
+	"imported": true,
+	"moves": 20,
+	"time": 210,
+	"terrain": [
+		"##..####....",
+		".#..####....",
+		"#####.......",
+		"....####....",
+		".#..#..#....",
+		"w#..#..#....",
+		".#..####....",
+		".#..#..#....",
+		".#.######www",
+		".#...##.....",
+		".##########.",
+		".....##..##."
+	],
+	"items": [
+		{
+			"type": "bubble",
+			"x": 3,
+			"y": 0,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "padlock",
+			"x": 5,
+			"y": 2,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "403",
+			"lock": "yellow"
+		},
+		{
+			"type": "padlock",
+			"x": 6,
+			"y": 2,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
+		},
+		{
+			"type": "block_blue",
+			"x": 3,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "111",
+			"match_label": "11"
+		},
+		{
+			"type": "block_blue",
+			"x": 8,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "111",
+			"match_label": "11"
+		},
+		{
+			"type": "bubble",
+			"x": 11,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"lock": "blue",
+			"match_label": "1"
+		},
+		{
+			"type": "block_blue",
+			"x": 2,
+			"y": 8,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "111",
+			"match_label": "11"
+		},
+		{
+			"type": "key_blue",
+			"x": 2,
+			"y": 9,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "key_yellow",
+			"x": 3,
+			"y": 9,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "301"
+		},
+		{
+			"type": "key_blue",
+			"x": 4,
+			"y": 9,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		}
+	],
+	"pipes": [
+		{
+			"x": 3,
+			"y": 6,
+			"to": [
+				9,
+				6
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 8,
+			"y": 6,
+			"to": [
+				2,
+				6
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
+	],
+	"teleports": [
+		{
+			"x": 5,
+			"y": 2,
+			"to": [
+				3,
+				1
+			],
+			"strict": true
+		},
+		{
+			"x": 3,
+			"y": 1
+		}
+	],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL050.UZ3",
+		"number": 50,
+		"sha256": "a0520c58f83708c968398dcb42c034ce7782f3882111ce4637feff19127b598f"
+	},
+	"skins": [
+		"p....pp.....",
+		".p..ppp.....",
+		"p.pp........",
+		".....pp.....",
+		"....p..p....",
+		".p..p..p....",
+		".p..........",
+		".p..p..p....",
+		".p...pp.....",
+		".p...pp.....",
+		"..pppppppp..",
+		".....pp....."
+	]
+}

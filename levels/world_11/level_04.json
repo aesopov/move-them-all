@@ -1,104 +1,150 @@
 {
+	"version": 2,
+	"name": "Flood",
+	"theme": "nexus",
+	"imported": true,
+	"moves": 20,
+	"time": 270,
+	"terrain": [
+		".....##....#",
+		".....##....#",
+		"##...##....#",
+		"##...##....#",
+		".....##....#",
+		".#...##....#",
+		"##..........",
+		"........###.",
+		"##......###.",
+		"##wwwwwwwwww",
+		"##wwwwwwwwww",
+		"##wwwwwwwwww"
+	],
 	"items": [
 		{
-			"type": "bubble",
-			"x": 10,
-			"y": 4
-		},
-		{
-			"aim": true,
-			"lock": "green",
-			"type": "bubble",
+			"type": "key_red",
 			"x": 0,
-			"y": 4
+			"y": 4,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
 		},
 		{
-			"type": "crystal",
-			"x": 6,
-			"y": 3
-		},
-		{
-			"type": "crystal",
-			"x": 0,
-			"y": 3
-		},
-		{
-			"aim": true,
-			"type": "crystal",
-			"x": 9,
-			"y": 10
-		},
-		{
-			"type": "star",
-			"x": 10,
-			"y": 3
-		},
-		{
-			"type": "star",
+			"type": "mover_green",
 			"x": 1,
-			"y": 8
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "balloon",
+			"x": 0,
+			"y": 5,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"lock": "green",
+			"match_label": "1"
 		},
 		{
 			"type": "key_green",
-			"x": 1,
-			"y": 3
-		}
-	],
-	"moves": 7,
-	"name": "Sleepy Steps",
-	"optimal": 4,
-	"pipes": [
-		{
-			"mouth": "left",
-			"to": [
-				5,
-				6
-			],
 			"x": 5,
-			"y": 3
+			"y": 6,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
 		},
 		{
-			"mouth": "right",
-			"to": [
-				5,
-				3
-			],
-			"x": 5,
-			"y": 6
-		}
-	],
-	"teleports": [
+			"type": "key_blue",
+			"x": 8,
+			"y": 6,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
 		{
-			"to": [
-				2,
-				7
-			],
+			"type": "balloon",
 			"x": 10,
-			"y": 1
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"lock": "red",
+			"match_label": "1"
 		},
 		{
-			"to": [
-				10,
-				1
-			],
-			"x": 2,
-			"y": 7
+			"type": "bubble",
+			"x": 11,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 0,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"lock": "blue",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 1,
+			"y": 7,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "balloon",
+			"x": 11,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
 		}
 	],
-	"terrain": [
-		"------------",
-		".....%.....-",
-		".....%.....-",
-		"...%%......-",
-		".....%.....-",
-		".....#.....-",
-		"...........-",
-		".....%.....-",
-		"..%%.#.....-",
-		".....%#....-",
-		".l...%#l...-",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL104.UZ3",
+		"number": 104,
+		"sha256": "955247d9ec6574a5c1c7ae86ebe0e7f00ca63f04b235a8956c66b58fda382627"
+	}
 }

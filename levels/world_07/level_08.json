@@ -1,68 +1,253 @@
 {
+	"version": 2,
+	"name": "Leapfrog",
+	"theme": "volcano",
+	"imported": true,
+	"moves": 20,
+	"time": 270,
+	"terrain": [
+		"............",
+		"....######..",
+		"llll#.......",
+		"#####.....##",
+		"........#.#.",
+		"......#.#...",
+		"....#.#.#...",
+		"....#.#.....",
+		".####.......",
+		"..........#.",
+		"..#.#.....#l",
+		"##...#....#l"
+	],
 	"items": [
 		{
-			"type": "plant",
+			"type": "weight_red",
+			"x": 4,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
 			"x": 5,
-			"y": 8
-		},
-		{
+			"y": 0,
 			"aim": true,
-			"lock": "green",
-			"type": "plant",
-			"x": 1,
-			"y": 8
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "shell",
-			"x": 10,
-			"y": 10
-		},
-		{
-			"type": "shell",
-			"x": 1,
-			"y": 4
-		},
-		{
-			"type": "shell",
-			"x": 11,
-			"y": 9
-		},
-		{
-			"type": "rock",
-			"x": 11,
-			"y": 10
-		},
-		{
+			"type": "weight_red",
+			"x": 6,
+			"y": 0,
 			"aim": true,
-			"type": "rock",
-			"x": 1,
-			"y": 7
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 7,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 8,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "padlock",
+			"x": 9,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
+		},
+		{
+			"type": "padlock",
+			"x": 7,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "red"
+		},
+		{
+			"type": "padlock",
+			"x": 5,
+			"y": 7,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
+		},
+		{
+			"type": "weight_red",
+			"x": 3,
+			"y": 10,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		},
 		{
 			"type": "key_green",
-			"x": 0,
-			"y": 10
+			"x": 2,
+			"y": 11,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "key_red",
+			"x": 3,
+			"y": 11,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
+		},
+		{
+			"type": "key_green",
+			"x": 4,
+			"y": 11,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
 		}
 	],
-	"moves": 7,
-	"name": "Hidden Maze",
-	"optimal": 4,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"............",
-		"............",
-		"........##..",
-		"............",
-		"####........",
-		".........##.",
-		"............",
-		"............",
-		"............",
-		"..lll.......",
-		"------------"
+	"pipes": [
+		{
+			"x": 9,
+			"y": 0,
+			"to": [
+				11,
+				0
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 10,
+			"y": 0,
+			"to": [
+				11,
+				0
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 11,
+			"y": 0,
+			"to": [
+				8,
+				0
+			],
+			"destination": "cell",
+			"enter": [
+				"down"
+			],
+			"mouth": "up"
+		},
+		{
+			"x": 10,
+			"y": 5,
+			"to": [
+				0,
+				10
+			],
+			"destination": "cell",
+			"enter": [
+				"down"
+			],
+			"mouth": "up"
+		},
+		{
+			"x": 1,
+			"y": 10,
+			"to": [
+				10,
+				6
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		}
 	],
-	"time": 80,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL068.UZ3",
+		"number": 68,
+		"sha256": "0ee2b942c88e609668b6fbb394c4af962e1736e8af4e611e67737cef21a9c9c2"
+	},
+	"skins": [
+		"............",
+		".....pppp...",
+		"....p.......",
+		"pppp......pp",
+		"..........p.",
+		"........p...",
+		"......p.....",
+		"....p.......",
+		"..pp........",
+		"............",
+		"..........p.",
+		".p........p."
+	]
 }

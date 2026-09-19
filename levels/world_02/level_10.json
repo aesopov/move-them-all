@@ -1,73 +1,228 @@
 {
+	"version": 2,
+	"name": "Pipes n' Locks I",
+	"theme": "waterfall",
+	"imported": true,
+	"moves": 28,
+	"time": 135,
+	"terrain": [
+		".....#......",
+		".....#......",
+		".....#......",
+		".....####...",
+		"..#.....#...",
+		"#####...#...",
+		"....#...####",
+		"....#.....#.",
+		"....####....",
+		".......#....",
+		".......#....",
+		".......#...."
+	],
 	"items": [
 		{
-			"type": "crystal",
+			"type": "key_yellow",
+			"x": 0,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "301"
+		},
+		{
+			"type": "padlock",
 			"x": 1,
-			"y": 2
+			"y": 0,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
 		},
 		{
-			"type": "crystal",
-			"x": 3,
-			"y": 9
-		},
-		{
-			"aim": true,
-			"type": "crate",
+			"type": "key_yellow",
 			"x": 4,
-			"y": 6
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "301"
 		},
 		{
-			"type": "crate",
-			"x": 9,
-			"y": 10
+			"type": "padlock",
+			"x": 0,
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
 		},
 		{
+			"type": "weight",
+			"x": 0,
+			"y": 4,
 			"aim": true,
-			"type": "crate",
-			"x": 1,
-			"y": 10
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		},
 		{
-			"type": "rock",
-			"x": 8,
-			"y": 10
+			"type": "bubble",
+			"x": 7,
+			"y": 4,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
 		},
 		{
-			"type": "rock",
-			"x": 1,
-			"y": 9
-		},
-		{
-			"type": "rock",
+			"type": "weight",
 			"x": 5,
-			"y": 6
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		},
 		{
+			"type": "bubble",
+			"x": 11,
+			"y": 7,
 			"aim": true,
-			"type": "shell",
-			"x": 1,
-			"y": 8
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "padlock",
+			"x": 11,
+			"y": 10,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "yellow"
+		},
+		{
+			"type": "key_blue",
+			"x": 8,
+			"y": 11,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "padlock",
+			"x": 10,
+			"y": 11,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "yellow"
 		}
 	],
-	"moves": 8,
-	"name": "Twisted Keep",
-	"optimal": 4,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-...###...--",
-		"-.....###.--",
-		"-.........--",
-		"-.www.....--",
-		"------------"
+	"pipes": [
+		{
+			"x": 4,
+			"y": 1,
+			"to": [
+				11,
+				8
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 2,
+			"y": 3,
+			"to": [
+				9,
+				10
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 10,
+			"y": 8,
+			"to": [
+				3,
+				1
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		},
+		{
+			"x": 8,
+			"y": 10,
+			"to": [
+				1,
+				3
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
 	],
-	"time": 85,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL020.UZ3",
+		"number": 20,
+		"sha256": "37809508f804ed1707c93db64c5282fb11b277a5f8ecc4ff31e0ba1ed0f8771f"
+	},
+	"skins": [
+		".....p......",
+		".....p......",
+		".....p......",
+		"......pp....",
+		"..p.....p...",
+		"pppp....p...",
+		"....p....ppp",
+		"....p.....p.",
+		".....pp.....",
+		".......p....",
+		".......p....",
+		".......p...."
+	]
 }

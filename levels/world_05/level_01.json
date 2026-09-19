@@ -1,51 +1,137 @@
 {
+	"version": 2,
+	"name": "Sunken City I",
+	"theme": "ruins",
+	"imported": true,
+	"moves": 46,
+	"time": 105,
+	"terrain": [
+		".....#.#####",
+		".....#######",
+		".....#######",
+		"....########",
+		"..##########",
+		"..####..####",
+		"..#..##.#..#",
+		"..#.......##",
+		"..#.##..#.##",
+		"############",
+		"..##########",
+		"..##########"
+	],
 	"items": [
 		{
+			"type": "plant",
+			"x": 2,
+			"y": 2,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "602"
+		},
+		{
+			"type": "torus",
+			"x": 6,
+			"y": 5,
 			"aim": true,
-			"type": "crystal",
-			"x": 4,
-			"y": 4
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "202",
+			"match_label": "4"
 		},
 		{
-			"type": "crystal",
+			"type": "cube",
+			"x": 7,
+			"y": 5,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "200",
+			"match_label": "2"
+		},
+		{
+			"type": "sphere",
+			"x": 7,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
+		},
+		{
+			"type": "bomb",
+			"x": 10,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "padlock",
 			"x": 8,
-			"y": 7
-		}
-	],
-	"moves": 5,
-	"name": "Down the Pipe",
-	"optimal": 2,
-	"pipes": [
-		{
-			"mouth": "left",
-			"to": [
-				6,
-				7
-			],
-			"x": 6,
-			"y": 4
+			"y": 7,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
 		},
 		{
-			"mouth": "right",
-			"x": 6,
-			"y": 7
+			"type": "key_blue",
+			"x": 3,
+			"y": 8,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
+	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--....#...--",
-		"--........--",
-		"--....#...--",
-		"--....#...--",
-		"--........--",
-		"--....#...--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 75,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL041.UZ3",
+		"number": 41,
+		"sha256": "2047344d55a1f9e3b1bb48e2850a2fc1142c6187b14f800e1f209080808381c1"
+	}
 }

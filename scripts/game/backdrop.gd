@@ -16,6 +16,7 @@ var _motes: Array = []
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	resized.connect(queue_redraw)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 7
 	for i in 40:
@@ -29,6 +30,9 @@ func set_theme_data(d: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
+		return
+	# Painted backgrounds are static; only the procedural fallback animates.
+	if AssetLib.background(theme_data.key, size.y > size.x) != null:
 		return
 	_t += delta
 	queue_redraw()

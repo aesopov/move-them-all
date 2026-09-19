@@ -1,90 +1,151 @@
 {
+	"version": 2,
+	"name": "Sizzle",
+	"theme": "ruins",
+	"imported": true,
+	"moves": 58,
+	"time": 150,
+	"terrain": [
+		"############",
+		"#...#.......",
+		"#...#####...",
+		"#..........#",
+		"#..........#",
+		"#..###.....#",
+		"######wwwww#",
+		"#...##wwwww#",
+		"#...###www##",
+		"#...########",
+		"#...########",
+		"############"
+	],
 	"items": [
 		{
-			"type": "rock",
+			"type": "block_red",
 			"x": 2,
-			"y": 6
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
 		},
 		{
-			"aim": true,
-			"type": "rock",
-			"x": 1,
-			"y": 10
-		},
-		{
-			"aim": true,
-			"type": "plant",
-			"x": 3,
-			"y": 10
-		},
-		{
-			"type": "plant",
-			"x": 8,
-			"y": 10
-		},
-		{
-			"type": "star",
+			"type": "balloon",
 			"x": 2,
-			"y": 7
+			"y": 4,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		},
 		{
-			"type": "star",
-			"x": 5,
-			"y": 1
+			"type": "bubble",
+			"x": 2,
+			"y": 5,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "208",
+			"match_label": "4"
+		},
+		{
+			"type": "weight_red",
+			"x": 2,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "block_red",
+			"x": 2,
+			"y": 9,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
 		}
 	],
-	"moves": 8,
-	"name": "Sunny Hollow",
-	"optimal": 5,
 	"pipes": [
 		{
-			"mouth": "left",
+			"x": 11,
+			"y": 2,
 			"to": [
-				6,
-				6
+				8,
+				7
 			],
-			"x": 6,
-			"y": 2
-		},
-		{
-			"mouth": "right",
-			"to": [
-				6,
-				2
+			"destination": "cell",
+			"enter": [
+				"right"
 			],
-			"x": 6,
-			"y": 6
-		},
-		{
-			"mouth": "right",
-			"to": [
-				6,
-				10
-			],
-			"x": 6,
-			"y": 9
-		},
-		{
-			"mouth": "left",
-			"x": 6,
-			"y": 10
+			"mouth": "left"
 		}
 	],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"-.....#....-",
-		"-..#.......-",
-		"-...###...#-",
-		"-.....#....-",
-		"-..####....-",
-		"-..........-",
-		"-.....#....-",
-		"-.....#....-",
-		"-..........-",
-		"-..........-",
-		"------------"
+	"teleports": [
+		{
+			"x": 1,
+			"y": 1,
+			"to": [
+				2,
+				10
+			],
+			"strict": true
+		},
+		{
+			"x": 2,
+			"y": 10,
+			"to": [
+				1,
+				1
+			],
+			"strict": true
+		}
 	],
-	"time": 85,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL049.UZ3",
+		"number": 49,
+		"sha256": "3296f94a5e886d358a42258e71425efbeec28a514e4ebac7b604b38c5d6fe258"
+	},
+	"skins": [
+		".ppp.pppppp.",
+		"p...p.......",
+		"p....ppp....",
+		"p..........p",
+		"p..........p",
+		"p..........p",
+		"pppp.......p",
+		"p...p......p",
+		"p...p......p",
+		"p...p...p..p",
+		"p...p...p..p",
+		".ppp....pppp"
+	]
 }

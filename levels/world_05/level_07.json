@@ -1,81 +1,175 @@
 {
+	"version": 2,
+	"name": "Intersections",
+	"theme": "ruins",
+	"imported": true,
+	"moves": 20,
+	"time": 210,
+	"terrain": [
+		"########.###",
+		"########.###",
+		"########.###",
+		"########.###",
+		"............",
+		"...#####.###",
+		"...#####.###",
+		"########.###",
+		"######.....#",
+		"########.###",
+		"########.###",
+		"############"
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "star",
-			"x": 1,
-			"y": 8
-		},
-		{
-			"type": "star",
-			"x": 2,
-			"y": 9
-		},
-		{
-			"type": "rock",
-			"x": 3,
-			"y": 9
-		},
-		{
-			"type": "rock",
-			"x": 2,
-			"y": 8
-		},
-		{
-			"aim": true,
-			"type": "rock",
-			"x": 6,
-			"y": 9
-		},
-		{
-			"type": "crystal",
-			"x": 4,
-			"y": 2
-		},
-		{
-			"type": "crystal",
+			"type": "weight",
 			"x": 8,
-			"y": 8
-		}
-	],
-	"moves": 6,
-	"name": "Lucky Path",
-	"optimal": 3,
-	"pipes": [
-		{
-			"mouth": "right",
-			"to": [
-				5,
-				9
-			],
-			"x": 5,
-			"y": 5
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "205",
+			"match_label": "2"
 		},
 		{
-			"mouth": "left",
-			"to": [
-				5,
-				5
-			],
+			"type": "sphere",
+			"x": 8,
+			"y": 3,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
+		},
+		{
+			"type": "key_red",
+			"x": 1,
+			"y": 4,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
+		},
+		{
+			"type": "sphere",
+			"x": 2,
+			"y": 4,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
+		},
+		{
+			"type": "padlock",
+			"x": 4,
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "red"
+		},
+		{
+			"type": "weight_red",
 			"x": 5,
-			"y": 9
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 7,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 9,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 11,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 1,
+			"y": 5,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "207",
+			"match_label": "4"
+		},
+		{
+			"type": "sphere",
+			"x": 0,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
+		},
+		{
+			"type": "sphere",
+			"x": 2,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "201",
+			"match_label": "3"
 		}
 	],
+	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"-....#....--",
-		"-#...#....--",
-		"-.#..#...#--",
-		"-##..#....--",
-		"-.........--",
-		"-....#..##--",
-		"-....#....--",
-		"-....#....--",
-		"-.........--",
-		"------------",
-		"------------"
-	],
-	"time": 70,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL047.UZ3",
+		"number": 47,
+		"sha256": "9c399859fd25282ec1b138a4b9621d40a54dddae1da5eae39e5bcc2c3215cccc"
+	}
 }

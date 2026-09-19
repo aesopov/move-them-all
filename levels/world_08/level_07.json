@@ -1,57 +1,219 @@
 {
+	"version": 2,
+	"name": "Cloud 9",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 25,
+	"time": 155,
+	"terrain": [
+		"..........##",
+		"############",
+		"#########.##",
+		"##....###.##",
+		"##........##",
+		"##..#####..#",
+		"#########..#",
+		"#####.###...",
+		"......###...",
+		"#########...",
+		"######.#...#",
+		"###...###.##"
+	],
 	"items": [
 		{
+			"type": "weight_red",
+			"x": 5,
+			"y": 3,
 			"aim": true,
-			"type": "balloon",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
 			"x": 4,
-			"y": 1
-		},
-		{
-			"type": "balloon",
-			"x": 3,
-			"y": 7
-		},
-		{
-			"type": "plant",
-			"x": 9,
-			"y": 1
-		},
-		{
-			"type": "plant",
-			"x": 3,
-			"y": 6
-		},
-		{
-			"type": "bubble",
-			"x": 10,
-			"y": 4
-		},
-		{
+			"y": 4,
 			"aim": true,
-			"type": "bubble",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
 			"x": 6,
-			"y": 4
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
+			"x": 8,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 3,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 0,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 9,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		}
 	],
-	"moves": 8,
-	"name": "Silent Tower",
-	"optimal": 5,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"-aa........-",
-		"-..........-",
-		"-....##...#-",
-		"-..........-",
-		"-..........-",
-		"-.#.###....-",
-		"-.#........-",
-		"-##........-",
-		"-#.........-",
-		"-..........-",
-		"------------"
+	"pipes": [
+		{
+			"x": 9,
+			"y": 2,
+			"to": [
+				4,
+				8
+			],
+			"destination": "cell",
+			"enter": [
+				"down"
+			],
+			"mouth": "up"
+		},
+		{
+			"x": 4,
+			"y": 3,
+			"to": [
+				9,
+				10
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 5,
+			"y": 8,
+			"to": [
+				9,
+				3
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 8,
+			"y": 10,
+			"to": [
+				3,
+				3
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
 	],
-	"time": 85,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL077.UZ3",
+		"number": 77,
+		"sha256": "62dae0837e36384f0de7cdc2bf9cee6a742e380958a7414dc2dc116d9b96467e"
+	},
+	"skins": [
+		"............",
+		"...pppp.pp..",
+		"...pp.......",
+		"p...........",
+		"pp..........",
+		"pp..........",
+		".ppppppp....",
+		"...pp..p....",
+		"............",
+		".......p....",
+		".......p....",
+		"............"
+	]
 }

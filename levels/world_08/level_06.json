@@ -1,57 +1,153 @@
 {
+	"version": 2,
+	"name": "Pipe Dream",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 20,
+	"time": 210,
+	"terrain": [
+		"....#.......",
+		"#.#########.",
+		".....#......",
+		".....#......",
+		".....#......",
+		".....#......",
+		".....###....",
+		"............",
+		".....###....",
+		".....#.#....",
+		"####.#.#.###",
+		".......#.#.."
+	],
 	"items": [
 		{
-			"type": "bubble",
-			"x": 3,
-			"y": 1
-		},
-		{
-			"type": "bubble",
-			"x": 10,
-			"y": 9
-		},
-		{
+			"type": "weight",
+			"x": 0,
+			"y": 0,
 			"aim": true,
-			"type": "plant",
-			"x": 10,
-			"y": 8
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "plant",
-			"x": 6,
-			"y": 9
-		},
-		{
-			"aim": true,
-			"type": "balloon",
+			"type": "weight",
 			"x": 2,
-			"y": 1
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "balloon",
+			"type": "crate",
 			"x": 7,
-			"y": 1
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "110",
+			"lock": "green"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 9,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "block_red",
+			"x": 6,
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
+		},
+		{
+			"type": "block_red",
+			"x": 7,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
+		},
+		{
+			"type": "key_green",
+			"x": 0,
+			"y": 11,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
 		}
 	],
-	"moves": 10,
-	"name": "Silent Keep",
-	"optimal": 6,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"a..........-",
-		"...........-",
-		"...........-",
-		"..###......-",
-		"..........#-",
-		"..........#-",
-		".......#...-",
-		".......##..-",
-		"...........-",
-		"------------",
-		"------------"
-	],
-	"time": 100,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL076.UZ3",
+		"number": 76,
+		"sha256": "d38c8b486c4443745fbb69386a2c74e1bb1eb9d6dc55b255ca1109e71efde535"
+	},
+	"skins": [
+		"....p.......",
+		"p.ppppppppp.",
+		".....p......",
+		".....p......",
+		".....p......",
+		".....p......",
+		".....ppp....",
+		"............",
+		".....ppp....",
+		".....p.p....",
+		"pppp.p.p.ppp",
+		".......p.p.."
+	]
 }

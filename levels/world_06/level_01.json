@@ -1,36 +1,168 @@
 {
+	"version": 2,
+	"name": "Orbit I",
+	"theme": "cave",
+	"imported": true,
+	"moves": 20,
+	"time": 150,
+	"terrain": [
+		"#...........",
+		"#######.##..",
+		"###......###",
+		"##........##",
+		"##........##",
+		"#.........##",
+		"####.......#",
+		"###........#",
+		"###........#",
+		"wwwwwwwwwwww",
+		"wwwwwwwwwwww",
+		"wwwwwwwwwwww"
+	],
 	"items": [
 		{
-			"type": "bomb",
-			"x": 4,
-			"y": 5
+			"type": "key_blue",
+			"x": 2,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
 		},
 		{
+			"type": "block_blue",
+			"x": 3,
+			"y": 0,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "119",
+			"match_label": "11"
+		},
+		{
+			"type": "weight_red",
+			"x": 4,
+			"y": 0,
 			"aim": true,
-			"type": "star",
-			"x": 7,
-			"y": 5
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "block_blue",
+			"x": 6,
+			"y": 0,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "119",
+			"match_label": "11"
+		},
+		{
+			"type": "padlock",
+			"x": 9,
+			"y": 0,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 11,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"moves": 5,
-	"name": "Boom!",
-	"optimal": 3,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"---......---",
-		"---....%.---",
-		"---.....%---",
-		"---....%.---",
-		"---......---",
-		"------------",
-		"------------",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 1,
+			"y": 0,
+			"to": [
+				2,
+				5
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		},
+		{
+			"x": 1,
+			"y": 5,
+			"to": [
+				2,
+				0
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
 	],
-	"time": 75,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL051.UZ3",
+		"number": 51,
+		"sha256": "cea2889e5d9233bc51c434915f2105595d0e8224ca6d94a7aed93fb8c86dbe95"
+	},
+	"skins": [
+		"p...........",
+		"p...........",
+		"p...........",
+		"p...........",
+		"p...........",
+		"p...........",
+		"............",
+		"..p.........",
+		"..p.........",
+		"............",
+		"............",
+		"............"
+	]
 }

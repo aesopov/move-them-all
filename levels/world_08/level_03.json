@@ -1,67 +1,265 @@
 {
+	"version": 2,
+	"name": "Bomb Threat",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 86,
+	"time": 135,
+	"terrain": [
+		"............",
+		"............",
+		"##########..",
+		"#..####.....",
+		"##.###......",
+		"##aa##......",
+		"aaaaa#....##",
+		"#.#..#....##",
+		"#.#.......##",
+		"#.#..#....##",
+		"aaaaa#.....#",
+		"aaaaa#....##"
+	],
 	"items": [
 		{
-			"type": "plant",
-			"x": 10,
-			"y": 4
+			"type": "key_red",
+			"x": 1,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 0,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "key_green",
+			"x": 3,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "bomb",
+			"x": 1,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "key_green",
+			"x": 2,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "weight",
+			"x": 3,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "key_red",
+			"x": 5,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
+		},
+		{
+			"type": "bomb",
+			"x": 7,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
 		},
 		{
 			"type": "plant",
 			"x": 1,
-			"y": 5
+			"y": 3,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "600"
 		},
 		{
-			"type": "plant",
-			"x": 2,
-			"y": 2
+			"type": "key_yellow",
+			"x": 11,
+			"y": 5,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "301"
 		},
 		{
-			"type": "bubble",
-			"x": 8,
-			"y": 4
-		},
-		{
-			"type": "bubble",
-			"x": 10,
-			"y": 1
-		},
-		{
+			"type": "weight",
+			"x": 3,
+			"y": 7,
 			"aim": true,
-			"type": "crystal",
-			"x": 6,
-			"y": 9
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "crystal",
-			"x": 6,
-			"y": 6
-		},
-		{
+			"type": "weight_red",
+			"x": 4,
+			"y": 7,
 			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "206",
+			"match_label": "4"
+		},
+		{
+			"type": "torus",
+			"x": 3,
+			"y": 8,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "202",
+			"match_label": "3"
+		},
+		{
+			"type": "torus",
+			"x": 4,
+			"y": 8,
+			"aim": true,
+			"gravity": "none",
+			"movable": false,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "202",
+			"lock": "yellow",
+			"match_label": "3"
+		},
+		{
 			"type": "balloon",
+			"x": 3,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "207",
+			"match_label": "5"
+		},
+		{
+			"type": "bubble",
+			"x": 4,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "208",
+			"match_label": "2"
+		},
+		{
+			"type": "padlock",
+			"x": 6,
+			"y": 11,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "red"
+		},
+		{
+			"type": "padlock",
+			"x": 7,
+			"y": 11,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
+		},
+		{
+			"type": "padlock",
 			"x": 8,
-			"y": 5
+			"y": 11,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "red"
+		},
+		{
+			"type": "padlock",
+			"x": 9,
+			"y": 11,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
 		}
 	],
-	"moves": 7,
-	"name": "Crooked Grove",
-	"optimal": 4,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"-...aaa....-",
-		"-#.........-",
-		"-.......##.-",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"-..##...#..-",
-		"-.......#..-",
-		"-.......#..-",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL073.UZ3",
+		"number": 73,
+		"sha256": "eb7a127fb9bf9744262717ead66ab78e0ee54c1fde0e3738f2e279cec90b67d6"
+	}
 }

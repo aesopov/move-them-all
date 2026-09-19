@@ -1,52 +1,141 @@
 {
+	"version": 2,
+	"name": "Key Kontrol",
+	"theme": "desert",
+	"imported": true,
+	"moves": 63,
+	"time": 120,
+	"terrain": [
+		"..#######...",
+		"...#.#.###..",
+		".........##.",
+		"..........##",
+		"#..#####..##",
+		"##.#...#.##.",
+		"####...#.#..",
+		".###...#...#",
+		"..######..##",
+		"...###...##.",
+		"w...###.##..",
+		".....###...."
+	],
 	"items": [
 		{
-			"type": "plant",
-			"x": 3,
-			"y": 8
+			"type": "key_yellow",
+			"x": 0,
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "301"
 		},
 		{
-			"type": "plant",
-			"x": 3,
-			"y": 6
-		},
-		{
-			"type": "star",
-			"x": 3,
-			"y": 4
-		},
-		{
+			"type": "weight",
+			"x": 1,
+			"y": 0,
 			"aim": true,
-			"lock": "blue",
-			"type": "star",
-			"x": 4,
-			"y": 5
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 0,
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "110"
 		},
 		{
 			"type": "key_blue",
-			"x": 5,
-			"y": 6
+			"x": 1,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "mover_green",
+			"x": 1,
+			"y": 2,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "110"
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"lock": "blue",
+			"match_label": "1"
+		},
+		{
+			"type": "padlock",
+			"x": 10,
+			"y": 7,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "yellow"
 		}
 	],
-	"moves": 4,
-	"name": "Quiet Grove",
-	"optimal": 2,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--.......---",
-		"--.......---",
-		"--.......---",
-		"--.......---",
-		"--..#....---",
-		"--..#....---",
-		"------------",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 8,
+			"y": 11,
+			"to": [
+				0,
+				10
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		}
 	],
-	"time": 60,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL023.UZ3",
+		"number": 23,
+		"sha256": "6142a1a95850a9cab349d50874ffa8552ceb671fdd99d47a97c46116f2a120f2"
+	},
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"....p.p.....",
+		"...p...p....",
+		"ppp.........",
+		"...p...p....",
+		"....p.p.....",
+		"............",
+		"............",
+		"............"
+	]
 }

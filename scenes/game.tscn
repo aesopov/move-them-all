@@ -174,6 +174,12 @@ script = ExtResource("6_kvpfn")
 kind = "none"
 text = "Destroy all goal pieces. The Goals counter at the top shows your progress."
 
+[node name="TargetCounts" type="HFlowContainer" parent="Margin/Columns/Side/SideRows"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 6
+
 [node name="MovesGoal" type="HBoxContainer" parent="Margin/Columns/Side/SideRows" unique_id=434704998 instance=ExtResource("5_vtaks")]
 unique_name_in_owner = true
 layout_mode = 2

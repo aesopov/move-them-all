@@ -1,87 +1,228 @@
 {
+	"version": 2,
+	"name": "Rainbow of Problems III",
+	"theme": "sky",
+	"imported": true,
+	"moves": 58,
+	"time": 265,
+	"terrain": [
+		"############",
+		"#..........#",
+		"#.#.#..#.#.#",
+		"#..........#",
+		"#..#....#..#",
+		"#.#..#...#.#",
+		"#..........#",
+		"####....##.#",
+		"#####..#####",
+		"##.##..##.##",
+		"#####..#####",
+		"############"
+	],
 	"items": [
 		{
-			"type": "shell",
-			"x": 6,
-			"y": 8
-		},
-		{
-			"type": "shell",
-			"x": 8,
-			"y": 2
-		},
-		{
-			"type": "shell",
-			"x": 1,
-			"y": 8
-		},
-		{
-			"type": "star",
-			"x": 3,
-			"y": 2
-		},
-		{
+			"type": "torus",
+			"x": 2,
+			"y": 1,
 			"aim": true,
-			"type": "star",
-			"x": 9,
-			"y": 4
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "202",
+			"match_label": "3"
 		},
 		{
-			"type": "balloon",
-			"x": 3,
-			"y": 3
-		},
-		{
+			"type": "weight_red",
+			"x": 4,
+			"y": 1,
 			"aim": true,
-			"type": "balloon",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
 			"x": 7,
-			"y": 2
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "shell",
+			"x": 2,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "118",
+			"match_label": "4"
+		},
+		{
+			"type": "weight_red",
+			"x": 3,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 2,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 1,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
+			"x": 3,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 8,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "torus",
+			"x": 10,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "202",
+			"match_label": "3"
 		}
 	],
-	"moves": 8,
-	"name": "Lucky Keep",
-	"optimal": 5,
-	"pipes": [],
-	"teleports": [
+	"pipes": [
 		{
-			"x": 1,
-			"y": 2
-		},
-		{
+			"x": 6,
+			"y": 5,
 			"to": [
-				1,
-				2
-			],
-			"x": 9,
-			"y": 5
-		},
-		{
-			"x": 7,
-			"y": 6
-		},
-		{
-			"to": [
-				7,
+				5,
 				6
 			],
-			"x": 2,
-			"y": 7
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
 		}
 	],
-	"terrain": [
-		"------------",
-		"------------",
-		"-.........--",
-		"-#......##--",
-		"-.....###.--",
-		"-.........--",
-		"-.........--",
-		"-.......##--",
-		"-.........--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL082.UZ3",
+		"number": 82,
+		"sha256": "7e5e971003bdf6926264dbb09ecff6b72583e07fb26aadb742cdf77bb8cc9957"
+	},
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		".....p......",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............"
+	]
 }

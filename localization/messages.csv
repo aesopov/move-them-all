@@ -278,3 +278,97 @@ Loaded %s,Loaded %s,Cargado %s,Carregado %s,Chargé : %s,Geladen: %s,已加载 %
 (read-only here: Save makes a copy),(read-only here: Save makes a copy),(solo lectura: Guardar crea una copia),(somente leitura: Salvar cria uma cópia),(lecture seule : Enregistrer crée une copie),(schreibgeschützt: Speichern erstellt eine Kopie),（只读：保存会创建副本）,(только чтение: сохранение создаст копию)
 New level.,New level.,Nuevo nivel.,Nova fase.,Nouveau niveau.,Neues Level.,新关卡。,Новый уровень.
 Cleared.,Cleared.,Limpiado.,Limpo.,Effacé.,Geleert.,已清空。,Очищено.
+Matching numbers identify pieces that can merge.,Matching numbers identify pieces that can merge.,Los números iguales indican piezas que pueden combinarse.,Números iguais identificam peças que podem se combinar.,Les mêmes numéros indiquent les pièces qui peuvent fusionner.,Gleiche Zahlen kennzeichnen kombinierbare Teile.,相同数字表示可以合并的棋子。,"Одинаковые числа обозначают фигуры, которые можно объединить."
+cannot be moved by hand,cannot be moved by hand,no se puede mover manualmente,não pode ser movido manualmente,ne peut pas être déplacé à la main,kann nicht von Hand bewegt werden,无法手动移动,нельзя перемещать вручную
+Bomb: falls; explodes beside destructible objects or when tapped,Bomb: falls; explodes beside destructible objects or when tapped,Bomba: cae; explota junto a objetos destructibles o al tocarla,Bomba: cai; explode perto de objetos destrutíveis ou ao tocar,Bombe : tombe ; explose près des objets destructibles ou au toucher,Bombe: fällt; explodiert neben zerstörbaren Objekten oder beim Antippen,炸弹：会下落；靠近可破坏物体或点击时爆炸,Бомба: падает; взрывается рядом с разрушаемыми объектами или по нажатию
+Pipe: enter through the opening to reach its linked landing cell,Pipe: enter through the opening to reach its linked landing cell,Tubo: entra por la abertura para llegar a su casilla de destino,Tubo: entre pela abertura para chegar à célula de destino,Tuyau : entrez par l’ouverture pour atteindre la case de destination,Rohr: durch die Öffnung zur verbundenen Zielzelle gelangen,管道：从开口进入，到达连接的目标格,"Труба: войдите в отверстие, чтобы попасть в связанную клетку"
+Surround an item with 4 items of one other group: all 5 explode,Surround an item with 4 items of one other group: all 5 explode,Rodea una pieza con 4 de otro grupo: las 5 explotan,Cerque uma peça com 4 de outro grupo: todas as 5 explodem,Entourez une pièce de 4 pièces d’un autre groupe : les 5 explosent,Ein Teil mit 4 Teilen einer anderen Gruppe umgeben: alle 5 explodieren,用另一组的4个棋子包围一个棋子：5个棋子全部爆炸,Окружите фигуру четырьмя фигурами другой группы: все пять взорвутся
+Alien tree,Alien tree,Árbol alienígena,Árvore alienígena,Arbre extraterrestre,Außerirdischer Baum,外星树,Инопланетное дерево
+Atari Üz I,Atari Üz I,Atari Üz I,Atari Üz I,Atari Üz I,Atari Üz I,Atari Üz I,Atari Üz I
+Atari Üz II,Atari Üz II,Atari Üz II,Atari Üz II,Atari Üz II,Atari Üz II,Atari Üz II,Atari Üz II
+Atari Üz III,Atari Üz III,Atari Üz III,Atari Üz III,Atari Üz III,Atari Üz III,Atari Üz III,Atari Üz III
+Ball Factory I,Ball Factory I,Fábrica de bolas I,Fábrica de bolas I,Usine de boules I,Kugelfabrik I,球体工厂 I,Фабрика шаров I
+Ball Factory II,Ball Factory II,Fábrica de bolas II,Fábrica de bolas II,Usine de boules II,Kugelfabrik II,球体工厂 II,Фабрика шаров II
+Ball Factory III,Ball Factory III,Fábrica de bolas III,Fábrica de bolas III,Usine de boules III,Kugelfabrik III,球体工厂 III,Фабрика шаров III
+Bomb Threat,Bomb Threat,Amenaza de bomba,Ameaça de bomba,Menace de bombe,Bombendrohung,炸弹威胁,Угроза взрыва
+Building Bridges,Building Bridges,Construyendo puentes,Construindo pontes,Construire des ponts,Brücken bauen,搭建桥梁,Строим мосты
+Cloud 9,Cloud 9,En las nubes,Nas nuvens,Au septième ciel,Wolke sieben,九霄云外,На седьмом небе
+Coastal Finale,Coastal Finale,Final costero,Final costeiro,Finale côtière,Küstenfinale,海岸终章,Прибрежный финал
+Complications,Complications,Complicaciones,Complicações,Complications,Komplikationen,错综复杂,Осложнения
+Confinement III,Confinement III,Confinamiento III,Confinamento III,Confinement III,Gefangenschaft III,禁闭 III,Заточение III
+Confinement IV,Confinement IV,Confinamiento IV,Confinamento IV,Confinement IV,Gefangenschaft IV,禁闭 IV,Заточение IV
+Corner Connection,Corner Connection,Conexión de esquinas,Conexão de cantos,Connexion des coins,Eckverbindung,角落连接,Угловое соединение
+Corridor Corner,Corridor Corner,Esquina del pasillo,Canto do corredor,Coin du couloir,Flurecke,走廊转角,Поворот коридора
+Crossover,Crossover,Cruce,Cruzamento,Croisement,Kreuzung,交叉,Пересечение
+Downward Despair,Downward Despair,Descenso desesperado,Descida desesperada,Descente désespérée,Verzweifelter Abstieg,绝望下坠,Отчаянный спуск
+Dropoff,Dropoff,Caída,Queda,Chute,Absturz,坠落,Обрыв
+Empire Crisis II,Empire Crisis II,Crisis del imperio II,Crise do império II,Crise de l’empire II,Imperiumskrise II,帝国危机 II,Кризис империи II
+Empire Crisis III,Empire Crisis III,Crisis del imperio III,Crise do império III,Crise de l’empire III,Imperiumskrise III,帝国危机 III,Кризис империи III
+FILA(tm),FILA(tm),FILA(tm),FILA(tm),FILA(tm),FILA(tm),FILA(tm),FILA(tm)
+Fighting gravity,Fighting gravity,Contra la gravedad,Contra a gravidade,Contre la gravité,Gegen die Schwerkraft,对抗重力,Борьба с гравитацией
+Flood,Flood,Inundación,Inundação,Inondation,Überschwemmung,洪水,Наводнение
+Forbidden Touch,Forbidden Touch,Contacto prohibido,Toque proibido,Contact interdit,Verbotene Berührung,禁止触碰,Запретное касание
+Foresight,Foresight,Previsión,Previsão,Prévoyance,Weitsicht,远见,Предвидение
+Forest Frenzy,Forest Frenzy,Frenesí forestal,Frenesi na floresta,Folie forestière,Waldwirbel,森林狂潮,Лесной переполох
+Four of a kind,Four of a kind,Cuatro iguales,Quatro iguais,Quatre identiques,Vier Gleiche,四个同类,Четыре одинаковых
+Friendly Forest,Friendly Forest,Bosque amistoso,Floresta amigável,Forêt accueillante,Freundlicher Wald,友善森林,Дружелюбный лес
+Gravity Multipuzzle,Gravity Multipuzzle,Rompecabezas de gravedad,Enigmas de gravidade,Énigmes de gravité,Schwerkrafträtsel,重力谜阵,Гравитационные головоломки
+Great Potential,Great Potential,Gran potencial,Grande potencial,Grand potentiel,Großes Potenzial,巨大潜能,Большой потенциал
+Head in the Clouds,Head in the Clouds,Cabeza en las nubes,Cabeça nas nuvens,La tête dans les nuages,Kopf in den Wolken,浮想联翩,Витать в облаках
+Hell On The Beach,Hell On The Beach,Infierno en la playa,Inferno na praia,Enfer sur la plage,Hölle am Strand,海滩炼狱,Ад на пляже
+Inclined to Death,Inclined to Death,Pendiente mortal,Inclinação mortal,Pente mortelle,Tödliche Neigung,致命斜坡,Смертельный уклон
+Industrial Dilemma I,Industrial Dilemma I,Dilema industrial I,Dilema industrial I,Dilemme industriel I,Industrielles Dilemma I,工业困境 I,Промышленная дилемма I
+Industrial Dilemma II,Industrial Dilemma II,Dilema industrial II,Dilema industrial II,Dilemme industriel II,Industrielles Dilemma II,工业困境 II,Промышленная дилемма II
+Industrial Dilemma III,Industrial Dilemma III,Dilema industrial III,Dilema industrial III,Dilemme industriel III,Industrielles Dilemma III,工业困境 III,Промышленная дилемма III
+Intermission,Intermission,Intermedio,Intervalo,Entracte,Zwischenspiel,幕间休息,Антракт
+Intersections,Intersections,Intersecciones,Interseções,Intersections,Schnittpunkte,交汇点,Перекрёстки
+Kaleidoscope,Kaleidoscope,Caleidoscopio,Caleidoscópio,Kaléidoscope,Kaleidoskop,万花筒,Калейдоскоп
+Key Kontrol,Key Kontrol,Control de llaves,Controle de chaves,Contrôle des clés,Schlüsselkontrolle,钥匙掌控,Контроль ключей
+Leapfrog,Leapfrog,Salto de rana,Pula-sela,Saute-mouton,Bockspringen,跳跃接力,Чехарда
+Limited Movement,Limited Movement,Movimiento limitado,Movimento limitado,Mouvement limité,Begrenzte Bewegung,行动受限,Ограниченное движение
+Metallic Misery,Metallic Misery,Miseria metálica,Miséria metálica,Misère métallique,Metallisches Elend,金属困局,Металлическая тоска
+Minefield,Minefield,Campo minado,Campo minado,Champ de mines,Minenfeld,雷区,Минное поле
+Moon Lagoon,Moon Lagoon,Laguna lunar,Lagoa lunar,Lagune lunaire,Mondlagune,月光泻湖,Лунная лагуна
+Moon Lagoon 2,Moon Lagoon 2,Laguna lunar 2,Lagoa lunar 2,Lagune lunaire 2,Mondlagune 2,月光泻湖 2,Лунная лагуна 2
+Moon Lagoon 3,Moon Lagoon 3,Laguna lunar 3,Lagoa lunar 3,Lagune lunaire 3,Mondlagune 3,月光泻湖 3,Лунная лагуна 3
+More troubling water,More troubling water,Más aguas turbulentas,Mais águas turbulentas,Eaux encore plus troubles,Noch unruhigeres Wasser,再遇险水,Ещё более бурные воды
+One Way Struggle,One Way Struggle,Lucha de sentido único,Luta de mão única,Lutte à sens unique,Kampf ohne Rückweg,单向挣扎,Борьба без возврата
+Only Up,Only Up,Solo arriba,Só para cima,Toujours plus haut,Nur nach oben,只能向上,Только вверх
+Orbit I,Orbit I,Órbita I,Órbita I,Orbite I,Umlaufbahn I,轨道 I,Орбита I
+Orbit II,Orbit II,Órbita II,Órbita II,Orbite II,Umlaufbahn II,轨道 II,Орбита II
+Orbit III,Orbit III,Órbita III,Órbita III,Orbite III,Umlaufbahn III,轨道 III,Орбита III
+Outpost I,Outpost I,Puesto avanzado I,Posto avançado I,Avant-poste I,Außenposten I,前哨站 I,Форпост I
+Outpost II,Outpost II,Puesto avanzado II,Posto avançado II,Avant-poste II,Außenposten II,前哨站 II,Форпост II
+Pipe Dream,Pipe Dream,Sueño de tuberías,Sonho de canos,Rêve de tuyaux,Rohrtraum,管道之梦,Трубные мечты
+Pipes n' Locks I,Pipes n' Locks I,Tubos y candados I,Canos e cadeados I,Tuyaux et cadenas I,Rohre und Schlösser I,管道与锁 I,Трубы и замки I
+Pipes n' Locks II,Pipes n' Locks II,Tubos y candados II,Canos e cadeados II,Tuyaux et cadenas II,Rohre und Schlösser II,管道与锁 II,Трубы и замки II
+Planned Approach,Planned Approach,Plan de acción,Abordagem planejada,Approche planifiée,Geplantes Vorgehen,谋定后动,Продуманный подход
+Potential Energy,Potential Energy,Energía potencial,Energia potencial,Énergie potentielle,Potenzielle Energie,势能,Потенциальная энергия
+Prioritize,Prioritize,Prioridades,Prioridades,Priorités,Prioritäten,分清主次,Расставьте приоритеты
+Rainbow of Problems II,Rainbow of Problems II,Arcoíris de problemas II,Arco-íris de problemas II,Arc-en-ciel de problèmes II,Regenbogen der Probleme II,彩虹难题 II,Радуга проблем II
+Rainbow of Problems III,Rainbow of Problems III,Arcoíris de problemas III,Arco-íris de problemas III,Arc-en-ciel de problèmes III,Regenbogen der Probleme III,彩虹难题 III,Радуга проблем III
+Simple Logic,Simple Logic,Lógica simple,Lógica simples,Logique simple,Einfache Logik,简单逻辑,Простая логика
+Simple Plumbing,Simple Plumbing,Fontanería sencilla,Encanamento simples,Plomberie simple,Einfache Rohrleitungen,简易管道,Простая сантехника
+Sizzle,Sizzle,Chisporroteo,Chiado,Grésillement,Zischen,滋滋作响,Шипение
+Slow and Steady,Slow and Steady,Lento pero seguro,Devagar e sempre,Lentement mais sûrement,Langsam und stetig,稳扎稳打,Тише едешь
+Spinal Columns,Spinal Columns,Columnas vertebrales,Colunas vertebrais,Colonnes vertébrales,Wirbelsäulen,脊柱,Позвоночные столбы
+Squeezed Play,Squeezed Play,Juego apretado,Jogo apertado,Jeu à l’étroit,Enges Spiel,夹缝求生,Игра в тесноте
+Stained Glass,Stained Glass,Vidriera,Vitral,Vitrail,Buntglas,彩色玻璃,Витраж
+Sunken City I,Sunken City I,Ciudad hundida I,Cidade submersa I,Cité engloutie I,Versunkene Stadt I,沉没之城 I,Затонувший город I
+Sunken City II,Sunken City II,Ciudad hundida II,Cidade submersa II,Cité engloutie II,Versunkene Stadt II,沉没之城 II,Затонувший город II
+Teleport Tantrum,Teleport Tantrum,Rabieta teletransportadora,Revolta do teletransporte,Caprice de téléportation,Teleportationschaos,传送风暴,Капризы телепорта
+Terrarium,Terrarium,Terrario,Terrário,Terrarium,Terrarium,生态缸,Террариум
+The Billboard,The Billboard,La valla publicitaria,O outdoor,Le panneau publicitaire,Die Werbetafel,广告牌,Рекламный щит
+The Fourth Element,The Fourth Element,El cuarto elemento,O quarto elemento,Le quatrième élément,Das vierte Element,第四元素,Четвёртый элемент
+The Holder Technique,The Holder Technique,Técnica de sujeción,Técnica de sustentação,Technique de maintien,Die Haltetechnik,支撑技巧,Техника удержания
+The Leak,The Leak,La fuga,O vazamento,La fuite,Das Leck,泄漏,Утечка
+The Swing,The Swing,El columpio,O balanço,La balançoire,Die Schaukel,秋千,Качели
+The Vertical Vat,The Vertical Vat,La cuba vertical,O tanque vertical,La cuve verticale,Der senkrechte Tank,竖直水槽,Вертикальный чан
+The end is here,The end is here,El final ha llegado,O fim chegou,La fin est arrivée,Das Ende ist da,终点已至,Вот и конец
+"Three Up, Three Down","Three Up, Three Down","Tres arriba, tres abajo","Três acima, três abaixo","Trois en haut, trois en bas","Drei hoch, drei runter",三上三下,"Трое вверх, трое вниз"
+Tight fit,Tight fit,Espacio justo,Espaço apertado,À l’étroit,Passgenau,严丝合缝,Впритык
+Trading Places,Trading Places,Intercambio de lugares,Trocando de lugar,Échange de places,Platztausch,交换位置,Поменяться местами
+TrapShaft I,TrapShaft I,Pozo trampa I,Poço-armadilha I,Puits piégé I,Fallenschacht I,陷阱竖井 I,Шахта-ловушка I
+TrapShaft II,TrapShaft II,Pozo trampa II,Poço-armadilha II,Puits piégé II,Fallenschacht II,陷阱竖井 II,Шахта-ловушка II
+Two-In-One Trouble,Two-In-One Trouble,Problema dos en uno,Problema dois em um,Deux problèmes en un,Doppelter Ärger,双重麻烦,Две беды в одной
+Bomb: explodes beside destructible objects or when tapped,Bomb: explodes beside destructible objects or when tapped,Bomba: explota junto a objetos destructibles o al tocarla,Bomba: explode perto de objetos destrutíveis ou ao tocar,Bombe : explose près des objets destructibles ou au toucher,Bombe: explodiert neben zerstörbaren Objekten oder beim Antippen,炸弹：靠近可破坏物体或点击时爆炸,Бомба: взрывается рядом с разрушаемыми объектами или по нажатию

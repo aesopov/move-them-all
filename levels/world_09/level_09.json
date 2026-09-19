@@ -1,89 +1,139 @@
 {
+	"version": 2,
+	"name": "Corridor Corner",
+	"theme": "sky",
+	"imported": true,
+	"moves": 32,
+	"time": 210,
+	"terrain": [
+		"############",
+		"############",
+		"#####..#####",
+		"#####..#####",
+		"#####..#####",
+		"##........##",
+		"##........##",
+		"#####..#####",
+		"#####..#####",
+		"#####..#####",
+		"############",
+		"############"
+	],
 	"items": [
 		{
-			"type": "balloon",
-			"x": 3,
-			"y": 1
+			"type": "weight_red",
+			"x": 5,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		},
 		{
-			"type": "balloon",
+			"type": "mover_green",
+			"x": 5,
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
+		},
+		{
+			"type": "mover_green",
 			"x": 6,
-			"y": 1
+			"y": 4,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
 		},
 		{
-			"type": "bubble",
-			"x": 6,
-			"y": 10
-		},
-		{
-			"type": "bubble",
-			"x": 9,
-			"y": 4
-		},
-		{
-			"type": "star",
+			"type": "weight_red",
 			"x": 8,
-			"y": 7
-		},
-		{
+			"y": 5,
 			"aim": true,
-			"type": "star",
-			"x": 6,
-			"y": 9
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		},
 		{
-			"type": "star",
-			"x": 7,
-			"y": 6
-		},
-		{
+			"type": "weight",
+			"x": 8,
+			"y": 6,
 			"aim": true,
-			"type": "shell",
-			"x": 1,
-			"y": 10
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "shell",
-			"x": 4,
-			"y": 7
+			"type": "weight_red",
+			"x": 9,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight_red",
+			"x": 5,
+			"y": 7,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "mover_green",
+			"x": 5,
+			"y": 8,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "118"
 		}
 	],
-	"moves": 11,
-	"name": "Crooked Ledge",
-	"optimal": 7,
 	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				6,
-				4
-			],
-			"x": 7,
-			"y": 1
-		},
-		{
-			"to": [
-				7,
-				1
-			],
-			"x": 6,
-			"y": 4
-		}
-	],
-	"terrain": [
-		"------------",
-		"-..........-",
-		"-..........-",
-		"-.....#.###-",
-		"-..........-",
-		"-..........-",
-		"-...#....##-",
-		"-..........-",
-		"-...##.....-",
-		"-....#.....-",
-		"-..........-",
-		"------------"
-	],
-	"time": 105,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL089.UZ3",
+		"number": 89,
+		"sha256": "70d7a538507b2984248b5b8f4d621d331f9d0ddc22edd15da989e5fa80444775"
+	},
+	"skins": [
+		"....pppp....",
+		"....pppp....",
+		"....p..p....",
+		"....p..p....",
+		"pppp....pppp",
+		"pp........pp",
+		"pp........pp",
+		"pppp....pppp",
+		"....p..p....",
+		"....p..p....",
+		"....pppp....",
+		"....pppp...."
+	]
 }

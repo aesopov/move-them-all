@@ -1,63 +1,92 @@
 {
+	"version": 2,
+	"name": "Only Up",
+	"theme": "desert",
+	"imported": true,
+	"moves": 30,
+	"time": 70,
+	"terrain": [
+		"#...........",
+		"............",
+		"..######....",
+		"............",
+		".#######....",
+		"............",
+		"......####..",
+		"............",
+		".#####......",
+		".......#####",
+		"............",
+		"............"
+	],
 	"items": [
 		{
-			"type": "plant",
-			"x": 8,
-			"y": 5
-		},
-		{
+			"type": "bubble",
+			"x": 7,
+			"y": 10,
 			"aim": true,
-			"lock": "blue",
-			"type": "plant",
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
 			"x": 8,
-			"y": 6
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		},
 		{
-			"type": "plant",
-			"x": 8,
-			"y": 8
-		},
-		{
-			"lock": "yellow",
-			"type": "shell",
+			"type": "bubble",
 			"x": 9,
-			"y": 8
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
 		},
 		{
-			"type": "shell",
-			"x": 6,
-			"y": 5
+			"type": "balloon",
+			"x": 10,
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		},
 		{
-			"type": "key_blue",
-			"x": 9,
-			"y": 3
-		},
-		{
-			"type": "key_yellow",
-			"x": 3,
-			"y": 6
+			"type": "bubble",
+			"x": 11,
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
 		}
 	],
-	"moves": 6,
-	"name": "Sunny Ledge",
-	"optimal": 3,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--........--",
-		"--........--",
-		"--........--",
-		"--...###..--",
-		"--.####...--",
-		"--....#...--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 70,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL022.UZ3",
+		"number": 22,
+		"sha256": "923f39078d55b8f1fea65ec1399ebd145ddb89483d0dc2f6559e6ba31a9fba7e"
+	}
 }

@@ -192,12 +192,12 @@ func _init() -> void:
 				b.play(bomb, Board.DETONATE)
 			check(b.it_cell[box] == Board.cell_of(5, 4), box_name + " survives bomb (automatic=%s)" % automatic)
 			check(b.it_cell[target] == -1 and b.terrain[Board.cell_of(3, 4)] == Board.T.FLOOR, "blast still destroys ordinary pieces and cracked walls")
-	# Bombs always fall, even with a legacy gravity override.
+	# Bombs fall by default.
 	b = Board.new()
-	var bomb_id := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1), 0, false, ItemDefs.Gravity.NONE)
+	var bomb_id := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1))
 	b.terrain[Board.cell_of(3, 4)] = Board.T.WALL
 	b.settle()
-	check(b.it_cell[bomb_id] == Board.cell_of(3, 3) and not b.can_move(bomb_id, Board.UP), "bomb always falls and cannot move up")
+	check(b.it_cell[bomb_id] == Board.cell_of(3, 3) and not b.can_move(bomb_id, Board.UP), "bomb defaults to falling and cannot move up")
 	# Contact triggers before the bomb can fall past the cracked obstacle.
 	b = Board.new()
 	bomb_id = b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1))

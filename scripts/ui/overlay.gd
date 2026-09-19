@@ -67,4 +67,6 @@ func _process(_delta: float) -> void:
 	var width := minf(440, size.x - 32)
 	panel.custom_minimum_size.x = width
 	scroll.custom_minimum_size = Vector2(width - 48, minf(content.get_combined_minimum_size().y, size.y - 120))
-	%Title.add_theme_font_size_override("font_size", 30 if size.x < 600 else 44)
+	var font_size := 30 if size.x < 600 else 44
+	if %Title.get_theme_font_size("font_size") != font_size:
+		%Title.add_theme_font_size_override("font_size", font_size)

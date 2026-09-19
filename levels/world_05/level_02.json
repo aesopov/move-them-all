@@ -1,66 +1,104 @@
 {
+	"version": 2,
+	"name": "Sunken City II",
+	"theme": "ruins",
+	"imported": true,
+	"moves": 13,
+	"time": 105,
+	"terrain": [
+		"############",
+		"######.#####",
+		"######..####",
+		"######..####",
+		"######..####",
+		"###......###",
+		"#####.....##",
+		"######.....#",
+		"#####...####",
+		"############",
+		"############",
+		"############"
+	],
 	"items": [
 		{
-			"type": "rock",
-			"x": 2,
-			"y": 6
-		},
-		{
-			"type": "rock",
-			"x": 4,
-			"y": 8
-		},
-		{
+			"type": "bubble",
+			"x": 8,
+			"y": 5,
 			"aim": true,
-			"type": "crystal",
-			"x": 7,
-			"y": 7
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
 		},
 		{
-			"type": "crystal",
-			"x": 3,
-			"y": 6
+			"type": "balloon",
+			"x": 8,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		},
 		{
-			"type": "crystal",
-			"x": 2,
-			"y": 4
+			"type": "bubble",
+			"x": 9,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 9,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "bubble",
+			"x": 10,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "208",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		}
 	],
-	"moves": 4,
-	"name": "Tricky Pocket",
-	"optimal": 2,
-	"pipes": [
-		{
-			"mouth": "left",
-			"to": [
-				5,
-				7
-			],
-			"x": 5,
-			"y": 6
-		},
-		{
-			"mouth": "right",
-			"x": 5,
-			"y": 7
-		}
-	],
+	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--...#...---",
-		"--..###..---",
-		"--...##..---",
-		"--....#..---",
-		"--#......---",
-		"--#..#...---",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 60,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL042.UZ3",
+		"number": 42,
+		"sha256": "5670f0e743ddf1c775d146a4320c152bef56cb0df2b569c2527e3a052dc069dd"
+	}
 }

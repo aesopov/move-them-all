@@ -271,6 +271,8 @@ func _apply(c: int, dragging: bool) -> void:
 				board.remove_item_at(c)
 				_clear_teleport(c)
 				board.terrain[c] = Board.T.FLOOR
+				board.pipe_direct[c] = 0
+				board.pipe_entries[c] = 0
 				board.pipe_ports[c] = 0
 				board.pipe_landing[c] = 0
 				board.pipe_mouth[c] = int(tool.substr(5))
@@ -305,12 +307,16 @@ func _clear_teleport(c: int) -> void:
 	if board.teleport_to[c] == -2:
 		return
 	board.teleport_to[c] = -2
+	board.teleport_entries[c] = 15
+	board.teleport_strict[c] = 0
 	for o in Board.N:
 		if board.teleport_to[o] == c:
 			board.teleport_to[o] = -1
 
 
 func _clear_pipe(c: int) -> void:
+	board.pipe_direct[c] = 0
+	board.pipe_entries[c] = 0
 	if board.pipe_mouth[c] == -1:
 		return
 	board.pipe_ports[c] = 0
@@ -318,7 +324,7 @@ func _clear_pipe(c: int) -> void:
 	board.pipe_mouth[c] = -1
 	board.pipe_to[c] = -1
 	for o in Board.N:
-		if board.pipe_to[o] == c:
+		if board.pipe_to[o] == c and not board.pipe_direct[o]:
 			board.pipe_to[o] = -1
 
 
@@ -344,11 +350,15 @@ func _link(c: int) -> void:
 			board.pipe_to[src] = -1
 		_set_status("Link cleared.")
 		return
-	if src_tele and is_tele:
+	if src_tele and (is_tele or board.teleport_strict[src]):
 		board.teleport_to[src] = c
-		if two_way:
+		if two_way and is_tele:
 			board.teleport_to[c] = src
 		_set_status("Teleports linked.")
+	elif not src_tele and board.pipe_direct[src]:
+		# Imported direct pipes can target ordinary landing cells.
+		board.pipe_to[src] = c
+		_set_status("Pipes linked.")
 	elif not src_tele and is_pipe:
 		board.pipe_to[src] = c
 		if two_way:

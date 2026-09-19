@@ -34,7 +34,10 @@ var fit_area := Vector2.ZERO
 ## Level designer mode: reports cell presses/drags instead of moving items.
 @export var editor_mode := false
 ## Draw teleport / pipe link arrows (designer).
-@export var show_links := false
+@export var show_links := false:
+	set(value):
+		show_links = value
+		if pipe_layer: pipe_layer.queue_redraw()
 ## Load the level's decoration scene (<level>_decor.tscn) when previewing in the editor.
 @export var show_decor := true
 
@@ -48,8 +51,16 @@ var origin := Vector2(PAD, PAD)
 var theme_data: Dictionary = WorldTheme.get_palette("jungle")
 var busy := false
 
-var selected_cell := -1
-var hover_cell := -1
+var selected_cell := -1:
+	set(value):
+		if selected_cell != value:
+			selected_cell = value
+			if pipe_layer: pipe_layer.queue_redraw()
+var hover_cell := -1:
+	set(value):
+		if hover_cell != value:
+			hover_cell = value
+			if pipe_layer: pipe_layer.queue_redraw()
 
 var view_terrain := PackedByteArray()
 var nodes := {}
@@ -64,6 +75,8 @@ var _dragged := false
 var gesture := -1
 var _mouse_btn := 0
 
+var animated_layer: Node2D
+var animated_cells: Array[int] = []
 var items_layer: Node2D
 var pipe_layer: Node2D
 var fx_layer: Node2D
@@ -71,6 +84,9 @@ var fx_layer: Node2D
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	animated_layer = Node2D.new()
+	add_child(animated_layer)
+	animated_layer.draw.connect(_draw_animated)
 	items_layer = Node2D.new()
 	pipe_layer = Node2D.new()
 	fx_layer = Node2D.new()
@@ -162,6 +178,11 @@ func set_board(b: Board) -> void:
 ## Re-syncs everything from the model (used by the editor and after animations).
 func refresh() -> void:
 	view_terrain = board.terrain.duplicate()
+	animated_cells.clear()
+	for c in Board.N:
+		if view_terrain[c] in [Board.T.WATER, Board.T.LAVA, Board.T.ACID] or board.teleport_to[c] != -2:
+			animated_cells.append(c)
+	if animated_layer: animated_layer.queue_redraw()
 	_compute_groups()
 	_sync()
 	queue_redraw()
@@ -187,8 +208,8 @@ func _process(delta: float) -> void:
 	_t += delta
 	if not editor_mode:
 		_drive_drag()
-	queue_redraw()
-	pipe_layer.queue_redraw()
+	if not animated_cells.is_empty():
+		animated_layer.queue_redraw()
 
 
 # ---------------------------------------------------------------------------
@@ -214,7 +235,10 @@ func _sync() -> void:
 			items_layer.add_child(n)
 			nodes[i] = n
 		n.show_goal = editor_mode # goals are hidden in play, shown in the level designer
-		n.setup(i, board.it_type[i], board.it_lock[i], board.it_aim[i] == 1, cell)
+		n.match_label = str(board.it_meta[i].get("match_label", ""))
+		n.visual = str(board.it_meta[i].get("visual", ""))
+		n.theme_key = theme_data.key
+		n.setup(i, board.it_type[i], board.it_lock[i], board.it_aim[i] == 1, cell, board.grav(i))
 		n.position = center(c)
 		n.scale = Vector2.ONE
 		n.modulate = Color.WHITE
@@ -514,6 +538,7 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 			var c: int = e.cell
 			_at(start, func():
 				view_terrain[c] = Board.T.FLOOR
+				queue_redraw()
 				Fx.debris(fx_layer, center(c), Color(0.65, 0.45, 0.3)))
 			return 0.12
 		"blast":
@@ -582,7 +607,13 @@ func _draw() -> void:
 						if not grouped_walls or wall_layout.has(c) or not WallArt.eligible(board, view_terrain, c):
 							_draw_wall(c, wall_layout.get(c, Vector2i.ONE))
 			Board.T.BREAKABLE: _draw_breakable(c)
-			Board.T.WATER, Board.T.LAVA, Board.T.ACID: _draw_liquid(c, t)
+
+func _draw_animated() -> void:
+	if board == null: return
+	for c in animated_cells:
+		var t := view_terrain[c]
+		if t in [Board.T.WATER, Board.T.LAVA, Board.T.ACID]:
+			_draw_liquid(c, t)
 		if board.teleport_to[c] != -2:
 			_draw_teleport(c)
 
@@ -749,7 +780,7 @@ func _draw_liquid(c: int, t: int) -> void:
 	var liquid_name := "water" if t == Board.T.WATER else ("lava" if t == Board.T.LAVA else "acid")
 	var tex := AssetLib.liquid(liquid_name, surface)
 	if tex:
-		draw_texture_rect(tex, r, false)
+		animated_layer.draw_texture_rect(tex, r, false)
 	elif surface:
 		var poly := PackedVector2Array()
 		for k in 9:
@@ -757,20 +788,20 @@ func _draw_liquid(c: int, t: int) -> void:
 			poly.append(Vector2(x, r.position.y + cell * 0.12 + sin(x * 0.12 + _t * 3.0) * cell * 0.04))
 		poly.append(r.end)
 		poly.append(Vector2(x0, r.end.y))
-		draw_colored_polygon(poly, cols[0])
+		animated_layer.draw_colored_polygon(poly, cols[0])
 		var hl := PackedVector2Array()
 		for k in 9:
 			hl.append(poly[k])
-		draw_polyline(hl, cols[1], 3.0, true)
+		animated_layer.draw_polyline(hl, cols[1], 3.0, true)
 	else:
-		draw_rect(r, cols[0])
+		animated_layer.draw_rect(r, cols[0])
 	var sd := c * 13
 	if t == Board.T.WATER:
 		# Ripples drift sideways with the current.
 		for k in 3:
 			var px := x0 + fposmod(sd * (k + 3) * 7.0 + _t * 12.0 * (k + 1), r.size.x)
 			var py := r.position.y + cell * (0.35 + 0.2 * k) + sin(_t * 2.0 + k + sd) * 3.0
-			draw_line(Vector2(px - cell * 0.1, py), Vector2(px + cell * 0.1, py), Color(cols[1], 0.5), 2.0)
+			animated_layer.draw_line(Vector2(px - cell * 0.1, py), Vector2(px + cell * 0.1, py), Color(cols[1], 0.5), 2.0)
 		return
 	# Acid / lava: bubbles rise through the cell, wobble a little, grow, and fade out
 	# just under the surface (the top cell) or at the cell's top edge (deeper cells,
@@ -785,7 +816,7 @@ func _draw_liquid(c: int, t: int) -> void:
 		var py := r.end.y - rise
 		var radius := cell * (0.035 + 0.04 * progress)
 		var alpha := 0.75 * minf(1.0, (1.0 - progress) * 4.0) * minf(1.0, progress * 6.0)
-		draw_circle(Vector2(px, py), radius, Color(cols[1], alpha))
+		animated_layer.draw_circle(Vector2(px, py), radius, Color(cols[1], alpha))
 
 
 ## Entrances (have a target) spin; exit-only teleports (only targeted) are a calm disc;
@@ -798,36 +829,36 @@ func _draw_teleport(c: int) -> void:
 		var ecol: Color = _tele_col.get(c, GROUP_COLORS[0])
 		var btex := AssetLib.teleport("base")
 		if btex:
-			draw_texture_rect(btex, _cell_rect(c), false, ecol)
+			animated_layer.draw_texture_rect(btex, _cell_rect(c), false, ecol)
 		else:
-			draw_colored_polygon(ItemArt.rrect(_cell_rect(c).grow(-cell * 0.08), cell * 0.18), ecol.darkened(0.55))
-			draw_circle(ctr, cell * 0.36, ecol.darkened(0.3))
+			animated_layer.draw_colored_polygon(ItemArt.rrect(_cell_rect(c).grow(-cell * 0.08), cell * 0.18), ecol.darkened(0.55))
+			animated_layer.draw_circle(ctr, cell * 0.36, ecol.darkened(0.3))
 		for k in 3:
-			draw_arc(ctr, cell * (0.1 + 0.09 * k), 0, TAU, 24, ecol.lightened(0.1 + 0.12 * k), cell * 0.03, true)
-		draw_circle(ctr, cell * 0.05, ecol.lightened(0.5))
+			animated_layer.draw_arc(ctr, cell * (0.1 + 0.09 * k), 0, TAU, 24, ecol.lightened(0.1 + 0.12 * k), cell * 0.03, true)
+		animated_layer.draw_circle(ctr, cell * 0.05, ecol.lightened(0.5))
 		return
 	var linked := entrance
 	var col: Color = _tele_col.get(c, GROUP_COLORS[0]) if linked else Color(0.55, 0.55, 0.6)
 	var base_tex := AssetLib.teleport("base")
 	if base_tex:
-		draw_texture_rect(base_tex, _cell_rect(c), false, col)
+		animated_layer.draw_texture_rect(base_tex, _cell_rect(c), false, col)
 		if linked:
 			var swirl_tex := AssetLib.teleport("swirl")
 			if swirl_tex:
-				draw_set_transform(ctr, _t * 1.2, Vector2.ONE)
-				draw_texture_rect(swirl_tex, Rect2(Vector2.ONE * -cell * 0.27, Vector2.ONE * cell * 0.54), false, col.lightened(0.3))
-				draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+				animated_layer.draw_set_transform(ctr, _t * 1.2, Vector2.ONE)
+				animated_layer.draw_texture_rect(swirl_tex, Rect2(Vector2.ONE * -cell * 0.27, Vector2.ONE * cell * 0.54), false, col.lightened(0.3))
+				animated_layer.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 			else:
 				for k in 3:
 					var a := _t * (2.2 - k * 0.4) + k * 2.0
-					draw_arc(ctr, cell * (0.07 + 0.07 * k), a, a + PI * 1.3, 16, col.lightened(0.3), cell * 0.04, true)
+					animated_layer.draw_arc(ctr, cell * (0.07 + 0.07 * k), a, a + PI * 1.3, 16, col.lightened(0.3), cell * 0.04, true)
 		return
-	draw_colored_polygon(ItemArt.rrect(_cell_rect(c).grow(-cell * 0.08), cell * 0.18), col.darkened(0.55))
-	draw_circle(ctr, cell * 0.36, col.darkened(0.3))
+	animated_layer.draw_colored_polygon(ItemArt.rrect(_cell_rect(c).grow(-cell * 0.08), cell * 0.18), col.darkened(0.55))
+	animated_layer.draw_circle(ctr, cell * 0.36, col.darkened(0.3))
 	for k in 3:
 		var a := _t * (2.2 - k * 0.4) + k * 2.0
-		draw_arc(ctr, cell * (0.1 + 0.09 * k), a, a + PI * 1.3, 16, col.lightened(0.2 + 0.15 * k), cell * 0.045, true)
-	draw_arc(ctr, cell * 0.37, 0, TAU, 32, col.lightened(0.4), 2.0, true)
+		animated_layer.draw_arc(ctr, cell * (0.1 + 0.09 * k), a, a + PI * 1.3, 16, col.lightened(0.2 + 0.15 * k), cell * 0.045, true)
+	animated_layer.draw_arc(ctr, cell * 0.37, 0, TAU, 32, col.lightened(0.4), 2.0, true)
 
 
 func _draw_overlay() -> void:
@@ -858,6 +889,12 @@ func _draw_pipe(c: int) -> void:
 	var ctr := center(c)
 	var L := pipe_layer
 	var s := cell
+	if board.pipe_direct[c] and board.pipe_entries[c] in [5, 10, 15]:
+		var ports := 0
+		for d in 4:
+			if board.pipe_entries[c] & (1 << d): ports |= 1 << Board.opposite(d)
+		PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), ports, col, -2)
+		return
 	if board.pipe_ports[c]:
 		if board.pipe_landing[c]:
 			col.a = 0.65

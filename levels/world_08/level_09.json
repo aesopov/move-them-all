@@ -1,73 +1,217 @@
 {
+	"version": 2,
+	"name": "Building Bridges",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 20,
+	"time": 145,
+	"terrain": [
+		"........#.##",
+		".........###",
+		"..........##",
+		"###......###",
+		".........#..",
+		".........#..",
+		"............",
+		"#........###",
+		"#........###",
+		"#........###",
+		"#aaaaaaaa###",
+		"#aaaaaaaa###"
+	],
 	"items": [
 		{
-			"type": "crystal",
+			"type": "weight_red",
+			"x": 0,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 0,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 1,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
 			"x": 2,
-			"y": 2
-		},
-		{
-			"type": "crystal",
-			"x": 4,
-			"y": 6
-		},
-		{
+			"y": 2,
 			"aim": true,
-			"type": "balloon",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "block_red",
+			"x": 3,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
+		},
+		{
+			"type": "block_red",
 			"x": 5,
-			"y": 3
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
 		},
 		{
-			"type": "balloon",
-			"x": 8,
-			"y": 6
+			"type": "block_red",
+			"x": 7,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"match_label": "11"
 		},
 		{
-			"type": "bubble",
-			"x": 6,
-			"y": 6
+			"type": "key_blue",
+			"x": 11,
+			"y": 5,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
 		},
 		{
+			"type": "weight_red",
+			"x": 0,
+			"y": 6,
 			"aim": true,
-			"type": "bubble",
-			"x": 3,
-			"y": 3
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"lock": "blue",
+			"match_label": "2"
 		},
 		{
-			"aim": true,
-			"type": "bubble",
+			"type": "block_red",
 			"x": 9,
-			"y": 0
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "107",
+			"lock": "red",
+			"match_label": "11"
 		},
 		{
-			"type": "plant",
-			"x": 8,
-			"y": 1
+			"type": "weight",
+			"x": 10,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "plant",
-			"x": 3,
-			"y": 5
+			"type": "key_red",
+			"x": 11,
+			"y": 6,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "300"
 		}
 	],
-	"moves": 14,
-	"name": "Sleepy Grove",
-	"optimal": 9,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"-aa.aaa....-",
-		"-..........-",
-		"-..###.....-",
-		"-..........-",
-		"-..........-",
-		"-....####..-",
-		"-..#.......-",
-		"-..........-",
-		"-.........#-",
-		"-..........-",
-		"-..........-",
-		"------------"
+	"pipes": [
+		{
+			"x": 8,
+			"y": 2,
+			"to": [
+				10,
+				5
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		},
+		{
+			"x": 10,
+			"y": 4,
+			"to": [
+				7,
+				2
+			],
+			"destination": "cell",
+			"enter": [
+				"down"
+			],
+			"mouth": "up"
+		}
 	],
-	"time": 130,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL079.UZ3",
+		"number": 79,
+		"sha256": "d0140ae1f38c1ec18db3f92902a460d5ad9eddee2f0ebc770c8b2f3043a34c33"
+	},
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"..........p.",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............"
+	]
 }

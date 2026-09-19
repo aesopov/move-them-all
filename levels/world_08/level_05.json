@@ -1,69 +1,259 @@
 {
+	"version": 2,
+	"name": "Head in the Clouds",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"#...........",
+		"####.....###",
+		"####....####",
+		".........###",
+		".######.....",
+		"###...##....",
+		"##....##....",
+		"##....##....",
+		"##...##.....",
+		".######...##",
+		"..........##",
+		"######.#####"
+	],
 	"items": [
 		{
+			"type": "weight",
+			"x": 1,
+			"y": 0,
 			"aim": true,
-			"type": "crystal",
-			"x": 6,
-			"y": 2
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
+			"type": "weight",
+			"x": 9,
+			"y": 0,
 			"aim": true,
-			"type": "crystal",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 8,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 5,
+			"source_sprite": "206",
+			"match_label": "5"
+		},
+		{
+			"type": "key_green",
+			"x": 2,
+			"y": 3,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "weight",
 			"x": 7,
-			"y": 3
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 3,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "pyramid",
+			"x": 3,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "pyramid",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "203",
+			"match_label": "4"
+		},
+		{
+			"type": "torus",
+			"x": 2,
+			"y": 7,
+			"aim": true,
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "202",
+			"match_label": "3"
 		},
 		{
 			"type": "balloon",
-			"x": 6,
-			"y": 3
+			"x": 3,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		},
 		{
+			"type": "torus",
+			"x": 4,
+			"y": 7,
 			"aim": true,
-			"lock": "red",
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "202",
+			"match_label": "3"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 2,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
 			"type": "balloon",
 			"x": 4,
-			"y": 3
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
 		},
 		{
-			"type": "bubble",
-			"x": 3,
-			"y": 2
+			"type": "weight",
+			"x": 11,
+			"y": 8,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "bubble",
-			"x": 10,
-			"y": 2
-		},
-		{
-			"type": "bubble",
-			"x": 8,
-			"y": 2
-		},
-		{
-			"type": "key_red",
-			"x": 1,
-			"y": 5
+			"type": "padlock",
+			"x": 9,
+			"y": 10,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "green"
 		}
 	],
-	"moves": 8,
-	"name": "Wild Grove",
-	"optimal": 5,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"-...a......-",
-		"-..........-",
-		"-..........-",
-		"-.......#..-",
-		"-......##..-",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"------------",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL075.UZ3",
+		"number": 75,
+		"sha256": "c4e2d78d912efbaeaa9c81adff4a7975ca26f9f3199c76a79627fff594aece33"
+	}
 }

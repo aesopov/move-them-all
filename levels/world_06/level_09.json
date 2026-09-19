@@ -1,72 +1,147 @@
 {
+	"version": 2,
+	"name": "Forbidden Touch",
+	"theme": "cave",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"########....",
+		".....###....",
+		"####.###....",
+		".......#....",
+		".....#.#....",
+		"wwwww#.#....",
+		"######.#...#",
+		".......#####",
+		"...........#",
+		".......###.#",
+		"wwwwwww#...#",
+		"wwwwwww#####"
+	],
 	"items": [
 		{
+			"type": "weight",
+			"x": 0,
+			"y": 1,
 			"aim": true,
-			"type": "crate",
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
 			"x": 2,
-			"y": 9
-		},
-		{
-			"type": "crate",
-			"x": 6,
-			"y": 10
-		},
-		{
-			"type": "crate",
-			"x": 10,
-			"y": 10
-		},
-		{
+			"y": 1,
 			"aim": true,
-			"type": "star",
-			"x": 2,
-			"y": 2
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		},
 		{
-			"type": "star",
-			"x": 1,
-			"y": 3
-		},
-		{
-			"type": "star",
-			"x": 10,
-			"y": 3
-		},
-		{
-			"type": "rock",
-			"x": 2,
-			"y": 10
-		},
-		{
-			"type": "rock",
-			"x": 7,
-			"y": 6
-		},
-		{
-			"type": "bomb",
+			"type": "weight",
 			"x": 5,
-			"y": 10
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "block_blue",
+			"x": 9,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "109",
+			"match_label": "11"
+		},
+		{
+			"type": "block_blue",
+			"x": 8,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "109",
+			"match_label": "11"
+		},
+		{
+			"type": "block_blue",
+			"x": 10,
+			"y": 6,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "109",
+			"match_label": "11"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 10,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 10,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		}
 	],
-	"moves": 7,
-	"name": "Misty Nook",
-	"optimal": 4,
 	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"...........-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"....%......-",
-		"...%%......-",
-		"...%%..%%..-",
-		"...........-",
-		"...........-",
-		"...........-",
-		"------------"
+	"teleports": [
+		{
+			"x": 9,
+			"y": 0,
+			"to": [
+				8,
+				10
+			],
+			"strict": true
+		},
+		{
+			"x": 8,
+			"y": 10,
+			"to": [
+				9,
+				0
+			],
+			"strict": true
+		}
 	],
-	"time": 80,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL059.UZ3",
+		"number": 59,
+		"sha256": "c3429a95a814d8493e17cd7634a2f9f3c66c9ae8e8af6591c8783e2600382090"
+	}
 }

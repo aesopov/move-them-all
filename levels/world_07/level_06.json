@@ -1,67 +1,56 @@
 {
+	"version": 2,
+	"name": "Intermission",
+	"theme": "volcano",
+	"imported": true,
+	"moves": 6,
+	"time": 180,
+	"terrain": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"....####....",
+		"...#....#...",
+		"....####...."
+	],
 	"items": [
 		{
-			"type": "shell",
-			"x": 10,
-			"y": 9
-		},
-		{
-			"type": "shell",
-			"x": 7,
-			"y": 1
-		},
-		{
+			"type": "pyramid",
+			"x": 4,
+			"y": 10,
 			"aim": true,
-			"type": "rock",
-			"x": 8,
-			"y": 8
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "203",
+			"match_label": "1"
 		},
 		{
-			"type": "rock",
-			"x": 1,
-			"y": 9
-		},
-		{
-			"type": "rock",
-			"x": 9,
-			"y": 6
-		},
-		{
-			"type": "plant",
+			"type": "pyramid",
 			"x": 7,
-			"y": 2
-		},
-		{
-			"type": "plant",
-			"x": 9,
-			"y": 9
-		},
-		{
+			"y": 10,
 			"aim": true,
-			"type": "star",
-			"x": 8,
-			"y": 9
+			"gravity": "none",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "203",
+			"match_label": "1"
 		}
 	],
-	"moves": 8,
-	"name": "Lucky Passage",
-	"optimal": 5,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"-.....###..-",
-		"-..........-",
-		"-..........-",
-		"-.....####.-",
-		"-....###...-",
-		"-..lll.....-",
-		"------------",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL066.UZ3",
+		"number": 66,
+		"sha256": "3e36298b66e3af11daa28cf9555dcab9f3b738b8bc0ab483fc1dd1f6881596eb"
+	}
 }

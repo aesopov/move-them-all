@@ -1,90 +1,165 @@
 {
+	"version": 2,
+	"name": "Inclined to Death",
+	"theme": "ice",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"...#########",
+		"..........##",
+		".......#####",
+		"#.....######",
+		"#....####...",
+		"#...#####...",
+		"#..######...",
+		"#.####.....#",
+		"######.....#",
+		"######...##.",
+		"............",
+		".......##..."
+	],
 	"items": [
 		{
-			"type": "plant",
-			"x": 3,
-			"y": 4
-		},
-		{
-			"type": "plant",
-			"x": 9,
-			"y": 2
-		},
-		{
-			"aim": true,
-			"type": "plant",
-			"x": 7,
-			"y": 7
-		},
-		{
-			"type": "crystal",
+			"type": "mover_green",
 			"x": 5,
-			"y": 6
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "108"
 		},
 		{
-			"type": "crystal",
-			"x": 2,
-			"y": 7
-		},
-		{
+			"type": "weight",
+			"x": 7,
+			"y": 1,
 			"aim": true,
-			"type": "crystal",
-			"x": 3,
-			"y": 5
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight_red",
+			"x": 8,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "mover_green",
+			"x": 4,
+			"y": 2,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "108"
+		},
+		{
+			"type": "crate",
+			"x": 5,
+			"y": 2,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "108"
+		},
+		{
+			"type": "weight",
+			"x": 6,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "plant",
+			"x": 10,
+			"y": 8,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "604"
 		}
 	],
-	"moves": 7,
-	"name": "Tricky Maze",
-	"optimal": 4,
-	"pipes": [],
-	"teleports": [
+	"pipes": [
 		{
+			"x": 8,
+			"y": 10,
 			"to": [
-				8,
-				6
-			],
-			"x": 3,
-			"y": 2
-		},
-		{
-			"to": [
-				7,
+				10,
 				8
 			],
-			"x": 5,
-			"y": 4
-		},
-		{
-			"to": [
-				3,
-				2
+			"destination": "cell",
+			"enter": [
+				"up",
+				"down"
 			],
-			"x": 8,
-			"y": 6
-		},
-		{
-			"to": [
-				5,
-				4
-			],
-			"x": 7,
-			"y": 8
+			"mouth": "down"
 		}
 	],
-	"terrain": [
-		"------------",
-		"------------",
-		"--....#...--",
-		"--#...#...--",
-		"--#...#...--",
-		"--#...###.--",
-		"--....#...--",
-		"--...##...--",
-		"--....#...--",
-		"------------",
-		"------------",
-		"------------"
-	],
-	"time": 80,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL033.UZ3",
+		"number": 33,
+		"sha256": "3d82e4f5c3d447076102eed03238a7e6f30e637ebea8edbdefa9ed3dba6bcfa6"
+	},
+	"skins": [
+		"....ppppppp.",
+		"...........p",
+		"...........p",
+		".........pp.",
+		"p.......p...",
+		"p.......p...",
+		"p.....pp....",
+		"p....p......",
+		"p....p......",
+		".pppp.......",
+		"............",
+		"............"
+	]
 }

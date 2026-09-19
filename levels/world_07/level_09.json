@@ -1,68 +1,215 @@
 {
+	"version": 2,
+	"name": "Great Potential",
+	"theme": "volcano",
+	"imported": true,
+	"moves": 22,
+	"time": 175,
+	"terrain": [
+		"####.#######",
+		"........#...",
+		".###.#######",
+		"........#...",
+		"........#...",
+		"####.#######",
+		"#.......#...",
+		"#..#.#######",
+		"############",
+		"...#.#..#..#",
+		"####.#..#..#",
+		"llllllllllll"
+	],
 	"items": [
 		{
-			"aim": true,
-			"type": "star",
-			"x": 3,
-			"y": 3
-		},
-		{
 			"type": "star",
 			"x": 1,
-			"y": 2
-		},
-		{
+			"y": 1,
 			"aim": true,
-			"type": "shell",
-			"x": 1,
-			"y": 9
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "135",
+			"match_label": "3"
 		},
 		{
-			"type": "shell",
+			"type": "key_green",
+			"x": 2,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
+		},
+		{
+			"type": "weight_red",
 			"x": 3,
-			"y": 2
-		},
-		{
+			"y": 1,
 			"aim": true,
-			"type": "plant",
-			"x": 4,
-			"y": 8
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		},
 		{
-			"type": "plant",
+			"type": "weight_red",
+			"x": 5,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "key_green",
 			"x": 6,
-			"y": 7
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "302"
 		},
 		{
-			"type": "rock",
-			"x": 1,
-			"y": 8
+			"type": "star",
+			"x": 7,
+			"y": 1,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "135",
+			"match_label": "3"
 		},
 		{
-			"type": "rock",
-			"x": 1,
-			"y": 10
+			"type": "weight_red",
+			"x": 3,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 3,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 5,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"lock": "green",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 3,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "207",
+			"lock": "green",
+			"match_label": "4"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "207",
+			"lock": "green",
+			"match_label": "4"
+		},
+		{
+			"type": "balloon",
+			"x": 4,
+			"y": 7,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 4,
+			"source_sprite": "207",
+			"match_label": "4"
 		}
 	],
-	"moves": 8,
-	"name": "Quiet Nook",
-	"optimal": 5,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"-..........-",
-		"-........#.-",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"-###.......-",
-		"-....#.....-",
-		"-..........-",
-		"-.##.......-",
-		"-..........-",
-		"-.ll.......-",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL069.UZ3",
+		"number": 69,
+		"sha256": "34ae1515ef4fac158c990341d93d038e4d3dbdd4960ad5eb244327edc20e5d01"
+	},
+	"skins": [
+		"ppp...pppppp",
+		"........p...",
+		"..p...ppppp.",
+		"........p...",
+		"........p...",
+		".pp...ppppp.",
+		"p.......p...",
+		"p....ppppppp",
+		".ppppppp.ppp",
+		"...p.p..p..p",
+		"ppp..p..p..p",
+		"............"
+	]
 }

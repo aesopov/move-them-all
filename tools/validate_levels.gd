@@ -50,6 +50,21 @@ func validate(data: Variant) -> String:
 			occupied[cell] = true
 			if field == "items" and ItemDefs.index_of(str(entry.get("type", ""))) < 0:
 				return "Unknown item type"
+			if field == "items":
+				if entry.has("match_group") and (not entry.match_group is float and not entry.match_group is int or entry.match_group != int(entry.match_group) or entry.match_group < 0):
+					return "Invalid matching group"
+				for flag in ["movable", "destructible", "aim"]:
+					if entry.has(flag) and not entry[flag] is bool: return "Invalid item flag: " + flag
+				if entry.has("gravity") and not entry.gravity in ItemDefs.GRAVITY_NAMES: return "Unknown gravity override"
+				if entry.has("lock") and not entry.lock in ItemDefs.LOCK_NAMES: return "Unknown lock color"
+			if field in ["pipes", "teleports"] and entry.has("enter"):
+				if not entry.enter is Array or entry.enter.is_empty(): return "Empty transport entry directions"
+				for direction in entry.enter:
+					if not direction in Board.DIR_NAMES: return "Unknown transport entry direction"
+			if field == "pipes":
+				if not entry.get("mouth", "up") in Board.DIR_NAMES: return "Unknown pipe mouth"
+				if entry.get("destination", "pipe") not in ["pipe", "cell"]: return "Unknown pipe destination mode"
+				if entry.get("destination", "pipe") == "cell" and (not entry.has("to") or not entry.has("enter")): return "Direct pipe requires destination and entry directions"
 			if entry.has("to"):
 				var target: Variant = entry.to
 				if not target is Array or target.size() != 2 or not in_bounds(target[0], target[1]):

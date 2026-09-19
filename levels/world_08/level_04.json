@@ -1,63 +1,206 @@
 {
+	"version": 2,
+	"name": "Three Up, Three Down",
+	"theme": "swamp",
+	"imported": true,
+	"moves": 39,
+	"time": 135,
+	"terrain": [
+		"##aaaa##....",
+		"##....###...",
+		"##....###...",
+		"###.##aa##..",
+		"............",
+		"#.####.#.###",
+		"............",
+		"####.######.",
+		"............",
+		"######.#aa.#",
+		"#####..###..",
+		"####...#...."
+	],
 	"items": [
 		{
-			"type": "crystal",
-			"x": 5,
-			"y": 7
-		},
-		{
-			"type": "crystal",
-			"x": 5,
-			"y": 4
-		},
-		{
-			"aim": true,
-			"type": "plant",
-			"x": 2,
-			"y": 6
-		},
-		{
-			"type": "plant",
-			"x": 2,
-			"y": 9
-		},
-		{
-			"type": "bubble",
-			"x": 4,
-			"y": 2
-		},
-		{
-			"aim": true,
-			"type": "bubble",
-			"x": 9,
-			"y": 2
-		},
-		{
-			"aim": true,
 			"type": "balloon",
 			"x": 9,
-			"y": 3
+			"y": 0,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 2,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "key_blue",
+			"x": 5,
+			"y": 2,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "303"
+		},
+		{
+			"type": "weight",
+			"x": 9,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "padlock",
+			"x": 10,
+			"y": 3,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "blue"
+		},
+		{
+			"type": "rock",
+			"x": 1,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": true,
+			"match_group": 665,
+			"source_sprite": "138",
+			"visual": "cracked_stone",
+			"match_label": "665"
+		},
+		{
+			"type": "rock",
+			"x": 8,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": true,
+			"match_group": 665,
+			"source_sprite": "138",
+			"visual": "cracked_stone",
+			"match_label": "665"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 11,
+			"y": 10,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "207",
+			"match_label": "2"
+		},
+		{
+			"type": "bomb",
+			"x": 4,
+			"y": 11,
+			"aim": false,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 0,
+			"source_sprite": "209"
+		},
+		{
+			"type": "weight",
+			"x": 11,
+			"y": 11,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
 		}
 	],
-	"moves": 7,
-	"name": "Sunny Passage",
-	"optimal": 4,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"--aa....a.--",
-		"--.#......--",
-		"--....#...--",
-		"--....#...--",
-		"--.....#..--",
-		"--.....###--",
-		"--.....#..--",
-		"--........--",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 6,
+			"y": 5,
+			"to": [
+				8,
+				8
+			],
+			"destination": "cell",
+			"enter": [
+				"up",
+				"down"
+			],
+			"mouth": "down"
+		},
+		{
+			"x": 9,
+			"y": 8,
+			"to": [
+				6,
+				4
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		}
 	],
-	"time": 80,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL074.UZ3",
+		"number": 74,
+		"sha256": "13d3de5692377a4c826f4cc61f8f1bdb6ddc1214d8f40042230f88dea9de81fc"
+	},
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"......pppp..",
+		"............",
+		"............",
+		"............",
+		"............"
+	]
 }

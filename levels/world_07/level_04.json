@@ -1,67 +1,189 @@
 {
+	"version": 2,
+	"name": "Spinal Columns",
+	"theme": "volcano",
+	"imported": true,
+	"moves": 20,
+	"time": 240,
+	"terrain": [
+		".###.....#.#",
+		"..#.....###.",
+		".###........",
+		"..#.....###.",
+		".###.....#..",
+		"..#.....###.",
+		".###.....#..",
+		"..#.....###.",
+		".###.....#..",
+		"........###.",
+		".###.....#..",
+		"###.....###."
+	],
 	"items": [
 		{
-			"type": "star",
-			"x": 9,
-			"y": 4
-		},
-		{
-			"type": "star",
+			"type": "crate",
 			"x": 4,
-			"y": 1
+			"y": 0,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "122"
 		},
 		{
-			"type": "rock",
-			"x": 8,
-			"y": 2
-		},
-		{
-			"type": "rock",
-			"x": 6,
-			"y": 3
-		},
-		{
-			"aim": true,
-			"type": "rock",
+			"type": "weight_red",
 			"x": 1,
-			"y": 9
-		},
-		{
+			"y": 1,
 			"aim": true,
-			"type": "plant",
-			"x": 6,
-			"y": 4
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
 		},
 		{
-			"type": "plant",
-			"x": 9,
-			"y": 8
+			"type": "block_red",
+			"x": 4,
+			"y": 1,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "120",
+			"match_label": "11"
 		},
 		{
-			"type": "plant",
-			"x": 6,
-			"y": 2
+			"type": "weight_red",
+			"x": 8,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "weight",
+			"x": 10,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 1,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 4,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "weight",
+			"x": 1,
+			"y": 5,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "205",
+			"match_label": "1"
+		},
+		{
+			"type": "block_red",
+			"x": 4,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 11,
+			"source_sprite": "120",
+			"match_label": "11"
+		},
+		{
+			"type": "balloon",
+			"x": 10,
+			"y": 8,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
+		},
+		{
+			"type": "weight_red",
+			"x": 10,
+			"y": 10,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "206",
+			"match_label": "2"
+		},
+		{
+			"type": "balloon",
+			"x": 3,
+			"y": 11,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "207",
+			"match_label": "3"
 		}
 	],
-	"moves": 6,
-	"name": "Tricky Crossing",
-	"optimal": 3,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"-.........--",
-		"-.........--",
-		"-#####..#.--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-.........--",
-		"-...##....--",
-		"-.ll.lll..--",
-		"------------",
-		"------------"
-	],
-	"time": 70,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL064.UZ3",
+		"number": 64,
+		"sha256": "e52b164e964425159928d4ca6a8e2f1460b1d5b087d92126d9006440f96f4b1c"
+	},
+	"skins": [
+		"..p......p..",
+		"..p.........",
+		"..p.........",
+		"..p.........",
+		"..p......p..",
+		"..p......p..",
+		"..p......p..",
+		"..p......p..",
+		".........p..",
+		".........p..",
+		".........p..",
+		"..p......p.."
+	]
 }

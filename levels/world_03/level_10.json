@@ -1,74 +1,122 @@
 {
+	"version": 2,
+	"name": "Potential Energy",
+	"theme": "desert",
+	"imported": true,
+	"moves": 20,
+	"time": 120,
+	"terrain": [
+		"############",
+		"######.....#",
+		"######....##",
+		"######.#####",
+		"#..#.#.#####",
+		"#..###.#####",
+		"#......#####",
+		"######......",
+		"#.......###.",
+		"#.......###.",
+		"#.......####",
+		"###########."
+	],
 	"items": [
 		{
-			"type": "crystal",
-			"x": 4,
-			"y": 6
-		},
-		{
-			"type": "crystal",
-			"x": 4,
-			"y": 8
-		},
-		{
-			"aim": true,
-			"lock": "yellow",
-			"type": "crystal",
-			"x": 3,
-			"y": 4
-		},
-		{
-			"type": "star",
+			"type": "weight_red",
 			"x": 7,
-			"y": 3
-		},
-		{
+			"y": 1,
 			"aim": true,
-			"lock": "red",
-			"type": "star",
-			"x": 6,
-			"y": 2
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
 		},
 		{
-			"type": "plant",
-			"x": 4,
-			"y": 3
-		},
-		{
-			"type": "plant",
-			"x": 0,
-			"y": 7
-		},
-		{
-			"type": "key_yellow",
-			"x": 2,
-			"y": 5
-		},
-		{
-			"type": "key_red",
+			"type": "crate",
 			"x": 8,
-			"y": 2
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "crate",
+			"x": 9,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "crate",
+			"x": 10,
+			"y": 1,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "crate",
+			"x": 7,
+			"y": 2,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "crate",
+			"x": 8,
+			"y": 2,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "crate",
+			"x": 9,
+			"y": 2,
+			"aim": false,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "111"
+		},
+		{
+			"type": "weight_red",
+			"x": 11,
+			"y": 9,
+			"aim": true,
+			"gravity": "fall",
+			"movable": false,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "206",
+			"match_label": "1"
 		}
 	],
-	"moves": 12,
-	"name": "Crooked Crossing",
-	"optimal": 8,
 	"pipes": [],
 	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"...........-",
-		"...........-",
-		".....#.....-",
-		".....#..#.#-",
-		"........#.#-",
-		"..........#-",
-		"...........-",
-		"...........-",
-		"------------",
-		"------------"
-	],
-	"time": 115,
-	"version": 1
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL030.UZ3",
+		"number": 30,
+		"sha256": "ad3c448942537cce44ac1c973a3572f623b01784246bdee25d89c7c3436721a7"
+	}
 }

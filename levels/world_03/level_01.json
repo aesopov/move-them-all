@@ -1,42 +1,143 @@
 {
+	"version": 2,
+	"name": "Pipes n' Locks II",
+	"theme": "desert",
+	"imported": true,
+	"moves": 11,
+	"time": 120,
+	"terrain": [
+		"............",
+		".##########.",
+		".#.#...##.#.",
+		".###...##.#.",
+		".#........#.",
+		".#.....##.#.",
+		".#.....##.#.",
+		".###.######.",
+		".##########.",
+		".#..#..####.",
+		".##########.",
+		"............"
+	],
 	"items": [
 		{
-			"type": "key_red",
-			"x": 3,
-			"y": 5
+			"type": "mover_green",
+			"x": 4,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "106"
 		},
 		{
+			"type": "key_yellow",
+			"x": 9,
+			"y": 5,
+			"aim": false,
+			"gravity": "none",
+			"movable": true,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "301"
+		},
+		{
+			"type": "balloon",
+			"x": 9,
+			"y": 6,
 			"aim": true,
-			"lock": "red",
-			"type": "crystal",
-			"x": 6,
-			"y": 5
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
 		},
 		{
-			"type": "crystal",
-			"x": 7,
-			"y": 5
+			"type": "padlock",
+			"x": 4,
+			"y": 7,
+			"aim": false,
+			"gravity": "none",
+			"movable": false,
+			"destructible": false,
+			"match_group": 0,
+			"source_sprite": "non",
+			"lock": "yellow"
+		},
+		{
+			"type": "balloon",
+			"x": 3,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
+		},
+		{
+			"type": "balloon",
+			"x": 5,
+			"y": 9,
+			"aim": true,
+			"gravity": "bubble",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "207",
+			"match_label": "1"
 		}
 	],
-	"moves": 5,
-	"name": "The First Key",
-	"optimal": 2,
-	"pipes": [],
-	"teleports": [],
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"--........--",
-		"--........--",
-		"--........--",
-		"--........--",
-		"--........--",
-		"------------",
-		"------------",
-		"------------",
-		"------------"
+	"pipes": [
+		{
+			"x": 2,
+			"y": 9,
+			"to": [
+				4,
+				7
+			],
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right"
+		},
+		{
+			"x": 6,
+			"y": 9,
+			"to": [
+				4,
+				7
+			],
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left"
+		}
 	],
-	"time": 75,
-	"version": 1
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL021.UZ3",
+		"number": 21,
+		"sha256": "a08b3db21b224fac6ff48720df83033743ba3af1507f1e84e73beed420dbebcc"
+	},
+	"skins": [
+		"............",
+		"..pppppppp..",
+		".p.p...pp.p.",
+		".pp.......p.",
+		".p........p.",
+		".p........p.",
+		".p.....pp.p.",
+		".pp...ppppp.",
+		".pppppppppp.",
+		".p..p..pp.p.",
+		"..pppppppp..",
+		"............"
+	]
 }

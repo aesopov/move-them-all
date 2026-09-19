@@ -1,86 +1,128 @@
 {
+	"version": 2,
+	"name": "Kaleidoscope",
+	"theme": "sky",
+	"imported": true,
+	"moves": 20,
+	"time": 180,
+	"terrain": [
+		"......#.....",
+		"......###...",
+		"........#...",
+		"##......###.",
+		"##........#.",
+		"####......#.",
+		"...#......#.",
+		"...###....#.",
+		".....#....#.",
+		".....#....#.",
+		".....#....#.",
+		".....#....#."
+	],
 	"items": [
 		{
-			"type": "bubble",
-			"x": 3,
-			"y": 3
-		},
-		{
+			"type": "crystal",
+			"x": 0,
+			"y": 1,
 			"aim": true,
-			"type": "bubble",
-			"x": 2,
-			"y": 1
-		},
-		{
-			"type": "balloon",
-			"x": 6,
-			"y": 1
-		},
-		{
-			"aim": true,
-			"type": "balloon",
-			"x": 10,
-			"y": 1
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "t10",
+			"match_label": "1"
 		},
 		{
 			"type": "star",
-			"x": 10,
-			"y": 6
+			"x": 0,
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "t11",
+			"match_label": "3"
 		},
 		{
-			"type": "star",
-			"x": 5,
-			"y": 5
-		}
-	],
-	"moves": 8,
-	"name": "Tricky Path",
-	"optimal": 5,
-	"pipes": [],
-	"teleports": [
-		{
-			"to": [
-				1,
-				6
-			],
-			"x": 9,
-			"y": 1
-		},
-		{
-			"x": 2,
-			"y": 5
-		},
-		{
-			"to": [
-				9,
-				1
-			],
+			"type": "plant",
 			"x": 1,
-			"y": 6
+			"y": 2,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "t14",
+			"match_label": "2"
 		},
 		{
-			"to": [
-				2,
-				5
-			],
-			"x": 10,
-			"y": 7
+			"type": "star",
+			"x": 2,
+			"y": 3,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 3,
+			"source_sprite": "t11",
+			"match_label": "3"
+		},
+		{
+			"type": "crystal",
+			"x": 2,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "t10",
+			"match_label": "1"
+		},
+		{
+			"type": "plant",
+			"x": 3,
+			"y": 4,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "t14",
+			"match_label": "2"
+		},
+		{
+			"type": "plant",
+			"x": 4,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 2,
+			"source_sprite": "t14",
+			"match_label": "2"
+		},
+		{
+			"type": "crystal",
+			"x": 5,
+			"y": 6,
+			"aim": true,
+			"gravity": "fall",
+			"movable": true,
+			"destructible": true,
+			"match_group": 1,
+			"source_sprite": "t10",
+			"match_label": "1"
 		}
 	],
-	"terrain": [
-		"------------",
-		"-..........-",
-		"-..#.......-",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"-..........-",
-		"-..####....-",
-		"-..........-",
-		"------------",
-		"------------"
-	],
-	"time": 85,
-	"version": 1
+	"pipes": [],
+	"teleports": [],
+	"source": {
+		"format": "UZ3",
+		"file": "LEVEL083.UZ3",
+		"number": 83,
+		"sha256": "1473e0bfe7e0ae128b39349d6e2b5ecce472bd013d1c08639044cf21e5d72579"
+	}
 }
