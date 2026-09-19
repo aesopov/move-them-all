@@ -16,6 +16,8 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
+Locale="*res://scripts/ui/locale.gd"
+
 App="*res://scripts/app.gd"
 
 [display]
@@ -36,3 +38,8 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/quality/msaa_2d=2
 environment/defaults/default_clear_color=Color(0.055, 0.082, 0.145, 1)
+
+[internationalization]
+
+locale/fallback="en"
+locale/translations=PackedStringArray("res://localization/messages.en.translation", "res://localization/messages.es.translation", "res://localization/messages.pt_BR.translation", "res://localization/messages.fr.translation", "res://localization/messages.de.translation", "res://localization/messages.zh_CN.translation", "res://localization/messages.ru.translation")

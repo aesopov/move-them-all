@@ -38,10 +38,10 @@ static func _palette() -> Array:
 		items.append(["item:" + ItemDefs.name_of(t), ItemDefs.pretty_name(t), "item", t])
 	var locks := []
 	for c in range(1, 5):
-		locks.append(["lock:%d" % c, "%s lock" % ItemDefs.LOCK_NAMES[c].capitalize(), "lock", c])
+		locks.append(["lock:%d" % c, TranslationServer.translate("Lock color: %s") % TranslationServer.translate(ItemDefs.LOCK_NAMES[c]), "lock", c])
 	var pipes := []
 	for d in 4:
-		pipes.append(["pipe:%d" % d, "Pipe, opening %s" % Board.DIR_NAMES[d], "pipe", 0])
+		pipes.append(["pipe:%d" % d, TranslationServer.translate("Pipe, opening %s") % TranslationServer.translate(Board.DIR_NAMES[d]), "pipe", 0])
 	return [
 		["Terrain", [
 			["floor", "Floor", "swatch", Color(0.2, 0.3, 0.4)],
@@ -98,12 +98,14 @@ func _build_palette() -> void:
 	for section in _palette():
 		var header := Label.new()
 		header.text = section[0]
+		header.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		header.theme_type_variation = "HeaderLabel"
 		header.add_theme_font_size_override("font_size", 18)
 		box.add_child(header)
 		for t in section[1]:
 			var b: Button = TOOL_BUTTON.instantiate()
 			b.text = t[1]
+			b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			b.button_group = _group
 			b.set_meta("tool", t[0])
 			var icon: IconView = b.get_node("%Icon")
@@ -120,6 +122,7 @@ func _build_palette() -> void:
 			if t[0] == "link":
 				var tw := CheckBox.new()
 				tw.text = "Two-way links"
+				tw.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 				tw.button_pressed = two_way
 				tw.toggled.connect(func(on): two_way = on)
 				box.add_child(tw)
@@ -130,7 +133,7 @@ func _init_props() -> void:
 	_moves.value_changed.connect(func(x): board.move_limit = int(x))
 	_time.value_changed.connect(func(x): board.time_limit = int(x))
 	for key in WorldTheme.PALETTES:
-		_theme_opt.add_item(str(key).capitalize())
+		_theme_opt.add_item(App.world_name(GameConfig.WORLD_THEMES.find(key)))
 		_theme_opt.set_item_metadata(_theme_opt.item_count - 1, key)
 	_theme_opt.item_selected.connect(func(_i):
 		var key = _theme_opt.get_item_metadata(_theme_opt.selected)
@@ -152,7 +155,7 @@ func _init_props() -> void:
 	%NewButton.pressed.connect(_new)
 	%ClearButton.pressed.connect(_clear)
 	%BackButton.pressed.connect(func(): App.goto("welcome"))
-	_set_status("Editing: " + (current_path if current_path != "" else "new level"))
+	_set_status(tr("Editing: %s") % (current_path if current_path != "" else tr("new level")))
 
 
 ## Preview with the level's own theme, else its world's (custom levels: crystal caves).
@@ -172,7 +175,7 @@ func _select_tool(id: String) -> void:
 
 
 func _set_status(t: String) -> void:
-	_status.text = t
+	_status.text = tr(t)
 
 
 # ---------------------------------------------------------------------------
@@ -426,9 +429,9 @@ func _write(path: String) -> void:
 	if err == OK:
 		current_path = path
 		App.editor_path = path
-		_set_status("Saved to " + path + ("\n" + _validate() if _validate() != "" else ""))
+		_set_status(tr("Saved to %s") % path + ("\n" + tr(_validate()) if _validate() != "" else ""))
 	else:
-		_set_status("Save failed: " + error_string(err))
+		_set_status(tr("Save failed: %s") % error_string(err))
 
 
 func _load() -> void:
@@ -440,7 +443,7 @@ func _load() -> void:
 	_undo_stack.clear()
 	view.set_board(board)
 	_sync_fields()
-	_set_status("Loaded " + path + ("" if _writable(path) else "\n(read-only here: Save makes a copy)"))
+	_set_status(tr("Loaded %s") % path + ("" if _writable(path) else "\n" + tr("(read-only here: Save makes a copy)")))
 
 
 func _new() -> void:

@@ -1,0 +1,280 @@
+keys,en,es,pt_BR,fr,de,zh_CN,ru
+Play,Play,Jugar,Jogar,Jouer,Spielen,开始游戏,Играть
+Quit,Quit,Salir,Sair,Quitter,Beenden,退出,Выйти
+Level Designer,Level Designer,Editor de niveles,Editor de fases,Éditeur de niveaux,Leveleditor,关卡编辑器,Редактор уровней
+Move. Match. Explode. Solve!,Move. Match. Explode. Solve!,"¡Mueve, combina, explota y resuelve!","Mova, combine, exploda e resolva!","Déplacez, associez, explosez, résolvez !",Verschieben. Kombinieren. Knobeln!,移动、配对、爆破、解谜！,Двигай. Соединяй. Взрывай. Решай!
+%d levels in %d worlds,%d levels in %d worlds,%d niveles en %d mundos,%d fases em %d mundos,%d niveaux dans %d mondes,%d Level in %d Welten,%d 个关卡，%d 个世界,Уровней: %d · Миров: %d
+Language,Language,Idioma,Idioma,Langue,Sprache,语言,Язык
+Automatic (device),Automatic (device),Automático (dispositivo),Automático (dispositivo),Automatique (appareil),Automatisch (Gerät),自动（设备语言）,Автоматически (язык устройства)
+Choose a level,Choose a level,Elige un nivel,Escolha uma fase,Choisir un niveau,Level auswählen,选择关卡,Выбор уровня
+<  Back,<  Back,<  Atrás,<  Voltar,<  Retour,<  Zurück,<  返回,<  Назад
+Total score: %d,Total score: %d,Puntuación total: %d,Pontuação total: %d,Score total : %d,Gesamtpunkte: %d,总分：%d,Всего очков: %d
+Designer levels,Designer levels,Niveles personalizados,Fases personalizadas,Niveaux personnalisés,Eigene Level,自定义关卡,Свои уровни
+World %d,World %d,Mundo %d,Mundo %d,Monde %d,Welt %d,世界 %d,Мир %d
+Custom,Custom,Personalizado,Personalizado,Personnalisé,Eigene,自定义,Свои
+Level %d-%d,Level %d-%d,Nivel %d-%d,Fase %d-%d,Niveau %d-%d,Level %d-%d,关卡 %d-%d,Уровень %d-%d
+%d / %d completed,%d / %d completed,%d / %d completados,%d / %d concluídas,%d / %d terminés,%d / %d geschafft,已完成 %d / %d,Пройдено: %d / %d
+Goals,Goals,Objetivos,Objetivos,Objectifs,Ziele,目标,Цели
+Moves,Moves,Movimientos,Jogadas,Coups,Züge,步数,Ходы
+Time,Time,Tiempo,Tempo,Temps,Zeit,时间,Время
+Info,Info,Ayuda,Ajuda,Infos,Info,说明,Справка
+Pause,Pause,Pausa,Pausa,Pause,Pause,暂停,Пауза
+Undo,Undo,Deshacer,Desfazer,Annuler,Zurück,撤销,Отмена
+Restart,Restart,Reiniciar,Reiniciar,Rejouer,Neustart,重开,Заново
+Level goals,Level goals,Objetivos del nivel,Objetivos da fase,Objectifs du niveau,Levelziele,关卡目标,Цели уровня
+Destroy all goal pieces. The Goals counter at the top shows your progress.,Destroy all goal pieces. The Goals counter at the top shows your progress.,Destruye todas las piezas objetivo. El contador superior muestra tu progreso.,Destrua todas as peças-alvo. O contador no topo mostra seu progresso.,Détruisez toutes les pièces cibles. Le compteur en haut indique votre progression.,Zerstöre alle Zielobjekte. Der Zähler oben zeigt deinen Fortschritt.,消除所有目标物件。顶部目标计数器会显示进度。,Уничтожьте все целевые предметы. Счётчик целей вверху показывает прогресс.
+Score,Score,Puntuación,Pontuação,Score,Punkte,得分,Очки
+In this level,In this level,En este nivel,Nesta fase,Dans ce niveau,In diesem Level,本关物件,На этом уровне
+"Drag items to move them.
+Z undo · R restart · Esc pause","Drag items to move them.
+Z undo · R restart · Esc pause","Arrastra las piezas para moverlas.
+Z deshacer · R reiniciar · Esc pausa","Arraste as peças para movê-las.
+Z desfazer · R reiniciar · Esc pausa","Faites glisser les pièces.
+Z annuler · R rejouer · Échap pause","Ziehe Objekte zum Bewegen.
+Z zurück · R Neustart · Esc Pause","拖动物件进行移动。
+Z 撤销 · R 重开 · Esc 暂停","Перетаскивайте предметы.
+Z отмена · R заново · Esc пауза"
+Test play,Test play,Prueba,Teste,Test,Testspiel,试玩,Тестирование
+Move limit: %d,Move limit: %d,Límite de movimientos: %d,Limite de jogadas: %d,Limite de coups : %d,Zuglimit: %d,步数上限：%d,Лимит ходов: %d
+Bonus for finishing within %d moves,Bonus for finishing within %d moves,Bonificación al terminar en %d movimientos,Bônus por concluir em até %d jogadas,Bonus en terminant en %d coups maximum,Bonus für höchstens %d Züge,在 %d 步内完成可获奖励,Бонус за прохождение за %d ходов
+Time limit: %s,Time limit: %s,Límite de tiempo: %s,Limite de tempo: %s,Temps limite : %s,Zeitlimit: %s,时间上限：%s,Лимит времени: %s
+Bonus for finishing within %s,Bonus for finishing within %s,Bonificación al terminar en %s,Bônus por concluir em até %s,Bonus en terminant en moins de %s,Bonus bei Abschluss innerhalb von %s,在 %s 内完成可获奖励,Бонус за прохождение за %s
+Level complete   %d,Level complete   %d,Nivel completado   %d,Fase concluída   %d,Niveau terminé   %d,Level geschafft   %d,关卡完成   %d,Уровень пройден   %d
+Each spare move   +%d,Each spare move   +%d,Por movimiento restante   +%d,Por jogada restante   +%d,Par coup restant   +%d,Je übriger Zug   +%d,每剩余一步   +%d,За оставшийся ход   +%d
+Each spare second  +%d,Each spare second  +%d,Por segundo restante  +%d,Por segundo restante  +%d,Par seconde restante  +%d,Je übrige Sekunde  +%d,每剩余一秒  +%d,За оставшуюся секунду  +%d
+Best: %d,Best: %d,Récord: %d,Recorde: %d,Record : %d,Rekord: %d,最佳：%d,Рекорд: %d
+Paused,Paused,En pausa,Pausado,En pause,Pausiert,已暂停,Пауза
+Resume,Resume,Continuar,Continuar,Reprendre,Fortsetzen,继续,Продолжить
+Quit to menu,Quit to menu,Volver al menú,Voltar ao menu,Retour au menu,Zum Menü,返回菜单,В меню
+Level Complete!,Level Complete!,¡Nivel completado!,Fase concluída!,Niveau terminé !,Level geschafft!,关卡完成！,Уровень пройден!
+Level complete,Level complete,Nivel completado,Fase concluída,Niveau terminé,Level geschafft,关卡完成,Уровень пройден
+%d spare moves x %d,%d spare moves x %d,%d movimientos restantes × %d,%d jogadas restantes × %d,%d coups restants × %d,%d übrige Züge × %d,剩余 %d 步 × %d,Оставшиеся ходы: %d × %d
+%d spare seconds x %d,%d spare seconds x %d,%d segundos restantes × %d,%d segundos restantes × %d,%d secondes restantes × %d,%d übrige Sekunden × %d,剩余 %d 秒 × %d,Оставшиеся секунды: %d × %d
+Score: %d,Score: %d,Puntuación: %d,Pontuação: %d,Score : %d,Punkte: %d,得分：%d,Очки: %d
+New best!,New best!,¡Nuevo récord!,Novo recorde!,Nouveau record !,Neuer Rekord!,新纪录！,Новый рекорд!
+Back to editor,Back to editor,Volver al editor,Voltar ao editor,Retour à l’éditeur,Zum Editor,返回编辑器,В редактор
+Next level,Next level,Siguiente nivel,Próxima fase,Niveau suivant,Nächstes Level,下一关,Следующий уровень
+Level select,Level select,Elegir nivel,Escolher fase,Choix du niveau,Levelauswahl,选择关卡,Выбор уровня
+Play again,Play again,Volver a jugar,Jogar novamente,Rejouer,Erneut spielen,再玩一次,Играть ещё раз
+Time's up!,Time's up!,¡Se acabó el tiempo!,O tempo acabou!,Temps écoulé !,Zeit abgelaufen!,时间到！,Время вышло!
+Out of moves!,Out of moves!,¡Sin movimientos!,Acabaram as jogadas!,Plus de coups !,Züge aufgebraucht!,步数用尽！,Ходы закончились!
+No moves left!,No moves left!,¡No hay movimientos posibles!,Não há jogadas possíveis!,Aucun coup possible !,Keine Züge möglich!,无路可走！,Нет доступных ходов!
+Some goal pieces survived this time.,Some goal pieces survived this time.,Quedan piezas objetivo sin destruir.,Algumas peças-alvo não foram destruídas.,Il reste des pièces cibles à détruire.,Einige Zielobjekte sind noch übrig.,还有目标物件未被消除。,Остались неуничтоженные целевые предметы.
+Try again,Try again,Intentar de nuevo,Tentar novamente,Réessayer,Noch einmal,重试,Попробовать снова
+Undo last move,Undo last move,Deshacer último movimiento,Desfazer última jogada,Annuler le dernier coup,Letzten Zug zurücknehmen,撤销上一步,Отменить последний ход
+Level info,Level info,Información del nivel,Informações da fase,Infos du niveau,Levelinfo,关卡说明,Об уровне
+Destroy all goal pieces. Moves and time are bonus targets.,Destroy all goal pieces. Moves and time are bonus targets.,Destruye todas las piezas objetivo. Los movimientos y el tiempo dan bonificaciones.,Destrua todas as peças-alvo. Jogadas e tempo são metas de bônus.,Détruisez toutes les pièces cibles. Les coups et le temps donnent des bonus.,Zerstöre alle Zielobjekte. Für Züge und Zeit gibt es Boni.,消除所有目标物件。步数和时间仅影响奖励。,Уничтожьте все целевые предметы. Ходы и время влияют на бонусы.
+Back to game,Back to game,Volver al juego,Voltar ao jogo,Retour au jeu,Zurück zum Spiel,返回游戏,Вернуться в игру
+"falls, can't be moved up","falls, can't be moved up",cae y no puede subir,cai e não pode subir,"tombe, ne peut pas monter","fällt, kann nicht nach oben bewegt werden",会下落，无法向上移动,"падает, нельзя двигать вверх"
+"floats up, can't be moved down","floats up, can't be moved down",flota hacia arriba y no puede bajar,flutua e não pode descer,"monte, ne peut pas descendre","steigt, kann nicht nach unten bewegt werden",会上浮，无法向下移动,"всплывает, нельзя двигать вниз"
+stays where you put it,stays where you put it,se queda donde lo colocas,fica onde você colocar,reste là où vous le placez,"bleibt, wo du es ablegst",停留在放置的位置,остаётся на месте
+; does not match,; does not match,; no forma combinaciones,; não forma combinações, ; ne s’associe pas,; bildet keine Gruppen,；不会参与配对,; не образует комбинаций
+; survives bombs,; survives bombs,; resiste las bombas,; resiste a bombas, ; résiste aux bombes,; übersteht Bomben,；不会被炸弹摧毁,; не уничтожается бомбами
+: touch a matching lock to open it,: touch a matching lock to open it,: toca un candado del mismo color para abrirlo,: toque um cadeado da mesma cor para abri-lo, : touche un cadenas de même couleur pour l’ouvrir,: öffnet ein gleichfarbiges Schloss bei Berührung,：触碰同色锁即可开锁,: открывает замок того же цвета при касании
+Bomb: falls; explodes beside cracked walls or when tapped,Bomb: falls; explodes beside cracked walls or when tapped,Bomba: cae; explota junto a muros agrietados o al tocarla,Bomba: cai; explode perto de paredes rachadas ou ao tocar nela,Bombe : tombe ; explose près des murs fissurés ou au toucher,Bombe: fällt; explodiert neben rissigen Mauern oder beim Antippen,炸弹：会下落；靠近裂墙或点击时爆炸,Бомба: падает; взрывается рядом с треснувшей стеной или при нажатии
+Padlock: can't be moved; a %s key opens it,Padlock: can't be moved; a %s key opens it,Candado: inmóvil; se abre con la llave de color %s,Cadeado: imóvel; abre com a chave de cor %s,Cadenas : immobile ; s’ouvre avec la clé de couleur %s,Schloss: unbeweglich; Schlüsselfarbe: %s,锁：无法移动；用%s钥匙打开,Замок: неподвижен; цвет нужного ключа — %s
+Locked: pinned until a %s key touches it,Locked: pinned until a %s key touches it,Bloqueado: inmóvil hasta tocar una llave de color %s,Trancado: imóvel até tocar uma chave de cor %s,Verrouillé : immobile jusqu’au contact d’une clé de couleur %s,Gesperrt bis zur Berührung mit einem Schlüssel; Farbe: %s,已锁定：触碰%s钥匙前无法移动,Заблокирован до касания ключа; цвет ключа — %s
+%s: destroys items that fall in,%s: destroys items that fall in,%s: destruye las piezas que caen dentro,%s: destrói peças que caem nela,%s : détruit les pièces qui y tombent,%s: zerstört hineinfallende Objekte,%s：摧毁掉入其中的物件,%s: уничтожает упавшие предметы
+Cracked wall: bombs and explosions break it,Cracked wall: bombs and explosions break it,Muro agrietado: las bombas y explosiones lo destruyen,Parede rachada: bombas e explosões a destroem,Mur fissuré : les bombes et explosions le détruisent,Rissige Mauer: wird durch Explosionen zerstört,裂墙：炸弹和爆炸可将其摧毁,Треснувшая стена: разрушается взрывами
+Teleport: step on it to jump to its partner (only if the partner is empty),Teleport: step on it to jump to its partner (only if the partner is empty),"Teletransporte: entra para ir a su pareja, si está libre","Teleporte: entre para ir ao par, se estiver livre",Téléporteur : entrez pour rejoindre son partenaire s’il est libre,"Teleport: betreten, um zum freien Gegenstück zu springen",传送点：进入后传到另一端（另一端须为空）,"Телепорт: переносит на парный телепорт, если он свободен"
+Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return.,Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return.,Codo: conecta las aberturas en ambos sentidos. El tubo inferior lleva al codo; baja para volver.,Cotovelo: conecta as aberturas nos dois sentidos. O tubo inferior leva ao cotovelo; desça para voltar.,Coude : les ouvertures fonctionnent dans les deux sens. Le tube inférieur mène au coude ; descendez pour revenir.,Rohrbogen: Öffnungen funktionieren in beide Richtungen. Das untere Rohr führt auf den Bogen; nach unten geht es zurück.,弯管：两端双向连通。下方管道将物件送到弯管格上；向下移动可返回。,"Изгиб: отверстия соединены в обе стороны. Нижняя труба выводит на клетку изгиба; двигайтесь вниз, чтобы вернуться."
+"Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it.","Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it.","Tubo: llegas a la salida translúcida. Baja para volver; si sales de esa casilla, no podrás volver a entrar.","Tubo: chega à saída translúcida. Desça para voltar; ao sair dessa casa, não poderá entrar de novo.","Tube : arrivez sur la sortie translucide. Descendez pour revenir ; une fois sortie, vous ne pouvez plus y entrer.",Rohr: endet auf dem durchscheinenden Ausgang. Nach unten geht es zurück; nach dem Verlassen ist kein Wiedereintritt möglich.,管道：到达半透明出口格。向下可返回；离开出口格后无法再次进入。,"Труба: выход на полупрозрачную клетку. Вниз — обратно; покинув эту клетку, вернуться на неё нельзя."
+"Pipe: enter through the opening, slide out of the linked pipe","Pipe: enter through the opening, slide out of the linked pipe",Tubo: entra por la abertura y sal por el tubo conectado,Tubo: entre pela abertura e saia pelo tubo conectado,"Tube : entrez par l’ouverture, sortez par le tube relié","Rohr: durch die Öffnung hinein, aus dem verbundenen Rohr heraus",管道：从开口进入，从相连管道滑出,Труба: войдите в отверстие и выйдите из связанной трубы
+Surround an item with 4 items of one other type: all 5 explode,Surround an item with 4 items of one other type: all 5 explode,Rodea una pieza con 4 de otro mismo tipo: las 5 explotan,Cerque uma peça com 4 de outro mesmo tipo: as 5 explodem,Entourez une pièce de 4 pièces identiques d’un autre type : les 5 explosent,Umringe ein Objekt mit 4 gleichen Objekten eines anderen Typs: alle 5 explodieren,用4个同种的其他物件包围一个物件：5个物件全部爆炸,Окружите предмет четырьмя одинаковыми предметами другого типа — все пять взорвутся
+red,red,rojo,vermelha,rouge,Rot,红色,красный
+green,green,verde,verde,verte,Grün,绿色,зелёный
+yellow,yellow,amarillo,amarela,jaune,Gelb,黄色,жёлтый
+blue,blue,azul,azul,bleue,Blau,蓝色,синий
+Water,Water,Agua,Água,Eau,Wasser,水,Вода
+Lava,Lava,Lava,Lava,Lave,Lava,熔岩,Лава
+Acid,Acid,Ácido,Ácido,Acide,Säure,酸液,Кислота
+Crystal,Crystal,Cristal,Cristal,Cristal,Kristall,水晶,Кристалл
+Plant,Plant,Planta,Planta,Plante,Pflanze,植物,Растение
+Star,Star,Estrella,Estrela,Étoile,Stern,星星,Звезда
+Shell,Shell,Concha,Concha,Coquillage,Muschel,贝壳,Ракушка
+Crate,Crate,Caja,Caixote,Caisse,Kiste,木箱,Ящик
+Rock,Rock,Roca,Pedra,Rocher,Fels,石块,Камень
+Bubble,Bubble,Burbuja,Bolha,Bulle,Blase,气泡,Пузырь
+Balloon,Balloon,Globo,Balão,Ballon,Ballon,气球,Воздушный шар
+Pyramid,Pyramid,Pirámide,Pirâmide,Pyramide,Pyramide,金字塔,Пирамида
+Cube,Cube,Cubo,Cubo,Cube,Würfel,立方体,Куб
+Torus,Torus,Aro,Anel,Anneau,Ring,圆环,Кольцо
+Sphere,Sphere,Esfera,Esfera,Sphère,Kugel,球体,Шар
+Cone,Cone,Cono,Cone,Cône,Kegel,圆锥,Конус
+Weight,Weight,Peso,Peso,Poids,Gewicht,重物,Груз
+Weight Red,Weight Red,Peso rojo,Peso vermelho,Poids rouge,Rotes Gewicht,红色重物,Красный груз
+Block Red,Block Red,Bloque rojo,Bloco vermelho,Bloc rouge,Roter Block,红色方块,Красный блок
+Block Blue,Block Blue,Bloque azul,Bloco azul,Bloc bleu,Blauer Block,蓝色方块,Синий блок
+Mover Green,Mover Green,Bloque móvil verde,Bloco móvel verde,Bloc mobile vert,Grüner Schiebeblock,绿色移动箱,Зелёный подвижный блок
+Mover Red,Mover Red,Bloque móvil rojo,Bloco móvel vermelho,Bloc mobile rouge,Roter Schiebeblock,红色移动箱,Красный подвижный блок
+Padlock,Padlock,Candado,Cadeado,Cadenas,Schloss,锁,Замок
+Bomb,Bomb,Bomba,Bomba,Bombe,Bombe,炸弹,Бомба
+Key Red,Key Red,Llave roja,Chave vermelha,Clé rouge,Roter Schlüssel,红色钥匙,Красный ключ
+Key Green,Key Green,Llave verde,Chave verde,Clé verte,Grüner Schlüssel,绿色钥匙,Зелёный ключ
+Key Yellow,Key Yellow,Llave amarilla,Chave amarela,Clé jaune,Gelber Schlüssel,黄色钥匙,Жёлтый ключ
+Key Blue,Key Blue,Llave azul,Chave azul,Clé bleue,Blauer Schlüssel,蓝色钥匙,Синий ключ
+Jungle Meadow,Jungle Meadow,Pradera de la jungla,Clareira da selva,Clairière de la jungle,Dschungelwiese,丛林草地,Лесная поляна
+Waterfall Cliffs,Waterfall Cliffs,Acantilados de cascadas,Penhascos das cachoeiras,Falaises aux cascades,Wasserfallklippen,瀑布悬崖,Водопадные скалы
+Desert Temple,Desert Temple,Templo del desierto,Templo do deserto,Temple du désert,Wüstentempel,沙漠神殿,Храм пустыни
+Frozen Portals,Frozen Portals,Portales helados,Portais congelados,Portails gelés,Gefrorene Portale,冰封传送门,Ледяные порталы
+Old Pipeworks,Old Pipeworks,Tuberías antiguas,Tubulações antigas,Anciennes canalisations,Altes Rohrwerk,古老管道,Старые трубы
+Deep Quarry,Deep Quarry,Cantera profunda,Pedreira profunda,Carrière profonde,Tiefer Steinbruch,深邃采石场,Глубокий карьер
+Volcano,Volcano,Volcán,Vulcão,Volcan,Vulkan,火山,Вулкан
+Acid Swamp,Acid Swamp,Pantano ácido,Pântano ácido,Marais acide,Säuresumpf,酸液沼泽,Кислотное болото
+Sky Isles,Sky Isles,Islas del cielo,Ilhas do céu,Îles célestes,Himmelsinseln,天空群岛,Небесные острова
+Crystal Caves,Crystal Caves,Cuevas de cristal,Cavernas de cristal,Grottes de cristal,Kristallhöhlen,水晶洞穴,Кристальные пещеры
+Nexus,Nexus,Nexo,Nexo,Nexus,Nexus,枢纽,Нексус
+Acid Drop,Acid Drop,Caída ácida,Queda ácida,Chute acide,Säuretropfen,酸液坠落,Кислотная капля
+Alternating Descent,Alternating Descent,Descenso alterno,Descida alternada,Descente alternée,Abwechselnder Abstieg,交替下落,Поочерёдный спуск
+Boom!,Boom!,¡Bum!,Bum!,Boum !,Bumm!,轰！,Бум!
+Bridge the Pit,Bridge the Pit,Cruza el pozo,Atravesse o abismo,Franchir le gouffre,Über die Grube,跨越深坑,Мост через яму
+Bright Hollow,Bright Hollow,Hondonada luminosa,Vale luminoso,Vallon lumineux,Helle Senke,明亮山谷,Светлая ложбина
+Bright Nook,Bright Nook,Rincón luminoso,Recanto luminoso,Recoin lumineux,Heller Winkel,明亮角落,Светлый уголок
+Bright Passage,Bright Passage,Pasaje luminoso,Passagem luminosa,Passage lumineux,Heller Durchgang,明亮通道,Светлый проход
+Bright Pocket,Bright Pocket,Refugio luminoso,Refúgio luminoso,Refuge lumineux,Helles Versteck,明亮秘境,Светлый тайник
+Bright Steps,Bright Steps,Escalones luminosos,Degraus luminosos,Marches lumineuses,Helle Stufen,明亮台阶,Светлые ступени
+Bubble Trouble,Bubble Trouble,Burbujas en apuros,Problemas com bolhas,Bulles en pagaille,Blasenwirrwarr,气泡难题,Пузырьковые хлопоты
+Cracked Crossing,Cracked Crossing,Cruce agrietado,Travessia rachada,Passage fissuré,Rissiger Übergang,破裂路口,Треснувший переход
+Crooked Corner,Crooked Corner,Esquina torcida,Canto torto,Coin tortueux,Schiefe Ecke,曲折拐角,Кривой угол
+Crooked Crossing,Crooked Crossing,Cruce torcido,Travessia tortuosa,Croisée tortueuse,Schiefer Übergang,曲折路口,Кривой переход
+Crooked Grove,Crooked Grove,Arboleda torcida,Bosque tortuoso,Bosquet tortueux,Schiefer Hain,曲折林地,Кривая роща
+Crooked Hollow,Crooked Hollow,Hondonada torcida,Vale tortuoso,Vallon tortueux,Schiefe Senke,曲折山谷,Кривая ложбина
+Crooked Keep,Crooked Keep,Fortaleza torcida,Fortaleza torta,Donjon tortueux,Schiefe Burg,曲折堡垒,Кривая крепость
+Crooked Ledge,Crooked Ledge,Cornisa torcida,Beirada tortuosa,Corniche tortueuse,Schiefer Vorsprung,曲折岩台,Кривой уступ
+Crooked Pocket,Crooked Pocket,Refugio torcido,Refúgio tortuoso,Refuge tortueux,Schiefes Versteck,曲折秘境,Кривой тайник
+Down the Pipe,Down the Pipe,Por la tubería,Pelo cano abaixo,Dans le tube,Das Rohr hinab,顺管而下,Вниз по трубе
+Falling into Place,Falling into Place,Todo encaja,Tudo se encaixa,Tout se met en place,Alles fällt an seinen Platz,落在正位,Всё на своих местах
+Garden Gate,Garden Gate,Puerta del jardín,Portão do jardim,Porte du jardin,Gartentor,花园之门,Садовые ворота
+Gentle Corner,Gentle Corner,Esquina tranquila,Canto tranquilo,Coin paisible,Sanfte Ecke,宁静拐角,Тихий угол
+Gentle Garden,Gentle Garden,Jardín tranquilo,Jardim tranquilo,Jardin paisible,Sanfter Garten,宁静花园,Тихий сад
+Gentle Maze,Gentle Maze,Laberinto tranquilo,Labirinto tranquilo,Labyrinthe paisible,Sanftes Labyrinth,宁静迷宫,Тихий лабиринт
+Gentle Tower,Gentle Tower,Torre tranquila,Torre tranquila,Tour paisible,Sanfter Turm,宁静高塔,Тихая башня
+Golden Corner,Golden Corner,Esquina dorada,Canto dourado,Coin doré,Goldene Ecke,金色拐角,Золотой угол
+Golden Pocket,Golden Pocket,Refugio dorado,Refúgio dourado,Refuge doré,Goldenes Versteck,金色秘境,Золотой тайник
+Hidden Hollow,Hidden Hollow,Hondonada oculta,Vale escondido,Vallon caché,Verborgene Senke,隐秘山谷,Скрытая ложбина
+Hidden Maze,Hidden Maze,Laberinto oculto,Labirinto escondido,Labyrinthe caché,Verborgenes Labyrinth,隐秘迷宫,Скрытый лабиринт
+Hidden Path,Hidden Path,Sendero oculto,Caminho escondido,Chemin caché,Verborgener Pfad,隐秘小径,Тайная тропа
+Hidden Tower,Hidden Tower,Torre oculta,Torre escondida,Tour cachée,Verborgener Turm,隐秘高塔,Скрытая башня
+Jungle Jewel Box,Jungle Jewel Box,Joyero de la jungla,Joias da selva,Écrin de la jungle,Dschungelschatztruhe,丛林宝盒,Шкатулка джунглей
+Key Delivery,Key Delivery,Entrega de llaves,Entrega de chaves,Livraison de clés,Schlüssellieferung,钥匙快递,Доставка ключа
+Keys Above the Fire,Keys Above the Fire,Llaves sobre el fuego,Chaves sobre o fogo,Clés au-dessus du feu,Schlüssel über dem Feuer,烈火上方的钥匙,Ключи над огнём
+Locks Above the Water,Locks Above the Water,Candados sobre el agua,Cadeados sobre a água,Cadenas au-dessus de l’eau,Schlösser über dem Wasser,水面上方的锁,Замки над водой
+Lost Corner,Lost Corner,Esquina perdida,Canto perdido,Coin perdu,Verlorene Ecke,失落拐角,Затерянный угол
+Lost Crossing,Lost Crossing,Cruce perdido,Travessia perdida,Croisée perdue,Verlorener Übergang,失落路口,Затерянный переход
+Lost Steps,Lost Steps,Escalones perdidos,Degraus perdidos,Marches perdues,Verlorene Stufen,失落台阶,Затерянные ступени
+Lost Tower,Lost Tower,Torre perdida,Torre perdida,Tour perdue,Verlorener Turm,失落高塔,Затерянная башня
+Lucky Corner,Lucky Corner,Esquina afortunada,Canto da sorte,Coin chanceux,Glücksecke,幸运拐角,Счастливый угол
+Lucky Keep,Lucky Keep,Fortaleza afortunada,Fortaleza da sorte,Donjon chanceux,Glücksburg,幸运堡垒,Счастливая крепость
+Lucky Ledge,Lucky Ledge,Cornisa afortunada,Beirada da sorte,Corniche chanceuse,Glücksvorsprung,幸运岩台,Счастливый уступ
+Lucky Passage,Lucky Passage,Pasaje afortunado,Passagem da sorte,Passage chanceux,Glücksdurchgang,幸运通道,Счастливый проход
+Lucky Path,Lucky Path,Sendero afortunado,Caminho da sorte,Chemin chanceux,Glückspfad,幸运小径,Счастливая тропа
+Lucky Tower,Lucky Tower,Torre afortunada,Torre da sorte,Tour chanceuse,Glücksturm,幸运高塔,Счастливая башня
+Mistbound Rings,Mistbound Rings,Aros entre la niebla,Anéis na névoa,Anneaux dans la brume,Ringe im Nebel,雾中圆环,Кольца в тумане
+Misty Nook,Misty Nook,Rincón brumoso,Recanto enevoado,Recoin brumeux,Nebliger Winkel,迷雾角落,Туманный уголок
+Misty Passage,Misty Passage,Pasaje brumoso,Passagem enevoada,Passage brumeux,Nebliger Durchgang,迷雾通道,Туманный проход
+Misty Pocket,Misty Pocket,Refugio brumoso,Refúgio enevoado,Refuge brumeux,Nebliges Versteck,迷雾秘境,Туманный тайник
+Misty Steps,Misty Steps,Escalones brumosos,Degraus enevoados,Marches brumeuses,Neblige Stufen,迷雾台阶,Туманные ступени
+Portal Hop,Portal Hop,Salto de portal,Salto pelo portal,Saut de portail,Portalsprung,传送跳跃,Прыжок в портал
+Quiet Grove,Quiet Grove,Arboleda tranquila,Bosque tranquilo,Bosquet calme,Ruhiger Hain,幽静林地,Спокойная роща
+Quiet Maze,Quiet Maze,Laberinto silencioso,Labirinto silencioso,Labyrinthe calme,Ruhiges Labyrinth,幽静迷宫,Спокойный лабиринт
+Quiet Nook,Quiet Nook,Rincón tranquilo,Recanto tranquilo,Recoin calme,Ruhiger Winkel,幽静角落,Спокойный уголок
+Quiet Path,Quiet Path,Sendero tranquilo,Caminho tranquilo,Chemin calme,Ruhiger Pfad,幽静小径,Спокойная тропа
+Silent Bridge,Silent Bridge,Puente silencioso,Ponte silenciosa,Pont silencieux,Stille Brücke,寂静之桥,Безмолвный мост
+Silent Corner,Silent Corner,Esquina silenciosa,Canto silencioso,Coin silencieux,Stille Ecke,寂静拐角,Безмолвный угол
+Silent Keep,Silent Keep,Fortaleza silenciosa,Fortaleza silenciosa,Donjon silencieux,Stille Burg,寂静堡垒,Безмолвная крепость
+Silent Tower,Silent Tower,Torre silenciosa,Torre silenciosa,Tour silencieuse,Stiller Turm,寂静高塔,Безмолвная башня
+Sleepy Grove,Sleepy Grove,Arboleda dormida,Bosque sonolento,Bosquet endormi,Schläfriger Hain,沉睡林地,Сонная роща
+Sleepy Keep,Sleepy Keep,Fortaleza dormida,Fortaleza sonolenta,Donjon endormi,Schläfrige Burg,沉睡堡垒,Сонная крепость
+Sleepy Steps,Sleepy Steps,Escalones dormidos,Degraus sonolentos,Marches endormies,Schläfrige Stufen,沉睡台阶,Сонные ступени
+Stone Crossroads,Stone Crossroads,Encrucijada de piedra,Encruzilhada de pedra,Carrefour de pierre,Steinerne Kreuzung,石之十字路,Каменный перекрёсток
+Sunny Grove,Sunny Grove,Arboleda soleada,Bosque ensolarado,Bosquet ensoleillé,Sonniger Hain,阳光林地,Солнечная роща
+Sunny Hollow,Sunny Hollow,Hondonada soleada,Vale ensolarado,Vallon ensoleillé,Sonnige Senke,阳光山谷,Солнечная ложбина
+Sunny Ledge,Sunny Ledge,Cornisa soleada,Beirada ensolarada,Corniche ensoleillée,Sonniger Vorsprung,阳光岩台,Солнечный уступ
+Sunny Passage,Sunny Passage,Pasaje soleado,Passagem ensolarada,Passage ensoleillé,Sonniger Durchgang,阳光通道,Солнечный проход
+Surround the Sphere,Surround the Sphere,Rodea la esfera,Cerque a esfera,Entourez la sphère,Umringe die Kugel,包围球体,Окружите шар
+Surrounded,Surrounded,Rodeado,Cercado,Encerclé,Umzingelt,重重包围,В окружении
+The First Key,The First Key,La primera llave,A primeira chave,La première clé,Der erste Schlüssel,第一把钥匙,Первый ключ
+The Long Way Down,The Long Way Down,El largo descenso,A longa descida,La longue descente,Der lange Weg nach unten,漫长下落,Долгий путь вниз
+The Upper Chamber,The Upper Chamber,La cámara superior,A câmara superior,La chambre haute,Die obere Kammer,上层密室,Верхняя комната
+Through the Pipe,Through the Pipe,A través del tubo,Através do cano,À travers le tube,Durch das Rohr,穿越管道,Через трубу
+Tricky Crossing,Tricky Crossing,Cruce complicado,Travessia difícil,Croisée piégeuse,Kniffliger Übergang,巧妙路口,Хитрый переход
+Tricky Grove,Tricky Grove,Arboleda complicada,Bosque difícil,Bosquet piégeux,Kniffliger Hain,巧妙林地,Хитрая роща
+Tricky Maze,Tricky Maze,Laberinto complicado,Labirinto difícil,Labyrinthe piégeux,Kniffliges Labyrinth,巧妙迷宫,Хитрый лабиринт
+Tricky Path,Tricky Path,Sendero complicado,Caminho difícil,Chemin piégeux,Kniffliger Pfad,巧妙小径,Хитрая тропа
+Tricky Pocket,Tricky Pocket,Refugio complicado,Refúgio difícil,Refuge piégeux,Kniffliges Versteck,巧妙秘境,Хитрый тайник
+Tricky Tower,Tricky Tower,Torre complicada,Torre difícil,Tour piégeuse,Kniffliger Turm,巧妙高塔,Хитрая башня
+Twisted Bridge,Twisted Bridge,Puente retorcido,Ponte retorcida,Pont tordu,Gewundene Brücke,蜿蜒之桥,Извилистый мост
+Twisted Hollow,Twisted Hollow,Hondonada retorcida,Vale retorcido,Vallon tordu,Gewundene Senke,蜿蜒山谷,Извилистая ложбина
+Twisted Keep,Twisted Keep,Fortaleza retorcida,Fortaleza retorcida,Donjon tordu,Gewundene Burg,蜿蜒堡垒,Извилистая крепость
+Twisted Pocket,Twisted Pocket,Refugio retorcido,Refúgio retorcido,Refuge tordu,Gewundenes Versteck,蜿蜒秘境,Извилистый тайник
+Twisted Steps,Twisted Steps,Escalones retorcidos,Degraus retorcidos,Marches tordues,Gewundene Stufen,蜿蜒台阶,Извилистые ступени
+Wild Garden,Wild Garden,Jardín salvaje,Jardim selvagem,Jardin sauvage,Wilder Garten,荒野花园,Дикий сад
+Wild Grove,Wild Grove,Arboleda salvaje,Bosque selvagem,Bosquet sauvage,Wilder Hain,荒野林地,Дикая роща
+Wild Pocket,Wild Pocket,Refugio salvaje,Refúgio selvagem,Refuge sauvage,Wildes Versteck,荒野秘境,Дикий тайник
+Wild Tower,Wild Tower,Torre salvaje,Torre selvagem,Tour sauvage,Wilder Turm,荒野高塔,Дикая башня
+Terrain,Terrain,Terreno,Terreno,Terrain,Gelände,地形,Местность
+Floor,Floor,Suelo,Piso,Sol,Boden,地板,Пол
+Wall,Wall,Muro,Parede,Mur,Mauer,墙壁,Стена
+Brick wall,Brick wall,Muro de ladrillo,Parede de tijolos,Mur de briques,Ziegelmauer,砖墙,Кирпичная стена
+Pipe frame wall,Pipe frame wall,Muro tubular,Parede de tubos,Paroi tubulaire,Rohrwand,管道框架墙,Стена из труб
+Cracked wall,Cracked wall,Muro agrietado,Parede rachada,Mur fissuré,Rissige Mauer,裂墙,Треснувшая стена
+Void (outside),Void (outside),Vacío (exterior),Vazio (exterior),Vide (extérieur),Leere (außen),空白（外部）,Пустота (снаружи)
+Items,Items,Piezas,Peças,Pièces,Objekte,物件,Предметы
+Modifiers,Modifiers,Modificadores,Modificadores,Modificateurs,Eigenschaften,修饰,Модификаторы
+Goal flag (toggle),Goal flag (toggle),Objetivo (alternar),Alvo (alternar),Cible (activer/désactiver),Zielmarkierung umschalten,切换目标标记,Переключить цель
+Remove lock,Remove lock,Quitar candado,Remover cadeado,Retirer le cadenas,Schloss entfernen,移除锁,Снять замок
+Gravity: falls,Gravity: falls,Gravedad: cae,Gravidade: cai,Gravité : tombe,Schwerkraft: fällt,重力：下落,Гравитация: падает
+Gravity: floats,Gravity: floats,Gravedad: flota,Gravidade: flutua,Gravité : monte,Schwerkraft: steigt,重力：上浮,Гравитация: всплывает
+Gravity: stays,Gravity: stays,Gravedad: inmóvil,Gravidade: fica,Gravité : immobile,Schwerkraft: bleibt,重力：静止,Гравитация: на месте
+Gravity: type default,Gravity: type default,Gravedad: predeterminada,Gravidade: padrão do tipo,Gravité : selon le type,Schwerkraft: Standard,重力：类型默认值,Гравитация: по типу
+Teleports & pipes,Teleports & pipes,Portales y tubos,Teleportes e tubos,Téléporteurs et tubes,Teleports und Rohre,传送点与管道,Телепорты и трубы
+Teleport,Teleport,Teletransporte,Teleporte,Téléporteur,Teleport,传送点,Телепорт
+"Link (source, then target)","Link (source, then target)",Enlazar (origen y destino),Vincular (origem e destino),Relier (source puis cible),"Verbinden (Start, dann Ziel)",连接（起点，再终点）,"Связать (начало, затем цель)"
+Other,Other,Otros,Outros,Autres,Sonstiges,其他,Прочее
+Eraser,Eraser,Borrador,Borracha,Gomme,Radierer,橡皮擦,Ластик
+Two-way links,Two-way links,Enlaces bidireccionales,Vínculos bidirecionais,Liaisons bidirectionnelles,Beidseitige Verbindungen,双向连接,Двусторонние связи
+Lock color: %s,Lock color: %s,Color del candado: %s,Cor do cadeado: %s,Couleur du cadenas : %s,Schlossfarbe: %s,锁的颜色：%s,Цвет замка: %s
+"Pipe, opening %s","Pipe, opening %s","Tubo, abertura: %s","Tubo, abertura: %s","Tube, ouverture : %s",Rohröffnung: %s,管道，开口：%s,"Труба, отверстие: %s"
+up,up,arriba,cima,haut,oben,上,вверх
+right,right,derecha,direita,droite,rechts,右,вправо
+down,down,abajo,baixo,bas,unten,下,вниз
+left,left,izquierda,esquerda,gauche,links,左,влево
+"Click a teleport or pipe, then click its destination. Click the source again to clear its link.","Click a teleport or pipe, then click its destination. Click the source again to clear its link.",Haz clic en un portal o tubo y luego en su destino. Repite el origen para quitar el enlace.,Clique em um teleporte ou tubo e depois no destino. Clique de novo na origem para remover o vínculo.,"Cliquez sur un téléporteur ou un tube, puis sur sa destination. Recliquez sur la source pour supprimer le lien.","Klicke auf Teleport oder Rohr, dann auf das Ziel. Erneut auf den Start klicken löst die Verbindung.",点击传送点或管道，再点击终点。再次点击起点可清除连接。,"Нажмите на телепорт или трубу, затем на цель. Повторное нажатие на начало удаляет связь."
+Click an item to toggle its goal flag.,Click an item to toggle its goal flag.,Haz clic en una pieza para cambiar su marca de objetivo.,Clique em uma peça para alternar a marca de alvo.,Cliquez sur une pièce pour changer son statut de cible.,"Klicke auf ein Objekt, um seine Zielmarkierung umzuschalten.",点击物件可切换目标标记。,"Нажмите на предмет, чтобы переключить отметку цели."
+Click to clear a cell completely. (Right-click erases with any tool.),Click to clear a cell completely. (Right-click erases with any tool.),Haz clic para vaciar una casilla. El clic derecho borra con cualquier herramienta.,Clique para limpar uma casa. O botão direito apaga com qualquer ferramenta.,Cliquez pour vider une case. Le clic droit efface avec tous les outils.,Klicken leert ein Feld. Rechtsklick löscht mit jedem Werkzeug.,点击可清空格子。使用任意工具时右键均可擦除。,"Нажмите, чтобы очистить клетку. Правая кнопка стирает с любым инструментом."
+"Place a teleport, then use Link to connect it.","Place a teleport, then use Link to connect it.",Coloca un portal y usa Enlazar para conectarlo.,Coloque um teleporte e use Vincular para conectá-lo.,"Placez un téléporteur, puis utilisez Relier.",Platziere einen Teleport und verbinde ihn mit Verbinden.,放置传送点后，使用连接工具连接它。,"Разместите телепорт, затем соедините инструментом связи."
+Left-click: apply tool (drag to paint)  ·  Right-click: erase  ·  Ctrl+Z: undo,Left-click: apply tool (drag to paint)  ·  Right-click: erase  ·  Ctrl+Z: undo,Clic izquierdo: pintar  ·  Clic derecho: borrar  ·  Ctrl+Z: deshacer,Botão esquerdo: pintar  ·  Botão direito: apagar  ·  Ctrl+Z: desfazer,Clic gauche : peindre  ·  Clic droit : effacer  ·  Ctrl+Z : annuler,Linksklick: malen  ·  Rechtsklick: löschen  ·  Strg+Z: zurück,左键：绘制（可拖动） · 右键：擦除 · Ctrl+Z：撤销,Левая кнопка: рисовать · Правая: стирать · Ctrl+Z: отмена
+Level,Level,Nivel,Fase,Niveau,Level,关卡,Уровень
+Name,Name,Nombre,Nome,Nom,Name,名称,Название
+Move limit,Move limit,Límite de movimientos,Limite de jogadas,Limite de coups,Zuglimit,步数上限,Лимит ходов
+Time (sec),Time (sec),Tiempo (s),Tempo (s),Temps (s),Zeit (Sek.),时间（秒）,Время (сек.)
+Theme,Theme,Tema,Tema,Thème,Thema,主题,Тема
+World default,World default,Tema del mundo,Padrão do mundo,Thème du monde,Weltstandard,世界默认,По миру
+File,File,Archivo,Arquivo,Fichier,Datei,文件,Файл
+My levels (user://),My levels (user://),Mis niveles (user://),Minhas fases (user://),Mes niveaux (user://),Meine Level (user://),我的关卡 (user://),Мои уровни (user://)
+Project (res://levels/custom),Project (res://levels/custom),Proyecto (res://levels/custom),Projeto (res://levels/custom),Projet (res://levels/custom),Projekt (res://levels/custom),项目 (res://levels/custom),Проект (res://levels/custom)
+Save,Save,Guardar,Salvar,Enregistrer,Speichern,保存,Сохранить
+Save as new,Save as new,Guardar como nuevo,Salvar como nova,Enregistrer une copie,Als neu speichern,另存为新关卡,Сохранить как новый
+Load,Load,Cargar,Carregar,Charger,Laden,加载,Загрузить
+New,New,Nuevo,Nova,Nouveau,Neu,新建,Новый
+Clear,Clear,Limpiar,Limpar,Effacer,Leeren,清空,Очистить
+Back to menu,Back to menu,Volver al menú,Voltar ao menu,Retour au menu,Zum Menü,返回菜单,В меню
+Editing: %s,Editing: %s,Editando: %s,Editando: %s,Édition : %s,Bearbeiten: %s,正在编辑：%s,Редактирование: %s
+new level,new level,nuevo nivel,nova fase,nouveau niveau,neues Level,新关卡,новый уровень
+Items can only be placed on floor.,Items can only be placed on floor.,Solo puedes colocar piezas en el suelo.,Só é possível colocar peças no piso.,Les pièces doivent être placées sur le sol.,Objekte können nur auf Boden platziert werden.,物件只能放在地板上。,Предметы можно ставить только на пол.
+Keys can't be locked.,Keys can't be locked.,Las llaves no se pueden bloquear.,Chaves não podem ser trancadas.,Les clés ne peuvent pas être verrouillées.,Schlüssel können nicht gesperrt werden.,钥匙不能被锁定。,Ключи нельзя блокировать.
+Bombs always fall.,Bombs always fall.,Las bombas siempre caen.,Bombas sempre caem.,Les bombes tombent toujours.,Bomben fallen immer.,炸弹始终会下落。,Бомбы всегда падают.
+Pick a teleport or pipe first.,Pick a teleport or pipe first.,Primero elige un portal o tubo.,Primeiro escolha um teleporte ou tubo.,Choisissez d’abord un téléporteur ou un tube.,Wähle zuerst einen Teleport oder ein Rohr.,请先选择传送点或管道。,Сначала выберите телепорт или трубу.
+Now click the destination.,Now click the destination.,Ahora haz clic en el destino.,Agora clique no destino.,Cliquez maintenant sur la destination.,Klicke jetzt auf das Ziel.,现在点击终点。,Теперь нажмите на цель.
+Link cleared.,Link cleared.,Enlace eliminado.,Vínculo removido.,Lien supprimé.,Verbindung gelöscht.,连接已清除。,Связь удалена.
+Teleports linked.,Teleports linked.,Portales enlazados.,Teleportes vinculados.,Téléporteurs reliés.,Teleports verbunden.,传送点已连接。,Телепорты связаны.
+Pipes linked.,Pipes linked.,Tubos enlazados.,Tubos vinculados.,Tubes reliés.,Rohre verbunden.,管道已连接。,Трубы связаны.
+"Teleports link to teleports, pipes to pipes.","Teleports link to teleports, pipes to pipes.","Los portales se enlazan con portales, los tubos con tubos.","Teleportes se vinculam a teleportes; tubos, a tubos.",Reliez les téléporteurs entre eux et les tubes entre eux.,"Teleports mit Teleports verbinden, Rohre mit Rohren.",传送点只能连接传送点，管道只能连接管道。,"Телепорты связываются с телепортами, трубы — с трубами."
+Add at least one goal flag (Modifiers > Goal flag).,Add at least one goal flag (Modifiers > Goal flag).,Añade al menos un objetivo (Modificadores > Objetivo).,Adicione ao menos um alvo (Modificadores > Alvo).,Ajoutez au moins une cible (Modificateurs > Cible).,Setze mindestens eine Zielmarkierung unter Eigenschaften.,请至少添加一个目标标记（修饰 > 切换目标标记）。,Добавьте хотя бы одну цель (Модификаторы > Переключить цель).
+Warning: things explode/unlock as soon as the level starts.,Warning: things explode/unlock as soon as the level starts.,Aviso: habrá explosiones o desbloqueos al iniciar el nivel.,Aviso: haverá explosões ou desbloqueios ao iniciar a fase.,Attention : des explosions ou déverrouillages ont lieu dès le départ.,Achtung: Objekte explodieren oder werden beim Start entsperrt.,警告：关卡开始时即会发生爆炸或解锁。,Внимание: предметы взрываются или открываются сразу после старта.
+Saved to %s,Saved to %s,Guardado en %s,Salvo em %s,Enregistré dans %s,Gespeichert unter %s,已保存到 %s,Сохранено в %s
+Save failed: %s,Save failed: %s,Error al guardar: %s,Falha ao salvar: %s,Échec de l’enregistrement : %s,Speichern fehlgeschlagen: %s,保存失败：%s,Ошибка сохранения: %s
+Loaded %s,Loaded %s,Cargado %s,Carregado %s,Chargé : %s,Geladen: %s,已加载 %s,Загружено: %s
+(read-only here: Save makes a copy),(read-only here: Save makes a copy),(solo lectura: Guardar crea una copia),(somente leitura: Salvar cria uma cópia),(lecture seule : Enregistrer crée une copie),(schreibgeschützt: Speichern erstellt eine Kopie),（只读：保存会创建副本）,(только чтение: сохранение создаст копию)
+New level.,New level.,Nuevo nivel.,Nova fase.,Nouveau niveau.,Neues Level.,新关卡。,Новый уровень.
+Cleared.,Cleared.,Limpiado.,Limpo.,Effacé.,Geleert.,已清空。,Очищено.

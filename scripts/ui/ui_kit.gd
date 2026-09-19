@@ -29,3 +29,14 @@ static func box(bg: Color, border := Color.TRANSPARENT, radius := 10, border_w :
 static func fmt_time(sec: float) -> String:
 	var s := maxi(int(ceil(sec)), 0)
 	return "%02d:%02d" % [s / 60, s % 60]
+
+
+## One source image becomes nine regions; the corners never stretch.
+static func stone(button := false, tint := Color.WHITE, pad := 12) -> StyleBoxTexture:
+	var style := StyleBoxTexture.new()
+	style.texture = load("res://assets/ui/stone/button.png" if button else "res://assets/ui/stone/panel.png")
+	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+		style.set_texture_margin(side, 16)
+		style.set_content_margin(side, pad)
+	style.modulate_color = tint
+	return style

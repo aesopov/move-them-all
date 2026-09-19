@@ -8,9 +8,9 @@ const LEVEL_BUTTON := preload("res://scenes/components/level_button.tscn")
 ## idx = world index, or -1 for designer levels.
 func setup(title: String, idx: int, levels: Array) -> WorldRow:
 	var td := WorldTheme.for_world(idx)
-	add_theme_stylebox_override("panel", UiKit.box(Color(td.sky_bottom, 0.92), td.frame, 14, 3, 12))
+	add_theme_stylebox_override("panel", UiKit.stone(false, Color.WHITE, 12))
 	var num: Label = get_node("%Number")
-	num.text = "World %d" % (idx + 1) if idx >= 0 else "Custom"
+	num.text = tr("World %d") % (idx + 1) if idx >= 0 else tr("Custom")
 	num.add_theme_color_override("font_color", td.accent)
 	(get_node("%Title") as Label).text = title
 	var done := 0
@@ -26,10 +26,10 @@ func setup(title: String, idx: int, levels: Array) -> WorldRow:
 			done += 1
 			b.text = label + "\n" + str(best)
 			b.add_theme_font_size_override("font_size", 15)
-			b.add_theme_stylebox_override("normal", UiKit.box(td.frame.darkened(0.2), td.accent, 10, 2, 6))
-		b.tooltip_text = App.load_level(path).get("name", "")
+			b.add_theme_stylebox_override("normal", UiKit.stone(true, Color(1.12, 1.16, 0.72), 6))
+		b.tooltip_text = tr(App.load_level(path).get("name", ""))
 		grid.add_child(b)
-	(get_node("%Progress") as Label).text = "%d / %d completed" % [done, levels.size()]
+	(get_node("%Progress") as Label).text = tr("%d / %d completed") % [done, levels.size()]
 	return self
 
 

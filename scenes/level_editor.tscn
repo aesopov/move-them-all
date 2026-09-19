@@ -85,9 +85,10 @@ theme_type_variation = &"DimLabel"
 theme_override_font_sizes/font_size = 14
 text = "Left-click: apply tool (drag to paint)  ·  Right-click: erase  ·  Ctrl+Z: undo"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="PropsPanel" type="PanelContainer" parent="Margin/Columns" unique_id=268718678]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="Props" type="VBoxContainer" parent="Margin/Columns/PropsPanel" unique_id=541999095]
@@ -148,6 +149,9 @@ text = "Theme"
 [node name="ThemeOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props/Fields" unique_id=286770925]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+clip_text = true
+fit_to_longest_item = false
 selected = 0
 item_count = 1
 popup/item_0/text = "World default"
@@ -171,6 +175,9 @@ text = "File"
 [node name="DestOption" type="OptionButton" parent="Margin/Columns/PropsPanel/Props" unique_id=1628862922]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+clip_text = true
+fit_to_longest_item = false
 selected = 0
 item_count = 1
 popup/item_0/text = "My levels (user://)"
@@ -183,12 +190,16 @@ theme_override_constants/separation = 6
 [node name="SaveButton" type="Button" parent="Margin/Columns/PropsPanel/Props/SaveRow" unique_id=657060400]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
 focus_mode = 0
 text = "Save"
 
 [node name="SaveNewButton" type="Button" parent="Margin/Columns/PropsPanel/Props/SaveRow" unique_id=1365857214]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
 focus_mode = 0
 text = "Save as new"
 
@@ -199,25 +210,28 @@ layout_mode = 2
 clip_text = true
 fit_to_longest_item = false
 
-[node name="LoadRow" type="HBoxContainer" parent="Margin/Columns/PropsPanel/Props" unique_id=2113310630]
+[node name="LoadRow" type="HFlowContainer" parent="Margin/Columns/PropsPanel/Props" unique_id=2113310630]
 layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="LoadButton" type="Button" parent="Margin/Columns/PropsPanel/Props/LoadRow" unique_id=1735534412]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 1
 focus_mode = 0
 text = "Load"
 
 [node name="NewButton" type="Button" parent="Margin/Columns/PropsPanel/Props/LoadRow" unique_id=1071083321]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 1
 focus_mode = 0
 text = "New"
 
 [node name="ClearButton" type="Button" parent="Margin/Columns/PropsPanel/Props/LoadRow" unique_id=1114687763]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 1
 focus_mode = 0
 text = "Clear"
 

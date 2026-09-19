@@ -107,8 +107,8 @@ func scan_levels() -> void:
 
 func world_name(idx: int) -> String:
 	if idx < GameConfig.WORLD_NAMES.size():
-		return GameConfig.WORLD_NAMES[idx]
-	return "World %d" % (idx + 1)
+		return tr(GameConfig.WORLD_NAMES[idx])
+	return tr("World %d") % (idx + 1)
 
 
 func all_level_paths() -> Array:
@@ -131,7 +131,7 @@ func locate(path: String) -> Vector2i:
 func level_label(path: String) -> String:
 	var p := locate(path)
 	if p.x >= 0:
-		return "Level %d-%d" % [p.x + 1, p.y + 1]
+		return tr("Level %d-%d") % [p.x + 1, p.y + 1]
 	return path.get_file().get_basename().capitalize()
 
 

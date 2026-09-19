@@ -116,4 +116,4 @@ static func color(t: int) -> Color:
 
 
 static func pretty_name(t: int) -> String:
-	return name_of(t).replace("_", " ").capitalize()
+	return TranslationServer.translate(name_of(t).replace("_", " ").capitalize())

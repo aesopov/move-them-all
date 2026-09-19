@@ -35,6 +35,8 @@ func add_rows(rows: Array) -> void:
 	for r in rows:
 		var a := Label.new()
 		a.text = r[0]
+		a.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		a.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		a.theme_type_variation = "DimLabel"
 		a.add_theme_font_size_override("font_size", 18)
 		var b := Label.new()
@@ -50,7 +52,8 @@ func add_button(t: String, cb: Callable) -> Button:
 	var b := Button.new()
 	b.text = t
 	b.theme_type_variation = "BigButton"
-	b.custom_minimum_size.x = 240
+	b.custom_minimum_size = Vector2(240, 52)
+	b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	b.focus_mode = Control.FOCUS_NONE
 	b.pressed.connect(cb)
 	get_node("%Buttons").add_child(b)

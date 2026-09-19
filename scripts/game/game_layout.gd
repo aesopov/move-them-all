@@ -35,7 +35,7 @@ func _ready() -> void:
 		slot.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		stats.add_child(slot)
 		var label := Label.new()
-		label.text = caption
+		label.text = tr(caption)
 		label.add_theme_font_size_override("font_size", 14)
 		slot.add_child(label)
 	footer = HBoxContainer.new()
@@ -43,7 +43,7 @@ func _ready() -> void:
 	main.add_child(footer)
 	var info := Button.new()
 	info.name = "InfoButton"
-	info.text = "Info"
+	info.text = tr("Info")
 	info.custom_minimum_size = Vector2(58, 58)
 	info.pressed.connect(game._show_level_info)
 	title_row.add_child(info)
@@ -82,8 +82,9 @@ func _refresh() -> void:
 			var button: Button = game.get_node("%" + name)
 			button.reparent(footer)
 			button.custom_minimum_size = Vector2(58, 58)
+			button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		game.get_node("%PauseButton").text = "Pause"
+		game.get_node("%PauseButton").text = tr("Pause")
 		game.get_node("%BackButton").custom_minimum_size = Vector2(58, 58)
 	else:
 		for child in original_children:
@@ -94,10 +95,12 @@ func _refresh() -> void:
 			var button: Button = game.get_node("%" + name)
 			if button.get_parent() != original_buttons: button.reparent(original_buttons)
 			button.custom_minimum_size = Vector2.ZERO
+			button.autowrap_mode = TextServer.AUTOWRAP_OFF
 			button.size_flags_horizontal = Control.SIZE_FILL
 		for name in ["PauseButton", "BackButton"]:
 			var button: Button = game.get_node("%" + name)
 			button.custom_minimum_size = Vector2(44, 0)
+			button.autowrap_mode = TextServer.AUTOWRAP_OFF
 			button.size_flags_horizontal = Control.SIZE_FILL
 		game.get_node("%PauseButton").text = "||"
 		header.get_node("Names").custom_minimum_size.x = 170

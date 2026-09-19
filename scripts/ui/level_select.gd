@@ -13,11 +13,11 @@ func _ready() -> void:
 		App.editor_data = null
 		App.editor_path = ""
 		App.goto("editor"))
-	%TotalScore.text = "Total score: %d" % _total_score()
+	%TotalScore.text = tr("Total score: %d") % _total_score()
 	for w in App.worlds:
 		%WorldList.add_child(WORLD_ROW.instantiate().setup(w.name, w.index, w.levels))
 	if not App.custom_levels.is_empty():
-		%WorldList.add_child(WORLD_ROW.instantiate().setup("Designer levels", -1, App.custom_levels))
+		%WorldList.add_child(WORLD_ROW.instantiate().setup(tr("Designer levels"), -1, App.custom_levels))
 
 
 func _total_score() -> int:
@@ -33,6 +33,6 @@ func _responsive_layout() -> void:
 	Responsive.apply_margins($Margin, self, 12 if narrow else 24)
 	$Margin/Layout/TopBar/Title.add_theme_font_size_override("font_size", 26 if narrow else 40)
 	%BackButton.custom_minimum_size = Vector2(68 if narrow else 120, 58)
-	%BackButton.text = "<" if narrow else "<  Back"
+	%BackButton.text = "<" if narrow else tr("<  Back")
 	%TotalScore.visible = not narrow
 	%DesignerButton.visible = not narrow and not OS.has_feature("mobile")

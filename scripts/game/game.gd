@@ -48,22 +48,22 @@ func _ready() -> void:
 # ---------------------------------------------------------------------------
 
 func _fill_panels() -> void:
-	%LevelLabel.text = App.level_label(App.current_path) if not App.testing_from_editor else "Test play"
-	%LevelName.text = board.name
+	%LevelLabel.text = App.level_label(App.current_path) if not App.testing_from_editor else tr("Test play")
+	%LevelName.text = tr(board.name)
 	if GameConfig.FAIL_ON_MOVE_LIMIT:
-		%MovesGoal.setup("moves", "Move limit: %d" % board.move_limit)
+		%MovesGoal.setup("moves", tr("Move limit: %d") % board.move_limit)
 	else:
-		%MovesGoal.setup("moves", "Bonus for finishing within %d moves" % board.move_limit)
+		%MovesGoal.setup("moves", tr("Bonus for finishing within %d moves") % board.move_limit)
 	if GameConfig.FAIL_ON_TIME_LIMIT:
-		%TimeGoal.setup("clock", "Time limit: %s" % UiKit.fmt_time(board.time_limit))
+		%TimeGoal.setup("clock", tr("Time limit: %s") % UiKit.fmt_time(board.time_limit))
 	else:
-		%TimeGoal.setup("clock", "Bonus for finishing within %s" % UiKit.fmt_time(board.time_limit))
-	%ScoreBase.text = "Level complete   %d" % GameConfig.SCORE_LEVEL_COMPLETE
-	%ScoreMove.text = "Each spare move   +%d" % GameConfig.SCORE_PER_REMAINING_MOVE
-	%ScoreTime.text = "Each spare second  +%d" % GameConfig.SCORE_PER_REMAINING_SECOND
+		%TimeGoal.setup("clock", tr("Bonus for finishing within %s") % UiKit.fmt_time(board.time_limit))
+	%ScoreBase.text = tr("Level complete   %d") % GameConfig.SCORE_LEVEL_COMPLETE
+	%ScoreMove.text = tr("Each spare move   +%d") % GameConfig.SCORE_PER_REMAINING_MOVE
+	%ScoreTime.text = tr("Each spare second  +%d") % GameConfig.SCORE_PER_REMAINING_SECOND
 	var best := App.best_score(App.current_path) if App.current_path != "" else 0
 	%BestLabel.visible = best > 0
-	%BestLabel.text = "Best: %d" % best
+	%BestLabel.text = tr("Best: %d") % best
 	for entry in _legend_entries():
 		%Legend.add_child(LEGEND_ROW.instantiate().setup(entry[0], entry[1], entry[2], entry[3]))
 
@@ -80,7 +80,7 @@ func _legend_entries() -> Array:
 			var lc := board.it_lock[i]
 			if not seen.has("padlock%d" % lc):
 				seen["padlock%d" % lc] = true
-				out.append(["lock", "Padlock: can't be moved; a %s key opens it" % ItemDefs.LOCK_NAMES[lc], 0, lc])
+				out.append(["lock", tr("Padlock: can't be moved; a %s key opens it") % tr(ItemDefs.LOCK_NAMES[lc]), 0, lc])
 			continue
 		if board.it_lock[i] != 0:
 			locks[board.it_lock[i]] = true
@@ -92,25 +92,25 @@ func _legend_entries() -> Array:
 		var txt := ItemDefs.pretty_name(t)
 		var motion := ""
 		match g:
-			ItemDefs.Gravity.FALL: motion = "falls, can't be moved up"
-			ItemDefs.Gravity.BUBBLE: motion = "floats up, can't be moved down"
-			_: motion = "stays where you put it"
+			ItemDefs.Gravity.FALL: motion = tr("falls, can't be moved up")
+			ItemDefs.Gravity.BUBBLE: motion = tr("floats up, can't be moved down")
+			_: motion = tr("stays where you put it")
 		match ItemDefs.kind(t):
 			ItemDefs.Kind.MOVER:
-				txt += ": " + motion + "; does not match"
+				txt += ": " + motion + tr("; does not match")
 			ItemDefs.Kind.BOMB:
-				txt = "Bomb: falls; explodes beside cracked walls or when tapped"
+				txt = tr("Bomb: falls; explodes beside cracked walls or when tapped")
 			ItemDefs.Kind.KEY:
-				txt += ": touch a matching lock to open it"
+				txt += tr(": touch a matching lock to open it")
 				if g != ItemDefs.Gravity.NONE:
 					txt += "; " + motion
 			_:
 				txt += ": " + motion
 		if ItemDefs.blast_proof(t):
-			txt += "; survives bombs"
+			txt += tr("; survives bombs")
 		out.append(["item", txt, t, 0])
 	for l in locks:
-		out.append(["lock", "Locked: pinned until a %s key touches it" % ItemDefs.LOCK_NAMES[l], 0, l])
+		out.append(["lock", tr("Locked: pinned until a %s key touches it") % tr(ItemDefs.LOCK_NAMES[l]), 0, l])
 	var has := {}
 	for c in Board.N:
 		has[board.terrain[c]] = true
@@ -120,20 +120,20 @@ func _legend_entries() -> Array:
 			has["pipe"] = true
 	for liq in [Board.T.WATER, Board.T.LAVA, Board.T.ACID]:
 		if has.has(liq):
-			out.append(["liquid", "%s: destroys items that fall in" % Board.LIQUID_NAMES[liq].capitalize(), 0, liq])
+			out.append(["liquid", tr("%s: destroys items that fall in") % tr(Board.LIQUID_NAMES[liq].capitalize()), 0, liq])
 	if has.has(Board.T.BREAKABLE):
-		out.append(["breakable", "Cracked wall: bombs and explosions break it", 0, 0])
+		out.append(["breakable", tr("Cracked wall: bombs and explosions break it"), 0, 0])
 	if has.has("tele"):
-		out.append(["teleport", "Teleport: step on it to jump to its partner (only if the partner is empty)", 0, 0])
+		out.append(["teleport", tr("Teleport: step on it to jump to its partner (only if the partner is empty)"), 0, 0])
 	if has.has("pipe"):
 		if board.pipe_ports.count(0) < Board.N:
-			out.append(["pipe", "Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return.", 0, 0])
+			out.append(["pipe", tr("Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return."), 0, 0])
 		elif board.pipe_landing.has(1):
-			out.append(["pipe", "Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it.", 0, 0])
+			out.append(["pipe", tr("Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it."), 0, 0])
 		else:
-			out.append(["pipe", "Pipe: enter through the opening, slide out of the linked pipe", 0, 0])
+			out.append(["pipe", tr("Pipe: enter through the opening, slide out of the linked pipe"), 0, 0])
 	if GameConfig.SURROUND_RULE_ENABLED:
-		out.append(["moves", "Surround an item with 4 items of one other type: all 5 explode", 0, 0])
+		out.append(["moves", tr("Surround an item with 4 items of one other type: all 5 explode"), 0, 0])
 	return out
 
 
@@ -146,7 +146,7 @@ func _process(delta: float) -> void:
 		elapsed += delta
 		if GameConfig.FAIL_ON_TIME_LIMIT and elapsed >= board.time_limit and not view.busy:
 			elapsed = board.time_limit
-			_lose("Time's up!")
+			_lose(tr("Time's up!"))
 	_update_time()
 
 
@@ -196,9 +196,9 @@ func _check_end() -> void:
 	if board.is_won():
 		reason = "win"
 	elif GameConfig.FAIL_ON_MOVE_LIMIT and board.moves_made >= board.move_limit:
-		reason = "Out of moves!"
+		reason = tr("Out of moves!")
 	elif not board.has_legal_move():
-		reason = "No moves left!"
+		reason = tr("No moves left!")
 	if reason == "":
 		return
 	finished = true # block input while the last effects play out
@@ -280,46 +280,46 @@ func _toggle_pause() -> void:
 		return
 	view.end_drag()
 	paused = true
-	var o := _open_overlay("Paused")
-	o.add_button("Resume", _toggle_pause)
-	o.add_button("Restart", _restart)
-	o.add_button("Quit to menu", _on_back)
+	var o := _open_overlay(tr("Paused"))
+	o.add_button(tr("Resume"), _toggle_pause)
+	o.add_button(tr("Restart"), _restart)
+	o.add_button(tr("Quit to menu"), _on_back)
 
 
 func _win() -> void:
 	finished = true
 	var s := GameConfig.score(board.move_limit, board.moves_made, board.time_limit, elapsed)
 	var best := App.record_score(App.current_path, s.total) if not App.testing_from_editor else false
-	var o := _open_overlay("Level Complete!")
+	var o := _open_overlay(tr("Level Complete!"))
 	o.add_rows([
-		["Level complete", str(s.base)],
-		["%d spare moves x %d" % [s.moves_left, GameConfig.SCORE_PER_REMAINING_MOVE], "+%d" % s.move_bonus],
-		["%d spare seconds x %d" % [s.secs_left, GameConfig.SCORE_PER_REMAINING_SECOND], "+%d" % s.time_bonus],
+		[tr("Level complete"), str(s.base)],
+		[tr("%d spare moves x %d") % [s.moves_left, GameConfig.SCORE_PER_REMAINING_MOVE], "+%d" % s.move_bonus],
+		[tr("%d spare seconds x %d") % [s.secs_left, GameConfig.SCORE_PER_REMAINING_SECOND], "+%d" % s.time_bonus],
 	])
-	o.add_text("Score: %d" % s.total, "ScoreLabel", 34)
+	o.add_text(tr("Score: %d") % s.total, "ScoreLabel", 34)
 	if best:
-		o.add_text("New best!", "AccentLabel", 18)
+		o.add_text(tr("New best!"), "AccentLabel", 18)
 	if App.testing_from_editor:
-		o.add_button("Back to editor", _on_back)
+		o.add_button(tr("Back to editor"), _on_back)
 	else:
 		var nxt := App.next_level(App.current_path)
 		if nxt != "":
-			o.add_button("Next level", func(): App.start_level(nxt))
-		o.add_button("Level select", _on_back)
-	o.add_button("Play again", _restart)
+			o.add_button(tr("Next level"), func(): App.start_level(nxt))
+		o.add_button(tr("Level select"), _on_back)
+	o.add_button(tr("Play again"), _restart)
 
 
 func _lose(reason: String) -> void:
 	finished = true
 	var o := _open_overlay(reason)
-	o.add_text("Some goal pieces survived this time.")
-	o.add_button("Try again", _restart)
+	o.add_text(tr("Some goal pieces survived this time."))
+	o.add_button(tr("Try again"), _restart)
 	if not history.is_empty():
-		o.add_button("Undo last move", func():
+		o.add_button(tr("Undo last move"), func():
 			_close_overlay()
 			finished = false
 			_undo())
-	o.add_button("Back to editor" if App.testing_from_editor else "Level select", _on_back)
+	o.add_button(tr("Back to editor") if App.testing_from_editor else tr("Level select"), _on_back)
 
 
 func _open_overlay(title: String) -> Overlay:
@@ -347,11 +347,11 @@ func _show_level_info() -> void:
 		return
 	view.end_drag()
 	paused = true
-	var panel := _open_overlay("Level info")
-	panel.add_text("Destroy all goal pieces. Moves and time are bonus targets.")
+	var panel := _open_overlay(tr("Level info"))
+	panel.add_text(tr("Destroy all goal pieces. Moves and time are bonus targets."))
 	for entry in _legend_entries():
 		panel.add_text(entry[1])
-	panel.add_button("Back to game", _toggle_pause)
+	panel.add_button(tr("Back to game"), _toggle_pause)
 
 
 func _notification(what: int) -> void:
