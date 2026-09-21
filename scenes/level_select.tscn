@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://scripts/ui/level_select.gd" id="1_p0wlc"]
 [ext_resource type="Script" path="res://scripts/game/backdrop.gd" id="2_2epne"]
 
+[ext_resource type="Script" path="res://scripts/ui/level_scroll.gd" id="3_scroll"]
+
 [node name="LevelSelect" type="Control" unique_id=1179621191]
 layout_mode = 3
 anchors_preset = 0
@@ -17,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource("2_2epne")
+menu_preview = true
 theme_key = "nexus"
 
 [node name="Margin" type="MarginContainer" parent="." unique_id=1953793963]
@@ -70,6 +73,7 @@ text = "Level Designer"
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
+script = ExtResource("3_scroll")
 
 [node name="WorldList" type="VBoxContainer" parent="Margin/Layout/Scroll" unique_id=456305186]
 unique_name_in_owner = true

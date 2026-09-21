@@ -9,6 +9,7 @@ extends Control
 		theme_key = v
 		theme_data = WorldTheme.get_palette(v)
 		queue_redraw()
+@export var menu_preview := false
 var theme_data: Dictionary = WorldTheme.get_palette("jungle")
 var _t := 0.0
 var _motes: Array = []
@@ -28,11 +29,17 @@ func set_theme_data(d: Dictionary) -> void:
 	queue_redraw()
 
 
+func _background_texture() -> Texture2D:
+	if menu_preview:
+		return AssetLib.texture("backgrounds/menu/%s%s.webp" % [theme_data.key, "_portrait" if size.y > size.x else ""])
+	return AssetLib.background(theme_data.key, size.y > size.x)
+
+
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	# Painted backgrounds are static; only the procedural fallback animates.
-	if AssetLib.background(theme_data.key, size.y > size.x) != null:
+	if _background_texture() != null:
 		return
 	_t += delta
 	queue_redraw()
@@ -42,7 +49,7 @@ func _draw() -> void:
 	var sz := size
 	if sz.x < 2 or sz.y < 2:
 		return
-	var tex := AssetLib.background(theme_data.key, sz.y > sz.x)
+	var tex := _background_texture()
 	if tex:
 		# Cover-fit the painted background, then skip procedural scenery.
 		var ts := tex.get_size()

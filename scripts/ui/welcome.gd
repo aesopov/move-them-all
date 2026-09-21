@@ -6,10 +6,8 @@ var _t := 0.0
 
 
 func _ready() -> void:
-	var total := 0
-	for w in App.worlds:
-		total += w.levels.size()
-	%LevelCount.text = tr("%d levels in %d worlds") % [total, App.worlds.size()]
+	Platform.menu_ready()
+	App.preload_menu_world()
 	%PlayButton.pressed.connect(func(): App.goto("select"))
 	%DesignerButton.pressed.connect(_open_editor)
 	%QuitButton.pressed.connect(func(): get_tree().quit())
@@ -52,9 +50,8 @@ func _responsive_layout() -> void:
 	$Center/Menu.add_theme_constant_override("separation", 6 if short else 16)
 	$Center/Menu/Spacer.custom_minimum_size.y = 0 if short else 20
 	$Center/Menu/Title.add_theme_font_size_override("font_size", 40 if short else (46 if narrow else 84))
-	$Center/Menu/Tagline.add_theme_font_size_override("font_size", 16 if short else (20 if narrow else 24))
 	%DesignerButton.visible = not narrow and not OS.has_feature("mobile")
-	%QuitButton.visible = not OS.has_feature("mobile")
+	%QuitButton.visible = not OS.has_feature("mobile") and not OS.has_feature("web")
 	for button in [%PlayButton, %DesignerButton, %QuitButton]:
 		button.custom_minimum_size.y = 48 if short else 58
 

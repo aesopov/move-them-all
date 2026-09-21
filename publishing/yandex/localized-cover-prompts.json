@@ -1,0 +1,17 @@
+[
+  {
+    "lang": "en",
+    "path": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3ec3a35c-7ba9-48fc-b4a3-daad7f495188.png",
+    "prompt": "Use case: text-localization. Edit the supplied game cover. Replace ONLY the title \"Merge Them All\" with exact text \"Pair Up\". Keep the same ivory/gold dimensional serif lettering and dark green outline, center the new title in the upper third with balanced margins. Preserve the entire jungle, waterfall, stone board, rings, blue crystals, sparkle, colors and composition. No other words. Accurate en spelling and diacritics required. Landscape 80:47 aspect ratio, final intended size 800x470 PNG."
+  },
+  {
+    "lang": "ru",
+    "path": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-eb5b450b-cdd0-49fa-afd5-7ad059058320.png",
+    "prompt": "Use case: text-localization. Edit the supplied game cover. Replace ONLY the title \"Merge Them All\" with exact text \"Найди пару\". Keep the same ivory/gold dimensional serif lettering and dark green outline, center the new title in the upper third with balanced margins. Preserve the entire jungle, waterfall, stone board, rings, blue crystals, sparkle, colors and composition. No other words. Accurate ru spelling and diacritics required. Landscape 80:47 aspect ratio, final intended size 800x470 PNG."
+  },
+  {
+    "lang": "tr",
+    "path": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-1ffa2279-6787-4a7a-8af8-e1d2ff88c319.png",
+    "prompt": "Use case: text-localization. Edit the supplied game cover. Replace ONLY the title \"Merge Them All\" with exact text \"Eşini Bul\". Keep the same ivory/gold dimensional serif lettering and dark green outline, center the new title in the upper third with balanced margins. Preserve the entire jungle, waterfall, stone board, rings, blue crystals, sparkle, colors and composition. No other words. Accurate tr spelling and diacritics required. Landscape 80:47 aspect ratio, final intended size 800x470 PNG."
+  }
+]

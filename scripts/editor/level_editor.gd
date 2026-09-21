@@ -160,7 +160,20 @@ func _init_props() -> void:
 
 ## Preview with the level's own theme, else its world's (custom levels: crystal caves).
 func _apply_theme_preview() -> void:
-	view.theme_data = WorldTheme.for_level(App.locate(current_path).x, board.meta)
+	var theme := WorldTheme.for_level(App.locate(current_path).x, board.meta)
+	if FileAccess.file_exists(LevelAssets.MANIFEST):
+		_set_status(tr("Loading level assets…"))
+		var loader := LevelAssets.new()
+		add_child(loader)
+		var ok := await loader.ensure_theme(theme.key)
+		var error_text := loader.error_text
+		loader.queue_free()
+		if not ok:
+			_set_status(error_text)
+			return
+		if theme.key != WorldTheme.for_level(App.locate(current_path).x, board.meta).key: return
+		_set_status("")
+	view.theme_data = theme
 	view.set_decor(LevelDecor.decor_path_for(current_path) if current_path != "" else "")
 	view.refresh()
 

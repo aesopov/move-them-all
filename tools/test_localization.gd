@@ -19,11 +19,15 @@ func run() -> void:
 	check(locale.select("auto", preference_path) == OK, "Restore automatic mode")
 	check(locale.read_preference(preference_path) == "auto", "Persist automatic mode")
 	check(locale.select("xx", preference_path) == ERR_INVALID_PARAMETER, "Reject unsupported override")
+	var retired_settings := ConfigFile.new()
+	retired_settings.set_value("language", "locale", "zh_CN")
+	retired_settings.save(preference_path)
+	check(locale.read_preference(preference_path) == "auto", "Retired Chinese preference falls back to automatic")
 	DirAccess.remove_absolute(preference_path)
 	check(locale.read_preference(preference_path) == "auto", "Missing settings use automatic mode")
-	for pair in [["ru_RU","ru"],["es-MX","es"],["pt_PT","pt_BR"],["zh-Hans-CN","zh_CN"],["zh_TW","zh_CN"],["de_CH","de"],["fr_CA","fr"],["ja_JP","en"]]:
+	for pair in [["ru_RU","ru"],["es-MX","es"],["pt_PT","pt_BR"],["zh-Hans-CN","en"],["zh_TW","en"],["de_CH","de"],["fr_CA","fr"],["ja_JP","en"]]:
 		check(locale.resolve(pair[0]) == pair[1], "Device locale resolution: " + pair[0])
-	var font = load("res://assets/fonts/NotoSansSC.ttf")
+	var font = load("res://assets/fonts/MergeUI.ttf")
 	font.allow_system_fallback = false
 	var file := FileAccess.open("res://localization/messages.csv", FileAccess.READ)
 	file.get_csv_line()
@@ -32,7 +36,7 @@ func run() -> void:
 		var row := file.get_csv_line()
 		if row.size() > 1: rows.append(row)
 	for row in rows:
-		check(row.size() == 8, "Seven translations for " + row[0])
+		check(row.size() == 7, "Six translations for " + row[0])
 		for text in row:
 			for ch in text:
 				if ch != "\n": check(font.has_char(ch.unicode_at(0)), "Missing bundled glyph: " + ch)

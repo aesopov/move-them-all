@@ -18,6 +18,7 @@ var finished := false
 @onready var _lbl_time: Label = %TimeLabel
 @onready var _lbl_status: Label = %StatusLabel
 var _target_rows: Array = []
+var touch_controls: Control
 var _overlay: Overlay
 
 
@@ -29,11 +30,18 @@ func _ready() -> void:
 	board = Board.from_dict(App.current_data)
 	start_board = board.clone()
 
+	view.modulate.a = 0.0
 	view.theme_data = td
 	view.set_decor(LevelDecor.decor_path_for(App.current_path if not App.testing_from_editor else App.editor_path))
 	view.set_board(board)
 	view.move_requested.connect(_on_move)
 
+	touch_controls = preload("res://scripts/game/touch_board_controls.gd").new()
+	touch_controls.view = view
+	view.get_parent().add_child(touch_controls)
+	var preferences := ConfigFile.new()
+	preferences.load("user://controls.cfg")
+	touch_controls.set_enabled(preferences.get_value("controls", "tap_zoom", false))
 	_fill_panels()
 	%BackButton.pressed.connect(_on_back)
 	%PauseButton.pressed.connect(_toggle_pause)
@@ -41,7 +49,15 @@ func _ready() -> void:
 	%RestartButton.pressed.connect(_restart)
 	_update_hud()
 	add_child(preload("res://scripts/game/game_layout.gd").new())
-	_settle_start.call_deferred()
+	_show_fitted_board.call_deferred()
+
+
+func _show_fitted_board() -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	view.modulate.a = 1.0
+	_settle_start()
+	if not App.testing_from_editor: App.preload_next_world(App.current_path)
 
 
 # ---------------------------------------------------------------------------
@@ -196,6 +212,7 @@ func _legend_entries() -> Array:
 # ---------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
+	Platform.gameplay(not paused and not finished and view.modulate.a > 0.0)
 	if clock_running and not paused and not finished:
 		elapsed += delta
 		if GameConfig.FAIL_ON_TIME_LIMIT and elapsed >= board.time_limit and not view.busy:
@@ -330,6 +347,13 @@ func _settle_start() -> void:
 		_check_end()
 
 
+func _toggle_touch_mode() -> void:
+	touch_controls.set_enabled(not touch_controls.enabled)
+	var preferences := ConfigFile.new()
+	preferences.set_value("controls", "tap_zoom", touch_controls.enabled)
+	preferences.save("user://controls.cfg")
+
+
 func _toggle_pause() -> void:
 	if finished:
 		return
@@ -341,6 +365,13 @@ func _toggle_pause() -> void:
 	paused = true
 	var o := _open_overlay(tr("Paused"))
 	o.add_button(tr("Resume"), _toggle_pause)
+	o.add_button(tr("Zoom controls: on") if touch_controls.enabled else tr("Zoom controls: off"), func():
+		_toggle_touch_mode()
+		_toggle_pause())
+	if touch_controls.enabled:
+		o.add_button(tr("Reset zoom"), func():
+			touch_controls.reset_camera()
+			_toggle_pause())
 	o.add_button(tr("Restart"), _restart)
 	o.add_button(tr("Quit to menu"), _on_back)
 
@@ -408,6 +439,8 @@ func _show_level_info() -> void:
 	paused = true
 	var panel := _open_overlay(tr("Level info"))
 	panel.add_text(tr("Destroy all goal pieces. Moves and time are bonus targets."))
+	if touch_controls.enabled:
+		panel.add_text(tr("Pinch to zoom; drag to pan. Tap a piece, then a cell in the same row or column. Stops before transports. Tap a selected bomb again to detonate."))
 	var targets := HFlowContainer.new()
 	targets.add_theme_constant_override("h_separation", 16)
 	panel.get_node("%Body").add_child(targets)
@@ -421,3 +454,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_PAUSED and is_node_ready() and not paused and not finished:
 		view.end_drag()
 		_toggle_pause()
+
+
+func _exit_tree() -> void:
+	Platform.gameplay(false)

@@ -1,0 +1,39 @@
+{
+  "languages": ["ru", "en", "es", "pt_BR", "fr", "de"],
+  "ru": {
+    "title": "Merge Them All",
+    "seo": "Логическая головоломка с объединением фигур, трубами и телепортами. Продумывайте ходы, обходите препятствия и находите решение каждого уровня!",
+    "about": "Одинаковые фигуры, неожиданные препятствия и один точный ход, который меняет всё. В Merge Them All нужно убирать целевые фигуры с поля, объединяя подходящие пары и используя особенности уровня.\n\nВас ждут 105 уровней: от небольших задач до сложных комбинаций с трубами, телепортами, ключами, замками и бомбами. Учитывайте гравитацию: одни предметы падают, другие поднимаются. Исследуйте разные миры, улучшайте результат и возвращайтесь к трудным задачам.\n\nЕсть отмена хода, перезапуск и удобный режим масштабирования поля для небольших экранов. Игра поддерживает вертикальную и горизонтальную ориентацию.",
+    "how": "Уберите все целевые фигуры — их виды и количество указаны в целях уровня. Перетаскивайте предметы по горизонтали или вертикали. Соединяйте одинаковые фигуры, подбирайте ключи к замкам и используйте трубы и телепорты. Следите за падающими предметами и опасными клетками.\n\nНа телефоне можно включить режим масштабирования: увеличивайте поле двумя пальцами, перемещайте его, затем нажмите на предмет и точку назначения в том же ряду или столбце.\n\nОшиблись? Отмените ход или начните уровень заново. За оставшиеся ходы и время начисляются дополнительные очки."
+  },
+  "en": {
+    "title": "Merge Them All",
+    "seo": "A logic puzzle with matching pieces, pipes and teleporters. Plan your moves, navigate obstacles and discover the solution to every board!",
+    "about": "Matching pieces, unexpected obstacles and one clever move that changes everything. Clear the target pieces by combining matching pairs and making the most of each board.\n\nExplore 105 levels, from compact puzzles to intricate arrangements of pipes, teleporters, keys, locks and bombs. Watch gravity: some objects fall while others rise. Discover different worlds and improve your scores.\n\nUndo, restart and an optional zoom mode help you tackle tricky boards. Play in portrait or landscape on screens large and small.",
+    "how": "Clear all target pieces. The level goals show their types and counts. Drag objects horizontally or vertically, combine matching pieces, unlock locks with matching keys and use pipes and teleporters. Watch falling objects and hazardous tiles.\n\nOn a phone, enable zoom controls to pinch and pan the board. Tap a piece, then a destination in the same row or column.\n\nUndo a move or restart whenever you need another approach. Spare moves and time earn bonus points."
+  },
+  "es": {
+    "title": "Merge Them All",
+    "seo": "Un puzle de lógica con piezas, tuberías y teletransportadores. Planea tus movimientos, supera obstáculos y descubre la solución de cada tablero.",
+    "about": "Piezas iguales, obstáculos inesperados y un movimiento que lo cambia todo. Elimina las piezas objetivo combinando parejas iguales y aprovechando cada tablero.\n\nExplora 105 niveles con tuberías, teletransportadores, llaves, candados y bombas. Ten en cuenta la gravedad: algunos objetos caen y otros suben. Descubre distintos mundos y mejora tus puntuaciones.\n\nPuedes deshacer movimientos, reiniciar y ampliar el tablero. Juega en orientación vertical u horizontal.",
+    "how": "Elimina todas las piezas objetivo. Sus tipos y cantidades aparecen en los objetivos del nivel. Arrastra los objetos en horizontal o vertical. Combina piezas iguales, abre candados con sus llaves y utiliza tuberías y teletransportadores. Ten cuidado con los objetos que caen y las casillas peligrosas.\n\nEn el móvil, activa el zoom para ampliar y desplazar el tablero. Toca una pieza y después un destino en su misma fila o columna. Deshaz movimientos o reinicia si lo necesitas. Los movimientos y el tiempo restantes dan puntos extra."
+  },
+  "pt_BR": {
+    "title": "Merge Them All",
+    "seo": "Um quebra-cabeça de lógica com peças, tubos e teletransportes. Planeje suas jogadas, supere obstáculos e descubra a solução de cada tabuleiro!",
+    "about": "Peças iguais, obstáculos inesperados e uma jogada capaz de mudar tudo. Elimine as peças-alvo combinando pares iguais e aproveitando as características do tabuleiro.\n\nExplore 105 fases com tubos, teletransportes, chaves, cadeados e bombas. Observe a gravidade: alguns objetos caem, outros sobem. Descubra mundos diferentes e melhore suas pontuações.\n\nDesfaça jogadas, reinicie e amplie o tabuleiro quando precisar. Jogue na orientação vertical ou horizontal.",
+    "how": "Elimine todas as peças-alvo. Os objetivos da fase mostram seus tipos e quantidades. Arraste objetos na horizontal ou vertical, combine peças iguais, abra cadeados com as chaves correspondentes e use tubos e teletransportes. Cuidado com objetos em queda e casas perigosas.\n\nNo celular, ative o zoom para ampliar e deslocar o tabuleiro. Toque em uma peça e depois em um destino na mesma linha ou coluna. Desfaça uma jogada ou reinicie para tentar outra estratégia. O tempo e as jogadas restantes rendem pontos extras."
+  },
+  "fr": {
+    "title": "Merge Them All",
+    "seo": "Un casse-tête avec des pièces à associer, des tuyaux et des téléporteurs. Préparez vos coups, contournez les obstacles et résolvez chaque niveau !",
+    "about": "Des pièces identiques, des obstacles inattendus et un seul mouvement qui change tout. Éliminez les pièces cibles en associant les bonnes paires et en exploitant chaque plateau.\n\nDécouvrez 105 niveaux avec tuyaux, téléporteurs, clés, cadenas et bombes. Attention à la gravité : certains objets tombent, d’autres montent. Explorez différents mondes et améliorez vos scores.\n\nAnnulez un coup, recommencez ou agrandissez le plateau. Jouez en mode portrait ou paysage.",
+    "how": "Éliminez toutes les pièces cibles. Les objectifs indiquent leurs types et leurs quantités. Faites glisser les objets horizontalement ou verticalement. Associez les pièces identiques, ouvrez les cadenas avec les bonnes clés et utilisez les tuyaux et téléporteurs. Surveillez les objets qui tombent et les cases dangereuses.\n\nSur téléphone, activez le zoom pour agrandir et déplacer le plateau. Touchez une pièce, puis une destination sur la même ligne ou colonne. Annulez un coup ou recommencez si nécessaire. Les coups et le temps restants rapportent des points bonus."
+  },
+  "de": {
+    "title": "Merge Them All",
+    "seo": "Ein Logikrätsel mit passenden Figuren, Röhren und Teleportern. Plane deine Züge, überwinde Hindernisse und finde die Lösung für jedes Spielfeld!",
+    "about": "Gleiche Figuren, überraschende Hindernisse und ein kluger Zug, der alles verändert. Entferne die Zielfiguren, indem du passende Paare verbindest und die Besonderheiten des Spielfelds nutzt.\n\nEntdecke 105 Level mit Röhren, Teleportern, Schlüsseln, Schlössern und Bomben. Beachte die Schwerkraft: Manche Objekte fallen, andere steigen auf. Erkunde verschiedene Welten und verbessere deine Punktzahlen.\n\nDu kannst Züge rückgängig machen, neu starten und das Spielfeld vergrößern. Spiele im Hoch- oder Querformat.",
+    "how": "Entferne alle Zielfiguren. Die Levelziele zeigen ihre Arten und Anzahlen. Ziehe Objekte waagerecht oder senkrecht, verbinde gleiche Figuren, öffne Schlösser mit passenden Schlüsseln und nutze Röhren und Teleporter. Achte auf fallende Objekte und gefährliche Felder.\n\nAktiviere auf dem Handy die Zoomsteuerung, um das Spielfeld zu vergrößern und zu verschieben. Tippe auf eine Figur und dann auf ein Ziel in derselben Zeile oder Spalte. Mache einen Zug rückgängig oder starte neu. Übrige Züge und Zeit bringen Bonuspunkte."
+  }
+}

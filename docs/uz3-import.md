@@ -56,7 +56,7 @@ Legacy linked-mouth pipes and the custom Level 16 elbow behavior remain unchange
 - Mover boxes never match. Movers and exclamation boxes are blast-proof; exclamation boxes can still match their source group.
 - Per-item gravity follows source flags, including falling/rising keys.
 - Goals follow the `sdvig` loader's interpretation of source piece IDs below 10. Non-goal matching groups are preserved.
-- Original level names and bonus targets are retained. Titles and new help text have translations in all seven supported languages.
+- Original level names and bonus targets are retained. Titles and new help text have translations in all six supported languages.
 
 Art substitutions and mechanical policy overrides are listed per cell in `uz3-import-notes.json`. These imports preserve source gameplay data within the above policies; they are not a pixel-perfect recreation of the original visuals.
 

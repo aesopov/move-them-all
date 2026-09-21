@@ -33,5 +33,6 @@ func _initialize() -> void:
 	var vertical := PipeArt.texture(5).get_image()
 	check(horizontal.get_pixel(64, 35).r > horizontal.get_pixel(64, 92).r, "Horizontal tube must be lit from above")
 	check(vertical.get_pixel(35, 64).r > vertical.get_pixel(92, 64).r, "Vertical tube must be lit from the left")
+	check(PipeArt._textures.is_empty(), "Baked shapes must avoid per-pixel runtime generation")
 	print("Pipe geometry, mouth joins, fixed lighting and cache: %d failures" % failures)
 	quit(1 if failures else 0)

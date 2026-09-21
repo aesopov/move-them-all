@@ -19,6 +19,11 @@ const ROOT := "res://assets"
 static var _cache := {}
 
 
+static func clear_missing() -> void:
+	for key in _cache.keys():
+		if _cache[key] == null: _cache.erase(key)
+
+
 static func texture(rel_path: String) -> Texture2D:
 	if _cache.has(rel_path):
 		return _cache[rel_path]

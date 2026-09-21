@@ -25,6 +25,7 @@ var editor_data: Variant = null
 var editor_path := ""
 
 var progress := {}
+var _loading_level := false
 
 
 var _shot_path := ""
@@ -172,8 +173,54 @@ func can_write_project() -> bool:
 
 
 func start_level(path: String) -> void:
+	if _loading_level: return
+	var data := load_level(path)
+	if FileAccess.file_exists(LevelAssets.MANIFEST):
+		_loading_level = true
+		var layer := CanvasLayer.new()
+		layer.layer = 100
+		add_child(layer)
+		var cover := ColorRect.new()
+		cover.color = Color(0.025, 0.04, 0.06, 0.97)
+		cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		layer.add_child(cover)
+		var center := CenterContainer.new()
+		center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		cover.add_child(center)
+		var rows := VBoxContainer.new()
+		center.add_child(rows)
+		var label := Label.new()
+		label.text = tr("Loading level assets…")
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		rows.add_child(label)
+		var loader := LevelAssets.new()
+		loader.progress = label
+		add_child(loader)
+		await get_tree().process_frame
+		var theme := WorldTheme.for_level(locate(path).x, data)
+		var ok := await loader.ensure_theme(theme.key)
+		var error_text := loader.error_text
+		loader.queue_free()
+		if not ok:
+			label.text = error_text
+			var retry := Button.new()
+			retry.text = tr("Try again")
+			rows.add_child(retry)
+			retry.pressed.connect(func():
+				layer.queue_free()
+				_loading_level = false
+				start_level(path))
+			var back := Button.new()
+			back.text = tr("<  Back")
+			rows.add_child(back)
+			back.pressed.connect(func():
+				layer.queue_free()
+				_loading_level = false)
+			return
+		layer.queue_free()
+		_loading_level = false
 	current_path = path
-	current_data = load_level(path)
+	current_data = data
 	testing_from_editor = false
 	goto("game")
 
@@ -220,3 +267,30 @@ func _update_ui_scale() -> void:
 		base = Vector2i(960, 540)
 	if window.content_scale_size != base:
 		window.content_scale_size = base
+
+
+func preload_menu_world() -> void:
+	await get_tree().create_timer(1.0).timeout
+	if _loading_level or get_tree().current_scene == null: return
+	if get_tree().current_scene.scene_file_path not in [SCENES.welcome, SCENES.select]: return
+	for world in worlds:
+		for path in world.levels:
+			if best_score(path) == 0:
+				preload_level_assets(path)
+				return
+
+func preload_next_world(path: String) -> void:
+	var location := locate(path)
+	if location.x < 0: return
+	for i in worlds.size():
+		if worlds[i].index == location.x and worlds[i].levels.back() == path and i + 1 < worlds.size():
+			preload_level_assets(worlds[i + 1].levels.front())
+			return
+
+func preload_level_assets(path: String) -> void:
+	if not FileAccess.file_exists(LevelAssets.MANIFEST): return
+	var loader := LevelAssets.new()
+	add_child(loader)
+	var theme := WorldTheme.for_level(locate(path).x, load_level(path))
+	await loader.ensure_theme(theme.key, true)
+	loader.queue_free()

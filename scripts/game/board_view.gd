@@ -74,6 +74,10 @@ var _dragged := false
 ## Incremented on every press, so the game can group the steps of one drag.
 var gesture := -1
 var _mouse_btn := 0
+var tap_mode := false
+var tap_item := -1
+var tap_target := -1
+var tap_direction := -1
 
 var animated_layer: Node2D
 var animated_cells: Array[int] = []
@@ -356,12 +360,60 @@ func _gui_input(event: InputEvent) -> void:
 ## Stops following the pointer (release, teleport/pipe jump, undo, restart).
 func end_drag() -> void:
 	_drag_item = -1
+	tap_target = -1
 
 
 ## Called every frame: while the button is held, keep stepping the dragged item
 ## one cell towards the pointer. Each step goes through the normal rules
 ## (gravity, matches...), so the item may fall or explode on the way.
+func tap_cell(c: int) -> void:
+	if busy or c < 0 or board == null: return
+	if tap_item >= 0 and board.it_cell[tap_item] == c:
+		if ItemDefs.kind(board.it_type[tap_item]) == ItemDefs.Kind.BOMB:
+			gesture += 1
+			move_requested.emit(tap_item, Board.DETONATE)
+		else:
+			tap_item = -1
+			selected_cell = -1
+		return
+	if tap_item >= 0 and board.it_cell[tap_item] < 0: tap_item = -1
+	if board.item_at[c] >= 0 and tap_item < 0:
+		tap_item = board.item_at[c]
+		selected_cell = c
+		return
+	if tap_item < 0 or board.it_cell[tap_item] < 0: return
+	var delta := Board.to_xy(c) - Board.to_xy(board.it_cell[tap_item])
+	if delta.x != 0 and delta.y != 0: return
+	tap_direction = (Board.RIGHT if delta.x > 0 else Board.LEFT) if delta.x != 0 else (Board.DOWN if delta.y > 0 else Board.UP)
+	tap_target = c
+	gesture += 1
+
+
+func _drive_tap() -> void:
+	if busy: return
+	selected_cell = board.it_cell[tap_item] if tap_item >= 0 else -1
+	if tap_target < 0 or tap_item < 0: return
+	var c := board.it_cell[tap_item]
+	if c < 0 or c == tap_target:
+		end_drag()
+		return
+	var next := board.step(c, tap_direction)
+	# Never plan a route through transport. Each move still resolves normal rules.
+	if next < 0 or not board.can_move(tap_item, tap_direction):
+		end_drag()
+		return
+	if next != tap_target and (board.pipe_mouth[next] != -1 or board.teleport_to[next] >= 0):
+		end_drag()
+		return
+	move_requested.emit(tap_item, tap_direction)
+	# Gravity, destruction or indirect transport ends this command immediately.
+	if board.it_cell[tap_item] != next: end_drag()
+
+
 func _drive_drag() -> void:
+	if tap_mode:
+		_drive_tap()
+		return
 	if _drag_item < 0 or busy:
 		return
 	var i := _drag_item
@@ -598,7 +650,9 @@ func _draw() -> void:
 	for c in Board.N:
 		var t := view_terrain[c]
 		match t:
-			Board.T.FLOOR: _draw_floor(c)
+			# Liquid surfaces have transparent gaps above their waves. Keep the
+			# usual checkerboard beneath them, cached with the static terrain.
+			Board.T.FLOOR, Board.T.WATER, Board.T.LAVA, Board.T.ACID: _draw_floor(c)
 			Board.T.WALL:
 				match board.wall_skin[c]:
 					Board.WallSkin.BRICK: _draw_brick_wall(c)
@@ -875,6 +929,8 @@ func _draw_overlay() -> void:
 			var p := board.pipe_to[c]
 			if p >= 0:
 				_link_arrow(c, p, _pipe_col.get(c, Color.WHITE))
+	if tap_mode and selected_cell >= 0:
+		pipe_layer.draw_rect(_cell_rect(selected_cell).grow(-2), Color(1, 0.85, 0.2), false, 3.0)
 	if editor_mode:
 		if hover_cell >= 0:
 			pipe_layer.draw_rect(_cell_rect(hover_cell), Color(1, 1, 1, 0.5), false, 2.0)

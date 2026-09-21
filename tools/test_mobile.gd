@@ -46,6 +46,7 @@ func _initialize() -> void:
 	game.board = b
 	game.start_board = b.clone()
 	game.view.set_board(b)
+	game._target_rows.clear() # The fixture replaces the entire level.
 	await frames()
 	var view: BoardView = game.view
 	var touch := InputEventScreenTouch.new()

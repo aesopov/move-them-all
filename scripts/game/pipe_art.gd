@@ -8,6 +8,11 @@ const RADIUS := 0.45
 const LIGHT := Vector3(-0.45, -0.6, 0.8)
 static var _textures: Dictionary = {}
 static var _grain: FastNoiseLite
+static var prefer_baked := true
+
+
+static func tile_name(mask: int, mouth: int) -> String:
+	return "tile_%d_%d" % [mask, mouth]
 
 
 static func _surface_noise(p: Vector2) -> float:
@@ -20,6 +25,9 @@ static func _surface_noise(p: Vector2) -> float:
 
 
 static func texture(mask: int, mouth := -1, extent := Vector2i(128, 128), origin := Vector2.ZERO) -> Texture2D:
+	if prefer_baked and extent == Vector2i(128, 128):
+		var baked := AssetLib.texture("pipes/generated/%s.png" % tile_name(mask, mouth))
+		if baked: return baked
 	var key := [mask, mouth, extent, origin]
 	if not _textures.has(key):
 		var image := Image.create(extent.x, extent.y, false, Image.FORMAT_RGBA8)
@@ -137,12 +145,9 @@ static func _mouth_pixel(p: Vector2, direction: int) -> Color:
 	return body
 
 
-static func draw_tile(canvas: CanvasItem, rect: Rect2, mask: int, tint := Color.WHITE, mouth := -1, cell_size := 0.0) -> void:
-	var unit := cell_size if cell_size > 0.0 else minf(rect.size.x, rect.size.y)
-	var extent := Vector2i((rect.size / unit * RESOLUTION).round())
-	var origin := (rect.position / unit * RESOLUTION).round()
+static func draw_tile(canvas: CanvasItem, rect: Rect2, mask: int, tint := Color.WHITE, mouth := -1, _cell_size := 0.0) -> void:
 	var painted := tint.lerp(Color(tint.get_luminance(), tint.get_luminance(), tint.get_luminance(), tint.a), 0.22)
-	canvas.draw_texture_rect(texture(mask, mouth, extent, origin), rect, false, painted)
+	canvas.draw_texture_rect(texture(mask, mouth), rect, false, painted)
 
 
 static func draw_path(canvas: CanvasItem, points: PackedVector2Array, cell_size: float, tint: Color) -> void:

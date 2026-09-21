@@ -13,6 +13,7 @@ var stats: HBoxContainer
 var original_children: Array[Node]
 var original_buttons: Node
 var old_size := Vector2.ZERO
+var zoom_button: Button
 
 func _ready() -> void:
 	game = get_parent()
@@ -47,9 +48,18 @@ func _ready() -> void:
 	info.custom_minimum_size = Vector2(58, 58)
 	info.pressed.connect(game._show_level_info)
 	title_row.add_child(info)
+	zoom_button = Button.new()
+	zoom_button.text = "+/−"
+	zoom_button.tooltip_text = tr("Zoom")
+	zoom_button.toggle_mode = true
+	zoom_button.button_pressed = game.touch_controls.enabled
+	zoom_button.custom_minimum_size = Vector2(58, 58)
+	zoom_button.pressed.connect(func(): game._toggle_touch_mode())
+	footer.add_child(zoom_button)
 	_refresh()
 
 func _process(_delta: float) -> void:
+	zoom_button.set_pressed_no_signal(game.touch_controls.enabled)
 	if game.size != old_size:
 		_refresh()
 	_fit_board()

@@ -143,7 +143,8 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "||"
 
-[node name="BoardArea" type="CenterContainer" parent="Margin/Columns/Main" unique_id=282313488]
+[node name="BoardArea" type="Control" parent="Margin/Columns/Main" unique_id=282313488]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 
