@@ -75,7 +75,12 @@ func _process(_delta: float) -> void:
 
 
 func goto(scene: String) -> void:
+	if scene == "editor" and not can_use_designer(): return
 	get_tree().change_scene_to_file(SCENES[scene])
+
+
+func can_use_designer() -> bool:
+	return OS.is_debug_build()
 
 
 # --- Level catalogue ----------------------------------------------------------
@@ -98,6 +103,7 @@ func scan_levels() -> void:
 		var idx := worlds.size()
 		worlds.append({"name": world_name(idx), "index": idx, "levels": paths})
 	custom_levels.clear()
+	if not can_use_designer(): return
 	for dir in [PROJECT_CUSTOM_DIR, USER_LEVELS_DIR]:
 		var files := _list(dir, false)
 		files.sort()

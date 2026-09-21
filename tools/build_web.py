@@ -69,6 +69,8 @@ def main():
     ap.add_argument('--output', type=Path, default=ROOT / 'export/web')
     ap.add_argument('--log', type=Path, help='Write build progress to this file (used by the editor menu)')
     args = ap.parse_args()
+    if not (ROOT / 'export/templates/web-release.zip').is_file():
+        ap.error('Missing smaller Web template. Build it with tools/build_web_template.py; see docs/web-streaming.md.')
     if args.log:
         args.log.parent.mkdir(parents=True, exist_ok=True)
         log = args.log.open('w', buffering=1)

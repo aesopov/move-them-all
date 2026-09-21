@@ -31,6 +31,8 @@ func _button_at(node: Node, point: Vector2) -> BaseButton:
 
 func _input(event: InputEvent) -> void:
 	if not is_visible_in_tree(): return
+	# A button callback may remove this screen from the tree during _end().
+	var viewport := get_viewport()
 	if event is InputEventScreenTouch:
 		if event.pressed and pointer == -2 and _inside(event.position):
 			_begin(event.index, event.position)
@@ -55,7 +57,7 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion and pointer == -1:
 		_move(event.position)
 	else: return
-	get_viewport().set_input_as_handled()
+	if is_instance_valid(viewport): viewport.set_input_as_handled()
 
 func _begin(id: int, point: Vector2) -> void:
 	var was_gliding := absf(velocity) > STOP_SPEED

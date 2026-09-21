@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3]
 
 [ext_resource type="FontFile" path="res://assets/fonts/MergeUI.ttf" id="1_font"]
+[ext_resource type="FontFile" path="res://assets/fonts/LapsusPro-Bold.otf" id="4_bold"]
 
 [ext_resource type="Texture2D" path="res://assets/ui/stone/button.png" id="2_button"]
 [ext_resource type="Texture2D" path="res://assets/ui/stone/panel.png" id="3_panel"]
@@ -248,6 +249,9 @@ corner_radius_bottom_left = 4
 [sub_resource type="FontVariation" id="FontVariation_game"]
 base_font = ExtResource("1_font")
 
+[sub_resource type="FontVariation" id="FontVariation_bold"]
+base_font = ExtResource("4_bold")
+
 [resource]
 default_font = SubResource("FontVariation_game")
 default_font_size = 18
@@ -259,6 +263,7 @@ BigButton/font_sizes/font_size = 22
 BodyLabel/base_type = &"Label"
 BodyLabel/colors/font_color = Color(0.92, 0.95, 1, 1)
 BodyLabel/font_sizes/font_size = 15
+Button/fonts/font = SubResource("FontVariation_bold")
 Button/colors/font_color = Color(0.92, 0.95, 1, 1)
 Button/colors/font_disabled_color = Color(0.434, 0.48999998, 0.574, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -276,6 +281,7 @@ DimLabel/font_sizes/font_size = 15
 HeaderLabel/base_type = &"Label"
 HeaderLabel/colors/font_color = Color(1, 0.8, 0.25, 1)
 HeaderLabel/font_sizes/font_size = 22
+HeaderLabel/fonts/font = SubResource("FontVariation_bold")
 HudCaption/base_type = &"Label"
 HudCaption/colors/font_color = Color(0.62, 0.7, 0.82, 1)
 HudCaption/font_sizes/font_size = 16
@@ -308,6 +314,7 @@ TitleLabel/colors/font_shadow_color = Color(0, 0, 0, 0.5)
 TitleLabel/constants/outline_size = 14
 TitleLabel/constants/shadow_offset_y = 5
 TitleLabel/font_sizes/font_size = 64
+TitleLabel/fonts/font = SubResource("FontVariation_bold")
 ToolButton/base_type = &"Button"
 ToolButton/font_sizes/font_size = 15
 ToolButton/styles/hover = SubResource("StyleBoxTexture_mo6nk")

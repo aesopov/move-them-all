@@ -48,5 +48,21 @@ func run() -> void:
 	scroll.velocity = 1000
 	scroll._process(0.1)
 	check(scroll.velocity == 0, "Momentum stops at list edge")
+	# A level button can synchronously remove its screen while handling release.
+	bar.value = 0
+	await process_frame
+	var first := rows.get_child(0) as Button
+	first.pressed.connect(func(): root.remove_child(scroll))
+	var point := first.get_global_rect().get_center()
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.position = point
+	press.pressed = true
+	scroll._input(press)
+	var release := press.duplicate() as InputEventMouseButton
+	release.pressed = false
+	scroll._input(release)
+	check(not scroll.is_inside_tree(), "Level tap can detach its screen during input")
+	scroll.free()
 	print("LEVEL SCROLL FAILURES: ", failures)
 	quit(failures)

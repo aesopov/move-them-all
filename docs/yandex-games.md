@@ -1,5 +1,9 @@
 # Yandex Games release
 
+First install the custom Web release template using the one-time
+[template build instructions](web-streaming.md#smaller-release-template-and-backgrounds).
+It is generated locally and is not stored in Git.
+
 Build from the repository root:
 
 ```sh
@@ -20,9 +24,10 @@ without its optional editor/plugin, ads, payment or account modules.
 SDK initialization completes before Godot starts, so the first menu uses
 `environment.i18n.lang`, as required by
 [rule 2.14](https://yandex.ru/dev/games/doc/ru/requirements/2/14).
-Supported locales: ru, en, es, pt_BR, fr, de. Portuguese variants map to pt_BR;
-unsupported languages use English. An explicitly saved player language overrides
-automatic selection. Native and ordinary website builds retain device detection.
+Supported locales: ru, en, es, pt_BR, fr, de, tr. Portuguese variants map to pt_BR;
+unsupported languages use English. Yandex builds always use the SDK language,
+ignore saved language preferences, and hide the welcome-screen language selector.
+Native and ordinary website builds retain device detection and manual selection.
 
 LoadingAPI.ready is emitted after the welcome screen has had two layout frames.
 GameplayAPI tracks active levels, pause, completion, and leaving a level. SDK
@@ -64,4 +69,11 @@ by Yandex and intentionally is not included in the ZIP.
 
 ## Updating the displayed name manually
 
-Keep `project.godot` config/name as the internal project identifier to preserve the existing native save directory. Change the Title label in `scenes/welcome.tscn` and the corresponding row in `localization/messages.csv`. Current key: `Pair Up`, English: `Pair Up`, Russian: `Найди пару`; other supported locales use `Pair Up` until a localized name is chosen. `scripts/ui/locale.gd` applies the localized window/browser title. `tools/build_web.py` sets the initial HTML title. Then run the build command above and upload the new ZIP. Turkish currently has a localized cover only, not an in-game catalog.
+Keep `project.godot` config/name as the internal project identifier to preserve the existing native save directory. Change the Title label in `scenes/welcome.tscn` and the corresponding row in `localization/messages.csv`. Current key: `Pair Up`, English: `Pair Up`, Russian: `Найди пару`, Turkish: `Eşini Bul`; other supported locales use `Pair Up` until a localized name is chosen. `scripts/ui/locale.gd` applies the localized window/browser title. `tools/build_web.py` sets the initial HTML title. Then run the build command above and upload the new ZIP. Turkish includes a complete in-game catalog and localized cover.
+
+## Development-only level designer
+
+The welcome and level-selection screens expose the Level Designer only in debug
+builds. Release builds also reject the editor scene route and omit custom designer
+levels from the level catalogue. The editor remains available when running the
+project in Godot or exporting a debug build.

@@ -35,4 +35,4 @@ func _responsive_layout() -> void:
 	%BackButton.custom_minimum_size = Vector2(68 if narrow else 120, 58)
 	%BackButton.text = "<" if narrow else tr("<  Back")
 	%TotalScore.visible = not narrow
-	%DesignerButton.visible = not narrow and not OS.has_feature("mobile")
+	%DesignerButton.visible = App.can_use_designer() and not narrow and not OS.has_feature("mobile")

@@ -25,10 +25,11 @@ func run() -> void:
 	check(locale.read_preference(preference_path) == "auto", "Retired Chinese preference falls back to automatic")
 	DirAccess.remove_absolute(preference_path)
 	check(locale.read_preference(preference_path) == "auto", "Missing settings use automatic mode")
-	for pair in [["ru_RU","ru"],["es-MX","es"],["pt_PT","pt_BR"],["zh-Hans-CN","en"],["zh_TW","en"],["de_CH","de"],["fr_CA","fr"],["ja_JP","en"]]:
+	for pair in [["tr_TR","tr"],["tr-TR","tr"],["ru_RU","ru"],["es-MX","es"],["pt_PT","pt_BR"],["zh-Hans-CN","en"],["zh_TW","en"],["de_CH","de"],["fr_CA","fr"],["ja_JP","en"]]:
 		check(locale.resolve(pair[0]) == pair[1], "Device locale resolution: " + pair[0])
-	var font = load("res://assets/fonts/MergeUI.ttf")
-	font.allow_system_fallback = false
+	for path in ["res://assets/fonts/LapsusPro-Bold.otf", "res://assets/fonts/MergeUI.ttf"]:
+		(load(path) as FontFile).allow_system_fallback = false
+	var font: Font = load("res://ui/theme.tres").default_font
 	var file := FileAccess.open("res://localization/messages.csv", FileAccess.READ)
 	file.get_csv_line()
 	var rows := []
@@ -36,7 +37,7 @@ func run() -> void:
 		var row := file.get_csv_line()
 		if row.size() > 1: rows.append(row)
 	for row in rows:
-		check(row.size() == 7, "Six translations for " + row[0])
+		check(row.size() == locale.CODES.size() + 1, "All translations for " + row[0])
 		for text in row:
 			for ch in text:
 				if ch != "\n": check(font.has_char(ch.unicode_at(0)), "Missing bundled glyph: " + ch)
@@ -97,6 +98,7 @@ func run() -> void:
 		await frames(2)
 		canvas.size = Vector2i(480,854)
 		print("Checked localization: ",code)
-	font.allow_system_fallback = true
+	for path in ["res://assets/fonts/LapsusPro-Bold.otf", "res://assets/fonts/MergeUI.ttf"]:
+		(load(path) as FontFile).allow_system_fallback = true
 	print("LOCALIZATION FAILURES: ", failures)
 	quit(failures)

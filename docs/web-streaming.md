@@ -1,5 +1,57 @@
 # Web asset streaming
 
+## Smaller release template and backgrounds
+
+Web release exports use `export/templates/web-release.zip`. Build it once before
+exporting (the generated binary is ignored by Git). Use the same Godot editor
+version, **4.7.1**, and Emscripten **4.0.20**:
+
+```sh
+git clone --depth 1 --branch 4.7.1-stable https://github.com/godotengine/godot.git /tmp/pair-up-godot
+git clone --depth 1 https://github.com/emscripten-core/emsdk.git /tmp/pair-up-emsdk
+/tmp/pair-up-emsdk/emsdk install 4.0.20
+/tmp/pair-up-emsdk/emsdk activate 4.0.20
+python3 -m venv /tmp/pair-up-build-env
+/tmp/pair-up-build-env/bin/pip install scons==4.11.1
+python3 tools/build_web_template.py --source /tmp/pair-up-godot --emsdk /tmp/pair-up-emsdk --scons /tmp/pair-up-build-env/bin/scons
+```
+
+The profile keeps the 2D renderer, GUI, GDScript, noise, image decoders, HTTP,
+crypto, audio, and JavaScriptBridge. It removes 3D and unused networking/import
+modules and uses the fallback text server for our seven Latin/Cyrillic languages.
+Revisit the text server before adding languages requiring complex shaping (such
+as Arabic). LTO is disabled to keep compilation practical on an 8 GB machine.
+The script checks the source revision; update the profile and revalidate the
+browser build whenever upgrading Godot. Web debug exports still use the stock
+debug template.
+
+Landscape and portrait background imports use **Lossy, quality 0.85**, at their
+original resolution. Godot encodes these textures for export; the original PNGs
+remain unchanged. Item sprites, tiles, and UI textures keep their existing
+settings. These import settings also apply to native exports. Regenerate both
+the regular Web release and Yandex ZIP after changing them; content hashes will
+make existing clients download the new world packs once.
+
+To rebuild the final package after installing the template:
+
+```sh
+python3 tools/build_web.py --godot /Applications/Godot.app/Contents/MacOS/Godot
+python3 tools/build_yandex.py --godot /Applications/Godot.app/Contents/MacOS/Godot
+```
+
+Measured release sizes after this change (decimal MB):
+
+| Component | Before | After |
+| --- | ---: | ---: |
+| All world packs | 47.8 | 15.9 |
+| Web engine WASM | 39.5 | 29.1 |
+| Entire unpacked Yandex package | 96.5 | 54.1 |
+
+The engine's gzip transfer also falls from 10.05 MB to 7.25 MB. The ZIP is
+about 31.6 MB; Yandex's 100 MB gate is checked against **unpacked** bytes.
+The background settings alone bring the package to 64.6 MB. Source PNG hashes
+were unchanged for all 23 backgrounds. The current bootstrap pack stays 8.82 MB.
+
 In Godot, choose **Project → Tools → Build optimized Web release**. The editor reports completion and writes progress to `export/web-build.log`. Alternatively, build with:
 
 ```sh
@@ -138,3 +190,18 @@ The loader fades away after engine startup. Native startup is unchanged.
 
 Validation: `godot --headless --path . --script tools/test_asset_preload.gd` checks
 preload/foreground scheduling, same-theme reuse ordering and cancellation.
+
+## Turkish font coverage
+
+The current UI subset uses Noto Sans at weight 500 (132 KiB), including Turkish
+İ/ı, Ş/ş and Ğ/ğ. Its source and SIL license are in `assets/fonts/`; the full
+source font is excluded from exports. The earlier Noto Sans SC subset lacked
+these glyphs. Run `tools/subset_ui_font.py` with fonttools to regenerate it.
+
+## Current UI fonts
+
+Lapsus Pro Bold supplies titles and buttons; the Andika Regular subset supplies
+longer text and UI labels. Both cover all current translations without mixed-font
+fallback. The two runtime fonts total about 198 KiB. Original Andika is excluded
+from export, and both SIL licenses are included. No font download is needed to
+build or play. See `assets/fonts/README.md` for regeneration and sources.

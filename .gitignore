@@ -4,4 +4,9 @@ export/
 
 __pycache__/
 
+# Inglobal permits app embedding, not republishing standalone font files.
+# Previously evaluated; no longer used by the game.
+/assets/fonts/inglobal.ttf
+/assets/fonts/inglobalb.ttf
+
 tmp

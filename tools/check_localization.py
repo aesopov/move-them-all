@@ -7,10 +7,10 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 with (root / 'localization/messages.csv').open() as f:
     rows = list(csv.reader(f))
-assert rows[0] == ['keys', 'en', 'es', 'pt_BR', 'fr', 'de', 'ru']
+assert rows[0] == ['keys', 'en', 'es', 'pt_BR', 'fr', 'de', 'ru', 'tr']
 keys = set()
 for row in rows[1:]:
-    assert len(row) == 7 and all(row), row
+    assert len(row) == len(rows[0]) and all(row), row
     assert row[0] not in keys, f'Duplicate key: {row[0]}'
     keys.add(row[0])
     placeholders = re.findall(r'%(?:\d+)?[dsf]', row[0])
@@ -21,4 +21,4 @@ for path in (root / 'levels').glob('world_*/*.json'):
 for path in (root / 'scripts').rglob('*.gd'):
     for key in re.findall(r'\b(?:tr|translate)\("([^"\n]+)"\)', path.read_text()):
         assert key in keys, (path, key)
-print(f'{len(keys)} messages × 6 languages; placeholders and level titles verified')
+print(f'{len(keys)} messages × {len(rows[0]) - 1} languages; placeholders and level titles verified')

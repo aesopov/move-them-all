@@ -6,7 +6,6 @@ are retained; other coverage follows the game's text. Custom text uses OS fallba
 from pathlib import Path
 from fontTools.ttLib import TTFont
 from fontTools import subset
-from fontTools.varLib.instancer import instantiateVariableFont
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -15,7 +14,7 @@ def main():
     for folder, extensions in [('localization', {'.csv'}), ('scripts', {'.gd'}), ('scenes', {'.tscn'}), ('levels', {'.json'})]:
         for path in (ROOT / folder).rglob('*'):
             if path.suffix in extensions: characters.update(map(ord, path.read_text()))
-    font = TTFont(ROOT / 'assets/fonts/NotoSansSC.ttf', recalcTimestamp=False)
+    font = TTFont(ROOT / 'assets/fonts/Andika-Regular.ttf', recalcTimestamp=False)
     options = subset.Options()
     options.name_IDs = ['*']
     options.name_legacy = True
@@ -23,11 +22,10 @@ def main():
     subsetter = subset.Subsetter(options=options)
     subsetter.populate(unicodes=characters)
     subsetter.subset(font)
-    font = instantiateVariableFont(font, {'wght': 500}, inplace=True)
     # Distinguish the modified font, retaining copyright/license names and text.
     for record in font['name'].names:
         if record.nameID in (1, 3, 4, 6, 16, 17):
-            text = 'MergeUI-Medium' if record.nameID == 6 else ('Medium' if record.nameID == 17 else 'Merge UI Medium')
+            text = 'MergeUI-Regular' if record.nameID == 6 else ('Regular' if record.nameID == 17 else 'Merge UI Regular')
             record.string = text.encode(record.getEncoding())
     destination = ROOT / 'assets/fonts/MergeUI.ttf'
     font.save(destination)

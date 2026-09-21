@@ -12,7 +12,8 @@ func _ready() -> void:
 	%DesignerButton.pressed.connect(_open_editor)
 	%QuitButton.pressed.connect(func(): get_tree().quit())
 	resized.connect(_responsive_layout)
-	_add_language_selector()
+	if Platform.language().is_empty():
+		_add_language_selector()
 	_responsive_layout()
 	# Floating decorative items
 	var types := [0, 1, 2, 3, 6, 7, 8, 9]
@@ -50,7 +51,7 @@ func _responsive_layout() -> void:
 	$Center/Menu.add_theme_constant_override("separation", 6 if short else 16)
 	$Center/Menu/Spacer.custom_minimum_size.y = 0 if short else 20
 	$Center/Menu/Title.add_theme_font_size_override("font_size", 40 if short else (46 if narrow else 84))
-	%DesignerButton.visible = not narrow and not OS.has_feature("mobile")
+	%DesignerButton.visible = App.can_use_designer() and not narrow and not OS.has_feature("mobile")
 	%QuitButton.visible = not OS.has_feature("mobile") and not OS.has_feature("web")
 	for button in [%PlayButton, %DesignerButton, %QuitButton]:
 		button.custom_minimum_size.y = 48 if short else 58

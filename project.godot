@@ -38,7 +38,7 @@ theme/custom="res://ui/theme.tres"
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization/messages.en.translation", "res://localization/messages.es.translation", "res://localization/messages.pt_BR.translation", "res://localization/messages.fr.translation", "res://localization/messages.de.translation", "res://localization/messages.ru.translation")
+locale/translations=PackedStringArray("res://localization/messages.en.translation", "res://localization/messages.es.translation", "res://localization/messages.pt_BR.translation", "res://localization/messages.fr.translation", "res://localization/messages.de.translation", "res://localization/messages.ru.translation", "res://localization/messages.tr.translation")
 
 [rendering]
 

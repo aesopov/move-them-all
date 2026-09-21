@@ -1,12 +1,12 @@
 # Localization
 
-Seven supported languages: English (`en`), Spanish (`es`), Brazilian Portuguese (`pt_BR`), French (`fr`), German (`de`), Simplified Chinese (`zh_CN`), and Russian (`ru`).
+Seven supported languages: English (`en`), Spanish (`es`), Brazilian Portuguese (`pt_BR`), French (`fr`), German (`de`), Turkish (`tr`), and Russian (`ru`).
 
-`messages.csv` is the editable source of truth. Godot imports it into the seven `.translation` resources listed in `project.godot`. Keep the source, import configuration and generated translation resources together. Use `tr()` before interpolating parameters in scripts; ordinary Control labels translate automatically. Internal item IDs, terrain IDs, saved progress, and custom level contents stay unchanged. The title “Merge Them All” remains the brand name in all languages.
+`messages.csv` is the editable source of truth. Godot imports it into the seven `.translation` resources listed in `project.godot`. Keep the source, import configuration and generated translation resources together. Use `tr()` before interpolating parameters in scripts; ordinary Control labels translate automatically. Internal item IDs, terrain IDs, saved progress, and custom level contents stay unchanged. The display title is “Pair Up”, “Найди пару” in Russian, and “Eşini Bul” in Turkish. Internal project identifiers stay unchanged.
 
-The Locale autoload runs before App. First launch uses the device locale. Regional variants map to their supported language; all Portuguese variants use Brazilian Portuguese and all Chinese variants use Simplified Chinese. Unsupported languages use English. The welcome screen language selector saves an explicit choice or Automatic mode to `user://language.cfg`, separate from progress. Changing it reloads only the welcome screen. Invalid saved values revert to Automatic. `-- --locale=ru` is a session-only debug override.
+The Locale autoload runs before App. First launch uses the device locale. Regional variants map to their supported language; all Portuguese variants use Brazilian Portuguese and Turkish regional variants use Turkish. Unsupported languages use English. The welcome screen language selector saves an explicit choice or Automatic mode to `user://language.cfg`, separate from progress. Changing it reloads only the welcome screen. Invalid saved values revert to Automatic. `-- --locale=ru` is a session-only debug override outside Yandex. On Yandex, the SDK language takes priority over saved preferences and debug overrides, and the selector is hidden.
 
-The bundled Noto Sans SC variable font covers the catalog's Latin, Cyrillic and Chinese characters without relying on installed system fonts. Its weight is set to 500 using the numeric OpenType `wght` tag. Source: [Google Fonts Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc). The SIL Open Font License is included in `assets/fonts/OFL-NotoSansSC.txt`.
+The theme uses Lapsus Pro Bold for titles and buttons and a renamed Andika Regular subset (`MergeUI.ttf`) for body text. Both cover all seven catalogs, including Russian and Turkish. See [font sources, licenses, and regeneration](../assets/fonts/README.md). Full Andika is excluded from exports; both SIL licenses are included.
 
 Validation:
 
