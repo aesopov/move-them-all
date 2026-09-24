@@ -1,8 +1,55 @@
 {
-	"version": 1,
-	"name": "Through the Pipe",
+	"handcrafted": true,
+	"items": [
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 2,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"type": "balloon",
+			"x": 4,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"type": "balloon",
+			"x": 8,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 10,
+			"y": 8
+		}
+	],
 	"moves": 7,
-	"time": 80,
+	"name": "Through the Pipe",
+	"optimal": 4.0,
+	"pipes": [
+		{
+			"mouth": "right",
+			"to": [
+				4,
+				8
+			],
+			"x": 8,
+			"y": 2
+		},
+		{
+			"mouth": "left",
+			"to": [
+				8,
+				2
+			],
+			"x": 4,
+			"y": 8
+		}
+	],
+	"teleports": [],
 	"terrain": [
 		"------------",
 		"------------",
@@ -12,58 +59,11 @@
 		"--...---...-",
 		"--...---...-",
 		"--...---#.#-",
-		"--...---...-",
-		"------------",
+		".....---....",
+		"..---...---.",
 		"wwwwwwwwwwww",
 		"wwwwwwwwwwww"
 	],
-	"items": [
-		{
-			"type": "weight",
-			"x": 2,
-			"y": 2,
-			"aim": true
-		},
-		{
-			"type": "balloon",
-			"x": 4,
-			"y": 2,
-			"aim": true
-		},
-		{
-			"type": "balloon",
-			"x": 8,
-			"y": 8,
-			"aim": true
-		},
-		{
-			"type": "weight",
-			"x": 10,
-			"y": 8,
-			"aim": true
-		}
-	],
-	"teleports": [],
-	"pipes": [
-		{
-			"x": 4,
-			"y": 8,
-			"mouth": "left",
-			"to": [
-				8,
-				2
-			]
-		},
-		{
-			"x": 8,
-			"y": 2,
-			"mouth": "right",
-			"to": [
-				4,
-				8
-			]
-		}
-	],
-	"handcrafted": true,
-	"optimal": 4
+	"time": 80,
+	"version": 1
 }

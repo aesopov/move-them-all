@@ -40,6 +40,26 @@ func _init() -> void:
 	check(not b.can_move(0, Board.UP), "fall item can't move up")
 	b.play(0, Board.RIGHT)
 	check(b.is_won(), "shell falls next to shell and matches")
+	# A passing pair must match before the moving piece continues past it.
+	for gravity in [ItemDefs.Gravity.FALL, ItemDefs.Gravity.BUBBLE]:
+		b = Board.new()
+		var start_y := 0 if gravity == ItemDefs.Gravity.FALL else 8
+		var moving := b.add_item(ItemDefs.index_of("shell"), Board.cell_of(2, start_y), 0, true, gravity)
+		var partner := b.add_item(ItemDefs.index_of("shell"), Board.cell_of(3, 4), 0, true, ItemDefs.Gravity.NONE)
+		var steps := b.settle()
+		var last_cell := -1
+		for events in steps:
+			for event in events:
+				if event.e == "move" and event.id == moving:
+					last_cell = event.path[-1][1]
+		check(b.it_cell[moving] == -1 and b.it_cell[partner] == -1, "passing pair matches during gravity (%s)" % gravity)
+		check(last_cell == Board.cell_of(2, 4), "gravity animation stops at matching cell (%s)" % gravity)
+	# Horizontal contact also resolves before an unsupported piece falls away.
+	b = Board.new()
+	var moving_shell := b.add_item(ItemDefs.index_of("shell"), Board.cell_of(1, 2), 0, true)
+	b.add_item(ItemDefs.index_of("shell"), Board.cell_of(3, 2), 0, true, ItemDefs.Gravity.NONE)
+	b.play(moving_shell, Board.RIGHT)
+	check(b.is_won(), "unsupported pair matches immediately after player movement")
 	# bubble
 	b = mk(["....", "u#..", "..u."])
 	check(not b.can_move(1, Board.DOWN), "bubble can't move down")

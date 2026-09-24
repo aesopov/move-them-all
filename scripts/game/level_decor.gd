@@ -35,6 +35,37 @@ var _preview: BoardView
 
 func _ready() -> void:
 	_refresh_preview()
+	refresh_text()
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and is_inside_tree():
+		refresh_text()
+
+
+func refresh_text() -> void:
+	_apply_text(self, TranslationServer.get_locale())
+
+
+static func _apply_text(node: Node, locale: String) -> void:
+	if node is Label and node.has_meta("localized_text"):
+		var texts: Dictionary = node.get_meta("localized_text")
+		var code := locale.replace("-", "_")
+		var text: String = str(texts.get(code, texts.get(code.get_slice("_", 0), "")))
+		if text.is_empty(): text = str(texts.get("en", ""))
+		# These are literal translations, not keys into the global catalog.
+		node.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		node.text = text
+	for child in node.get_children():
+		_apply_text(child, locale)
+
+
+static func restore_source_text(node: Node) -> void:
+	# Packed scenes always retain the English source, independent of preview language.
+	if node is Label and node.has_meta("localized_text"):
+		node.text = str(node.get_meta("localized_text").get("en", ""))
+	for child in node.get_children():
+		restore_source_text(child)
 
 
 static func level_path_for(decor_path: String) -> String:

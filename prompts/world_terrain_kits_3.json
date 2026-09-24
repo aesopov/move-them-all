@@ -1,0 +1,434 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "theme": "jungle",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall carved stone totem with a stylized jaguar face",
+      "path": "assets/tiles/jungle/decor/relic_tall.png",
+      "reference": "assets/tiles/jungle/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall carved stone totem with a stylized jaguar face. Palette: mossy dark stone, warm timber and antique gold. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ac7fe07f-d67b-4269-9440-1f27779d9390.png"
+    },
+    {
+      "theme": "jungle",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long closed wooden expedition chest bound with aged brass",
+      "path": "assets/tiles/jungle/decor/cargo_long.png",
+      "reference": "assets/tiles/jungle/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long closed wooden expedition chest bound with aged brass. Palette: mossy dark stone, warm timber and antique gold. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-c14d9bbf-e160-43de-bc37-4411fa94678f.png"
+    },
+    {
+      "theme": "jungle",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a round heavy ceremonial stone drum with geometric carvings",
+      "path": "assets/tiles/jungle/decor/relic_small.png",
+      "reference": "assets/tiles/jungle/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a round heavy ceremonial stone drum with geometric carvings. Palette: mossy dark stone, warm timber and antique gold. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-4e219505-6ca6-4f7a-ab31-ff9ef6b7e70a.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall weathered nautical buoy with bronze hoops",
+      "path": "assets/tiles/waterfall/decor/relic_tall.png",
+      "reference": "assets/tiles/waterfall/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall weathered nautical buoy with bronze hoops. Palette: wet blue-gray stone, driftwood and oxidized bronze. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-6ff4064c-47bd-490a-9906-6c387afbcc24.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long broken wooden waterwheel axle with chunky paddles",
+      "path": "assets/tiles/waterfall/decor/cargo_long.png",
+      "reference": "assets/tiles/waterfall/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long broken wooden waterwheel axle with chunky paddles. Palette: wet blue-gray stone, driftwood and oxidized bronze. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ccb0be66-08b0-428e-b72e-e8439c6aca90.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact stack of three smooth river stones bound with thick rope",
+      "path": "assets/tiles/waterfall/decor/relic_small.png",
+      "reference": "assets/tiles/waterfall/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact stack of three smooth river stones bound with thick rope. Palette: wet blue-gray stone, driftwood and oxidized bronze. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f49f4ec9-cdf4-4655-8ec5-fc384a030982.png"
+    },
+    {
+      "theme": "desert",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall sandstone stele with abstract sun carvings, no writing",
+      "path": "assets/tiles/desert/decor/relic_tall.png",
+      "reference": "assets/tiles/desert/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall sandstone stele with abstract sun carvings, no writing. Palette: golden sandstone, terracotta and aged brass. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-78ed047d-e179-41ef-b030-10400b6a02a0.png"
+    },
+    {
+      "theme": "desert",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long rolled woven carpet strapped to a wooden cargo sled",
+      "path": "assets/tiles/desert/decor/cargo_long.png",
+      "reference": "assets/tiles/desert/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long rolled woven carpet strapped to a wooden cargo sled. Palette: golden sandstone, terracotta and aged brass. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-4c544b64-a6e0-4987-9e7d-bacec8101f17.png"
+    },
+    {
+      "theme": "desert",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a squat terracotta amphora sealed with a heavy stone stopper",
+      "path": "assets/tiles/desert/decor/relic_small.png",
+      "reference": "assets/tiles/desert/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a squat terracotta amphora sealed with a heavy stone stopper. Palette: golden sandstone, terracotta and aged brass. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ecb05fad-0c3b-407d-8479-7cabcaccd483.png"
+    },
+    {
+      "theme": "ice",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall frozen iron lantern housing, unlit",
+      "path": "assets/tiles/ice/decor/relic_tall.png",
+      "reference": "assets/tiles/ice/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall frozen iron lantern housing, unlit. Palette: pale blue ice, frosted iron and old wood. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ab6cc2fe-65eb-47c4-ab0a-3270ae3b07c1.png"
+    },
+    {
+      "theme": "ice",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long abandoned wooden sled with frost on the runners",
+      "path": "assets/tiles/ice/decor/cargo_long.png",
+      "reference": "assets/tiles/ice/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long abandoned wooden sled with frost on the runners. Palette: pale blue ice, frosted iron and old wood. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-9caa8e2d-25f0-46b7-ae03-07bc9726c1f4.png"
+    },
+    {
+      "theme": "ice",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact frozen rope coil with an iron hook",
+      "path": "assets/tiles/ice/decor/relic_small.png",
+      "reference": "assets/tiles/ice/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact frozen rope coil with an iron hook. Palette: pale blue ice, frosted iron and old wood. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-af6e85d8-4eca-4a06-8a31-624fbbdc6837.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall headless marble guardian statue on a small plinth",
+      "path": "assets/tiles/ruins/decor/relic_tall.png",
+      "reference": "assets/tiles/ruins/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall headless marble guardian statue on a small plinth. Palette: weathered ivory marble and antique bronze. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d352296e-b5c6-4293-845f-60a57a3d0075.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long closed carved stone sarcophagus with geometric ornament",
+      "path": "assets/tiles/ruins/decor/cargo_long.png",
+      "reference": "assets/tiles/ruins/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long closed carved stone sarcophagus with geometric ornament. Palette: weathered ivory marble and antique bronze. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-0b60ea62-f232-4743-9cd0-d76479c58530.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a chunky broken bronze shield lying flat",
+      "path": "assets/tiles/ruins/decor/relic_small.png",
+      "reference": "assets/tiles/ruins/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a chunky broken bronze shield lying flat. Palette: weathered ivory marble and antique bronze. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ba788809-f42c-40dc-880e-43f085ace0d3.png"
+    },
+    {
+      "theme": "cave",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall closed wooden dynamite storage locker, no symbols or text",
+      "path": "assets/tiles/cave/decor/relic_tall.png",
+      "reference": "assets/tiles/cave/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall closed wooden dynamite storage locker, no symbols or text. Palette: gray brown stone, rusty iron and timber. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f5331b3a-50ab-413b-b867-c30d3dc04cd3.png"
+    },
+    {
+      "theme": "cave",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long overturned rusty ore wagon without loose cargo",
+      "path": "assets/tiles/cave/decor/cargo_long.png",
+      "reference": "assets/tiles/cave/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long overturned rusty ore wagon without loose cargo. Palette: gray brown stone, rusty iron and timber. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-5bfa6a83-d929-4ab3-9cfb-871b8be4bea9.png"
+    },
+    {
+      "theme": "cave",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact bundle of thick iron rails tied with rope",
+      "path": "assets/tiles/cave/decor/relic_small.png",
+      "reference": "assets/tiles/cave/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact bundle of thick iron rails tied with rope. Palette: gray brown stone, rusty iron and timber. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-83ab56cc-e247-4eca-89be-1e8affea66ba.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall blackened anvil pedestal with orange cracks",
+      "path": "assets/tiles/volcano/decor/relic_tall.png",
+      "reference": "assets/tiles/volcano/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall blackened anvil pedestal with orange cracks. Palette: charcoal basalt, dark iron and restrained orange seams. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-1a5549ba-a730-4fe3-9dba-0a3b42ea5a9c.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long heavy industrial slag trough filled with cooled dark slag",
+      "path": "assets/tiles/volcano/decor/cargo_long.png",
+      "reference": "assets/tiles/volcano/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long heavy industrial slag trough filled with cooled dark slag. Palette: charcoal basalt, dark iron and restrained orange seams. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d0d4c445-d51e-46af-acdc-ceeea99b92cc.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a chunky iron furnace door with thick rivets and a central handle",
+      "path": "assets/tiles/volcano/decor/relic_small.png",
+      "reference": "assets/tiles/volcano/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a chunky iron furnace door with thick rivets and a central handle. Palette: charcoal basalt, dark iron and restrained orange seams. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-01201d58-d3e0-4784-a807-a348f93c395e.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall crooked wooden birdhouse on a short thick stump",
+      "path": "assets/tiles/swamp/decor/relic_tall.png",
+      "reference": "assets/tiles/swamp/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall crooked wooden birdhouse on a short thick stump. Palette: dark wet wood, dull iron and muted moss. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-7ba25c19-2cc3-4a9c-8f7e-5fbed3e18448.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long abandoned flat wooden raft bound with rope",
+      "path": "assets/tiles/swamp/decor/cargo_long.png",
+      "reference": "assets/tiles/swamp/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long abandoned flat wooden raft bound with rope. Palette: dark wet wood, dull iron and muted moss. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-97b429a8-dd5a-478a-a6d4-44443165b421.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact covered wicker fish trap with thick ribs",
+      "path": "assets/tiles/swamp/decor/relic_small.png",
+      "reference": "assets/tiles/swamp/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact covered wicker fish trap with thick ribs. Palette: dark wet wood, dull iron and muted moss. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-23fa1307-ba9e-4036-9115-add97987d23c.png"
+    },
+    {
+      "theme": "sky",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall ivory rook-shaped tower ornament with gold bands",
+      "path": "assets/tiles/sky/decor/relic_tall.png",
+      "reference": "assets/tiles/sky/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall ivory rook-shaped tower ornament with gold bands. Palette: ivory cloudstone, pale blue and warm gold. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a284b88b-a337-405c-b381-b1cfe30c9d70.png"
+    },
+    {
+      "theme": "sky",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long folded airship sail wrapped around a golden spar",
+      "path": "assets/tiles/sky/decor/cargo_long.png",
+      "reference": "assets/tiles/sky/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long folded airship sail wrapped around a golden spar. Palette: ivory cloudstone, pale blue and warm gold. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-08894e44-a8cc-40bd-834d-1b85593e6aa2.png"
+    },
+    {
+      "theme": "sky",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact ornate gold bell resting sideways",
+      "path": "assets/tiles/sky/decor/relic_small.png",
+      "reference": "assets/tiles/sky/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact ornate gold bell resting sideways. Palette: ivory cloudstone, pale blue and warm gold. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-67ddfb97-02af-4b9c-842d-e37166cd03ae.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall faceted crystal obelisk in a silver socket",
+      "path": "assets/tiles/crystal/decor/relic_tall.png",
+      "reference": "assets/tiles/crystal/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall faceted crystal obelisk in a silver socket. Palette: lavender stone, turquoise crystal and tarnished silver. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b97c6efc-7970-4398-82fa-385957a34d06.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long stone chest sealed with broad crystal bands",
+      "path": "assets/tiles/crystal/decor/cargo_long.png",
+      "reference": "assets/tiles/crystal/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long stone chest sealed with broad crystal bands. Palette: lavender stone, turquoise crystal and tarnished silver. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3ffd0895-f4e7-4ae6-a196-89c5755556f3.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact cluster of three hexagonal crystal gears",
+      "path": "assets/tiles/crystal/decor/relic_small.png",
+      "reference": "assets/tiles/crystal/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact cluster of three hexagonal crystal gears. Palette: lavender stone, turquoise crystal and tarnished silver. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-cc560e35-7afe-4cdc-bccc-3f1b4c8be09b.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "relic_tall",
+      "footprint": [
+        1,
+        2
+      ],
+      "subject": "a tall angular server monolith with three cyan panels",
+      "path": "assets/tiles/nexus/decor/relic_tall.png",
+      "reference": "assets/tiles/nexus/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a tall angular server monolith with three cyan panels. Palette: dark violet alloy, cyan insets and restrained magenta accents. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Tall vertical silhouette, width to height 1:2. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3ce8b331-71f4-45ab-9b2f-2ca17f3ec22d.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "cargo_long",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a long closed futuristic cargo capsule with reinforced ends",
+      "path": "assets/tiles/nexus/decor/cargo_long.png",
+      "reference": "assets/tiles/nexus/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a long closed futuristic cargo capsule with reinforced ends. Palette: dark violet alloy, cyan insets and restrained magenta accents. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Horizontal silhouette, width to height 2:1. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a8557b06-49d0-499b-99e0-6062762e963c.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "relic_small",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact broken robot head with a dark visor, no face",
+      "path": "assets/tiles/nexus/decor/relic_small.png",
+      "reference": "assets/tiles/nexus/wall.png",
+      "prompt": "Use case: stylized-concept. One transparent obstacle scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do not copy its wall layout. Subject: a compact broken robot head with a dark visor, no face. Palette: dark violet alloy, cyan insets and restrained magenta accents. Polished hand-painted game art, broad facets, crisp dark outline, upper-left lighting, restrained detail, readable at 64 pixels. Compact silhouette, approximately square. Near top-down orthographic game view with slight visible side depth, no isometric ground plane. Entire object visible with margin. Genuine transparent alpha background; no floor, backdrop, outer cast shadow, letters, labels, arrows, border or watermark. One object only, no sheet.",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d2f667dd-cde5-4fa8-b41a-75ec048773e5.png"
+    }
+  ]
+}

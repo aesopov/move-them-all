@@ -1,22 +1,5 @@
 {
-	"version": 1,
-	"name": "Key Delivery",
-	"moves": 38,
-	"time": 295,
-	"terrain": [
-		"------------",
-		"-####--####-",
-		"-####--####-",
-		"-....--....-",
-		"-####--####-",
-		"------------",
-		"------------",
-		"-####--....-",
-		"-....--#...-",
-		"-....--#...-",
-		"-####--#...-",
-		"------------"
-	],
+	"handcrafted": true,
 	"items": [
 		{
 			"type": "key_yellow",
@@ -34,72 +17,89 @@
 			"y": 3
 		},
 		{
-			"type": "sphere",
-			"x": 8,
-			"y": 8,
-			"lock": "red",
-			"aim": true
-		},
-		{
-			"type": "pyramid",
-			"x": 9,
-			"y": 8,
-			"lock": "blue",
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 10,
-			"y": 8,
+			"aim": true,
 			"lock": "yellow",
-			"aim": true
+			"type": "cube",
+			"x": 10,
+			"y": 8
 		},
 		{
-			"type": "pyramid",
-			"x": 8,
-			"y": 9,
-			"aim": true
-		},
-		{
+			"aim": true,
 			"type": "cube",
 			"x": 9,
-			"y": 9,
-			"aim": true
+			"y": 9
 		},
 		{
-			"type": "sphere",
+			"aim": true,
+			"lock": "blue",
+			"type": "torus",
+			"x": 9,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"lock": "red",
+			"type": "plant",
+			"x": 8,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"type": "plant",
 			"x": 10,
-			"y": 9,
-			"aim": true
+			"y": 9
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 8,
+			"y": 9
 		}
 	],
+	"moves": 38,
+	"name": "Key Delivery",
+	"optimal": 27.0,
+	"pipes": [],
 	"teleports": [
 		{
-			"x": 4,
-			"y": 3,
 			"to": [
 				7,
 				3
-			]
+			],
+			"x": 4,
+			"y": 3
 		},
 		{
 			"x": 7,
 			"y": 3
 		},
 		{
-			"x": 10,
-			"y": 3,
 			"to": [
 				7,
 				7
-			]
+			],
+			"x": 10,
+			"y": 3
 		},
 		{
 			"x": 7,
 			"y": 7
 		}
 	],
-	"pipes": [],
-	"handcrafted": true,
-	"optimal": 27
+	"terrain": [
+		"------------",
+		"-####--####-",
+		"-####--####-",
+		"-....--....-",
+		"-####--####-",
+		"------------",
+		"------------",
+		"-####--....-",
+		"-....--#...-",
+		"-....--#...-",
+		"-####--#...-",
+		"------------"
+	],
+	"time": 295,
+	"version": 1
 }

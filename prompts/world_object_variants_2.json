@@ -1,0 +1,94 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "assets/items/themes/jungle/cube.png",
+  "assets": [
+    {
+      "theme": "jungle",
+      "slot": "torus",
+      "name": "Jungle drum",
+      "path": "assets/items/themes/jungle/torus.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ea2e87a6-5d40-42f6-8f42-31673f89e3c1.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a squat wooden hand drum with cream leather drumhead, red zigzag band and thick rope lacing. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "waterfall",
+      "slot": "torus",
+      "name": "Conch",
+      "path": "assets/items/themes/waterfall/torus.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-31cea606-3147-44e5-93ba-162403cccc9b.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a large curled peach and ivory conch shell, broad opening with turquoise inner sheen. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "desert",
+      "slot": "cone",
+      "name": "Hourglass",
+      "path": "assets/items/themes/desert/cone.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-5f902449-9a56-4dec-9741-22e24b5a4bb7.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a stout golden hourglass with amber sand and turquoise end caps. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "ice",
+      "slot": "torus",
+      "name": "Snow globe",
+      "path": "assets/items/themes/ice/torus.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-7367f18e-14bb-46ff-8efb-88b3fc9116a1.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a round glass snow globe containing a tiny snowy mountain, on a dark blue silver-rimmed base. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "ruins",
+      "slot": "sphere",
+      "name": "Pocket watch",
+      "path": "assets/items/themes/ruins/sphere.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-47318792-1806-4bc7-9aae-b631d768beed.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: an antique brass pocket watch with ivory face, two thick dark hands, four simple ticks and a top winding knob, no numbers or chain. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "cave",
+      "slot": "crate",
+      "name": "Toolbox",
+      "path": "assets/items/themes/cave/crate.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-370376bb-bc97-4ac2-871f-542092cb2970.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a squat closed red metal toolbox with chunky brass latch and raised black handle. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "volcano",
+      "slot": "pyramid",
+      "name": "Anvil",
+      "path": "assets/items/themes/volcano/pyramid.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-bae1acd0-e915-4dc8-bcf5-640e1428c3fb.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a compact dark steel anvil with broad horn and warm orange reflections on the polished top. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "swamp",
+      "slot": "torus",
+      "name": "Swamp charm",
+      "path": "assets/items/themes/swamp/torus.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-169a4592-3f35-47e4-a1ba-559ddedd89a2.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a small ivory carved owl talisman with oversized purple inset eyes and short brown cord loop, rounded compact silhouette. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "sky",
+      "slot": "torus",
+      "name": "Sky bell",
+      "path": "assets/items/themes/sky/torus.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f8ef1af0-4080-4775-ba16-d180205aad39.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a single polished golden bell with sky-blue ribbon tied at the top, broad flared rim and visible clapper. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "crystal",
+      "slot": "sphere",
+      "name": "Crystal ball",
+      "path": "assets/items/themes/crystal/sphere.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-73bd626c-f400-4230-8976-c2069310f22d.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a luminous lavender crystal ball on a short three-footed silver stand, a single cyan star suspended inside. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    },
+    {
+      "theme": "nexus",
+      "slot": "pyramid",
+      "name": "Satellite",
+      "path": "assets/items/themes/nexus/pyramid.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-cb14799e-35aa-4e17-a823-0e6b934e6fd0.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent game item sprite. Reference is STYLE ONLY. Subject: a small friendly futuristic satellite with a chunky white central body, two broad blue solar panel wings and one short golden antenna. Match reference's polished hand-painted casual puzzle art, chunky forms, clean dark outlines, glossy upper-left highlights, slight top-down frontal view. Center entire object with 10% margin on square canvas. Very readable at 54px. Truly transparent alpha background; no ground, shadow outside object, text, checkerboard, additional objects or frame."
+    }
+  ]
+}

@@ -11,10 +11,17 @@ extends Node2D
 	set(value):
 		cell_size = value
 		queue_redraw()
-@export var tint := Color(0.25, 0.72, 0.3):
+@export var tint := Color.WHITE:
 	set(value):
 		tint = value
 		queue_redraw()
 
 func _draw() -> void:
-	PipeArt.draw_path(self, points, cell_size, tint)
+	var color := tint
+	var ancestor := get_parent()
+	while ancestor != null:
+		if ancestor is BoardView:
+			color = ancestor._pipe_tint()
+			break
+		ancestor = ancestor.get_parent()
+	PipeArt.draw_path(self, points, cell_size, color)

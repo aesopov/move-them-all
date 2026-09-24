@@ -69,7 +69,7 @@
 			"match_label": "2"
 		},
 		{
-			"type": "pyramid",
+			"type": "crystal",
 			"x": 10,
 			"y": 3,
 			"aim": true,
@@ -81,7 +81,7 @@
 			"match_label": "3"
 		},
 		{
-			"type": "pyramid",
+			"type": "crystal",
 			"x": 11,
 			"y": 4,
 			"aim": true,
@@ -117,7 +117,7 @@
 			"match_label": "4"
 		},
 		{
-			"type": "pyramid",
+			"type": "crystal",
 			"x": 10,
 			"y": 10,
 			"aim": true,

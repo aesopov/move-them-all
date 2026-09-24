@@ -116,7 +116,7 @@
 			"match_label": "1"
 		},
 		{
-			"type": "pyramid",
+			"type": "crystal",
 			"x": 3,
 			"y": 6,
 			"aim": true,
@@ -140,7 +140,7 @@
 			"match_label": "1"
 		},
 		{
-			"type": "pyramid",
+			"type": "crystal",
 			"x": 5,
 			"y": 6,
 			"aim": true,

@@ -23,6 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def theme_for(path):
     parts = path.split('/')
+    if path.startswith('assets/items/themes/'):
+        return parts[3]
     if path.startswith('assets/tiles/') and parts[2] != 'skins':
         return parts[2]
     if path.startswith('assets/backgrounds/') and not path.startswith('assets/backgrounds/menu/'):

@@ -1,0 +1,665 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "theme": "waterfall",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of wet blue-gray river stone with rounded worn edges and small pale mineral veins. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/waterfall/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-50a96286-8cea-4a2f-8b43-c0e438c5d9ca.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of wet blue-gray river stone with rounded worn edges and small pale mineral veins. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/waterfall/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-195529c3-d767-4d9f-9406-2cd45ffbcf8b.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of wet blue-gray river stone with rounded worn edges and small pale mineral veins. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/waterfall/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-452f99e5-f4e7-41db-8e8c-d22f62d774b5.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a water-worn driftwood log. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/waterfall/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2e02f445-d83e-445a-a01a-ab549b7843c8.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a broken stone fountain basin with a shallow turquoise centre. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/waterfall/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-fe320cac-060a-420a-b9ee-4d6408b45c62.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact pile of smooth river pebbles. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/waterfall/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ca1d2ff5-449c-4899-b301-0b53d0a273bd.png"
+    },
+    {
+      "theme": "desert",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of warm golden sandstone with subtle weathering and restrained carved line details. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/desert/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-4a618bb4-2521-4654-afa5-c9c2eaebd4e2.png"
+    },
+    {
+      "theme": "desert",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of warm golden sandstone with subtle weathering and restrained carved line details. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/desert/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d8e9bb88-3981-4c30-a480-0dd1f9b2d874.png"
+    },
+    {
+      "theme": "desert",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of warm golden sandstone with subtle weathering and restrained carved line details. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/desert/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2d197ce4-798b-4066-82c3-4b72a19c502b.png"
+    },
+    {
+      "theme": "desert",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a fallen sandstone obelisk with a few broad carved grooves. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/desert/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b7b66fff-54dd-4dc9-9707-b5df5f689cf6.png"
+    },
+    {
+      "theme": "desert",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a broken terracotta urn with a broad chipped rim. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/desert/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-26213b6b-32dd-41f1-bea5-45a2fef5f702.png"
+    },
+    {
+      "theme": "desert",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact pile of sandstone rubble. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/desert/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-8ce621dc-6e37-49ce-89af-83b4644b7c7a.png"
+    },
+    {
+      "theme": "ice",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of pale blue translucent ice with frosted white bevels and faint internal cracks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ice/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-8c2754ac-fe9b-4d5c-bd98-53207172be49.png"
+    },
+    {
+      "theme": "ice",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of pale blue translucent ice with frosted white bevels and faint internal cracks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ice/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-74fd6cc3-8468-405d-a7c6-28a31d63053f.png"
+    },
+    {
+      "theme": "ice",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of pale blue translucent ice with frosted white bevels and faint internal cracks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ice/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-28b73ba8-64d3-498b-b5da-03bf0418db81.png"
+    },
+    {
+      "theme": "ice",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a long horizontal frozen timber beam with a thin snow cap. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ice/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-7f51f85a-8844-40af-a98f-ad39d3c2a3ee.png"
+    },
+    {
+      "theme": "ice",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat broken ice pillar with a flat fractured top. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ice/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-411d31b1-d630-4d3c-bc6f-f15f4a5ace4c.png"
+    },
+    {
+      "theme": "ice",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact cluster of three chunky ice shards. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ice/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f63c0d4a-5561-4763-90b0-6ed9407e76ac.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of weathered beige marble with fine cracks and tiny muted moss patches. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ruins/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f7012095-dc00-4314-908a-21a47887a035.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of weathered beige marble with fine cracks and tiny muted moss patches. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ruins/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ce489ec4-41ee-4c33-8fad-e87f6b13dbb2.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of weathered beige marble with fine cracks and tiny muted moss patches. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ruins/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-031fb781-e242-40d9-ad61-00f1bd0be1bf.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a fallen horizontal fluted marble column section. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ruins/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2f504bdf-5c02-4be0-97e8-afea595883d5.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat broken carved stone capital. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ruins/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3556d33f-79e7-4a8d-b95c-f5abdd967514.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact pile of broken clay pottery fragments. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/ruins/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-bcda7bc0-ac6a-427b-8860-4a46ded50737.png"
+    },
+    {
+      "theme": "cave",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of rough brown-gray quarry rock with sparse copper mineral flecks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/cave/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-445dd300-4f1e-4532-9c93-b65b38d3c9dc.png"
+    },
+    {
+      "theme": "cave",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of rough brown-gray quarry rock with sparse copper mineral flecks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/cave/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-7216bb98-1f71-498a-b764-0552d717ef72.png"
+    },
+    {
+      "theme": "cave",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of rough brown-gray quarry rock with sparse copper mineral flecks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/cave/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-209bf776-79f2-4f64-a567-8bcbd7bed15a.png"
+    },
+    {
+      "theme": "cave",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a heavy horizontal weathered timber support beam with iron end bands. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/cave/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-8d9ca0e5-c1c5-4782-b932-5379927306df.png"
+    },
+    {
+      "theme": "cave",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat abandoned iron mine cart full of gray stones. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/cave/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-728f7703-d622-4ca0-889e-77f1adbc38b5.png"
+    },
+    {
+      "theme": "cave",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact cluster of raw copper ore rocks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/cave/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a9b5ab54-f003-4041-8f54-aaadd3e62214.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of dark charcoal basalt with sparse thin orange glowing fissures. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/volcano/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3eda620e-f398-4aef-857f-a3fb1504d31c.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of dark charcoal basalt with sparse thin orange glowing fissures. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/volcano/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-905d457c-50a7-4f2c-8202-8883c1f229df.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of dark charcoal basalt with sparse thin orange glowing fissures. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/volcano/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-fae38ed5-b387-4aaf-8d97-7e8baa43dc31.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a long horizontal charred petrified log with faint ember seams. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/volcano/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-de0726f8-4da3-4cba-a4a5-25e1de6efd64.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat broken basalt pillar with a dark cracked top. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/volcano/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d13b4332-ad4c-4f56-aa12-04ac83280919.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact pile of dark lava rocks with a few orange fissures. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/volcano/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f457f124-d800-4652-b91b-11499342f0a8.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of dark damp green-brown wood with muted moss and rough worn edges. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/swamp/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-7e5f8916-1e95-492b-8af3-b0c34b88c1b2.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of dark damp green-brown wood with muted moss and rough worn edges. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/swamp/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-9828107e-0fb3-4b41-8be5-07456a8f4286.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of dark damp green-brown wood with muted moss and rough worn edges. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/swamp/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-eb339469-c363-4bff-96c4-03c68861ca26.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a long horizontal twisted dead root with muted moss. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/swamp/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2f44ce47-b8de-4f7c-a8f0-138b2b9ce3cf.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat broken wooden barrel with iron bands. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/swamp/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-343a75db-9f52-48fd-99e0-f9d012674cef.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact pile of dark muddy stones and short dead twigs. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/swamp/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-e53799fc-6de0-448f-917a-47c960e0ce27.png"
+    },
+    {
+      "theme": "sky",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of ivory cloudstone marble with subtle pale blue shadows and small golden inlays. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/sky/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-65b0e40e-4a9c-40d6-81ed-e1b257df50a9.png"
+    },
+    {
+      "theme": "sky",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of ivory cloudstone marble with subtle pale blue shadows and small golden inlays. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/sky/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-1457f512-2368-453b-856e-444513f241a6.png"
+    },
+    {
+      "theme": "sky",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of ivory cloudstone marble with subtle pale blue shadows and small golden inlays. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/sky/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-124165c2-4653-47e6-86a3-b702adcb6ee8.png"
+    },
+    {
+      "theme": "sky",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a fallen horizontal ivory stone beam with gold end bands. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/sky/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-739b017a-930a-4b26-b02e-605bad3adc20.png"
+    },
+    {
+      "theme": "sky",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat broken ivory column capital with gold trim. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/sky/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-28efc0c1-6a54-4471-ac24-5b41fbe3b20c.png"
+    },
+    {
+      "theme": "sky",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact cluster of smooth white cloudstone rocks. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/sky/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a2d721f7-1736-429a-8359-50fb834afe52.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of lavender cave rock with a few small embedded cyan crystal facets. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/crystal/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2020e5c9-8f82-4099-9f37-d0a6c215a61f.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of lavender cave rock with a few small embedded cyan crystal facets. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/crystal/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-9308aeb3-9583-492a-aa64-887da7447638.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of lavender cave rock with a few small embedded cyan crystal facets. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/crystal/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a114ab04-634d-45f3-a219-0ee5911bf31d.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a long horizontal lavender stone beam with violet crystal veins. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/crystal/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-38a7f9ec-474f-4ab3-95ba-d2ee01405892.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat fractured amethyst pillar with a broad flat broken top. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/crystal/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ea99769c-efd8-4dc9-82e4-1c2865396ce8.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact cluster of three broad turquoise and violet crystal shards. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/crystal/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a6f55dad-13fd-4bce-8f2a-27193ef44899.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one low rectangular slab, exactly twice as wide as tall, straight rectangular silhouette made of dark violet sci-fi alloy with sparse thin magenta luminous seams and broad clean panels. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/nexus/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-81afd54c-d9df-472d-9766-349f7434140e.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one long low beam made of three joined blocks, exactly FOUR times as wide as tall, straight rectangular silhouette made of dark violet sci-fi alloy with sparse thin magenta luminous seams and broad clean panels. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/nexus/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-56b45c5c-74bb-4918-84e8-85dc4344d77f.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: one L-shaped modular obstacle: square footprint with its UPPER RIGHT quarter completely absent and transparent. Full left half and full bottom half; exact square inner notch half width by half height, no diagonal cut made of dark violet sci-fi alloy with sparse thin magenta luminous seams and broad clean panels. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.  Keep upper-right 0.5x0.5 quarter EMPTY TRANSPARENT; three occupied quarters only. Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/nexus/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-69794f99-7597-4611-bca9-68b896c02593.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a horizontal dark alloy conduit casing with cyan end bands. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin. Horizontal long silhouette, width twice its height.  Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/nexus/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d0faa66b-e65c-49cc-92df-3fe8441bf073.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a squat abandoned hexagonal machinery housing with a recessed cyan centre. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/nexus/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-5f73285b-ebf5-4d04-95ca-9665acec84c1.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "prompt": "Use case: stylized-concept. Generate one transparent modular terrain sprite for a casual grid puzzle. Reference is STYLE and MATERIAL guidance, not exact shape. Subject: a compact pile of dark violet angular metal debris with tiny pink edge lights. Match the reference world's palette and polished hand-painted stonework style, broad facets, crisp dark outline, subdued detail and top-left lighting. Top-down orthographic plan view, minimal visible side depth, no isometric perspective. Entire object visible with 3% clear margin.   Transparent alpha background including holes and notch, no floor or external cast shadow, no text or labels or frame. One object only, no sprite sheet. Must read at 64px.",
+      "path": "assets/tiles/nexus/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-6b01f8c8-5586-4b5c-b4bb-04418c0ae8d5.png"
+    }
+  ]
+}

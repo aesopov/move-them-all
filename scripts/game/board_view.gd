@@ -141,6 +141,10 @@ func _update_size() -> void:
 			if fit_area.x > 0 and fit_area.y > 0:
 				cell = minf(minf(fit_area.x / cells.x, fit_area.y / cells.y), max_cell)
 			origin -= Vector2(lo) * cell
+	if editor_mode and fit_px <= 0 and _decor and _decor.fit_cells.has_area():
+		var bounds := Rect2i(0, 0, Board.W, Board.H).merge(_decor.fit_cells)
+		cells = Vector2(bounds.size)
+		origin -= Vector2(bounds.position) * cell
 	custom_minimum_size = cells * cell + Vector2.ONE * PAD * 2
 	size = custom_minimum_size
 	if _decor:
@@ -815,7 +819,7 @@ func _draw_pipe_wall(c: int) -> void:
 		var nb := board.step(c, d)
 		if _is_skin(nb, Board.WallSkin.PIPE) or (nb >= 0 and board.pipe_mouth[nb] == d):
 			mask |= 1 << d
-	PipeArt.draw_tile(self, _cell_rect(c), mask)
+	PipeArt.draw_tile(self, _cell_rect(c), mask, _pipe_tint())
 
 
 func _liquid_colors(t: int) -> Array:
@@ -938,10 +942,13 @@ func _draw_overlay() -> void:
 			pipe_layer.draw_rect(_cell_rect(selected_cell).grow(-2), Color(1, 0.85, 0.2), false, 3.0)
 
 
+func _pipe_tint() -> Color:
+	return Color.WHITE.lerp(theme_data.wall, 0.45)
+
+
 func _draw_pipe(c: int) -> void:
 	var m := board.pipe_mouth[c]
-	var col: Color = _pipe_col.get(c, PIPE_COLORS[0])
-	var ang := Vector2(Board.DX[m], Board.DY[m]).angle()
+	var col := _pipe_tint()
 	var ctr := center(c)
 	var L := pipe_layer
 	var s := cell
@@ -962,29 +969,6 @@ func _draw_pipe(c: int) -> void:
 		# The open elbow replaces the misleading single upward arrow.
 		return
 	PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), 0, col, m)
-	# Rotate only the flow arrows; metal lighting remains in board coordinates.
-	L.draw_set_transform(ctr, ang, Vector2.ONE)
-	var entry := board.pipe_to[c] >= 0
-	var exit := false
-	for o in Board.N:
-		if board.pipe_to[o] == c:
-			exit = true
-			break
-	var ac := Color(1, 1, 1, 0.95)
-	if entry and exit:
-		_local_arrow(L, Vector2(0.12 * s, -0.1 * s), Vector2(-0.24 * s, -0.1 * s), ac, s * 0.55)
-		_local_arrow(L, Vector2(-0.24 * s, 0.1 * s), Vector2(0.12 * s, 0.1 * s), ac, s * 0.55)
-	elif entry:
-		_local_arrow(L, Vector2(0.18 * s, 0), Vector2(-0.3 * s, 0), ac, s)
-	elif exit:
-		_local_arrow(L, Vector2(-0.3 * s, 0), Vector2(0.18 * s, 0), ac, s)
-	L.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-
-
-func _local_arrow(L: CanvasItem, from: Vector2, to: Vector2, col: Color, s: float) -> void:
-	var dir := (to - from).normalized()
-	L.draw_line(from, to - dir * s * 0.08, col, s * 0.07, true)
-	L.draw_colored_polygon(PackedVector2Array([to, to - dir * s * 0.16 + dir.orthogonal() * s * 0.12, to - dir * s * 0.16 - dir.orthogonal() * s * 0.12]), col)
 
 
 func _arrow(from: Vector2, to: Vector2, col: Color, w: float) -> void:

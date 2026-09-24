@@ -41,7 +41,7 @@ static func texture(mask: int, mouth := -1, extent := Vector2i(128, 128), origin
 				# Fade weathering at ports so separate draw calls retain a clean join.
 				var edge := minf(minf(x, extent.x - 1 - x), minf(y, extent.y - 1 - y))
 				var fade := smoothstep(0.0, 8.0, edge)
-				var variation := (mottling * 0.09 + grain * 0.014) * fade
+				var variation := (mottling * 0.008 + grain * 0.004) * fade
 				color.r = clampf(color.r + variation, 0.0, 1.0)
 				color.g = clampf(color.g + variation, 0.0, 1.0)
 				color.b = clampf(color.b + variation, 0.0, 1.0)
@@ -56,6 +56,13 @@ static func _segment_distance(p: Vector2, end: Vector2) -> float:
 
 
 static func _distance(p: Vector2, mask: int) -> float:
+	# Flat, square-cut terminations, including isolated pipe-wall tiles.
+	if mask == 0:
+		return maxf(absf(p.x), absf(p.y))
+	if mask in [1, 2, 4, 8]:
+		var direction: int = [1, 2, 4, 8].find(mask)
+		var axis := Vector2(Board.DX[direction], Board.DY[direction])
+		return maxf(absf(p.dot(axis.orthogonal())), -p.dot(axis))
 	# True quarter circles have the same cross-section as the adjoining straights.
 	if mask in [3, 6, 9, 12]:
 		var corner := Vector2(0.5 if mask & 2 else -0.5, 0.5 if mask & 4 else -0.5)
@@ -64,22 +71,30 @@ static func _distance(p: Vector2, mask: int) -> float:
 		return absf(p.y)
 	if mask == 5:
 		return absf(p.x)
-	var distance := 10.0
-	for d in 4:
-		if mask & (1 << d):
-			var candidate := _segment_distance(p, Vector2(Board.DX[d], Board.DY[d]))
-			# Smooth unions give tees/crosses a welded shoulder instead of a sharp crease.
-			var h := maxf(0.07 - absf(distance - candidate), 0.0) / 0.07
-			distance = minf(distance, candidate) - h * h * 0.0175
-	return p.length() if mask == 0 else maxf(distance, 0.0)
+	# Combine complete cylinders rather than overlapping half-segments. The
+	# closed side of a tee remains exactly straight, including its reflection.
+	var horizontal := absf(p.y)
+	var vertical := absf(p.x)
+	if mask in [7, 13] and p.x * (1.0 if mask == 7 else -1.0) <= 0.0:
+		return vertical
+	if mask in [11, 14] and p.y * (-1.0 if mask == 11 else 1.0) <= 0.0:
+		return horizontal
+	var h := maxf(0.07 - absf(horizontal - vertical), 0.0) / 0.07
+	return maxf(minf(horizontal, vertical) - h * h * 0.0175, 0.0)
 
 
 static func _metal(normal: Vector3) -> Color:
 	var light := LIGHT.normalized()
 	var diffuse := maxf(normal.dot(light), 0.0)
 	var half_vector := (light + Vector3(0, 0, 1)).normalized()
-	var specular := pow(maxf(normal.dot(half_vector), 0.0), 9.0) * 0.12
-	var value := 0.34 + diffuse * 0.49 + specular
+	# Project the reflection onto the cylinder cross-section so narrow highlights
+	# remain visible along straight tubes as well as curved elbows.
+	var radial := Vector2(normal.x, normal.y).normalized()
+	var cross_light := Vector2(half_vector.x, half_vector.y).dot(radial)
+	var reflected_light := Vector3(radial.x * cross_light, radial.y * cross_light, half_vector.z).normalized()
+	var reflection := maxf(normal.dot(reflected_light), 0.0)
+	var specular := pow(reflection, 180.0) * 0.72 + pow(reflection, 32.0) * 0.08
+	var value := clampf(0.18 + diffuse * 0.43 + specular, 0.0, 1.0)
 	return Color(value * 0.94, value * 0.97, value, 1)
 
 
@@ -92,6 +107,15 @@ static func _tube_pixel(p: Vector2, mask: int) -> Color:
 	var gradient := Vector2(_distance(p + Vector2(e, 0), mask) - _distance(p - Vector2(e, 0), mask),
 		_distance(p + Vector2(0, e), mask) - _distance(p - Vector2(0, e), mask)).normalized()
 	var q := clampf(distance / RADIUS, 0.0, 1.0)
+	# A cut end changes the silhouette, not the cylinder's surface normals.
+	if mask in [0, 1, 2, 4, 8]:
+		var across := Vector2.DOWN
+		if mask != 0:
+			var direction: int = [1, 2, 4, 8].find(mask)
+			across = Vector2(Board.DX[direction], Board.DY[direction]).orthogonal()
+		var v := p.dot(across)
+		gradient = across * signf(v)
+		q = clampf(absf(v) / RADIUS, 0.0, 1.0)
 	var normal := Vector3(gradient.x * q, gradient.y * q, sqrt(maxf(0, 1.0 - q * q)))
 	var col := _metal(normal)
 	var outline := smoothstep(RADIUS - 0.022, RADIUS - 0.006, distance)
@@ -108,41 +132,36 @@ static func _open_elbow_pixel(p: Vector2, mask: int) -> Color:
 			continue
 		var axis := Vector2(Board.DX[direction], Board.DY[direction])
 		var u := p.dot(axis)
-		var v := p.dot(axis.orthogonal())
-		# Shallow rims stay at the ends; they do not overlap across the bend.
-		if u < 0.37:
-			continue
-		var rim := Vector2((u - 0.44) / 0.06, v / 0.49).length()
-		if u > 0.44:
-			body = Color.TRANSPARENT
-		if rim < 1.0:
-			body = _metal(Vector3(axis.x * 0.25, axis.y * 0.25, 0.94)).lightened(0.08)
-			body = body.lerp(Color(0.055, 0.07, 0.09), smoothstep(0.88, 1.0, rim))
-		if Vector2((u - 0.461) / 0.025, v / 0.365).length() < 1.0:
-			body = Color(0.035, 0.05, 0.065)
+		if u >= 0.31:
+			body = _collar_pixel(p, direction)
 	return body
 
 
 static func _mouth_pixel(p: Vector2, direction: int) -> Color:
 	var axis := Vector2(Board.DX[direction], Board.DY[direction])
-	var across := axis.orthogonal()
 	var u := p.dot(axis)
-	var v := p.dot(across)
-	var body := _tube_pixel(p, 10 if direction % 2 else 5) if u < 0.34 else Color.TRANSPARENT
-	# A raised oval collar and recessed aperture, both shaded in screen coordinates.
-	var local := Vector2((u - 0.32) / 0.17, v / 0.49)
-	var radius := local.length()
-	if radius <= 1.015:
-		var gradient := (axis * local.x / 0.17 + across * local.y / 0.49).normalized()
-		var q := clampf(radius, 0, 1)
-		var normal := Vector3(gradient.x * q, gradient.y * q, sqrt(maxf(0, 1 - q * q)))
-		body = _metal(normal).lightened(0.08)
-		body = body.lerp(Color(0.055, 0.07, 0.09), smoothstep(0.94, 1.0, radius))
-		body.a = clampf((1.0 - radius) * 36.0 + 0.5, 0, 1)
-	var hole := Vector2((u - 0.385) / 0.072, v / 0.365).length()
-	if hole < 1.0:
-		body = Color(0.035, 0.05, 0.065).lerp(Color(0.14, 0.18, 0.21), smoothstep(0.65, 1.0, hole) * 0.6)
-	return body
+	if u >= 0.31:
+		return _collar_pixel(p, direction)
+	return _tube_pixel(p, 10 if direction % 2 else 5)
+
+
+## Orthographic coupling: a rectangular band, never an oval or visible bore.
+static func _collar_pixel(p: Vector2, direction: int) -> Color:
+	var axis := Vector2(Board.DX[direction], Board.DY[direction])
+	var u := p.dot(axis)
+	var v := p.dot(axis.orthogonal())
+	var edge := minf(minf(u - 0.31, 0.49 - u), 0.49 - absf(v))
+	if edge < -0.004: return Color.TRANSPARENT
+	var q := clampf(v / 0.49, -1.0, 1.0)
+	var across := axis.orthogonal()
+	var normal := Vector3(across.x * q, across.y * q, sqrt(maxf(0.0, 1.0 - q * q)))
+	var col := _metal(normal).lightened(0.06)
+	col = Color(0.045, 0.055, 0.07).lerp(col, smoothstep(0.005, 0.02, edge))
+	# A crisp rim catches the same upper-left light in every orientation.
+	if u > 0.335 and u < 0.35:
+		col = col.lightened(0.25)
+	col.a = clampf(edge * RESOLUTION + 0.5, 0.0, 1.0)
+	return col
 
 
 static func draw_tile(canvas: CanvasItem, rect: Rect2, mask: int, tint := Color.WHITE, mouth := -1, _cell_size := 0.0) -> void:

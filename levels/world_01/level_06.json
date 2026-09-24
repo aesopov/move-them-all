@@ -1,42 +1,25 @@
 {
-	"version": 1,
-	"name": "Bridge the Pit",
-	"moves": 35,
-	"time": 275,
-	"terrain": [
-		"------------",
-		"------------",
-		"------------",
-		"------------",
-		"............",
-		"............",
-		"............",
-		"----....----",
-		"----....----",
-		"----....----",
-		"----aaaa----",
-		"----aaaa----"
-	],
+	"handcrafted": true,
 	"items": [
 		{
+			"aim": true,
+			"gravity": "fall",
 			"type": "key_red",
 			"x": 2,
-			"y": 6,
-			"gravity": "fall",
-			"aim": true
+			"y": 6
 		},
 		{
+			"aim": true,
+			"lock": "red",
 			"type": "padlock",
 			"x": 9,
-			"y": 6,
-			"lock": "red",
-			"aim": true
+			"y": 6
 		},
 		{
+			"aim": true,
 			"type": "weight",
 			"x": 10,
-			"y": 6,
-			"aim": true
+			"y": 6
 		},
 		{
 			"type": "mover_green",
@@ -49,8 +32,25 @@
 			"y": 5
 		}
 	],
-	"teleports": [],
+	"moves": 35,
+	"name": "Bridge the Pit",
+	"optimal": 25.0,
 	"pipes": [],
-	"handcrafted": true,
-	"optimal": 25
+	"teleports": [],
+	"terrain": [
+		"------------",
+		"------------",
+		"------------",
+		"------------",
+		"............",
+		"............",
+		"............",
+		"####....####",
+		"----....----",
+		"----....----",
+		"----aaaa----",
+		"----aaaa----"
+	],
+	"time": 275,
+	"version": 1
 }

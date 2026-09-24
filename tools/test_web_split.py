@@ -11,6 +11,8 @@ class SplitTests(unittest.TestCase):
             root = Path(tmp)
             archive = root / 'full.zip'
             contents = {
+                'assets/items/themes/desert/plant.png.import': b'path="res://.godot/imported/cactus.ctex"',
+                '.godot/imported/cactus.ctex': b'cactus',
                 'project.binary': b'project',
                 'scripts/game.gdc': b'script',
                 'assets/tiles/desert/floor_a.png.import': b'path="res://.godot/imported/floor.ctex"\0',
@@ -28,7 +30,7 @@ class SplitTests(unittest.TestCase):
             self.assertFalse(set(plan['base']) & set(deferred))
             self.assertIn('.godot/imported/floor.ctex', deferred)
             self.assertIn('.godot/imported/menu.ctex', plan['base'])
-            self.assertEqual(plan['themes']['desert']['assets'], ['backgrounds/desert.png', 'tiles/desert/floor_a.png'])
+            self.assertEqual(plan['themes']['desert']['assets'], ['backgrounds/desert.png', 'items/themes/desert/plant.png', 'tiles/desert/floor_a.png'])
 
 
 if __name__ == '__main__': unittest.main()

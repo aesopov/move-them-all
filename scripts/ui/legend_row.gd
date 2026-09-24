@@ -15,13 +15,15 @@ var kind := "flag":
 		_apply()
 var item_type := 0
 var extra := 0
+var theme_key := ""
 
 
 func _ready() -> void:
 	_apply()
 
 
-func setup(p_kind: String, p_text: String, p_item_type := 0, p_extra := 0) -> LegendRow:
+func setup(p_kind: String, p_text: String, p_item_type := 0, p_extra := 0, p_theme := "") -> LegendRow:
+	theme_key = p_theme
 	item_type = p_item_type
 	extra = p_extra
 	kind = p_kind
@@ -38,4 +40,5 @@ func _apply() -> void:
 	icon.kind = kind
 	icon.item_type = item_type
 	icon.extra = extra
+	icon.theme_key = theme_key
 	label.text = text

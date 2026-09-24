@@ -33,7 +33,7 @@
 			"match_label": "1"
 		},
 		{
-			"type": "star",
+			"type": "cube",
 			"x": 0,
 			"y": 2,
 			"aim": true,
@@ -57,7 +57,7 @@
 			"match_label": "2"
 		},
 		{
-			"type": "star",
+			"type": "cube",
 			"x": 2,
 			"y": 3,
 			"aim": true,

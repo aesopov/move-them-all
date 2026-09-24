@@ -74,7 +74,7 @@ func _draw() -> void:
 		draw_texture_rect(cracked, Rect2(Vector2.ONE * -cell_size * 0.47, Vector2.ONE * cell_size * 0.94), false)
 		if lock: ItemArt.draw_lock(self, cell_size, lock, Vector2.ZERO, 0.6)
 	else:
-		ItemArt.draw_item(self, type, cell_size * 0.92, lock, aim and show_goal, _t)
+		ItemArt.draw_item(self, type, cell_size * 0.92, lock, aim and show_goal, _t, theme_key)
 	if not match_label.is_empty():
 		var font := ThemeDB.fallback_font
 		var font_size := maxi(10, int(cell_size * 0.18))

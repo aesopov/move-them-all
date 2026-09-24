@@ -1,9 +1,83 @@
 {
-	"version": 1,
-	"name": "Mistbound Rings",
-	"theme": "waterfall",
+	"handcrafted": true,
+	"items": [
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 4,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 8,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 6,
+			"y": 5
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 5,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 6,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 7,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "cone",
+			"x": 4,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "balloon",
+			"x": 6,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "cone",
+			"x": 8,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 4,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 6,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 8,
+			"y": 8
+		}
+	],
 	"moves": 32,
-	"time": 240,
+	"name": "Mistbound Rings",
+	"pipes": [],
+	"teleports": [],
 	"terrain": [
 		"------------",
 		"------------",
@@ -18,81 +92,7 @@
 		"------------",
 		"------------"
 	],
-	"items": [
-		{
-			"type": "torus",
-			"x": 4,
-			"y": 4,
-			"aim": true
-		},
-		{
-			"type": "torus",
-			"x": 8,
-			"y": 4,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 6,
-			"y": 5,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 5,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "weight",
-			"x": 6,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 7,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "cone",
-			"x": 4,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "balloon",
-			"x": 6,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "cone",
-			"x": 8,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "torus",
-			"x": 4,
-			"y": 8,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 6,
-			"y": 8,
-			"aim": true
-		},
-		{
-			"type": "torus",
-			"x": 8,
-			"y": 8,
-			"aim": true
-		}
-	],
-	"teleports": [],
-	"pipes": [],
-	"handcrafted": true
+	"theme": "waterfall",
+	"time": 240,
+	"version": 1
 }

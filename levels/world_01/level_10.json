@@ -1,9 +1,47 @@
 {
-	"version": 1,
-	"name": "Falling into Place",
-	"theme": "jungle",
+	"handcrafted": true,
+	"items": [
+		{
+			"aim": true,
+			"type": "weight_red",
+			"x": 3,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"type": "weight_red",
+			"x": 8,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 5,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "weight_red",
+			"x": 6,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 3,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 8,
+			"y": 7
+		}
+	],
 	"moves": 15,
-	"time": 180,
+	"name": "Falling into Place",
+	"pipes": [],
+	"teleports": [],
 	"terrain": [
 		"............",
 		".##########.",
@@ -18,45 +56,7 @@
 		".##########.",
 		"............"
 	],
-	"items": [
-		{
-			"type": "weight_red",
-			"x": 3,
-			"y": 2,
-			"aim": true
-		},
-		{
-			"type": "weight_red",
-			"x": 8,
-			"y": 2,
-			"aim": true
-		},
-		{
-			"type": "weight",
-			"x": 5,
-			"y": 4,
-			"aim": true
-		},
-		{
-			"type": "weight_red",
-			"x": 6,
-			"y": 4,
-			"aim": true
-		},
-		{
-			"type": "weight",
-			"x": 3,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "weight",
-			"x": 8,
-			"y": 7,
-			"aim": true
-		}
-	],
-	"teleports": [],
-	"pipes": [],
-	"handcrafted": true
+	"theme": "jungle",
+	"time": 180,
+	"version": 1
 }

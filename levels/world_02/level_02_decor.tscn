@@ -1,42 +1,42 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2"]
-[ext_resource type="Script" path="res://scripts/game/decor_item.gd" id="3"]
-[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/floor_a.png" id="4"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_lmgys"]
+[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2_mdgow"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/floor_a.png" id="3_w4yy8"]
+[ext_resource type="Script" path="res://scripts/game/decor_item.gd" id="4_1ljn0"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/wall.png" id="5_khej8"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/rubble.png" id="6_kj7kr"]
 
-[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/wall.png" id="5"]
-
-[node name="Decor" type="Node2D"]
+[node name="Decor" type="Node2D" unique_id=716041598]
 show_behind_parent = true
-script = ExtResource("1")
+script = ExtResource("1_lmgys")
 
-[node name="BackgroundRegions" type="Node2D" parent="."]
-script = ExtResource("2")
-regions = Array[Rect2]([Rect2(0, 0, 768, 384), Rect2(416, 160, 128, 128), Rect2(288, 288, 128, 128), Rect2(544, 288, 128, 128)])
+[node name="BackgroundRegions" type="Node2D" parent="." unique_id=958459576]
+script = ExtResource("2_mdgow")
+regions = Array[Rect2]([Rect2(0, 0, 768, 484), Rect2(416, 160, 128, 128), Rect2(288, 288, 128, 128), Rect2(544, 288, 128, 128)])
 colors = Array[Color]([Color(0.045, 0.09, 0.2, 0.95), Color(0.55, 0.65, 0.72, 1), Color(0.55, 0.65, 0.72, 1), Color(0.55, 0.65, 0.72, 1)])
-textures = Array[Texture2D]([null, ExtResource("4"), ExtResource("4"), ExtResource("4")])
+textures = Array[Texture2D]([null, ExtResource("3_w4yy8"), ExtResource("3_w4yy8"), ExtResource("3_w4yy8")])
 
-[node name="BlueSphere" type="Node2D" parent="."]
-position = Vector2(480, 224)
+[node name="BlueSphere" type="Node2D" parent="." unique_id=309356703]
 modulate = Color(0.5, 0.65, 1, 0.6)
-script = ExtResource("3")
+position = Vector2(480, 224)
+script = ExtResource("4_1ljn0")
 item_name = "sphere"
 
-[node name="GoldSphere" type="Node2D" parent="."]
-position = Vector2(352, 352)
+[node name="GoldSphere" type="Node2D" parent="." unique_id=27532084]
 modulate = Color(1, 0.75, 0.3, 0.6)
-script = ExtResource("3")
+position = Vector2(352, 352)
+script = ExtResource("4_1ljn0")
 item_name = "sphere"
 
-[node name="GreenSphere" type="Node2D" parent="."]
-position = Vector2(608, 352)
+[node name="GreenSphere" type="Node2D" parent="." unique_id=474707446]
 modulate = Color(0.35, 1, 0.45, 0.6)
-script = ExtResource("3")
+position = Vector2(608, 352)
+script = ExtResource("4_1ljn0")
 item_name = "sphere"
 
-[node name="DistantMasonry" type="Node2D" parent="."]
-script = ExtResource("2")
-regions = Array[Rect2]([Rect2(128, 64, 128, 64), Rect2(64, 128, 128, 64), Rect2(128, 192, 64, 64), Rect2(256, 128, 64, 128), Rect2(576, 64, 128, 64), Rect2(640, 128, 64, 64)])
+[node name="DistantMasonry" type="Node2D" parent="." unique_id=2144290941]
+script = ExtResource("2_mdgow")
+regions = Array[Rect2]([Rect2(128, 64, 128, 64), Rect2(64, 128, 128, 64), Rect2(128, 192, 64, 64), Rect2(256, 128, 64, 128), Rect2(576, 64, 128, 64), Rect2(580, 128, 128, 128)])
 colors = Array[Color]([Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4)])
-textures = Array[Texture2D]([ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5")])
+textures = Array[Texture2D]([ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("6_kj7kr")])

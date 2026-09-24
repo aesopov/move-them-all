@@ -1,65 +1,47 @@
 {
-	"version": 1,
-	"name": "Keys Above the Fire",
-	"theme": "jungle",
-	"moves": 60,
-	"time": 360,
-	"terrain": [
-		"##....######",
-		"##...#######",
-		"........####",
-		"##...#######",
-		"##...#######",
-		".......#####",
-		"##...#######",
-		"##lll#######",
-		"############",
-		"############",
-		"############",
-		"############"
-	],
+	"handcrafted": true,
 	"items": [
 		{
+			"aim": true,
+			"gravity": "fall",
 			"type": "key_red",
 			"x": 5,
-			"y": 0,
-			"gravity": "fall",
-			"aim": true
+			"y": 0
 		},
 		{
+			"aim": true,
+			"gravity": "fall",
 			"type": "key_green",
 			"x": 0,
-			"y": 2,
-			"gravity": "fall",
-			"aim": true
+			"y": 2
 		},
 		{
+			"aim": true,
+			"lock": "red",
 			"type": "padlock",
 			"x": 1,
-			"y": 2,
-			"lock": "red",
-			"aim": true
+			"y": 2
 		},
 		{
+			"aim": true,
+			"lock": "green",
 			"type": "padlock",
 			"x": 5,
-			"y": 2,
-			"lock": "green",
-			"aim": true
+			"y": 2
 		},
 		{
+			"aim": true,
+			"gravity": "fall",
 			"type": "key_red",
 			"x": 6,
-			"y": 2,
-			"gravity": "fall",
-			"aim": true
+			"y": 2
 		},
 		{
+			"aim": true,
+			"gravity": "fall",
 			"type": "key_red",
 			"x": 7,
-			"y": 2,
-			"gravity": "fall",
-			"aim": true
+			"y": 2
 		},
 		{
 			"type": "mover_green",
@@ -72,33 +54,51 @@
 			"y": 4
 		},
 		{
+			"aim": true,
 			"type": "weight_red",
 			"x": 0,
-			"y": 5,
-			"aim": true
+			"y": 5
 		},
 		{
+			"aim": true,
+			"lock": "red",
 			"type": "padlock",
 			"x": 1,
-			"y": 5,
-			"lock": "red",
-			"aim": true
+			"y": 5
 		},
 		{
+			"aim": true,
+			"lock": "red",
 			"type": "padlock",
 			"x": 5,
-			"y": 5,
-			"lock": "red",
-			"aim": true
+			"y": 5
 		},
 		{
+			"aim": true,
 			"type": "weight_red",
 			"x": 6,
-			"y": 5,
-			"aim": true
+			"y": 5
 		}
 	],
-	"teleports": [],
+	"moves": 60,
+	"name": "Keys Above the Fire",
 	"pipes": [],
-	"handcrafted": true
+	"teleports": [],
+	"terrain": [
+		"##....##----",
+		"##...###----",
+		"........----",
+		"##...###----",
+		"##...###----",
+		".......#----",
+		"##...###----",
+		"##lll###----",
+		"------------",
+		"------------",
+		"------------",
+		"------------"
+	],
+	"theme": "jungle",
+	"time": 360,
+	"version": 1
 }

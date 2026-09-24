@@ -31,6 +31,8 @@ func _initialize() -> void:
 	var back := Board.from_dict(root.get_node("App").load_level(ed.current_path))
 	print("round trip items: ", back.it_type.size(), " tele: ", back.teleport_to[c.call(3, 1)] == c.call(7, 3))
 	DirAccess.remove_absolute(ed.current_path)
+	DirAccess.remove_absolute(LevelDecor.decor_path_for(ed.current_path))
+	app.scan_levels()
 	# undo
 	var before: int = ed._undo_stack.size()
 	ed._unhandled_input(_ctrl_z())

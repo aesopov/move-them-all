@@ -505,7 +505,7 @@ func play(i: int, d: int) -> Array:
 	return steps
 
 
-## Unlock on contact before gravity, and between gravity ticks; match after settling.
+## Resolve contacts before gravity and after every cell of falling or rising.
 func settle() -> Array:
 	var steps := []
 	for _guard in 100:
@@ -515,6 +515,9 @@ func settle() -> Array:
 		var blast := _bomb_contact_step()
 		if not blast.is_empty():
 			steps.append(blast)
+		var immediate_match := _match_step()
+		if not immediate_match.is_empty():
+			steps.append(immediate_match)
 		for _g in GameConfig.MAX_GRAVITY_STEPS:
 			var g := _gravity_step()
 			if g.is_empty():
@@ -526,6 +529,9 @@ func settle() -> Array:
 			blast = _bomb_contact_step()
 			if not blast.is_empty():
 				steps.append(blast)
+			var falling_match := _match_step()
+			if not falling_match.is_empty():
+				steps.append(falling_match)
 		var u := _unlock_step()
 		if not u.is_empty():
 			steps.append(u)

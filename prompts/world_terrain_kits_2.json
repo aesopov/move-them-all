@@ -1,0 +1,434 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "theme": "jungle",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal bamboo barricade lashed with thick tan ropes",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal bamboo barricade lashed with thick tan ropes. Material palette: dark mossy jungle stone and weathered bamboo. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/jungle/decor/barricade.png",
+      "reference": "assets/tiles/jungle/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-cdea134b-bc52-4bb3-88c8-3ff8ba135884.png"
+    },
+    {
+      "theme": "jungle",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped ancient stone gateway lying flat, with carved geometric relief and sparse vines",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped ancient stone gateway lying flat, with carved geometric relief and sparse vines. Material palette: dark mossy jungle stone and weathered bamboo. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/jungle/decor/broken_arch.png",
+      "reference": "assets/tiles/jungle/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-45da08dc-dab0-4cb1-9854-73ca37aaaec6.png"
+    },
+    {
+      "theme": "jungle",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a chunky wooden rope winch with a brass crank",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a chunky wooden rope winch with a brass crank. Material palette: dark mossy jungle stone and weathered bamboo. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/jungle/decor/mechanism.png",
+      "reference": "assets/tiles/jungle/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-479f9b24-0aab-483c-ac11-6d80f53b587e.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal broken wooden sluice gate reinforced with bronze strips",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal broken wooden sluice gate reinforced with bronze strips. Material palette: wet blue-gray stone, driftwood and oxidized bronze. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/waterfall/decor/barricade.png",
+      "reference": "assets/tiles/waterfall/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-6598bddb-7e5c-4396-bdff-323305b651b1.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a U-shaped shipwreck hull frame made of thick driftwood ribs with a broad empty center",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a U-shaped shipwreck hull frame made of thick driftwood ribs with a broad empty center. Material palette: wet blue-gray stone, driftwood and oxidized bronze. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/waterfall/decor/broken_arch.png",
+      "reference": "assets/tiles/waterfall/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b9ac83a0-9e72-41b0-9367-8334bbf7ebc1.png"
+    },
+    {
+      "theme": "waterfall",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a heavy bronze anchor resting on a neatly coiled thick rope",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a heavy bronze anchor resting on a neatly coiled thick rope. Material palette: wet blue-gray stone, driftwood and oxidized bronze. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/waterfall/decor/mechanism.png",
+      "reference": "assets/tiles/waterfall/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-9137c01d-9069-44d0-a522-8df97d6adf7d.png"
+    },
+    {
+      "theme": "desert",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a low horizontal sandstone lattice barrier with three broad rectangular holes",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a low horizontal sandstone lattice barrier with three broad rectangular holes. Material palette: warm golden sandstone, terracotta and aged brass. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/desert/decor/barricade.png",
+      "reference": "assets/tiles/desert/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-327b00b2-d299-4a4c-a96d-43f6cb9b4d91.png"
+    },
+    {
+      "theme": "desert",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped sandstone arch with bold geometric carving",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped sandstone arch with bold geometric carving. Material palette: warm golden sandstone, terracotta and aged brass. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/desert/decor/broken_arch.png",
+      "reference": "assets/tiles/desert/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2724463b-c582-437a-b727-04a97db11a2c.png"
+    },
+    {
+      "theme": "desert",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a squat brass cogwheel half embedded in a cracked sandstone housing",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a squat brass cogwheel half embedded in a cracked sandstone housing. Material palette: warm golden sandstone, terracotta and aged brass. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/desert/decor/mechanism.png",
+      "reference": "assets/tiles/desert/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-dbc207a4-2108-4046-8215-4dee1f98c273.png"
+    },
+    {
+      "theme": "ice",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal frozen iron grating with broad bars and small icicles",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal frozen iron grating with broad bars and small icicles. Material palette: pale blue ice, frosted iron and aged wood. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/ice/decor/barricade.png",
+      "reference": "assets/tiles/ice/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-7f2931f7-e160-4aaa-8166-19d0a5d50506.png"
+    },
+    {
+      "theme": "ice",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped ice arch made from thick translucent blue blocks",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped ice arch made from thick translucent blue blocks. Material palette: pale blue ice, frosted iron and aged wood. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/ice/decor/broken_arch.png",
+      "reference": "assets/tiles/ice/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-38f3fed0-aa91-4ec8-bf13-30387821bc0d.png"
+    },
+    {
+      "theme": "ice",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a squat iron capstan with a frosted wheel and small snow patches",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a squat iron capstan with a frosted wheel and small snow patches. Material palette: pale blue ice, frosted iron and aged wood. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/ice/decor/mechanism.png",
+      "reference": "assets/tiles/ice/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-58c08bd3-6252-4211-ac6d-d940340e5f8a.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a broken horizontal marble balustrade with three chunky pillars",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken horizontal marble balustrade with three chunky pillars. Material palette: weathered beige marble, muted moss and antique bronze. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/ruins/decor/barricade.png",
+      "reference": "assets/tiles/ruins/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-bad75001-5444-4319-a473-9da1f52afc78.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a U-shaped broken marble doorway frame with carved spiral capitals",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a U-shaped broken marble doorway frame with carved spiral capitals. Material palette: weathered beige marble, muted moss and antique bronze. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/ruins/decor/broken_arch.png",
+      "reference": "assets/tiles/ruins/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-1f4ea615-f773-4cdb-90ca-17acf7b57855.png"
+    },
+    {
+      "theme": "ruins",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a round bronze sundial on a cracked square marble plinth, no letters or numerals",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a round bronze sundial on a cracked square marble plinth, no letters or numerals. Material palette: weathered beige marble, muted moss and antique bronze. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/ruins/decor/mechanism.png",
+      "reference": "assets/tiles/ruins/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-c568ee66-f26c-4be5-8769-beaeb740d6df.png"
+    },
+    {
+      "theme": "cave",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal barricade made of two crossed heavy timber beams and iron brackets",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal barricade made of two crossed heavy timber beams and iron brackets. Material palette: brown-gray quarry stone, worn timber and rusty iron. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/cave/decor/barricade.png",
+      "reference": "assets/tiles/cave/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-53e57572-3525-48c7-93d6-0a94208f39cf.png"
+    },
+    {
+      "theme": "cave",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped mining tunnel support made of thick timber with rusty braces",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped mining tunnel support made of thick timber with rusty braces. Material palette: brown-gray quarry stone, worn timber and rusty iron. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/cave/decor/broken_arch.png",
+      "reference": "assets/tiles/cave/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b5fa9a56-d430-49c6-9025-26d7f8c273c3.png"
+    },
+    {
+      "theme": "cave",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a rusty mining pulley wheel in a chunky square iron mounting",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a rusty mining pulley wheel in a chunky square iron mounting. Material palette: brown-gray quarry stone, worn timber and rusty iron. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/cave/decor/mechanism.png",
+      "reference": "assets/tiles/cave/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-48f4204c-a070-4572-8572-12927f21f241.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal heavy black iron grate with chunky bars and tiny ember cracks",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal heavy black iron grate with chunky bars and tiny ember cracks. Material palette: charcoal basalt, blackened iron and restrained orange ember seams. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/volcano/decor/barricade.png",
+      "reference": "assets/tiles/volcano/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-89f27226-04e0-49ed-b2ec-f21f4dc319ba.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped basalt forge frame edged with dark iron",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped basalt forge frame edged with dark iron. Material palette: charcoal basalt, blackened iron and restrained orange ember seams. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/volcano/decor/broken_arch.png",
+      "reference": "assets/tiles/volcano/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-5cbdad0f-2197-43ef-b2e2-fea0acf5039b.png"
+    },
+    {
+      "theme": "volcano",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact blackened forge bellows with brass nozzle and riveted red-brown leather",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a compact blackened forge bellows with brass nozzle and riveted red-brown leather. Material palette: charcoal basalt, blackened iron and restrained orange ember seams. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/volcano/decor/mechanism.png",
+      "reference": "assets/tiles/volcano/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3769a58e-2d44-4464-b003-b43f4751544f.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal woven reed fence held by two thick weathered wood posts",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal woven reed fence held by two thick weathered wood posts. Material palette: dark wet timber, muted moss and dull iron. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/swamp/decor/barricade.png",
+      "reference": "assets/tiles/swamp/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-8c037c48-b753-4a31-ab3d-8f67014fc8be.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped waterlogged boat hull with a broad empty center",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped waterlogged boat hull with a broad empty center. Material palette: dark wet timber, muted moss and dull iron. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/swamp/decor/broken_arch.png",
+      "reference": "assets/tiles/swamp/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-6a0f9dd9-95f8-4972-bae1-7f91ea4b09ee.png"
+    },
+    {
+      "theme": "swamp",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a squat old iron cauldron with a chipped rim, dark empty interior, no liquid",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a squat old iron cauldron with a chipped rim, dark empty interior, no liquid. Material palette: dark wet timber, muted moss and dull iron. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/swamp/decor/mechanism.png",
+      "reference": "assets/tiles/swamp/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2405e984-0508-48c3-8f02-ac9b6d40e98c.png"
+    },
+    {
+      "theme": "sky",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal ivory balustrade with gold-capped posts and two broad gaps",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal ivory balustrade with gold-capped posts and two broad gaps. Material palette: ivory cloudstone, pale blue shadows and warm gold. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/sky/decor/barricade.png",
+      "reference": "assets/tiles/sky/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-13e6cf6c-dbb8-4b70-bd3e-78882e1ca36d.png"
+    },
+    {
+      "theme": "sky",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped ivory gateway with small golden corner plates",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped ivory gateway with small golden corner plates. Material palette: ivory cloudstone, pale blue shadows and warm gold. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/sky/decor/broken_arch.png",
+      "reference": "assets/tiles/sky/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b453788b-7fd9-4b46-980c-973afe541214.png"
+    },
+    {
+      "theme": "sky",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a compact bronze astrolabe mechanism on a white stone base, no text",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a compact bronze astrolabe mechanism on a white stone base, no text. Material palette: ivory cloudstone, pale blue shadows and warm gold. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/sky/decor/mechanism.png",
+      "reference": "assets/tiles/sky/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-02b0aa26-dd92-4c9b-b26f-8b288a072f6f.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal barrier made from four chunky violet crystal prisms joined by silver bands",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal barrier made from four chunky violet crystal prisms joined by silver bands. Material palette: lavender cave rock, turquoise crystals and tarnished silver. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/crystal/decor/barricade.png",
+      "reference": "assets/tiles/crystal/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-75b1149b-0d9d-49f2-9fcc-96f870ec16c5.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped lavender stone arch with broad cyan crystal inlays",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped lavender stone arch with broad cyan crystal inlays. Material palette: lavender cave rock, turquoise crystals and tarnished silver. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/crystal/decor/broken_arch.png",
+      "reference": "assets/tiles/crystal/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a33d403a-04aa-4687-a855-1145e2d44a32.png"
+    },
+    {
+      "theme": "crystal",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a cracked geode bowl with large violet and turquoise crystals inside",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a cracked geode bowl with large violet and turquoise crystals inside. Material palette: lavender cave rock, turquoise crystals and tarnished silver. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/crystal/decor/mechanism.png",
+      "reference": "assets/tiles/crystal/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b938ad46-3d40-4c92-bac4-9f166609ab11.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "barricade",
+      "footprint": [
+        2,
+        1
+      ],
+      "subject": "a horizontal sci-fi blast barricade with angular metal panels and small cyan insets",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a horizontal sci-fi blast barricade with angular metal panels and small cyan insets. Material palette: dark violet alloy, cyan panels and sparse magenta light strips. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Wide horizontal silhouette, 2:1 footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/nexus/decor/barricade.png",
+      "reference": "assets/tiles/nexus/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-72d4fa69-1313-44a5-a75a-65401092050c.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "broken_arch",
+      "footprint": [
+        2,
+        2
+      ],
+      "subject": "a broken U-shaped machine bulkhead frame with thick angular beams",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a broken U-shaped machine bulkhead frame with thick angular beams. Material palette: dark violet alloy, cyan panels and sparse magenta light strips. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Square 2x2-cell footprint, substantial U-shaped silhouette with a broad TRANSPARENT central opening connected to the bottom edge. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/nexus/decor/broken_arch.png",
+      "reference": "assets/tiles/nexus/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-4484fcb9-ffa4-4b34-a2c0-f2b1525ee235.png"
+    },
+    {
+      "theme": "nexus",
+      "name": "mechanism",
+      "footprint": [
+        1,
+        1
+      ],
+      "subject": "a squat hexagonal reactor housing with a glass cyan core and dark metal braces",
+      "prompt": "Use case: stylized-concept. Asset: one transparent obstacle/scenery sprite for a casual grid puzzle. Reference image is STYLE and PALETTE only; do NOT copy its rocks or rectangular wall layout. Primary subject: a squat hexagonal reactor housing with a glass cyan core and dark metal braces. Material palette: dark violet alloy, cyan panels and sparse magenta light strips. The subject must be clearly recognizable, distinct from an ordinary pile of rocks. Polished hand-painted game art, broad facets, crisp dark outline, top-left lighting, restrained fine detail, readable at 64px. Compact roughly square 1x1-cell footprint. Near top-down orthographic view with minimal visible side depth, no isometric ground plane. Entire object visible with clear margin. Real transparent alpha background and transparent holes; no floor, backdrop, outer cast shadow, text, labels, arrows or border. One object only, no sheet.",
+      "path": "assets/tiles/nexus/decor/mechanism.png",
+      "reference": "assets/tiles/nexus/wall.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-a54936ac-8762-46f0-a6fa-34ee9db3575f.png"
+    }
+  ]
+}

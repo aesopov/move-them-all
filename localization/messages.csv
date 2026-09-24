@@ -381,3 +381,41 @@ Loading level assets…,Loading level assets…,Cargando recursos del nivel…,C
 Preparing level…,Preparing level…,Preparando nivel…,Preparando nível…,Préparation du niveau…,Level wird vorbereitet…,Подготовка уровня…,Bölüm hazırlanıyor…
 Could not load level assets.,Could not load level assets.,No se pudieron cargar los recursos del nivel.,Não foi possível carregar os recursos do nível.,Impossible de charger les ressources du niveau.,Level-Ressourcen konnten nicht geladen werden.,Не удалось загрузить ресурсы уровня.,Bölüm kaynakları yüklenemedi.
 Pair Up,Pair Up,Pair Up,Pair Up,Pair Up,Pair Up,Найди пару,Eşini Bul
+Skipped,Skipped,Omitido,Pulado,Passé,Übersprungen,Пропущен,Atlandı
+Skip level (%d left),Skip level (%d left),Saltar nivel (quedan %d),Pular fase (restam %d),Passer le niveau (%d restants),Level überspringen (%d übrig),Пропустить уровень (осталось %d),Bölümü atla (%d kaldı)
+Skip this level?,Skip this level?,¿Saltar este nivel?,Pular esta fase?,Passer ce niveau ?,Dieses Level überspringen?,Пропустить этот уровень?,Bu bölüm atlansın mı?
+You can complete it later. This uses one free skip.,You can complete it later. This uses one free skip.,Puedes completarlo después. Usarás un salto gratuito.,Você pode concluí-la depois. Isso usa um pulo grátis.,Vous pourrez le terminer plus tard. Cela utilise un passage gratuit.,Du kannst es später abschließen. Dafür wird ein kostenloses Überspringen verbraucht.,Вы сможете пройти его позже. Будет потрачен один бесплатный пропуск.,Daha sonra tamamlayabilirsin. Bir ücretsiz atlama hakkı kullanılır.
+Free skips: %d,Free skips: %d,Saltos gratis: %d,Pulos grátis: %d,Passages gratuits : %d,Kostenlos überspringen: %d,Бесплатные пропуски: %d,Ücretsiz atlama: %d
+Amber,Amber,Ámbar,Âmbar,Ambre,Bernstein,Янтарь,Kehribar
+Wooden mask,Wooden mask,Máscara de madera,Máscara de madeira,Masque en bois,Holzmaske,Деревянная маска,Ahşap maske
+Pearl shell,Pearl shell,Concha con perla,Concha com pérola,Coquillage nacré,Perlmuschel,Раковина с жемчужиной,İncili deniz kabuğu
+River stone,River stone,Piedra de río,Pedra de rio,Galet,Flussstein,Речной камень,Nehir taşı
+Sunstone,Sunstone,Piedra solar,Pedra do sol,Pierre de soleil,Sonnenstein,Солнечный камень,Güneş taşı
+Scarab amulet,Scarab amulet,Amuleto de escarabajo,Amuleto de escaravelho,Amulette scarabée,Skarabäus-Amulett,Амулет скарабея,Bok böceği tılsımı
+Ice crystal,Ice crystal,Cristal de hielo,Cristal de gelo,Cristal de glace,Eiskristall,Ледяной кристалл,Buz kristali
+Frozen compass,Frozen compass,Brújula helada,Bússola congelada,Boussole gelée,Gefrorener Kompass,Замёрзший компас,Donmuş pusula
+Brass gear,Brass gear,Engranaje de latón,Engrenagem de latão,Engrenage en laiton,Messingzahnrad,Латунная шестерня,Pirinç dişli
+Pressure valve,Pressure valve,Válvula de presión,Válvula de pressão,Vanne de pression,Druckventil,Вентиль,Basınç vanası
+Ore chunk,Ore chunk,Trozo de mineral,Pedaço de minério,Morceau de minerai,Erzbrocken,Кусок руды,Cevher parçası
+Mining lantern,Mining lantern,Farol minero,Lanterna de mineração,Lanterne de mineur,Grubenlampe,Шахтёрский фонарь,Madenci feneri
+Obsidian,Obsidian,Obsidiana,Obsidiana,Obsidienne,Obsidian,Обсидиан,Obsidyen
+Molten core,Molten core,Núcleo fundido,Núcleo derretido,Noyau en fusion,Glutkern,Раскалённое ядро,Erimiş çekirdek
+Potion bottle,Potion bottle,Frasco de poción,Frasco de poção,Fiole de potion,Trankflasche,Бутылочка зелья,İksir şişesi
+Ancient fossil,Ancient fossil,Fósil antiguo,Fóssil antigo,Fossile ancien,Uraltes Fossil,Древняя окаменелость,Antik fosil
+Golden feather,Golden feather,Pluma dorada,Pena dourada,Plume dorée,Goldene Feder,Золотое перо,Altın tüy
+Windmill rotor,Windmill rotor,Rotor de molino,Rotor de moinho,Rotor de moulin,Windmühlenrad,Ротор ветряной мельницы,Yel değirmeni çarkı
+Crystal prism,Crystal prism,Prisma de cristal,Prisma de cristal,Prisme de cristal,Kristallprisma,Кристаллическая призма,Kristal prizma
+Geode,Geode,Geoda,Geodo,Géode,Geode,Жеода,Jeot
+Energy core,Energy core,Núcleo de energía,Núcleo de energia,Noyau d’énergie,Energiekern,Энергетическое ядро,Enerji çekirdeği
+Gyroscope,Gyroscope,Giroscopio,Giroscópio,Gyroscope,Gyroskop,Гироскоп,Jiroskop
+Jungle drum,Jungle drum,Tambor de la selva,Tambor da selva,Tambour de la jungle,Dschungeltrommel,Барабан джунглей,Orman davulu
+Conch,Conch,Caracola,Concha,Conque,Muschelhorn,Раковина,Deniz kabuğu
+Hourglass,Hourglass,Reloj de arena,Ampulheta,Sablier,Sanduhr,Песочные часы,Kum saati
+Snow globe,Snow globe,Bola de nieve,Globo de neve,Boule à neige,Schneekugel,Снежный шар,Kar küresi
+Pocket watch,Pocket watch,Reloj de bolsillo,Relógio de bolso,Montre de poche,Taschenuhr,Карманные часы,Cep saati
+Toolbox,Toolbox,Caja de herramientas,Caixa de ferramentas,Boîte à outils,Werkzeugkasten,Ящик с инструментами,Alet kutusu
+Anvil,Anvil,Yunque,Bigorna,Enclume,Amboss,Наковальня,Örs
+Swamp charm,Swamp charm,Amuleto del pantano,Amuleto do pântano,Talisman du marais,Sumpftalisman,Болотный амулет,Bataklık tılsımı
+Sky bell,Sky bell,Campana del cielo,Sino do céu,Cloche céleste,Himmelsglocke,Небесный колокол,Gökyüzü çanı
+Crystal ball,Crystal ball,Bola de cristal,Bola de cristal,Boule de cristal,Kristallkugel,Хрустальный шар,Kristal küre
+Satellite,Satellite,Satélite,Satélite,Satellite,Satellit,Спутник,Uydu

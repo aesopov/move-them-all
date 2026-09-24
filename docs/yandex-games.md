@@ -77,3 +77,36 @@ The welcome and level-selection screens expose the Level Designer only in debug
 builds. Release builds also reject the editor scene route and omit custom designer
 levels from the level catalogue. The editor remains available when running the
 project in Godot or exporting a debug build.
+
+## Campaign progress and free skips
+
+Release builds unlock the campaign in order. Completing or skipping a level unlocks
+its successor. Up to five skipped levels can remain unfinished at a time. Completing
+a skipped level awards its normal score and restores one free skip. Replaying it
+again does not restore additional skips.
+Skipped levels remain selectable and are marked separately from completed levels.
+Use Pause → Skip level, then confirm. The final campaign level cannot be skipped.
+Debug builds retain unrestricted level access. No purchases are implemented yet.
+
+Progress schema v1 stores `scores` (best score by level path) and `skipped` (unique
+paths ever skipped). Unlocks and the remaining allowance are derived from these
+values: only skipped paths with no completion score consume a slot. Existing saves
+automatically gain the correct allowance without a migration. Skipping alone never
+records a level as completed.
+
+The Yandex release uses `ysdk.getPlayer()`, `player.getData(['pairUpProgress'])`,
+and `player.setData({pairUpProgress: ...}, true)` without requesting profile access
+or showing a sign-in dialog. Initialization attempts to load progress before Godot
+starts, with a bounded wait. A per-player localStorage journal preserves pending
+changes. Failed reads never trigger a write until a successful read has been merged;
+failed writes retry. Writes are serialized and throttled. Scores merge by maximum,
+skips by set union. Concurrent offline sessions may spend their cached allowances;
+reconciliation retains skip history and counts only unfinished skipped levels,
+clamping the remaining allowance to zero.
+Future paid credits must use verified purchase fulfillment, not a writable local
+balance.
+
+The legacy Godot save is imported once per browser. Non-Yandex builds keep using
+`user://progress.json`, with automatic migration from the old score-only dictionary.
+SDK/cloud tests: `node tools/test_yandex_progress.cjs`. Progression tests:
+`godot --headless --path . --script tools/test_progress.gd`.

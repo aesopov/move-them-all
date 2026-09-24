@@ -1,9 +1,59 @@
 {
-	"version": 1,
-	"name": "Jungle Jewel Box",
-	"theme": "jungle",
+	"handcrafted": true,
+	"items": [
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 4,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 8,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "crystal",
+			"x": 6,
+			"y": 5
+		},
+		{
+			"aim": true,
+			"type": "crystal",
+			"x": 4,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 6,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "crystal",
+			"x": 8,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 4,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 8,
+			"y": 7
+		}
+	],
 	"moves": 14,
-	"time": 120,
+	"name": "Jungle Jewel Box",
+	"pipes": [],
+	"teleports": [],
 	"terrain": [
 		"------------",
 		"------------",
@@ -18,71 +68,7 @@
 		"------------",
 		"------------"
 	],
-	"skins": [
-		"............",
-		"............",
-		"............",
-		"...ppppppp..",
-		"...p.....p..",
-		"...p.....p..",
-		"...p.....p..",
-		"...p.....p..",
-		"...ppppppp..",
-		"............",
-		"............",
-		"............"
-	],
-	"items": [
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 4,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 8,
-			"y": 4,
-			"aim": true
-		},
-		{
-			"type": "sphere",
-			"x": 6,
-			"y": 5,
-			"aim": true
-		},
-		{
-			"type": "sphere",
-			"x": 4,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 6,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "sphere",
-			"x": 8,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 8,
-			"y": 7,
-			"aim": true
-		}
-	],
-	"teleports": [],
-	"pipes": [],
-	"handcrafted": true
+	"theme": "jungle",
+	"time": 120,
+	"version": 1
 }

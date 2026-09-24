@@ -19,6 +19,7 @@ func setup(title: String, idx: int, levels: Array) -> WorldRow:
 		var path: String = levels[i]
 		var label := "%d-%d" % [idx + 1, i + 1] if idx >= 0 else path.get_file().get_basename()
 		var b: Button = LEVEL_BUTTON.instantiate()
+		b.disabled = not App.is_level_unlocked(path)
 		b.text = label
 		b.pressed.connect(func(): App.start_level(path))
 		var best := App.best_score(path)
@@ -27,6 +28,9 @@ func setup(title: String, idx: int, levels: Array) -> WorldRow:
 			b.text = label + "\n" + str(best)
 			b.add_theme_font_size_override("font_size", 15)
 			b.add_theme_stylebox_override("normal", UiKit.stone(true, Color(1.12, 1.16, 0.72), 6))
+		elif path in App.skipped:
+			b.text = label + "\n" + tr("Skipped")
+			b.add_theme_font_size_override("font_size", 15)
 		b.tooltip_text = tr(App.load_level(path).get("name", ""))
 		grid.add_child(b)
 	(get_node("%Progress") as Label).text = tr("%d / %d completed") % [done, levels.size()]

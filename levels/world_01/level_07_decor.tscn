@@ -1,30 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_ot0ou"]
 
-[node name="Decor" type="Node2D"]
-script = ExtResource("1")
-
-[node name="GreenChevronOuter" type="Line2D" parent="."]
-points = PackedVector2Array(732, 24, 536, 224, 732, 424)
-width = 28.0
-default_color = Color(0.13, 0.31, 0.12, 0.8)
-antialiased = true
-
-[node name="GreenChevronInner" type="Line2D" parent="."]
-points = PackedVector2Array(764, 108, 656, 224, 764, 340)
-width = 25.0
-default_color = Color(0.18, 0.39, 0.14, 0.8)
-antialiased = true
-
-[node name="RedChevron" type="Line2D" parent="."]
-points = PackedVector2Array(24, 660, 224, 504, 456, 688, 680, 528)
-width = 28.0
-default_color = Color(0.49, 0.12, 0.08, 0.8)
-antialiased = true
-
-[node name="RedLower" type="Line2D" parent="."]
-points = PackedVector2Array(80, 756, 224, 636, 368, 756)
-width = 25.0
-default_color = Color(0.43, 0.08, 0.055, 0.8)
-antialiased = true
+[node name="Decor" type="Node2D" unique_id=289831272]
+script = ExtResource("1_ot0ou")

@@ -1,0 +1,182 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "assets/items/crystal.png",
+  "assets": [
+    {
+      "theme": "jungle",
+      "name": "amber",
+      "slot": "crystal",
+      "path": "assets/items/themes/jungle/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b6c28574-df62-42e2-897c-39385a75c0e0.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single chunky faceted honey-gold amber gemstone with a small dark leaf inclusion, warm translucent orange edges. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "jungle",
+      "name": "wooden_mask",
+      "slot": "cube",
+      "path": "assets/items/themes/jungle/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ac461805-3c94-42a1-8eb7-1833288a6e81.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single compact carved wooden jungle mask, rounded rectangular silhouette, broad brow, two simple inset turquoise eye shapes and a short geometric mouth; friendly, not scary, no feathers or plants. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "waterfall",
+      "name": "pearl_shell",
+      "slot": "crystal",
+      "path": "assets/items/themes/waterfall/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-4a567db9-0547-42e1-a7fd-f60b19c58bf4.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single open pearly ivory scallop shell holding one large luminous cream pearl, teal inner lining, few broad radial ridges. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "waterfall",
+      "name": "river_stone",
+      "slot": "cube",
+      "path": "assets/items/themes/waterfall/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-059a55a2-aecb-4752-8676-bc4e8b6b4483.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single smooth oval polished blue-gray river stone with one sweeping white quartz vein, glossy upper-left surface. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "desert",
+      "name": "scarab",
+      "slot": "cube",
+      "path": "assets/items/themes/desert/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-812c04ea-96b0-4d4e-ba1c-4a13168de481.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single gold scarab beetle amulet, compact oval silhouette, turquoise wing inlays, chunky gold legs tucked close, no chain. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "desert",
+      "name": "sunstone",
+      "slot": "crystal",
+      "path": "assets/items/themes/desert/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-be814e62-a028-412a-a099-c7ccef3b25c5.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single chunky orange-gold sunstone gemstone shaped as a broad hexagonal prism, fiery amber center and strong simple facets. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "ice",
+      "name": "ice_crystal",
+      "slot": "crystal",
+      "path": "assets/items/themes/ice/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-e6ad18ac-4b47-4d35-aa86-c7cdffe8584a.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single broad six-pointed cyan ice crystal, thick beveled arms, icy white highlights, solid readable snowflake silhouette. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "ice",
+      "name": "frozen_compass",
+      "slot": "cube",
+      "path": "assets/items/themes/ice/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-27ff6b8b-2bc5-4b96-a241-e40cbfcdb392.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single round navy and silver compass with a broad red needle and a few chunky frosted edges; only four simple ticks, no letters or numbers. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "ruins",
+      "name": "brass_gear",
+      "slot": "crystal",
+      "path": "assets/items/themes/ruins/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d6390146-d945-4a3e-afa8-f243b35a3594.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single thick brass cogwheel with eight broad squared teeth, dark central circular hole and a few simple engraved rings, polished golden highlights. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "ruins",
+      "name": "pressure_valve",
+      "slot": "cube",
+      "path": "assets/items/themes/ruins/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-cff5b342-d033-4e23-916f-e4a39bd56486.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single compact industrial red handwheel mounted on a short bronze valve body, four thick spokes, slight three-quarter frontal view, no pipes extending outward. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "cave",
+      "name": "ore_chunk",
+      "slot": "crystal",
+      "path": "assets/items/themes/cave/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2350eb41-908e-4cef-8287-84f2241a6e55.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single chunky dark slate ore rock with three large shiny copper-orange mineral facets embedded within it, broad jagged silhouette. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "cave",
+      "name": "mining_lantern",
+      "slot": "cube",
+      "path": "assets/items/themes/cave/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-e21c9034-e898-45c2-ab68-922672cc30a1.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single stout brass mining lantern with a rounded protective handle and warm yellow glass chamber, simple thick frame, no cast glow beyond silhouette. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "volcano",
+      "name": "obsidian",
+      "slot": "crystal",
+      "path": "assets/items/themes/volcano/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ff3e455b-8621-476f-a0b9-ea6147fdd6a9.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single angular black-purple obsidian shard cluster with three broad points, sharp violet facet highlights and tiny warm reflections. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "volcano",
+      "name": "molten_core",
+      "slot": "cube",
+      "path": "assets/items/themes/volcano/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-902638f3-3ad7-44e2-9c82-4917291af916.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single round dark basalt core split by several bold glowing orange molten fissures, strong spherical silhouette, no flame or smoke. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "swamp",
+      "name": "potion",
+      "slot": "crystal",
+      "path": "assets/items/themes/swamp/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-5c7183b1-f37e-45a8-ad3b-2576632c5b61.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single squat round glass potion bottle filled with luminous lime-green liquid, dark violet stopper and a thick short neck; no label, skull or floating particles. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "swamp",
+      "name": "fossil",
+      "slot": "cube",
+      "path": "assets/items/themes/swamp/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-fdd1ae82-31c2-4606-9bb5-cec7e93282de.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single tan ancient ammonite fossil with a bold spiral ridge embedded in a compact dark moss-gray stone; no plants. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "sky",
+      "name": "windmill_rotor",
+      "slot": "cube",
+      "path": "assets/items/themes/sky/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-4bb76a6f-c425-49be-aa33-d4f14d14a83d.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single small four-bladed windmill rotor, ivory broad sail-shaped blades on a brass central hub, sky-blue trim, no tower or background. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "sky",
+      "name": "golden_feather",
+      "slot": "crystal",
+      "path": "assets/items/themes/sky/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-f681d9bc-206c-4fa5-9419-bb3e2a085b14.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single broad curved golden feather with a thick quill, five simple grouped vane segments, compact diagonal silhouette. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "crystal",
+      "name": "geode",
+      "slot": "cube",
+      "path": "assets/items/themes/crystal/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b4494815-a980-4d0f-8050-997ce88cbbbb.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single opened rounded geode stone with a dark purple rough outer shell and a bright cluster of large turquoise and violet crystals inside, broad thick edge. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "crystal",
+      "name": "prism",
+      "slot": "crystal",
+      "path": "assets/items/themes/crystal/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-3a30336c-053f-4e55-b268-f798b5896077.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single triangular optical crystal prism with a few large lavender and cyan facets and soft rainbow color inside its surface, no external rays. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "nexus",
+      "name": "gyroscope",
+      "slot": "cube",
+      "path": "assets/items/themes/nexus/cube.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-168ff3fb-e98c-4e47-ae2a-e5f3ee886a80.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single compact futuristic gyroscope with three thick interlocking gold and violet metal rings around a turquoise ball, simple readable open mechanical silhouette. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    },
+    {
+      "theme": "nexus",
+      "name": "energy_core",
+      "slot": "crystal",
+      "path": "assets/items/themes/nexus/crystal.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-354a09e7-05cb-4daa-8489-5e9c03b4dccb.png",
+      "prompt": "Use case: stylized-concept. Asset type: one transparent PNG inventory/puzzle item sprite for Pair Up. Reference image is STYLE ONLY, not subject: polished colorful hand-painted casual mobile puzzle art with crisp dark outlines, chunky simplified forms, slightly top-down frontal perspective, light from upper-left and strong clean glossy highlights. Subject: a single glowing cyan energy sphere in a compact dark violet hexagonal metal cage, thick frame and three broad magenta luminous accents, no external glow or particles. Centered on square canvas, entire object visible with 10% clear margin. Readable at 54 pixels. Truly transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text, no border. One object only, no sheet, no plant or flower."
+    }
+  ]
+}

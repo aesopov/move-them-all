@@ -59,3 +59,23 @@ func _set_platform_pause(value: bool) -> void:
 	else:
 		AudioServer.set_bus_mute(0, _previous_mute)
 	get_tree().paused = value
+
+
+signal progress_loaded(data: Dictionary)
+var _save_callback: JavaScriptObject
+
+func has_player_storage() -> bool:
+	return OS.has_feature("web") and JavaScriptBridge.get_interface("PairUpSave") != null
+
+func load_progress(legacy: Dictionary) -> Dictionary:
+	var storage = JavaScriptBridge.get_interface("PairUpSave")
+	_save_callback = JavaScriptBridge.create_callback(func(args: Array):
+		var data = JSON.parse_string(str(args[0]))
+		if data is Dictionary: progress_loaded.emit(data))
+	storage.subscribe(_save_callback)
+	var data = JSON.parse_string(str(storage.load(JSON.stringify(legacy))))
+	return data if data is Dictionary else {}
+
+func save_progress(data: Dictionary) -> void:
+	var storage = JavaScriptBridge.get_interface("PairUpSave")
+	storage.save(JSON.stringify(data))

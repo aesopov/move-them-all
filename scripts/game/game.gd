@@ -23,7 +23,7 @@ var _overlay: Overlay
 
 
 func _ready() -> void:
-	var td := WorldTheme.for_level(App.locate(App.current_path).x, App.current_data)
+	var td := WorldTheme.for_level(App.locate(App.editor_path if App.testing_from_editor else App.current_path).x, App.current_data)
 	clock_running = not GameConfig.TIMER_STARTS_ON_FIRST_MOVE
 	%Backdrop.set_theme_data(td)
 
@@ -33,6 +33,15 @@ func _ready() -> void:
 	view.modulate.a = 0.0
 	view.theme_data = td
 	view.set_decor(LevelDecor.decor_path_for(App.current_path if not App.testing_from_editor else App.editor_path))
+	if App.testing_from_editor and App.editor_decor != null:
+		if view._decor:
+			view.remove_child(view._decor)
+			view._decor.queue_free()
+		view._decor = App.editor_decor.instantiate()
+		view._decor.embedded = true
+		view.add_child(view._decor)
+		view.move_child(view._decor, view.items_layer.get_index())
+		view._update_size()
 	view.set_board(board)
 	view.move_requested.connect(_on_move)
 
@@ -83,7 +92,7 @@ func _fill_panels() -> void:
 	%BestLabel.text = tr("Best: %d") % best
 	_fill_targets(%TargetCounts, true)
 	for entry in _legend_entries():
-		%Legend.add_child(LEGEND_ROW.instantiate().setup(entry[0], entry[1], entry[2], entry[3]))
+		%Legend.add_child(LEGEND_ROW.instantiate().setup(entry[0], entry[1], entry[2], entry[3], view.theme_data.key))
 
 
 # Keep initial goal IDs so cleared targets remain visible and undo restores counts.
@@ -105,8 +114,9 @@ func _fill_targets(container: Control, track := false) -> void:
 	for group in _target_groups():
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 6)
-		row.tooltip_text = ItemDefs.pretty_name(group.type)
+		row.tooltip_text = AssetLib.item_label(group.type, view.theme_data.key)
 		var icon := IconView.make("item", group.type, 0, 36)
+		icon.theme_key = view.theme_data.key
 		icon.set_process(false)
 		row.add_child(icon)
 		if group.badge != "":
@@ -155,7 +165,7 @@ func _legend_entries() -> Array:
 		if seen.has(seen_key):
 			continue
 		seen[seen_key] = true
-		var txt := ItemDefs.pretty_name(t)
+		var txt := AssetLib.item_label(t, view.theme_data.key)
 		var motion := ""
 		match g:
 			ItemDefs.Gravity.FALL: motion = tr("falls, can't be moved up")
@@ -373,6 +383,10 @@ func _toggle_pause() -> void:
 			touch_controls.reset_camera()
 			_toggle_pause())
 	o.add_button(tr("Restart"), _restart)
+	if not OS.is_debug_build() and not App.testing_from_editor:
+		o.add_text(tr("Free skips: %d") % App.skips_remaining())
+	if not OS.is_debug_build() and not App.testing_from_editor and App.can_skip(App.current_path):
+		o.add_button(tr("Skip level (%d left)") % App.skips_remaining(), _confirm_skip)
 	o.add_button(tr("Quit to menu"), _on_back)
 
 
@@ -458,3 +472,14 @@ func _notification(what: int) -> void:
 
 func _exit_tree() -> void:
 	Platform.gameplay(false)
+
+
+func _confirm_skip() -> void:
+	var o := _open_overlay(tr("Skip this level?"))
+	o.add_text(tr("You can complete it later. This uses one free skip."))
+	o.add_button(tr("Skip level (%d left)") % App.skips_remaining(), func():
+		if App.skip_level(App.current_path):
+			App.start_level(App.next_level(App.current_path)))
+	o.add_button(tr("Cancel"), func():
+		paused = false
+		_toggle_pause())

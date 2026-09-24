@@ -16,6 +16,27 @@ extends RefCounted
 
 const ROOT := "res://assets"
 
+## Names follow visual variants; item IDs and match groups stay unchanged.
+const ITEM_NAMES := {
+	"jungle": {"torus": "Jungle drum", "crystal": "Amber", "cube": "Wooden mask"},
+	"waterfall": {"torus": "Conch", "crystal": "Pearl shell", "cube": "River stone"},
+	"desert": {"cone": "Hourglass", "crystal": "Sunstone", "cube": "Scarab amulet"},
+	"ice": {"torus": "Snow globe", "crystal": "Ice crystal", "cube": "Frozen compass"},
+	"ruins": {"sphere": "Pocket watch", "crystal": "Brass gear", "cube": "Pressure valve"},
+	"cave": {"crate": "Toolbox", "crystal": "Ore chunk", "cube": "Mining lantern"},
+	"volcano": {"pyramid": "Anvil", "crystal": "Obsidian", "cube": "Molten core"},
+	"swamp": {"torus": "Swamp charm", "crystal": "Potion bottle", "cube": "Ancient fossil"},
+	"sky": {"torus": "Sky bell", "crystal": "Golden feather", "cube": "Windmill rotor"},
+	"crystal": {"sphere": "Crystal ball", "crystal": "Crystal prism", "cube": "Geode"},
+	"nexus": {"pyramid": "Satellite", "crystal": "Energy core", "cube": "Gyroscope"},
+}
+
+
+static func item_label(type: int, theme: String) -> String:
+	var name: String = ITEM_NAMES.get(theme, {}).get(ItemDefs.name_of(type), "")
+	return TranslationServer.translate(name) if not name.is_empty() else ItemDefs.pretty_name(type)
+
+
 static var _cache := {}
 
 
@@ -35,7 +56,10 @@ static func texture(rel_path: String) -> Texture2D:
 	return tex
 
 
-static func item(name: String) -> Texture2D:
+static func item(name: String, theme := "") -> Texture2D:
+	if not theme.is_empty():
+		var themed := texture("items/themes/%s/%s.png" % [theme, name])
+		if themed: return themed
 	return texture("items/%s.png" % name)
 
 

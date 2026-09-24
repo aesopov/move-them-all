@@ -1,10 +1,38 @@
 {
-	"version": 1,
-	"name": "Cracked Crossing",
-	"theme": "waterfall",
 	"handcrafted": true,
+	"items": [
+		{
+			"type": "bomb",
+			"x": 11,
+			"y": 3
+		},
+		{
+			"type": "mover_green",
+			"x": 10,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 4,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"type": "weight",
+			"x": 6,
+			"y": 10
+		},
+		{
+			"type": "block_blue",
+			"x": 4,
+			"y": 9
+		}
+	],
 	"moves": 45,
-	"time": 300,
+	"name": "Cracked Crossing",
+	"pipes": [],
+	"teleports": [],
 	"terrain": [
 		"############",
 		"............",
@@ -19,36 +47,7 @@
 		".#...#.#####",
 		".#...#######"
 	],
-	"items": [
-		{
-			"type": "bomb",
-			"x": 11,
-			"y": 3
-		},
-		{
-			"type": "mover_green",
-			"x": 10,
-			"y": 4
-		},
-		{
-			"type": "weight",
-			"x": 4,
-			"y": 8,
-			"aim": true
-		},
-		{
-			"type": "weight",
-			"x": 6,
-			"y": 10,
-			"aim": true
-		},
-		{
-			"type": "block_blue",
-			"x": 4,
-			"y": 9,
-			"aim": false
-		}
-	],
-	"teleports": [],
-	"pipes": []
+	"theme": "waterfall",
+	"time": 300,
+	"version": 1
 }

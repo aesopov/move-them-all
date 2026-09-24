@@ -1,37 +1,19 @@
 {
-	"version": 1,
-	"name": "Locks Above the Water",
-	"theme": "waterfall",
-	"moves": 95,
-	"time": 600,
-	"terrain": [
-		"############",
-		"#----------#",
-		"#-----###--#",
-		"#-----#-#--#",
-		"#---###-####",
-		"#####-#.#-##",
-		"....###.####",
-		"............",
-		"#.###.###.#.",
-		"wwwwwwwwwww#",
-		"wwwwwwwwwwww",
-		"wwwwwwwwwwww"
-	],
+	"handcrafted": true,
 	"items": [
 		{
+			"aim": true,
+			"gravity": "fall",
 			"type": "key_blue",
 			"x": 1,
-			"y": 6,
-			"aim": true,
-			"gravity": "fall"
+			"y": 6
 		},
 		{
+			"aim": true,
+			"lock": "green",
 			"type": "weight",
 			"x": 0,
-			"y": 7,
-			"lock": "green",
-			"aim": true
+			"y": 7
 		},
 		{
 			"type": "mover_green",
@@ -39,21 +21,39 @@
 			"y": 7
 		},
 		{
+			"aim": true,
+			"gravity": "bubble",
+			"lock": "blue",
 			"type": "key_green",
 			"x": 11,
-			"y": 7,
-			"lock": "blue",
-			"aim": true,
-			"gravity": "fall"
+			"y": 7
 		},
 		{
+			"aim": true,
 			"type": "weight",
 			"x": 11,
-			"y": 8,
-			"aim": true
+			"y": 8
 		}
 	],
-	"teleports": [],
+	"moves": 95,
+	"name": "Locks Above the Water",
 	"pipes": [],
-	"handcrafted": true
+	"teleports": [],
+	"terrain": [
+		"############",
+		"#----------#",
+		"#----------#",
+		"#----------#",
+		"#----------#",
+		"####---.---#",
+		"....---.---#",
+		"............",
+		"#.###.###.#.",
+		"wwwwwwwwwww#",
+		"wwwwwwwwwwww",
+		"wwwwwwwwwwww"
+	],
+	"theme": "waterfall",
+	"time": 600,
+	"version": 1
 }

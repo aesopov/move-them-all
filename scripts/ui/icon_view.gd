@@ -27,6 +27,10 @@ var item_type := 0:
 	set(v):
 		item_type = v
 		queue_redraw()
+var theme_key := "":
+	set(value):
+		theme_key = value
+		queue_redraw()
 var _t := 0.0
 
 
@@ -54,7 +58,7 @@ func _draw() -> void:
 	draw_set_transform(c, 0, Vector2.ONE)
 	match kind:
 		"item":
-			ItemArt.draw_item(self, item_type, s, 0, false, _t)
+			ItemArt.draw_item(self, item_type, s, 0, false, _t, theme_key)
 			draw_set_transform(c, 0, Vector2.ONE)
 		"flag":
 			draw_set_transform(c + Vector2(-0.35, 0.25) * s, 0, Vector2.ONE * 1.5)

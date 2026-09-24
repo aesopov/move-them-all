@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_hbh7v"]
+[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2_5kt10"]
+
+[node name="Decor" type="Node2D" unique_id=555613641]
+script = ExtResource("1_hbh7v")
+
+[node name="Background" type="Node2D" parent="." unique_id=256597945]
+show_behind_parent = true
+z_index = 1
+position = Vector2(0, 320)
+scale = Vector2(6, 1)
+script = ExtResource("2_5kt10")
+regions = Array[Rect2]([Rect2(0, 0, 128, 128)])
+colors = Array[Color]([Color(0.7, 0.2, 0.2, 0.2)])
+
+[node name="Background2" type="Node2D" parent="." unique_id=141431383]
+show_behind_parent = true
+z_index = 1
+position = Vector2(320, -0.25)
+scale = Vector2(1, 6)
+script = ExtResource("2_5kt10")
+regions = Array[Rect2]([Rect2(0, 0, 128, 128)])
+colors = Array[Color]([Color(0.7, 0.2, 0.2, 0.2)])

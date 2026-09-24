@@ -26,6 +26,8 @@ func _ready() -> void:
 
 func _open_editor() -> void:
 	App.editor_data = null
+	App.editor_decor = null
+	App.editor_session.clear()
 	App.editor_path = ""
 	App.goto("editor")
 

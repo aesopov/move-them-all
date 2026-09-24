@@ -23,8 +23,14 @@ var current_data: Dictionary = {}
 var testing_from_editor := false
 var editor_data: Variant = null
 var editor_path := ""
+var editor_decor: PackedScene
+var editor_session := {}
 
+signal progress_changed
+
+const FREE_SKIPS := 5
 var progress := {}
+var skipped: Array = []
 var _loading_level := false
 
 
@@ -179,7 +185,7 @@ func can_write_project() -> bool:
 
 
 func start_level(path: String) -> void:
-	if _loading_level: return
+	if _loading_level or not is_level_unlocked(path): return
 	var data := load_level(path)
 	if FileAccess.file_exists(LevelAssets.MANIFEST):
 		_loading_level = true
@@ -251,18 +257,87 @@ func record_score(path: String, score: int) -> bool:
 	if path == "" or score <= best_score(path):
 		return false
 	progress[path] = score
-	var f := FileAccess.open(PROGRESS_PATH, FileAccess.WRITE)
-	if f:
-		f.store_string(JSON.stringify(progress))
+	_save_progress()
 	return true
 
 
-func _load_progress() -> void:
-	if not FileAccess.file_exists(PROGRESS_PATH):
+func campaign_paths() -> Array:
+	var paths := []
+	for world in worlds: paths.append_array(world.levels)
+	return paths
+
+
+func is_level_unlocked(path: String, enforce_release := false) -> bool:
+	if OS.is_debug_build() and not enforce_release: return true
+	var paths := campaign_paths()
+	var index := paths.find(path)
+	if index < 0: return false
+	if best_score(path) > 0 or path in skipped: return true
+	for earlier in paths.slice(0, index):
+		if best_score(earlier) <= 0 and earlier not in skipped: return false
+	return true
+
+
+func skips_remaining() -> int:
+	# Keep skip history for cloud merging; only unfinished skips use a slot.
+	var unfinished := 0
+	for path in skipped:
+		if best_score(path) <= 0: unfinished += 1
+	return maxi(0, FREE_SKIPS - unfinished)
+
+
+func can_skip(path: String) -> bool:
+	var paths := campaign_paths()
+	var index := paths.find(path)
+	return index >= 0 and index < paths.size() - 1 and is_level_unlocked(path, true) \
+		and best_score(path) == 0 and path not in skipped and skips_remaining() > 0
+
+
+func skip_level(path: String) -> bool:
+	if not can_skip(path): return false
+	skipped.append(path)
+	_save_progress()
+	return true
+
+
+func _save_progress() -> void:
+	var data := {"version": 1, "scores": progress, "skipped": skipped}
+	if Platform.has_player_storage():
+		Platform.save_progress(data)
 		return
-	var d = JSON.parse_string(FileAccess.get_file_as_string(PROGRESS_PATH))
-	if d is Dictionary:
-		progress = d
+	var f := FileAccess.open(PROGRESS_PATH, FileAccess.WRITE)
+	if f: f.store_string(JSON.stringify(data))
+
+
+func _apply_progress(data: Dictionary) -> void:
+	var scores: Variant = data.get("scores", data)
+	if scores is Dictionary:
+		for path in scores:
+			if scores[path] is float or scores[path] is int:
+				progress[path] = maxi(best_score(path), int(scores[path]))
+	var used: Variant = data.get("skipped", [])
+	if used is Array:
+		for path in used:
+			if path is String and path not in skipped: skipped.append(path)
+
+
+func _replace_platform_progress(data: Dictionary) -> void:
+	progress.clear()
+	skipped.clear()
+	_apply_progress(data)
+	progress_changed.emit()
+
+
+func _load_progress() -> void:
+	var local := {}
+	if FileAccess.file_exists(PROGRESS_PATH):
+		var d = JSON.parse_string(FileAccess.get_file_as_string(PROGRESS_PATH))
+		if d is Dictionary: local = d
+	if Platform.has_player_storage():
+		_apply_progress(Platform.load_progress(local))
+		Platform.progress_loaded.connect(_replace_platform_progress)
+	else:
+		_apply_progress(local)
 
 
 func _update_ui_scale() -> void:

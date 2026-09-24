@@ -1,0 +1,66 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "assets/tiles/jungle/wall.png",
+  "assets": [
+    {
+      "name": "slab_1x05",
+      "footprint": [
+        1,
+        0.5
+      ],
+      "path": "assets/tiles/jungle/decor/slab_1x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-0bf29551-50a0-424c-8c33-94b236d97859.png",
+      "prompt": "Use case: stylized-concept. Single transparent PNG modular obstacle/decor sprite for a grid puzzle. Reference image is STYLE ONLY: match its painted pale gray stone, subtle facets, dark outlines, top-left lighting and subdued moss. Subject: a single low rectangular pale gray stone slab, width exactly twice its height, minimal chipped bevels and tiny moss accents, straight rectangular silhouette. Orthographic TOP-DOWN, flat plan view, no isometric angle or perspective foreshortening. One isolated object, whole silhouette visible, minimal 3% transparent margin; object proportions as described. Transparent alpha background including every notch, no floor, no cast shadow outside object, no text, no frame, no sheet. Crisp readable shapes at 64 pixels."
+    },
+    {
+      "name": "slab_2x05",
+      "footprint": [
+        2,
+        0.5
+      ],
+      "path": "assets/tiles/jungle/decor/slab_2x05.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-5a8d73db-8ba1-4605-99be-56bc0ff65bd9.png",
+      "prompt": "Use case: stylized-concept. Single transparent PNG modular obstacle/decor sprite for a grid puzzle. Reference image is STYLE ONLY: match its painted pale gray stone, subtle facets, dark outlines, top-left lighting and subdued moss. Subject: one long low pale gray masonry beam, width exactly FOUR times its height, made of three tightly joined broad stones, tiny moss accents, straight rectangular silhouette. Orthographic TOP-DOWN, flat plan view, no isometric angle or perspective foreshortening. One isolated object, whole silhouette visible, minimal 3% transparent margin; object proportions as described. Transparent alpha background including every notch, no floor, no cast shadow outside object, no text, no frame, no sheet. Crisp readable shapes at 64 pixels."
+    },
+    {
+      "name": "corner_cut",
+      "footprint": [
+        1,
+        1
+      ],
+      "path": "assets/tiles/jungle/decor/corner_cut.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-ae24585a-7733-47e9-b1b9-79f40d9e9778.png",
+      "prompt": "Use case: stylized-concept. Single transparent PNG modular obstacle/decor sprite for a grid puzzle. Reference image is STYLE ONLY: match its painted pale gray stone, subtle facets, dark outlines, top-left lighting and subdued moss. Subject: a single L-shaped pale gray masonry obstacle occupying a square except its UPPER RIGHT quarter is completely missing and transparent. Exact three-quarter-square silhouette: full bottom half and full left half, square right-angle inner notch exactly half width by half height. No diagonal cut. Subtle chipped bevels and tiny moss accents. Orthographic TOP-DOWN, flat plan view, no isometric angle or perspective foreshortening. One isolated object, whole silhouette visible, minimal 3% transparent margin; object proportions as described. Transparent alpha background including every notch, no floor, no cast shadow outside object, no text, no frame, no sheet. Crisp readable shapes at 64 pixels."
+    },
+    {
+      "name": "fallen_log",
+      "footprint": [
+        2,
+        1
+      ],
+      "path": "assets/tiles/jungle/decor/fallen_log.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-9a7536ca-5a00-4b5e-825e-6e2d3b6e492a.png",
+      "prompt": "Use case: stylized-concept. Single transparent PNG modular obstacle/decor sprite for a grid puzzle. Reference image is STYLE ONLY: match its painted pale gray stone, subtle facets, dark outlines, top-left lighting and subdued moss. Subject: one horizontal fallen old oak log, width twice height, thick weathered brown bark, visible pale cut end on right and a small moss patch, no branches extending beyond outline. Orthographic TOP-DOWN, flat plan view, no isometric angle or perspective foreshortening. One isolated object, whole silhouette visible, minimal 3% transparent margin; object proportions as described. Transparent alpha background including every notch, no floor, no cast shadow outside object, no text, no frame, no sheet. Crisp readable shapes at 64 pixels."
+    },
+    {
+      "name": "broken_column",
+      "footprint": [
+        1,
+        1
+      ],
+      "path": "assets/tiles/jungle/decor/broken_column.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2a1b1ba8-68a4-4ffc-a411-9dd0b4162aa2.png",
+      "prompt": "Use case: stylized-concept. Single transparent PNG modular obstacle/decor sprite for a grid puzzle. Reference image is STYLE ONLY: match its painted pale gray stone, subtle facets, dark outlines, top-left lighting and subdued moss. Subject: one squat broken ancient pale gray stone column stump seen from above at a slight angle, round cracked top, a few broad vertical flutes, tiny moss patch. Orthographic TOP-DOWN, flat plan view, no isometric angle or perspective foreshortening. One isolated object, whole silhouette visible, minimal 3% transparent margin; object proportions as described. Transparent alpha background including every notch, no floor, no cast shadow outside object, no text, no frame, no sheet. Crisp readable shapes at 64 pixels."
+    },
+    {
+      "name": "rubble",
+      "footprint": [
+        1,
+        1
+      ],
+      "path": "assets/tiles/jungle/decor/rubble.png",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-17304c3b-b56c-4700-a73d-4ea0cab6628d.png",
+      "prompt": "Use case: stylized-concept. Single transparent PNG modular obstacle/decor sprite for a grid puzzle. Reference image is STYLE ONLY: match its painted pale gray stone, subtle facets, dark outlines, top-left lighting and subdued moss. Subject: one small low cluster of five irregular pale gray rubble stones, two larger rocks and three small chips nestled closely, tiny moss patch, natural asymmetrical compact arrangement. Orthographic TOP-DOWN, flat plan view, no isometric angle or perspective foreshortening. One isolated object, whole silhouette visible, minimal 3% transparent margin; object proportions as described. Transparent alpha background including every notch, no floor, no cast shadow outside object, no text, no frame, no sheet. Crisp readable shapes at 64 pixels."
+    }
+  ]
+}

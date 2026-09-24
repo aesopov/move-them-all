@@ -5,12 +5,12 @@ extends RefCounted
 
 
 ## goal_marker: draw the goal flag (only the level designer does; goals are hidden in play).
-static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marker := false, t := 0.0) -> void:
+static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marker := false, t := 0.0, theme := "") -> void:
 	if ItemDefs.kind(type) == ItemDefs.Kind.PADLOCK:
 		_padlock(ci, s, lock)
 		return
 	var col := ItemDefs.color(type)
-	var tex := AssetLib.item(ItemDefs.name_of(type))
+	var tex := AssetLib.item(ItemDefs.name_of(type), theme)
 	if tex:
 		ci.draw_texture_rect(tex, Rect2(Vector2(-s, -s) * 0.46, Vector2(s, s) * 0.92), false)
 	else:

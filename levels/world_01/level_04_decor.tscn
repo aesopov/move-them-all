@@ -1,11 +1,45 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_jc8ll"]
-[ext_resource type="Script" path="res://scripts/game/decor_pipe.gd" id="2_pipe"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_vjskx"]
+[ext_resource type="Script" path="res://scripts/game/decor_pipe.gd" id="2_pegmu"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="3_mapxo"]
+[ext_resource type="Texture2D" path="res://assets/tiles/jungle/decor/slab_2x05.png" id="4_02txa"]
 
-[node name="Decor" type="Node2D" unique_id=1528955987]
-script = ExtResource("1_jc8ll")
+[node name="Decor" type="Node2D" unique_id=180276014]
+script = ExtResource("1_vjskx")
 
-[node name="Tube" type="Node2D" parent="."]
-script = ExtResource("2_pipe")
+[node name="Tube" type="Node2D" parent="." unique_id=1863982286]
+script = ExtResource("2_pegmu")
 points = PackedVector2Array(320, 544, 416, 544, 416, 160, 512, 160)
+
+[node name="Slab2x05" type="Node2D" parent="." unique_id=824744092]
+position = Vector2(525, 97.25)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+script = ExtResource("3_mapxo")
+texture = ExtResource("4_02txa")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x06" type="Node2D" parent="." unique_id=439154056]
+position = Vector2(525, 344.75)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+script = ExtResource("3_mapxo")
+texture = ExtResource("4_02txa")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x07" type="Node2D" parent="." unique_id=1838731005]
+position = Vector2(367.5, 97.25)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+script = ExtResource("3_mapxo")
+texture = ExtResource("4_02txa")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x08" type="Node2D" parent="." unique_id=1862967417]
+position = Vector2(367.5, 344.75)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+script = ExtResource("3_mapxo")
+texture = ExtResource("4_02txa")
+footprint = Vector2(2, 0.5)

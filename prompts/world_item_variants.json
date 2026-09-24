@@ -1,0 +1,72 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "assets/items/plant.png",
+  "items": [
+    {
+      "theme": "desert",
+      "name": "cactus",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-b9591f24-d8e0-4d85-8d63-cd7051c8918a.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up, desert world. Reference image is STYLE reference only: match its polished hand-painted casual puzzle art, clean dark green/brown outline, simple chunky shapes, upper-left glossy highlights and slightly top-down frontal view. Subject: one charming compact green saguaro cactus with two thick upward-curved arms, a few large readable ivory spine marks and a single small coral-pink flower, in a squat terracotta pot. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels; prioritize silhouette over tiny detail. True transparent alpha background, no checkerboard painted into image, no floor, no cast shadow, no text or border. Create one cactus only, no sheet."
+    },
+    {
+      "theme": "jungle",
+      "name": "tropical_bloom",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-e532d8f4-07bd-4807-8b3c-f65074545278.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one compact lush tropical plant with five broad emerald leaves and a single large orange bird-of-paradise flower, in a small terracotta pot. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "waterfall",
+      "name": "water_lily",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-2d0517e6-f4a0-4275-82ff-95e94d2f3b94.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one large turquoise-blue water lily blossom with a golden center resting on two thick emerald lily pads, a compact coherent single object, no water or container. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "ice",
+      "name": "frosted_pine",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-868f0301-d26e-4df6-9a35-1bcf7231fd7a.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one miniature chunky evergreen tree with three tiers of blue-green branches capped by clean white snow, in a small blue stone pot. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "ruins",
+      "name": "ivy",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-777cfcde-4dc9-41f5-bf89-0f47aa833be5.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one small weathered bronze planter with three large heart-shaped bright ivy leaves and one short curling vine, compact silhouette. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "cave",
+      "name": "glow_mushroom",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-67f9e5b0-5ff6-4a7d-8b27-fecd51ce2338.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one stout mushroom with a luminous cyan rounded cap, three large pale spots, a short cream stalk and a tiny moss-covered dark stone base; glow kept inside silhouette, no external haze. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "volcano",
+      "name": "ember_flower",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-d8f15207-4120-4eb7-9ecb-f8f1d3ec7c7c.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one compact succulent with five thick dark crimson leaves tipped orange and one bright golden-orange flower, in a squat charcoal stone pot with subtle ember-orange cracks. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "swamp",
+      "name": "venus_flytrap",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-1b5217e7-4b95-4a6d-92ee-693ef51e166c.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one friendly stylized venus flytrap plant with two open thick green leaf-jaws, pink interiors and few blunt cream teeth, a short stem and two broad leaves, in a small mossy brown pot; no face. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "sky",
+      "name": "cloud_blossom",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-48194f2f-3b10-4aea-a83e-883479a62e68.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one compact sky-blue plant with three thick curled leaves and a single fluffy white cloud-shaped flower with gold center, in a small pale-blue rounded pot. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "crystal",
+      "name": "amethyst_flower",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-09751400-2ac3-4182-aea4-67fda74f9f7b.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one stylized botanical flower made of five chunky violet amethyst crystal petals around a turquoise center, two thick green-blue crystal leaves and a short stem, in a small dark-purple stone pot. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    },
+    {
+      "theme": "nexus",
+      "name": "cosmic_lotus",
+      "source": "/Users/mike/.codex/generated_images/01a0b44c-7e80-7ec1-bce2-3b6e7a7faece/exec-0b8c186c-0849-483a-a7d2-917449423cfa.png",
+      "prompt": "Use case: stylized-concept. Asset type: single transparent PNG game item sprite for Pair Up. Reference is STYLE only: match polished hand-painted casual puzzle art, clean dark outlines, simple chunky shapes, upper-left glossy highlights, slightly top-down frontal view. Subject: one compact otherworldly lotus with five thick magenta and indigo petals with sparse tiny star flecks, a bright cyan center and two curved turquoise leaves, resting on a small dark violet seedpod base; no external halo. Centered, entire object visible, fills 80% of square canvas. Readable at 54 pixels, prioritize silhouette over tiny detail. True transparent alpha background, no painted checkerboard, no floor, no cast shadow, no text or border. One coherent item only, no sheet."
+    }
+  ]
+}

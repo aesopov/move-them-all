@@ -11,6 +11,7 @@ from collections import Counter
 import json
 from pathlib import Path
 from audit_uz3 import parse, is_entity, COLORS
+from theme_level_items import apply as apply_theme_items
 
 THEMES = ['jungle', 'waterfall', 'desert', 'ice', 'ruins', 'cave', 'volcano', 'swamp', 'sky', 'crystal', 'nexus']
 SHAPES = dict(zip(range(200, 210), ['cube', 'sphere', 'torus', 'pyramid', 'cone', 'weight', 'weight_red', 'balloon', 'bubble', 'bomb']))
@@ -129,7 +130,7 @@ def convert(level, number):
                   terrain=[''.join(row) for row in terrain], items=items, pipes=pipes, teleports=teleports,
                   source=dict(format='UZ3', file=level['source'], number=number, sha256=level['sha256']))
     if any('p' in row for row in skins): result['skins'] = [''.join(row) for row in skins]
-    return result, notes
+    return apply_theme_items(result), notes
 
 
 def main():
