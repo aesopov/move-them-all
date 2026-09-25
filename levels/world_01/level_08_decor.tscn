@@ -5,22 +5,22 @@
 [ext_resource type="Texture2D" path="res://assets/tiles/jungle/decor/relic_small.png" id="3_u78bd"]
 [ext_resource type="Texture2D" path="res://assets/tiles/jungle/decor/relic_tall.png" id="4_il8id"]
 
-[node name="Decor" type="Node2D" unique_id=894783498]
+[node name="Decor" type="Node2D" unique_id=462425280]
 script = ExtResource("1_qch4a")
 
-[node name="RelicSmall" type="Node2D" parent="." unique_id=914393906]
+[node name="RelicSmall" type="Node2D" parent="." unique_id=1859255271]
 position = Vector2(384, 128)
 script = ExtResource("2_3m4es")
 texture = ExtResource("3_u78bd")
 
-[node name="RelicTall" type="Node2D" parent="." unique_id=405377375]
-position = Vector2(155.25, 448)
+[node name="RelicTall" type="Node2D" parent="." unique_id=1942010757]
+position = Vector2(168, 450.25)
 script = ExtResource("2_3m4es")
 texture = ExtResource("4_il8id")
 footprint = Vector2(1, 2)
 
-[node name="RelicTall2" type="Node2D" parent="." unique_id=1772379862]
-position = Vector2(611.25, 448)
+[node name="RelicTall2" type="Node2D" parent="." unique_id=2019778883]
+position = Vector2(602.25, 450.25)
 script = ExtResource("2_3m4es")
 texture = ExtResource("4_il8id")
 footprint = Vector2(1, 2)

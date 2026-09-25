@@ -661,6 +661,7 @@ func _draw() -> void:
 				match board.wall_skin[c]:
 					Board.WallSkin.BRICK: _draw_brick_wall(c)
 					Board.WallSkin.PIPE: _draw_pipe_wall(c)
+					Board.WallSkin.INVISIBLE: _draw_floor(c)
 					_:
 						if not grouped_walls or wall_layout.has(c) or not WallArt.eligible(board, view_terrain, c):
 							_draw_wall(c, wall_layout.get(c, Vector2i.ONE))
@@ -698,7 +699,7 @@ func _draw_floor(c: int) -> void:
 
 func _framed(c: int) -> bool:
 	var t := view_terrain[c]
-	return t != Board.T.VOID and not (t == Board.T.WALL and board.wall_skin[c] != Board.WallSkin.NONE)
+	return t != Board.T.VOID and not (t == Board.T.WALL and board.wall_skin[c] in [Board.WallSkin.BRICK, Board.WallSkin.PIPE])
 
 
 func _draw_wall(c: int, footprint := Vector2i.ONE) -> void:
@@ -936,6 +937,10 @@ func _draw_overlay() -> void:
 	if tap_mode and selected_cell >= 0:
 		pipe_layer.draw_rect(_cell_rect(selected_cell).grow(-2), Color(1, 0.85, 0.2), false, 3.0)
 	if editor_mode:
+		# Draw over decorations so invisible collision cells remain discoverable.
+		for c in Board.N:
+			if view_terrain[c] == Board.T.WALL and board.wall_skin[c] == Board.WallSkin.INVISIBLE:
+				pipe_layer.draw_rect(_cell_rect(c).grow(-3), Color(1, 0.65, 0.2, 0.85), false, 2.0)
 		if hover_cell >= 0:
 			pipe_layer.draw_rect(_cell_rect(hover_cell), Color(1, 1, 1, 0.5), false, 2.0)
 		if selected_cell >= 0:

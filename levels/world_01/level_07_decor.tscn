@@ -1,6 +1,19 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_ot0ou"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_wdfgk"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_cu24l"]
+[ext_resource type="Texture2D" path="res://assets/tiles/jungle/vegetation/vine.png" id="3_x1ism"]
+[ext_resource type="Texture2D" path="res://assets/tiles/jungle/vegetation/moss.png" id="4_cw3pd"]
 
-[node name="Decor" type="Node2D" unique_id=289831272]
-script = ExtResource("1_ot0ou")
+[node name="Decor" type="Node2D" unique_id=423169922]
+script = ExtResource("1_wdfgk")
+
+[node name="Vine" type="Node2D" parent="." unique_id=1262534311]
+position = Vector2(351.75, 224.75)
+script = ExtResource("2_cu24l")
+texture = ExtResource("3_x1ism")
+
+[node name="Moss" type="Node2D" parent="." unique_id=661272571]
+position = Vector2(380.75, 432.5)
+script = ExtResource("2_cu24l")
+texture = ExtResource("4_cw3pd")

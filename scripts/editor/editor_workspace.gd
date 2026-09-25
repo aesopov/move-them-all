@@ -15,6 +15,7 @@ var asset_category: OptionButton
 var chosen_asset := ""
 var asset_width: SpinBox
 var asset_height: SpinBox
+var asset_flip := false
 var asset_rotation: SpinBox
 var board_scroll: ScrollContainer
 var property_dialog: ConfirmationDialog
@@ -202,7 +203,7 @@ func inspect_cell() -> void:
 		_change(func(): editor._set_terrain(c, v))
 		inspect_cell())
 	if b.terrain[c] == Board.T.WALL:
-		_option(cell_box, "Wall appearance", ["Rocks", "Bricks", "Pipe frame"], b.wall_skin[c], func(v): _change(func(): b.wall_skin[c] = v))
+		_option(cell_box, "Wall appearance", ["Rocks", "Bricks", "Pipe frame", "Invisible (show floor)"], b.wall_skin[c], func(v): _change(func(): b.wall_skin[c] = v))
 	var id := b.item_at[c]
 	if id >= 0:
 		_label(cell_box, "Item · " + ItemDefs.pretty_name(b.it_type[id]))
@@ -293,6 +294,7 @@ func _build_assets(box: Node) -> void:
 	asset_width = _number(box, "Footprint width (cells)", 1, .25, 24, func(_v): pass, .25)
 	asset_height = _number(box, "Footprint height (cells)", 1, .25, 24, func(_v): pass, .25)
 	asset_rotation = _number(box, "Quarter turns", 0, 0, 3, func(_v): pass)
+	_check(box, "Flip horizontally", false, func(on): asset_flip = on)
 	_button(box, "Copy asset path", func():
 		if chosen_asset != "": DisplayServer.clipboard_set(chosen_asset))
 	_label(box, "Select artwork, then click the board to place a visual layer.")
@@ -301,7 +303,7 @@ func _build_assets(box: Node) -> void:
 	asset_list.item_selected.connect(func(i):
 		chosen_asset = asset_list.get_item_metadata(i)
 		var stem := chosen_asset.get_file().get_basename()
-		asset_width.value = 2 if stem in ["slab_2x05", "fallen_log", "barricade", "broken_arch", "cargo_long"] else 1
+		asset_width.value = 2 if stem in ["slab_2x05", "fallen_log", "barricade", "broken_arch", "cargo_long", "support_platform"] else 1
 		asset_height.value = .5 if stem in ["slab_1x05", "slab_2x05"] else (2 if stem in ["broken_arch", "relic_tall"] else 1)
 		editor._select_tool("asset")
 		editor._tool_hint.text = chosen_asset.trim_prefix("res://assets/"))
@@ -336,6 +338,7 @@ func place_asset(c: int) -> void:
 	node.name = chosen_asset.get_file().get_basename().to_pascal_case()
 	node.texture = load(chosen_asset)
 	node.footprint = Vector2(asset_width.value, asset_height.value)
+	node.flip_horizontal = asset_flip
 	node.position = Vector2(Board.to_xy(c)) * LevelDecor.CELL_PX
 	node.rotation = asset_rotation.value * PI / 2
 	# Rotate around footprint center rather than shifting the occupied cells.
@@ -452,7 +455,7 @@ func _inspect_node(node: Node) -> void:
 	var names := ["visible", "position", "rotation_degrees", "scale", "modulate", "z_index", "show_behind_parent", "clip_children"]
 	if node == editor.view._decor: names = ["fit_cells", "show_behind_parent"]
 	elif node is Label: names += ["size", "horizontal_alignment", "autowrap_mode"]
-	elif node is Sprite2D: names += ["texture", "centered", "offset", "region_enabled", "region_rect"]
+	elif node is Sprite2D: names += ["texture", "centered", "offset", "region_enabled", "region_rect", "flip_h", "flip_v"]
 	elif node is Polygon2D: names += ["polygon", "color", "texture", "texture_scale", "texture_offset"]
 	# Every exported script property, including typed background arrays and pipe paths.
 	var script: Script = node.get_script()

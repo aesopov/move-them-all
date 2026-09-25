@@ -1,0 +1,160 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "assets/tiles/jungle/decor/support_platform.png",
+  "assets": [
+    {
+      "theme": "jungle",
+      "name": "support_platform",
+      "width": 2,
+      "path": "assets/tiles/jungle/decor/support_platform.png",
+      "prompt_file": "prompts/jungle_support_platform.txt"
+    },
+    {
+      "theme": "jungle",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE jungle world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: warm golden hardwood, rope bindings, bronze pins and sparse bright moss; exactly same materials as reference. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/jungle/decor/support_platform_small.png"
+    },
+    {
+      "theme": "waterfall",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE waterfall world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: weathered cool driftwood, nautical rope bindings, oxidized bronze fasteners, a few turquoise wet mineral accents. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/waterfall/decor/support_platform_small.png"
+    },
+    {
+      "theme": "waterfall",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE waterfall world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: weathered cool driftwood, nautical rope bindings, oxidized bronze fasteners, a few turquoise wet mineral accents. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/waterfall/decor/support_platform.png"
+    },
+    {
+      "theme": "desert",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE desert world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: sun-bleached golden acacia wood, warm sandstone mounting plates, leather bindings and aged copper studs, very sparse sand dust. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/desert/decor/support_platform_small.png"
+    },
+    {
+      "theme": "desert",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE desert world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: sun-bleached golden acacia wood, warm sandstone mounting plates, leather bindings and aged copper studs, very sparse sand dust. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/desert/decor/support_platform.png"
+    },
+    {
+      "theme": "ice",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE ice world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: pale frosted timber, cold blue steel brackets, a thin snow cap and tiny icicles under the shelf; no glow. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/ice/decor/support_platform_small.png"
+    },
+    {
+      "theme": "ice",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE ice world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: pale frosted timber, cold blue steel brackets, a thin snow cap and tiny icicles under the shelf; no glow. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/ice/decor/support_platform.png"
+    },
+    {
+      "theme": "ruins",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE ruins world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: aged ivory stone shelf slab with carved geometric edges, weathered bronze triangular brace and mounting post, tiny moss accents. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/ruins/decor/support_platform_small.png"
+    },
+    {
+      "theme": "ruins",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE ruins world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: aged ivory stone shelf slab with carved geometric edges, weathered bronze triangular brace and mounting post, tiny moss accents. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/ruins/decor/support_platform.png"
+    },
+    {
+      "theme": "cave",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE cave world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: dark sturdy mine timbers, rough grain, chunky iron bands and rusty bolts, warm ochre highlights. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/cave/decor/support_platform_small.png"
+    },
+    {
+      "theme": "cave",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE cave world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: dark sturdy mine timbers, rough grain, chunky iron bands and rusty bolts, warm ochre highlights. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/cave/decor/support_platform.png"
+    },
+    {
+      "theme": "volcano",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE volcano world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: blackened iron and basalt shelf, riveted dark metal triangular brace, restrained ember-orange seams, no flame. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/volcano/decor/support_platform_small.png"
+    },
+    {
+      "theme": "volcano",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE volcano world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: blackened iron and basalt shelf, riveted dark metal triangular brace, restrained ember-orange seams, no flame. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/volcano/decor/support_platform.png"
+    },
+    {
+      "theme": "swamp",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE swamp world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: dark waterlogged greenish wood, rope lashings, patinated iron nails, sparse moss and short hanging root fibers. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/swamp/decor/support_platform_small.png"
+    },
+    {
+      "theme": "swamp",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE swamp world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: dark waterlogged greenish wood, rope lashings, patinated iron nails, sparse moss and short hanging root fibers. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/swamp/decor/support_platform.png"
+    },
+    {
+      "theme": "sky",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE sky world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: ivory painted wood, ornate gold metal brace and fasteners, subtle pale blue accents, airy elegant shapes. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/sky/decor/support_platform_small.png"
+    },
+    {
+      "theme": "sky",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE sky world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: ivory painted wood, ornate gold metal brace and fasteners, subtle pale blue accents, airy elegant shapes. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/sky/decor/support_platform.png"
+    },
+    {
+      "theme": "crystal",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE crystal world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: pale violet stone shelf with faceted amethyst edge, silver triangular brace and mount with small purple crystal insets; keep transparent open triangle. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/crystal/decor/support_platform_small.png"
+    },
+    {
+      "theme": "crystal",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE crystal world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: pale violet stone shelf with faceted amethyst edge, silver triangular brace and mount with small purple crystal insets; keep transparent open triangle. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/crystal/decor/support_platform.png"
+    },
+    {
+      "theme": "nexus",
+      "width": 1,
+      "name": "support_platform_small",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE nexus world wall-mounted support shelf, 1x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. COMPACT SQUARE silhouette, width approximately equal to height. A SHORT shelf, not a stretched long shelf; shorten the horizontal beam to match post height. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: sleek dark gunmetal platform and angular metal triangular brace, cyan illuminated inset strips, magenta fastener accents, chunky sci-fi bevels. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Square canvas preferred.",
+      "path": "assets/tiles/nexus/decor/support_platform_small.png"
+    },
+    {
+      "theme": "nexus",
+      "width": 2,
+      "name": "support_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent 2D puzzle game decoration sprite. Create exactly ONE nexus world wall-mounted support shelf, 2x1 cell footprint. The reference image is the approved Jungle 2x1 shelf: preserve its hand-painted polished cartoon game rendering, bevels, strong silhouette and front/side orthographic camera. WIDE rectangular silhouette, width twice its height, long shelf overhang. Geometry: vertical mounting post at LEFT, flat horizontal shelf extends RIGHT near top, diagonal supporting brace rising from bottom-left to underside of shelf; transparent triangular gap and transparent space under right overhang. No wall included. Flat left attachment surface. Materials for this world: sleek dark gunmetal platform and angular metal triangular brace, cyan illuminated inset strips, magenta fastener accents, chunky sci-fi bevels. Thick clearly readable parts, subtle top-left highlights, not photoreal. No right post, no legs, no extra props, no background, no letters, no symbols, no shadow beyond silhouette. Actual alpha transparency, empty gaps fully transparent. Narrow transparent padding, entire object visible. Landscape canvas preferred.",
+      "path": "assets/tiles/nexus/decor/support_platform.png"
+    }
+  ]
+}

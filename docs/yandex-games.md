@@ -7,8 +7,14 @@ It is generated locally and is not stored in Git.
 Build from the repository root:
 
 ```sh
-python3 tools/build_yandex.py --godot /Applications/Godot.app/Contents/MacOS/Godot
+./tools/build_yandex.sh
 ```
+
+The script detects Godot on PATH or in the standard macOS application location.
+Use `GODOT=/path/to/godot ./tools/build_yandex.sh` to override it. Python 3 is required.
+For the website, run `./tools/build_web.sh`: it prepares `export/web/` and
+`export/merge-them-all-web.zip`, with gzip files and only the current world packs in the ZIP.
+Both scripts work from any current directory when invoked by their path.
 
 Upload `export/yandex/merge-them-all.zip` to the Yandex Games draft. `index.html`
 is at its root. The ZIP contains all hashed world packs and both audio worklets.

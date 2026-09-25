@@ -33,7 +33,9 @@ Pipe artwork paths are separate **Layers > Add layer > Pipe path** nodes. Edit t
 
 **Assets** discovers PNG/WebP/SVG/JPG artwork recursively under tiles, items, backgrounds, liquids, pipes, teleports and overlays. Search by world or filename. All generated terrain rounds are included without maintaining a separate registry.
 
-Choose an asset, set its width/height in cells and quarter-turn rotation, then click the board. New artwork uses `DecorSprite`, preserving alpha and supporting repeatable textures. Placement is visual only: paint walls, liquids or other gameplay cells separately.
+Choose an asset, set its width/height in cells and quarter-turn rotation, optionally enable **Flip horizontally**, then click the board. Placed artwork also exposes **Flip Horizontal** in its Layers inspector; flipping preserves its footprint and position. New artwork uses `DecorSprite`, preserving alpha and supporting repeatable textures. Placement is visual only: paint walls, liquids or other gameplay cells separately.
+
+To make decoration solid without showing rocks underneath, paint **Invisible obstacle** from Tools, then place the decoration on it. Alternatively, select a wall cell and choose **Wall appearance → Invisible (show floor)**. It shows the normal floor with an orange outline only in the designer; gameplay uses full-cell, indestructible wall collision. Copy/paste, rectangle painting, saving and undo retain this appearance.
 
 **Layers** lists existing scene hierarchies and newly placed artwork. Select a layer to edit its position, scale, rotation, visibility, tint/opacity, drawing order and exported properties. Copy, delete, or reorder siblings with the buttons. **Select / move scenery** also selects artwork on the canvas and drags it in cell increments. Numeric positions allow smaller adjustments.
 
@@ -63,3 +65,7 @@ godot --headless --path . --script tools/test_editor_advanced.gd
 godot --headless --path . --script tools/test_editor_play.gd
 godot --headless --path . --script tools/test_editor_decor.gd
 ```
+
+## Support shelves
+
+All 11 worlds include `support_platform_small` (1×1) and `support_platform` (2×1). Search **support_platform** in Assets; choosing the sprite sets its default footprint. **Flip horizontally** mounts it against the opposite wall. Use invisible obstacle cells for full-cell collision. The empty space inside the brace is visual only.

@@ -20,9 +20,9 @@ const N := W * H
 enum T { FLOOR, WALL, BREAKABLE, WATER, LAVA, ACID, VOID }
 const TERRAIN_CHARS := ".#%wla-"
 ## Wall skins are purely visual (rules treat every skin as a plain wall).
-enum WallSkin { NONE, BRICK, PIPE }
-const SKIN_CHARS := ".bp"
-const SKIN_NAMES := ["", "brick", "pipe"]
+enum WallSkin { NONE, BRICK, PIPE, INVISIBLE }
+const SKIN_CHARS := ".bpi"
+const SKIN_NAMES := ["", "brick", "pipe", "invisible"]
 const KNOWN_KEYS := ["version", "name", "moves", "time", "terrain", "skins", "items", "teleports", "pipes"]
 const LIQUID_NAMES := {3: "water", 4: "lava", 5: "acid"}
 

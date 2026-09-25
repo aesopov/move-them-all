@@ -59,6 +59,7 @@ static func _palette() -> Array:
 			["wall", "Wall", "wall", 0],
 			["wall_brick", "Brick wall", "swatch", Color(0.62, 0.36, 0.28)],
 			["wall_pipe", "Pipe frame wall", "swatch", Color(0.62, 0.64, 0.68)],
+			["wall_invisible", "Invisible obstacle", "swatch", Color(1, 0.65, 0.2, 0.4)],
 			["breakable", "Cracked wall", "breakable", 0],
 			["water", "Water", "liquid", Board.T.WATER],
 			["lava", "Lava", "liquid", Board.T.LAVA],
@@ -266,7 +267,7 @@ func _redo() -> void:
 
 func _on_press(c: int, button: int) -> void:
 	if button not in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]: return
-	if rectangle_brush and button == MOUSE_BUTTON_LEFT and tool in ["floor", "wall", "wall_brick", "wall_pipe", "breakable", "water", "lava", "acid", "void", "erase"]:
+	if rectangle_brush and button == MOUSE_BUTTON_LEFT and tool in ["floor", "wall", "wall_brick", "wall_pipe", "wall_invisible", "breakable", "water", "lava", "acid", "void", "erase"]:
 		if rectangle_start < 0:
 			rectangle_start = c
 			view.selected_cell = c
@@ -324,7 +325,7 @@ func _on_drag(c: int, button: int) -> void:
 	if rectangle_brush or button not in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]: return
 	if button == MOUSE_BUTTON_RIGHT:
 		_erase(c, false)
-	elif tool in ["floor", "wall", "wall_brick", "wall_pipe", "breakable", "water", "lava", "acid", "void", "erase"]:
+	elif tool in ["floor", "wall", "wall_brick", "wall_pipe", "wall_invisible", "breakable", "water", "lava", "acid", "void", "erase"]:
 		_apply(c, true)
 	else:
 		return
@@ -338,6 +339,7 @@ func _apply(c: int, dragging: bool) -> void:
 		"wall": _set_terrain(c, Board.T.WALL)
 		"wall_brick": _set_terrain(c, Board.T.WALL, Board.WallSkin.BRICK)
 		"wall_pipe": _set_terrain(c, Board.T.WALL, Board.WallSkin.PIPE)
+		"wall_invisible": _set_terrain(c, Board.T.WALL, Board.WallSkin.INVISIBLE)
 		"breakable": _set_terrain(c, Board.T.BREAKABLE)
 		"water": _set_terrain(c, Board.T.WATER)
 		"lava": _set_terrain(c, Board.T.LAVA)
