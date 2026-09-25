@@ -7,27 +7,27 @@
 [ext_resource type="Texture2D" path="res://assets/tiles/jungle/vegetation/moss.png" id="5_ubptt"]
 [ext_resource type="Texture2D" path="res://assets/tiles/jungle/vegetation/grass.png" id="6_x58qv"]
 
-[node name="Decor" type="Node2D" unique_id=1080648403]
+[node name="Decor" type="Node2D" unique_id=1231335863]
 script = ExtResource("1_li12s")
 
-[node name="HintArrow" type="Node2D" parent="." unique_id=2052274726]
+[node name="HintArrow" type="Node2D" parent="." unique_id=347671768]
 position = Vector2(416, 288)
 script = ExtResource("2_0cks0")
 direction = "down"
 
-[node name="Vine" type="Node2D" parent="." unique_id=1453158089]
+[node name="Vine" type="Node2D" parent="." unique_id=2022674094]
 position = Vector2(212.25, 192)
 rotation = 0.96865773
 scale = Vector2(2, 1)
 script = ExtResource("3_c8k6p")
 texture = ExtResource("4_uym3v")
 
-[node name="Moss" type="Node2D" parent="." unique_id=587840242]
+[node name="Moss" type="Node2D" parent="." unique_id=774588632]
 position = Vector2(576, 512)
 script = ExtResource("3_c8k6p")
 texture = ExtResource("5_ubptt")
 
-[node name="Grass" type="Node2D" parent="." unique_id=1647576698]
+[node name="Grass" type="Node2D" parent="." unique_id=1729353587]
 position = Vector2(224.75, 543.5)
 script = ExtResource("3_c8k6p")
 texture = ExtResource("6_x58qv")

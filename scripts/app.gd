@@ -32,6 +32,9 @@ const FREE_SKIPS := 5
 var progress := {}
 var skipped: Array = []
 var _loading_level := false
+var current_run := {"updated_at": 0, "state": {}}
+var pending_run := {}
+var _auto_resumed := false
 
 
 var _shot_path := ""
@@ -186,16 +189,27 @@ func can_write_project() -> bool:
 
 func start_level(path: String) -> void:
 	if _loading_level or not is_level_unlocked(path): return
+	_loading_level = true
+	Platform.gameplay(false)
+	var previous := get_tree().current_scene
+	var previous_mode := Node.PROCESS_MODE_INHERIT
+	if is_instance_valid(previous):
+		previous_mode = previous.process_mode
+		previous.process_mode = Node.PROCESS_MODE_DISABLED
+	var layer := CanvasLayer.new()
+	layer.layer = 100
+	add_child(layer)
+	var cover := ColorRect.new()
+	cover.color = Color(0.025, 0.04, 0.06, 1.0)
+	cover.mouse_filter = Control.MOUSE_FILTER_STOP
+	cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	cover.modulate.a = 0.0
+	layer.add_child(cover)
+	var fade := create_tween()
+	fade.tween_property(cover, "modulate:a", 1.0, 0.18).set_trans(Tween.TRANS_SINE)
+	await fade.finished
 	var data := load_level(path)
 	if FileAccess.file_exists(LevelAssets.MANIFEST):
-		_loading_level = true
-		var layer := CanvasLayer.new()
-		layer.layer = 100
-		add_child(layer)
-		var cover := ColorRect.new()
-		cover.color = Color(0.025, 0.04, 0.06, 0.97)
-		cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		layer.add_child(cover)
 		var center := CenterContainer.new()
 		center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		cover.add_child(center)
@@ -220,6 +234,7 @@ func start_level(path: String) -> void:
 			rows.add_child(retry)
 			retry.pressed.connect(func():
 				layer.queue_free()
+				if is_instance_valid(previous): previous.process_mode = previous_mode
 				_loading_level = false
 				start_level(path))
 			var back := Button.new()
@@ -227,14 +242,31 @@ func start_level(path: String) -> void:
 			rows.add_child(back)
 			back.pressed.connect(func():
 				layer.queue_free()
+				if is_instance_valid(previous): previous.process_mode = previous_mode
 				_loading_level = false)
 			return
-		layer.queue_free()
-		_loading_level = false
+		center.hide()
+	pending_run = resumable_run(path)
 	current_path = path
 	current_data = data
 	testing_from_editor = false
-	goto("game")
+	var error := get_tree().change_scene_to_file(SCENES.game)
+	if error != OK:
+		layer.queue_free()
+		if is_instance_valid(previous): previous.process_mode = previous_mode
+		_loading_level = false
+		push_error("Could not open gameplay scene: %s" % error)
+		return
+	await get_tree().scene_changed
+	var game := get_tree().current_scene
+	# Board fitting needs a few layout frames; keep the cover until it is ready.
+	while is_instance_valid(game) and not game.presentation_ready:
+		await get_tree().process_frame
+	fade = create_tween()
+	fade.tween_property(cover, "modulate:a", 0.0, 0.24).set_trans(Tween.TRANS_SINE)
+	await fade.finished
+	layer.queue_free()
+	_loading_level = false
 
 
 func _list(dir: String, dirs: bool) -> Array:
@@ -300,8 +332,41 @@ func skip_level(path: String) -> bool:
 	return true
 
 
+func save_run(state: Dictionary) -> void:
+	if testing_from_editor: return
+	current_run = {"updated_at": maxi(int(Time.get_unix_time_from_system() * 1000), int(current_run.updated_at) + 1), "state": state}
+	_save_progress()
+
+
+func clear_run() -> void:
+	if testing_from_editor: return
+	# Keep a timestamped tombstone so an older cloud checkpoint cannot return.
+	save_run({})
+
+
+func resumable_run(path: String) -> Dictionary:
+	var state: Dictionary = current_run.state
+	if state.get("path", "") != path or not FileAccess.file_exists(path): return {}
+	if state.get("revision", "") != FileAccess.get_file_as_string(path).sha256_text(): return {}
+	if not state.get("board") is Dictionary or not state.get("history", []) is Array: return {}
+	var elapsed = state.get("elapsed", 0)
+	if not (elapsed is float or elapsed is int) or not is_finite(float(elapsed)) or elapsed < 0: return {}
+	return state.duplicate(true)
+
+
+func try_resume_run() -> void:
+	if _auto_resumed or _loading_level or not Platform.has_player_storage(): return
+	var scene := get_tree().current_scene
+	if scene == null or scene.scene_file_path != SCENES.welcome: return
+	var path = current_run.state.get("path", "")
+	if not path is String or not path.begins_with(LEVELS_DIR + "/") or not is_level_unlocked(path): return
+	if resumable_run(path).is_empty(): return
+	_auto_resumed = true
+	start_level(path)
+
+
 func _save_progress() -> void:
-	var data := {"version": 1, "scores": progress, "skipped": skipped}
+	var data := {"version": 2, "scores": progress, "skipped": skipped, "current_run": current_run}
 	if Platform.has_player_storage():
 		Platform.save_progress(data)
 		return
@@ -310,6 +375,10 @@ func _save_progress() -> void:
 
 
 func _apply_progress(data: Dictionary) -> void:
+	var run = data.get("current_run", {})
+	if run is Dictionary and run.get("state") is Dictionary and (run.get("updated_at") is int or run.get("updated_at") is float):
+		if run.updated_at >= current_run.updated_at:
+			current_run = run.duplicate(true)
 	var scores: Variant = data.get("scores", data)
 	if scores is Dictionary:
 		for path in scores:
@@ -322,10 +391,12 @@ func _apply_progress(data: Dictionary) -> void:
 
 
 func _replace_platform_progress(data: Dictionary) -> void:
+	current_run = {"updated_at": 0, "state": {}}
 	progress.clear()
 	skipped.clear()
 	_apply_progress(data)
 	progress_changed.emit()
+	try_resume_run.call_deferred()
 
 
 func _load_progress() -> void:

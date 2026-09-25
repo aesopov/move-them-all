@@ -3,60 +3,70 @@
 	"items": [
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "cube",
 			"x": 6,
 			"y": 5
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "torus",
 			"x": 7,
 			"y": 5
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "torus",
 			"x": 5,
 			"y": 7
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "cube",
 			"x": 6,
 			"y": 7
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "shell",
 			"x": 7,
 			"y": 6
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "shell",
 			"x": 5,
 			"y": 6
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "plant",
 			"x": 5,
 			"y": 5
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "plant",
 			"x": 7,
 			"y": 7
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "crystal",
 			"x": 4,
 			"y": 6
 		},
 		{
 			"aim": true,
+			"gravity": "none",
 			"type": "crystal",
 			"x": 8,
 			"y": 6

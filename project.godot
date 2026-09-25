@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
+Sound="*res://scripts/ui/sound.gd"
 Platform="*res://scripts/ui/platform.gd"
 Locale="*res://scripts/ui/locale.gd"
 App="*res://scripts/app.gd"

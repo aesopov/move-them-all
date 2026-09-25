@@ -382,6 +382,7 @@ func tap_cell(c: int) -> void:
 		return
 	if tap_item >= 0 and board.it_cell[tap_item] < 0: tap_item = -1
 	if board.item_at[c] >= 0 and tap_item < 0:
+		Sound.play("select")
 		tap_item = board.item_at[c]
 		selected_cell = c
 		return
@@ -514,6 +515,7 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 			if n == null:
 				return 0.0
 			var tw := _chain(n, start)
+			if not auto: tw.tween_callback(func(): Sound.play("move"))
 			var total := 0.0
 			var slide := GameConfig.ANIM_FALL if auto else GameConfig.ANIM_SLIDE
 			for seg in e.path:
@@ -523,6 +525,7 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 						tw.tween_property(n, "position", target, slide)
 						total += slide
 					"tele":
+						tw.tween_callback(func(): Sound.play("teleport"))
 						var col: Color = _tele_col.get(seg[1], GROUP_COLORS[0])
 						tw.tween_property(n, "scale", Vector2(0.1, 0.1), GameConfig.ANIM_TELEPORT)
 						tw.tween_callback(func():
@@ -532,6 +535,7 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 						tw.tween_property(n, "scale", Vector2.ONE, GameConfig.ANIM_TELEPORT)
 						total += GameConfig.ANIM_TELEPORT * 2
 					"pipe_in":
+						tw.tween_callback(func(): Sound.play("pipe"))
 						tw.tween_property(n, "position", target, GameConfig.ANIM_PIPE)
 						tw.tween_callback(n.hide)
 						total += GameConfig.ANIM_PIPE
@@ -555,6 +559,7 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 			# Let the next step (usually items falling into the gap) start while the pop fades.
 			return GameConfig.ANIM_DESTROY * 0.55
 		"unlock":
+			_at(start, func(): Sound.play("unlock"))
 			var item: ItemNode = nodes.get(e.id)
 			var key: ItemNode = nodes.get(e.key)
 			if item == null:
@@ -599,7 +604,9 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 			return 0.12
 		"blast":
 			var c: int = e.cell
-			_at(start, func(): Fx.blast(fx_layer, center(c), cell))
+			_at(start, func():
+				Sound.play("bomb")
+				Fx.blast(fx_layer, center(c), cell))
 			return 0.2
 	return 0.0
 
@@ -609,6 +616,10 @@ func _explode(id: int, cause: String) -> void:
 	if n == null:
 		return
 	nodes.erase(id)
+	match cause:
+		"match", "surround": Sound.play("match")
+		"water": Sound.play("splash")
+		"lava", "acid": Sound.play("sizzle")
 	var liquid := cause in ["water", "lava", "acid"]
 	Fx.destroy(fx_layer, n.position, ItemDefs.color(n.type), cause, cell)
 	var tw := n.create_tween()

@@ -10,6 +10,9 @@ var elapsed := 0.0
 var clock_running := false
 var paused := false
 var finished := false
+var presentation_ready := false
+var _resumed := false
+var _save_elapsed := 0.0
 
 @onready var view: BoardView = %BoardView
 @onready var _lbl_aims: Label = %AimsLabel
@@ -28,6 +31,18 @@ func _ready() -> void:
 
 	board = Board.from_dict(App.current_data)
 	start_board = board.clone()
+	if not App.testing_from_editor and not App.pending_run.is_empty():
+		var saved := App.pending_run
+		if board.restore_checkpoint(saved.get("board", {})):
+			_resumed = true
+			elapsed = maxf(0.0, float(saved.get("elapsed", 0)))
+			clock_running = bool(saved.get("clock_running", false))
+			for entry in saved.get("history", []):
+				if not entry is Dictionary: break
+				var past := start_board.clone()
+				if past.restore_checkpoint(entry): history.append(past)
+		App.pending_run = {}
+
 
 	view.modulate.a = 0.0
 	view.theme_data = td
@@ -64,7 +79,13 @@ func _show_fitted_board() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	view.modulate.a = 1.0
-	_settle_start()
+	presentation_ready = true
+	while App._loading_level:
+		await get_tree().process_frame
+	if _resumed:
+		_check_end()
+	else:
+		_settle_start()
 	if not App.testing_from_editor: App.preload_next_world(App.current_path)
 
 
@@ -144,9 +165,13 @@ func _update_target(entry: Dictionary) -> void:
 # ---------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
-	Platform.gameplay(not paused and not finished and view.modulate.a > 0.0)
-	if clock_running and not paused and not finished:
+	Platform.gameplay(not App._loading_level and not paused and not finished and view.modulate.a > 0.0)
+	if clock_running and not App._loading_level and not paused and not finished:
 		elapsed += delta
+		_save_elapsed += delta
+		if _save_elapsed >= 5.0:
+			_save_elapsed = 0.0
+			_save_run()
 		if GameConfig.FAIL_ON_TIME_LIMIT and elapsed >= board.time_limit and not view.busy:
 			elapsed = board.time_limit
 			_lose(tr("Time's up!"))
@@ -154,6 +179,7 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if App._loading_level: return
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
 	match event.keycode:
@@ -166,7 +192,7 @@ var _last_gesture := -1
 
 
 func _on_move(i: int, d: int) -> void:
-	if finished or paused or view.busy:
+	if App._loading_level or finished or paused or view.busy:
 		return
 	if not board.can_move(i, d):
 		return
@@ -186,6 +212,7 @@ func _on_move(i: int, d: int) -> void:
 			for seg in e.path:
 				if seg[0] == "tele" or seg[0] == "pipe_in":
 					view.end_drag()
+	_save_run()
 	_update_hud()
 	await view.play_steps(steps)
 	_update_hud()
@@ -249,6 +276,7 @@ func _undo() -> void:
 	view.end_drag()
 	_last_gesture = -1
 	board = history.pop_back()
+	_save_run()
 	view.set_board(board)
 	_update_hud()
 
@@ -273,6 +301,7 @@ func _restart() -> void:
 ## Designer levels may start unsettled (floating items, adjacent pairs): resolve that for free.
 func _settle_start() -> void:
 	var steps := board.settle()
+	_save_run()
 	if not steps.is_empty():
 		await view.play_steps(steps)
 		_update_hud()
@@ -295,8 +324,21 @@ func _toggle_pause() -> void:
 		return
 	view.end_drag()
 	paused = true
+	_save_run()
 	var o := _open_overlay(tr("Paused"))
 	o.add_button(tr("Resume"), _toggle_pause)
+	var sound_label := o.add_text(tr("Sound volume") + ": %d%%" % roundi(Sound.volume * 100))
+	var sound_slider := HSlider.new()
+	sound_slider.min_value = 0
+	sound_slider.max_value = 100
+	sound_slider.step = 1
+	sound_slider.value = Sound.volume * 100
+	sound_slider.custom_minimum_size = Vector2(240, 44)
+	o.get_node("%Body").add_child(sound_slider)
+	sound_slider.value_changed.connect(func(value):
+		Sound.set_volume(value / 100.0)
+		sound_label.text = tr("Sound volume") + ": %d%%" % roundi(value))
+	sound_slider.drag_ended.connect(func(_changed): Sound.play("select"))
 	o.add_button(tr("Zoom controls: on") if touch_controls.enabled else tr("Zoom controls: off"), func():
 		_toggle_touch_mode()
 		_toggle_pause())
@@ -313,9 +355,11 @@ func _toggle_pause() -> void:
 
 
 func _win() -> void:
+	Sound.play("complete")
 	finished = true
 	var s := GameConfig.score(board.move_limit, board.moves_made, board.time_limit, elapsed)
 	var best := App.record_score(App.current_path, s.total) if not App.testing_from_editor else false
+	App.clear_run()
 	var o := _open_overlay(tr("Level Complete!"))
 	o.add_rows([
 		[tr("Level complete"), str(s.base)],
@@ -362,6 +406,7 @@ func _close_overlay() -> void:
 
 
 func _on_back() -> void:
+	_save_run()
 	if App.testing_from_editor:
 		App.goto("editor")
 	else:
@@ -384,13 +429,29 @@ func _show_level_info() -> void:
 	panel.add_button(tr("Back to game"), _toggle_pause)
 
 
+func _save_run() -> void:
+	if App.testing_from_editor or App._loading_level or board == null or finished: return
+	var undo := []
+	# Bound cloud payload size; retain the latest 20 undo steps.
+	for past in history.slice(maxi(0, history.size() - 20)):
+		undo.append(past.checkpoint())
+	App.save_run({"path": App.current_path,
+		"revision": FileAccess.get_file_as_string(App.current_path).sha256_text(),
+		"board": board.checkpoint(), "elapsed": elapsed,
+		"clock_running": clock_running, "history": undo})
+
+
 func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]:
+		_save_run()
 	if what == NOTIFICATION_APPLICATION_PAUSED and is_node_ready() and not paused and not finished:
 		view.end_drag()
 		_toggle_pause()
 
 
 func _exit_tree() -> void:
+	# A transition sets App.current_path before removing the previous scene.
+	# Its last move was already saved; do not save it under the new path.
 	Platform.gameplay(false)
 
 

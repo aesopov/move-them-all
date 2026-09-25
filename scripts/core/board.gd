@@ -126,6 +126,38 @@ func step(c: int, d: int) -> int:
 	return y * W + x
 
 
+func checkpoint() -> Dictionary:
+	# Preserve removed item IDs: target counters and undo depend on these indices.
+	return {"cells": Array(it_cell), "locks": Array(it_lock),
+		"terrain": Array(terrain), "moves": moves_made}
+
+
+func restore_checkpoint(data: Dictionary) -> bool:
+	for key in ["cells", "locks", "terrain"]:
+		if not data.get(key) is Array: return false
+	if data.cells.size() != it_cell.size() or data.locks.size() != it_lock.size() or data.terrain.size() != N: return false
+	var occupied := {}
+	for i in data.cells.size():
+		var c = data.cells[i]
+		var lock = data.locks[i]
+		if not (c is int or c is float) or c != int(c) or c < -1 or c >= N: return false
+		if not (lock is int or lock is float) or lock != int(lock) or lock < 0 or lock >= ItemDefs.LOCK_NAMES.size(): return false
+		if c >= 0:
+			if occupied.has(int(c)): return false
+			occupied[int(c)] = i
+	for t in data.terrain:
+		if not (t is int or t is float) or t != int(t) or t < 0 or t >= TERRAIN_CHARS.length(): return false
+	var moves = data.get("moves", -1)
+	if not (moves is int or moves is float) or moves < 0 or moves != int(moves): return false
+	it_cell = PackedInt32Array(data.cells)
+	it_lock = PackedInt32Array(data.locks)
+	terrain = PackedByteArray(data.terrain)
+	moves_made = int(moves)
+	item_at.fill(-1)
+	for c in occupied: item_at[c] = occupied[c]
+	return true
+
+
 func clone() -> Board:
 	var b := Board.new()
 	b.name = name

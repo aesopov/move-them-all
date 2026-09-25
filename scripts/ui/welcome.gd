@@ -7,6 +7,7 @@ var _t := 0.0
 
 func _ready() -> void:
 	Platform.menu_ready()
+	App.try_resume_run.call_deferred()
 	App.preload_menu_world()
 	%PlayButton.pressed.connect(func(): App.goto("select"))
 	%DesignerButton.pressed.connect(_open_editor)

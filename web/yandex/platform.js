@@ -2,13 +2,18 @@
  * local journal. Never upload defaults until a successful cloud read. */
 (function () {
   const KEY = 'pairUpProgress';
-  const empty = () => ({version: 1, scores: {}, skipped: []});
+  const empty = () => ({version: 2, scores: {}, skipped: [], current_run: {updated_at: 0, state: {}}});
   const read = key => { try { return JSON.parse(localStorage.getItem(key)); } catch (_) { return null; } };
   const write = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} };
   function merge(...records) {
     const result = empty();
     for (const record of records) {
       if (!record || typeof record !== 'object' || Array.isArray(record)) continue;
+      const run = record.current_run;
+      if (run && Number.isSafeInteger(run.updated_at) && run.updated_at >= result.current_run.updated_at &&
+          run.state && typeof run.state === 'object' && !Array.isArray(run.state)) {
+        result.current_run = JSON.parse(JSON.stringify(run));
+      }
       const scores = record.scores || record;
       for (const [path, value] of Object.entries(scores)) {
         if (path.startsWith('res://levels/') && Number.isFinite(value) && value > 0)
@@ -114,6 +119,10 @@
       clearTimeout(timeout);
       resolve();
     });
+  });
+  window.addEventListener('pagehide', () => { publish(); scheduleSave(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') { publish(); scheduleSave(); }
   });
   window.addEventListener('online', () => { if (!ready) connect(); else scheduleSave(); });
 })();
