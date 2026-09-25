@@ -1,7 +1,6 @@
 extends Control
 ## Gameplay screen. Layout lives in scenes/game.tscn; this script fills it in and runs the level.
 
-const LEGEND_ROW := preload("res://scenes/components/legend_row.tscn")
 const OVERLAY := preload("res://scenes/components/overlay.tscn")
 
 var board: Board
@@ -91,8 +90,6 @@ func _fill_panels() -> void:
 	%BestLabel.visible = best > 0
 	%BestLabel.text = tr("Best: %d") % best
 	_fill_targets(%TargetCounts, true)
-	for entry in _legend_entries():
-		%Legend.add_child(LEGEND_ROW.instantiate().setup(entry[0], entry[1], entry[2], entry[3], view.theme_data.key))
 
 
 # Keep initial goal IDs so cleared targets remain visible and undo restores counts.
@@ -140,81 +137,6 @@ func _update_target(entry: Dictionary) -> void:
 			cleared += 1
 	entry.count.text = "%d / %d" % [cleared, entry.ids.size()]
 	entry.row.modulate.a = 0.5 if cleared == entry.ids.size() else 1.0
-
-
-func _legend_entries() -> Array:
-	var out := []
-	if board.meta.get("imported", false):
-		out.append(["moves", tr("Matching numbers identify pieces that can merge."), 0, 0])
-	var seen := {}
-	var locks := {}
-	for i in board.it_type.size():
-		if board.it_cell[i] < 0:
-			continue
-		var t := board.it_type[i]
-		if ItemDefs.kind(t) == ItemDefs.Kind.PADLOCK:
-			var lc := board.it_lock[i]
-			if not seen.has("padlock%d" % lc):
-				seen["padlock%d" % lc] = true
-				out.append(["lock", tr("Padlock: can't be moved; a %s key opens it") % tr(ItemDefs.LOCK_NAMES[lc]), 0, lc])
-			continue
-		if board.it_lock[i] != 0:
-			locks[board.it_lock[i]] = true
-		var g := board.grav(i)
-		var seen_key := "%d/%d/%d" % [t, g, board.it_movable[i]] # same type with a different gravity gets its own line
-		if seen.has(seen_key):
-			continue
-		seen[seen_key] = true
-		var txt := AssetLib.item_label(t, view.theme_data.key)
-		var motion := ""
-		match g:
-			ItemDefs.Gravity.FALL: motion = tr("falls, can't be moved up")
-			ItemDefs.Gravity.BUBBLE: motion = tr("floats up, can't be moved down")
-			_: motion = tr("stays where you put it")
-		if not board.it_movable[i]: motion = tr("cannot be moved by hand")
-		match ItemDefs.kind(t):
-			ItemDefs.Kind.MOVER:
-				txt += ": " + motion + tr("; does not match")
-			ItemDefs.Kind.BOMB:
-				txt = tr("Bomb: explodes beside destructible objects or when tapped") + "; " + motion if board.meta.get("imported", false) else tr("Bomb: falls; explodes beside cracked walls or when tapped")
-			ItemDefs.Kind.KEY:
-				txt += tr(": touch a matching lock to open it")
-				if g != ItemDefs.Gravity.NONE:
-					txt += "; " + motion
-			_:
-				txt += ": " + motion
-		if ItemDefs.blast_proof(t):
-			txt += tr("; survives bombs")
-		out.append(["item", txt, t, 0])
-	for l in locks:
-		out.append(["lock", tr("Locked: pinned until a %s key touches it") % tr(ItemDefs.LOCK_NAMES[l]), 0, l])
-	var has := {}
-	for c in Board.N:
-		has[board.terrain[c]] = true
-		if board.teleport_to[c] != -2:
-			has["tele"] = true
-		if board.pipe_mouth[c] != -1:
-			has["pipe"] = true
-	for liq in [Board.T.WATER, Board.T.LAVA, Board.T.ACID]:
-		if has.has(liq):
-			out.append(["liquid", tr("%s: destroys items that fall in") % tr(Board.LIQUID_NAMES[liq].capitalize()), 0, liq])
-	if has.has(Board.T.BREAKABLE):
-		out.append(["breakable", tr("Cracked wall: bombs and explosions break it"), 0, 0])
-	if has.has("tele"):
-		out.append(["teleport", tr("Teleport: step on it to jump to its partner (only if the partner is empty)"), 0, 0])
-	if has.has("pipe"):
-		if board.pipe_direct.has(1):
-			out.append(["pipe", tr("Pipe: enter through the opening to reach its linked landing cell"), 0, 0])
-		elif board.pipe_ports.count(0) < Board.N:
-			out.append(["pipe", tr("Elbow: side openings connect both ways. The lower tube lands on the elbow; move down to return."), 0, 0])
-		elif board.pipe_landing.has(1):
-			out.append(["pipe", tr("Pipe: land on the translucent exit. Move down to return; once you leave, you cannot re-enter it."), 0, 0])
-		else:
-			out.append(["pipe", tr("Pipe: enter through the opening, slide out of the linked pipe"), 0, 0])
-	if GameConfig.SURROUND_RULE_ENABLED:
-		var surround_text := tr("Surround an item with 4 items of one other group: all 5 explode") if board.meta.get("imported", false) else tr("Surround an item with 4 items of one other type: all 5 explode")
-		out.append(["moves", surround_text, 0, 0])
-	return out
 
 
 # ---------------------------------------------------------------------------
@@ -459,8 +381,6 @@ func _show_level_info() -> void:
 	targets.add_theme_constant_override("h_separation", 16)
 	panel.get_node("%Body").add_child(targets)
 	_fill_targets(targets)
-	for entry in _legend_entries():
-		panel.add_text(entry[1])
 	panel.add_button(tr("Back to game"), _toggle_pause)
 
 

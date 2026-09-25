@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_o0wsf"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_dm8lr"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/support_platform_small.png" id="3_uw77n"]
+
+[node name="Decor" type="Node2D" unique_id=1745910935]
+script = ExtResource("1_o0wsf")
+
+[node name="SupportPlatformSmall" type="Node2D" parent="." unique_id=543999937]
+position = Vector2(256, 128)
+script = ExtResource("2_dm8lr")
+texture = ExtResource("3_uw77n")
+
+[node name="SupportPlatformSmall2" type="Node2D" parent="." unique_id=619236458]
+position = Vector2(512, 128)
+script = ExtResource("2_dm8lr")
+texture = ExtResource("3_uw77n")
+flip_horizontal = true

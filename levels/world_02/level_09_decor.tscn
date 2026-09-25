@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_sa1l5"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_wrbhh"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/cargo_long.png" id="3_ggls3"]
+
+[node name="Decor" type="Node2D" unique_id=571511803]
+script = ExtResource("1_sa1l5")
+
+[node name="CargoLong" type="Node2D" parent="." unique_id=957704543]
+position = Vector2(415.5, 176.25)
+rotation = -1.0864675
+script = ExtResource("2_wrbhh")
+texture = ExtResource("3_ggls3")
+footprint = Vector2(2, 1)

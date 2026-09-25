@@ -1,10 +1,95 @@
 {
-	"version": 2,
-	"name": "Empire Crisis II",
-	"theme": "waterfall",
 	"imported": true,
+	"items": [
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
+			"type": "crate",
+			"x": 1,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 1,
+			"y": 3
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
+			"type": "crate",
+			"x": 1,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 3,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"movable": false,
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 1,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"movable": false,
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 10,
+			"y": 9
+		}
+	],
 	"moves": 20,
-	"time": 70,
+	"name": "Empire Crisis II",
+	"pipes": [],
+	"skins": [
+		"............",
+		".i..........",
+		"............",
+		"............",
+		".i..........",
+		"............",
+		"............",
+		".i..........",
+		"............",
+		"............",
+		"............",
+		"............"
+	],
+	"source": {
+		"file": "LEVEL018.UZ3",
+		"format": "UZ3",
+		"number": 18.0,
+		"sha256": "80ab93ad2b1a57767c36cdda0d4142f4c9d1a8ce520abb5ac0272be75e5f0f3f"
+	},
+	"teleports": [],
 	"terrain": [
 		"#..#########",
 		"##.......###",
@@ -19,84 +104,7 @@
 		"############",
 		"############"
 	],
-	"items": [
-		{
-			"type": "crate",
-			"x": 1,
-			"y": 0,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
-		},
-		{
-			"type": "weight_red",
-			"x": 1,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "crate",
-			"x": 1,
-			"y": 6,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
-		},
-		{
-			"type": "weight",
-			"x": 3,
-			"y": 7,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 1,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": false,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "weight",
-			"x": 10,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": false,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		}
-	],
-	"pipes": [],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL018.UZ3",
-		"number": 18,
-		"sha256": "80ab93ad2b1a57767c36cdda0d4142f4c9d1a8ce520abb5ac0272be75e5f0f3f"
-	}
+	"theme": "waterfall",
+	"time": 70,
+	"version": 2
 }

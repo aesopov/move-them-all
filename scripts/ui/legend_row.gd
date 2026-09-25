@@ -1,7 +1,7 @@
 @tool
 class_name LegendRow
 extends HBoxContainer
-## One "icon + text" line (level goals, "In this level" legend). Scene: scenes/components/legend_row.tscn
+## One "icon + text" line (level goals). Scene: scenes/components/legend_row.tscn
 ## kind / text are exported so rows placed in a scene can be edited in the Inspector.
 
 @export_enum("none", "item", "flag", "clock", "moves", "teleport", "pipe", "lock", "liquid", "wall", "breakable", "swatch")

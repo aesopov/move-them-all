@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_00ead"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_vq8n4"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/support_platform_small.png" id="3_ddbvt"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/broken_column.png" id="4_45cd2"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/mechanism.png" id="5_sg7sd"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/relic_small.png" id="6_ur2sm"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/rubble.png" id="7_5vr5w"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/wall_cracked.png" id="8_rap5d"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/broken_arch.png" id="9_vq8n4"]
+
+[node name="Decor" type="Node2D" unique_id=862116400]
+script = ExtResource("1_00ead")
+
+[node name="SupportPlatformSmall" type="Node2D" parent="." unique_id=1863549013]
+position = Vector2(51.5, 48.5)
+scale = Vector2(1.17, 1)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("3_ddbvt")
+
+[node name="SupportPlatformSmall2" type="Node2D" parent="." unique_id=1767818246]
+position = Vector2(51.5, 239)
+scale = Vector2(1.17, 1)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("3_ddbvt")
+
+[node name="SupportPlatformSmall3" type="Node2D" parent="." unique_id=1012843347]
+position = Vector2(51.5, 430)
+scale = Vector2(1.17, 1)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("3_ddbvt")
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=218081450]
+position = Vector2(576, 0)
+scale = Vector2(3, 3)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("4_45cd2")
+
+[node name="Mechanism" type="Node2D" parent="." unique_id=1121776766]
+position = Vector2(640, 384)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("5_sg7sd")
+
+[node name="RelicSmall" type="Node2D" parent="." unique_id=1269186762]
+position = Vector2(640, 192)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("6_ur2sm")
+
+[node name="Rubble" type="Node2D" parent="." unique_id=1899539241]
+position = Vector2(512, 64)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("7_5vr5w")
+
+[node name="WallCracked" type="Node2D" parent="." unique_id=793369904]
+position = Vector2(640, 320)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("8_rap5d")
+
+[node name="BrokenArch" type="Node2D" parent="." unique_id=964734664]
+position = Vector2(384, 640)
+script = ExtResource("2_vq8n4")
+texture = ExtResource("9_vq8n4")
+footprint = Vector2(2, 2)

@@ -21,7 +21,7 @@ Stored under `assets/tiles/<theme>/decor/`. Search **support_platform** in the d
 | Crystal | Violet stone, amethyst and silver |
 | Nexus | Gunmetal with cyan light strips |
 
-Generated with built-in image_gen using the approved Jungle shelf as the reference. Individual prompts and asset paths: `prompts/world_support_shelves.json`. Original PNG alpha is retained; Godot imports are capped at 512 pixels. No campaign layout is changed by this asset addition.
+Generated with built-in image_gen using the approved Jungle shelf as the reference. Individual prompts and asset paths: `prompts/world_support_shelves.json`. Original PNG alpha is retained; Godot imports are capped at 256 pixels per cell (256 for small shelves, 512 for wide shelves). No campaign layout is changed by this asset addition.
 
 Render and validate the gallery:
 ```sh

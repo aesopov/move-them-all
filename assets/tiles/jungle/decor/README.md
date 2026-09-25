@@ -1,7 +1,7 @@
 # Modular stone and scenery kit
 
 Generated with built-in image_gen using the Jungle wall as a style reference.
-Original images are retained; runtime imports are limited to 512 pixels.
+Original images are retained; runtime imports are limited to 256 pixels per cell (512 for two-cell assets).
 Prompts and provenance: `prompts/terrain_kit.json`.
 
 | Asset | Footprint in cells |

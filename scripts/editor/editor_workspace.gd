@@ -469,16 +469,17 @@ func _inspect_node(node: Node) -> void:
 		if not properties.has(key): continue
 		var value: Variant = node.get(key)
 		if value is Vector2:
+			var step := 0.01 if key in ["scale", "texture_scale"] else 0.25
 			_number(box, key.capitalize() + " X", value.x, -4096, 4096, func(v): _change(func():
 				var current: Vector2 = node.get(key)
 				current.x = v
 				node.set(key, current)
-				_redraw(node)), .25)
+				_redraw(node)), step)
 			_number(box, key.capitalize() + " Y", value.y, -4096, 4096, func(v): _change(func():
 				var current: Vector2 = node.get(key)
 				current.y = v
 				node.set(key, current)
-				_redraw(node)), .25)
+				_redraw(node)), step)
 		elif value is Color:
 			_label(box, key.capitalize())
 			var picker := ColorPickerButton.new()

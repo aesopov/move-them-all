@@ -6,24 +6,19 @@
 [ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/relic_tall.png" id="4_ny7eo"]
 [ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/slab_2x05.png" id="5_p0qi0"]
 [ext_resource type="Texture2D" path="res://assets/tiles/jungle/vegetation/fern.png" id="6_kaa4i"]
+[ext_resource type="Texture2D" path="res://assets/tiles/jungle/vegetation/grass.png" id="7_822yh"]
 
-[node name="Decor" type="Node2D" unique_id=1410719157]
+[node name="Decor" type="Node2D" unique_id=1323794567]
 script = ExtResource("1_bko3p")
 
-[node name="Barricade" type="Node2D" parent="." unique_id=13673883]
-position = Vector2(0, 320)
-script = ExtResource("2_822yh")
-texture = ExtResource("3_i7g64")
-footprint = Vector2(2, 1)
-
-[node name="RelicTall" type="Node2D" parent="." unique_id=557216838]
+[node name="RelicTall" type="Node2D" parent="." unique_id=1648289677]
 position = Vector2(0, 512)
 script = ExtResource("2_822yh")
 texture = ExtResource("4_ny7eo")
 footprint = Vector2(1, 2)
 
-[node name="Slab2x05" type="Node2D" parent="." unique_id=1422882689]
-modulate = Color(1, 1, 1, 0.3254902)
+[node name="Slab2x05" type="Node2D" parent="." unique_id=1511205128]
+modulate = Color(0.40074825, 0.40074825, 0.40074825, 0.5137255)
 position = Vector2(381.25, 62.25)
 rotation = 1.5707964
 scale = Vector2(2.5, 2.5)
@@ -32,8 +27,21 @@ texture = ExtResource("5_p0qi0")
 footprint = Vector2(2, 0.5)
 crop_alpha = false
 
-[node name="Fern" type="Node2D" parent="." unique_id=510046774]
+[node name="Fern" type="Node2D" parent="." unique_id=804518217]
 position = Vector2(307.75, 358.25)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_822yh")
 texture = ExtResource("6_kaa4i")
+
+[node name="Grass" type="Node2D" parent="." unique_id=1301255060]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(365.25, 20.25)
+rotation = 0.7941248
+script = ExtResource("2_822yh")
+texture = ExtResource("7_822yh")
+
+[node name="Barricade" type="Node2D" parent="." unique_id=258602922]
+position = Vector2(0, 325.5)
+script = ExtResource("2_822yh")
+texture = ExtResource("3_i7g64")
+footprint = Vector2(2, 1)

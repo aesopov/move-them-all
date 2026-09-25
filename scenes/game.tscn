@@ -230,24 +230,10 @@ layout_mode = 2
 theme_type_variation = &"AccentLabel"
 text = "Best: 0"
 
-[node name="Sep2" type="HSeparator" parent="Margin/Columns/Side/SideRows" unique_id=151751254]
-layout_mode = 2
-
-[node name="LegendTitle" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=146366902]
-layout_mode = 2
-theme_type_variation = &"HeaderLabel"
-text = "In this level"
-
-[node name="LegendScroll" type="ScrollContainer" parent="Margin/Columns/Side/SideRows" unique_id=1146068704]
+[node name="Spacer" type="Control" parent="Margin/Columns/Side/SideRows"]
 layout_mode = 2
 size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="Legend" type="VBoxContainer" parent="Margin/Columns/Side/SideRows/LegendScroll" unique_id=1896435973]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
+mouse_filter = 2
 
 [node name="StatusLabel" type="Label" parent="Margin/Columns/Side/SideRows" unique_id=1050189279]
 unique_name_in_owner = true

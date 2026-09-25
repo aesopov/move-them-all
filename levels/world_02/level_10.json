@@ -1,10 +1,207 @@
 {
-	"version": 2,
-	"name": "Pipes n' Locks I",
-	"theme": "waterfall",
 	"imported": true,
+	"items": [
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "301",
+			"type": "key_yellow",
+			"x": 0,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "blue",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 1,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "301",
+			"type": "key_yellow",
+			"x": 4,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "blue",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 0,
+			"y": 1
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 0,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "208",
+			"type": "bubble",
+			"x": 7,
+			"y": 4
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 5,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "208",
+			"type": "bubble",
+			"x": 11,
+			"y": 7
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "yellow",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 11,
+			"y": 10
+		},
+		{
+			"destructible": false,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "303",
+			"type": "key_blue",
+			"x": 8,
+			"y": 11
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "yellow",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 10,
+			"y": 11
+		}
+	],
 	"moves": 28,
-	"time": 135,
+	"name": "Pipes n' Locks I",
+	"pipes": [
+		{
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left",
+			"to": [
+				11,
+				8
+			],
+			"x": 4,
+			"y": 1
+		},
+		{
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left",
+			"ports": [
+				"down",
+				"left"
+			],
+			"to": [
+				9,
+				10
+			],
+			"x": 2,
+			"y": 3
+		},
+		{
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right",
+			"ports": [
+				"up",
+				"right"
+			],
+			"to": [
+				3,
+				1
+			],
+			"x": 10,
+			"y": 8
+		},
+		{
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right",
+			"to": [
+				1,
+				3
+			],
+			"x": 8,
+			"y": 10
+		}
+	],
+	"skins": [
+		".....p......",
+		".....p......",
+		".....p......",
+		".....pppp...",
+		"..p.....p...",
+		"ppppp...p...",
+		"....p...pppp",
+		"....p.....p.",
+		"....pppp....",
+		".......p....",
+		".......p....",
+		".......p...."
+	],
+	"source": {
+		"file": "LEVEL020.UZ3",
+		"format": "UZ3",
+		"number": 20.0,
+		"sha256": "37809508f804ed1707c93db64c5282fb11b277a5f8ecc4ff31e0ba1ed0f8771f"
+	},
+	"teleports": [],
 	"terrain": [
 		".....#......",
 		".....#......",
@@ -19,210 +216,7 @@
 		".......#....",
 		".......#...."
 	],
-	"items": [
-		{
-			"type": "key_yellow",
-			"x": 0,
-			"y": 0,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "301"
-		},
-		{
-			"type": "padlock",
-			"x": 1,
-			"y": 0,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "blue"
-		},
-		{
-			"type": "key_yellow",
-			"x": 4,
-			"y": 0,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "301"
-		},
-		{
-			"type": "padlock",
-			"x": 0,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "blue"
-		},
-		{
-			"type": "weight",
-			"x": 0,
-			"y": 4,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
-		},
-		{
-			"type": "bubble",
-			"x": 7,
-			"y": 4,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "208",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 5,
-			"y": 7,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
-		},
-		{
-			"type": "bubble",
-			"x": 11,
-			"y": 7,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "208",
-			"match_label": "1"
-		},
-		{
-			"type": "padlock",
-			"x": 11,
-			"y": 10,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "yellow"
-		},
-		{
-			"type": "key_blue",
-			"x": 8,
-			"y": 11,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "303"
-		},
-		{
-			"type": "padlock",
-			"x": 10,
-			"y": 11,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "yellow"
-		}
-	],
-	"pipes": [
-		{
-			"x": 4,
-			"y": 1,
-			"to": [
-				11,
-				8
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		},
-		{
-			"x": 2,
-			"y": 3,
-			"to": [
-				9,
-				10
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		},
-		{
-			"x": 10,
-			"y": 8,
-			"to": [
-				3,
-				1
-			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
-		},
-		{
-			"x": 8,
-			"y": 10,
-			"to": [
-				1,
-				3
-			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
-		}
-	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL020.UZ3",
-		"number": 20,
-		"sha256": "37809508f804ed1707c93db64c5282fb11b277a5f8ecc4ff31e0ba1ed0f8771f"
-	},
-	"skins": [
-		".....p......",
-		".....p......",
-		".....p......",
-		"......pp....",
-		"..p.....p...",
-		"pppp....p...",
-		"....p....ppp",
-		"....p.....p.",
-		".....pp.....",
-		".......p....",
-		".......p....",
-		".......p...."
-	]
+	"theme": "waterfall",
+	"time": 135,
+	"version": 2
 }

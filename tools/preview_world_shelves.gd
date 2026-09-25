@@ -33,7 +33,8 @@ func run() -> void:
 				failures += 1
 				continue
 			var img := tex.get_image()
-			if tex.get_width() > 512 or tex.get_height() > 512 or img.detect_alpha() == Image.ALPHA_NONE or img.get_pixel(0, 0).a > 0:
+			var limit := 512 if wide else 256
+			if tex.get_width() > limit or tex.get_height() > limit or img.detect_alpha() == Image.ALPHA_NONE or img.get_pixel(0, 0).a > 0:
 				push_error("Invalid shelf texture: " + path)
 				failures += 1
 			var sprite := DecorSprite.new()

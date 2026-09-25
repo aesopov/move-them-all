@@ -1,16 +1,112 @@
 {
-	"version": 1,
-	"name": "The Upper Chamber",
-	"theme": "waterfall",
 	"handcrafted": true,
+	"items": [
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 4,
+			"y": 5
+		},
+		{
+			"aim": true,
+			"type": "cone",
+			"x": 5,
+			"y": 5
+		},
+		{
+			"aim": true,
+			"type": "weight_red",
+			"x": 4,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "cube",
+			"x": 5,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "cone",
+			"x": 7,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 4,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "cone",
+			"x": 5,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 6,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"type": "torus",
+			"x": 5,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"type": "weight_red",
+			"x": 4,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"type": "weight_red",
+			"x": 6,
+			"y": 9
+		}
+	],
 	"moves": 35,
-	"time": 240,
+	"name": "The Upper Chamber",
+	"pipes": [
+		{
+			"landing": true,
+			"mouth": "down",
+			"ports": [
+				"up",
+				"right"
+			],
+			"to": [
+				7,
+				5
+			],
+			"x": 7,
+			"y": 3
+		},
+		{
+			"mouth": "up",
+			"x": 7,
+			"y": 4
+		},
+		{
+			"mouth": "down",
+			"to": [
+				7,
+				3
+			],
+			"x": 7,
+			"y": 5
+		}
+	],
+	"teleports": [],
 	"terrain": [
 		"------------",
 		"------####--",
 		"------#.##--",
 		"------#..#--",
-		"---#######--",
+		"---####.##--",
 		"---#..#.##--",
 		"---#....##--",
 		"---#...###--",
@@ -19,98 +115,7 @@
 		"---#######--",
 		"------------"
 	],
-	"items": [
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 5,
-			"aim": true
-		},
-		{
-			"type": "cone",
-			"x": 5,
-			"y": 5,
-			"aim": true
-		},
-		{
-			"type": "weight_red",
-			"x": 4,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "cube",
-			"x": 5,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "cone",
-			"x": 7,
-			"y": 6,
-			"aim": true
-		},
-		{
-			"type": "torus",
-			"x": 4,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "cone",
-			"x": 5,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "torus",
-			"x": 6,
-			"y": 7,
-			"aim": true
-		},
-		{
-			"type": "torus",
-			"x": 5,
-			"y": 8,
-			"aim": true
-		},
-		{
-			"type": "weight_red",
-			"x": 4,
-			"y": 9,
-			"aim": true
-		},
-		{
-			"type": "weight_red",
-			"x": 6,
-			"y": 9,
-			"aim": true
-		}
-	],
-	"pipes": [
-		{
-			"x": 7,
-			"y": 5,
-			"mouth": "down",
-			"to": [
-				7,
-				3
-			]
-		},
-		{
-			"x": 7,
-			"y": 3,
-			"mouth": "down",
-			"ports": [
-				"up",
-				"right"
-			],
-			"landing": true,
-			"to": [
-				7,
-				5
-			]
-		}
-	],
-	"teleports": []
+	"theme": "waterfall",
+	"time": 240,
+	"version": 1
 }

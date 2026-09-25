@@ -1,42 +1,169 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_lmgys"]
-[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2_mdgow"]
-[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/floor_a.png" id="3_w4yy8"]
-[ext_resource type="Script" path="res://scripts/game/decor_item.gd" id="4_1ljn0"]
-[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/wall.png" id="5_khej8"]
-[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/rubble.png" id="6_kj7kr"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_w4yy8"]
+[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2_1ljn0"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/floor_a.png" id="3_khej8"]
+[ext_resource type="Script" path="res://scripts/game/decor_item.gd" id="4_kj7kr"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="5_4ipn0"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/corner_cut.png" id="6_ek5y0"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/wall_1x2_a.png" id="7_ffy8d"]
+[ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/slab_1x05.png" id="8_wwodc"]
 
-[node name="Decor" type="Node2D" unique_id=716041598]
+[node name="Decor" type="Node2D" unique_id=595166329]
+script = ExtResource("1_w4yy8")
+
+[node name="BackgroundRegions2" type="Node2D" parent="." unique_id=684643098]
 show_behind_parent = true
-script = ExtResource("1_lmgys")
+script = ExtResource("2_1ljn0")
+regions = Array[Rect2]([Rect2(416, 160, 128, 128), Rect2(288, 288, 128, 128), Rect2(544, 288, 128, 128)])
+colors = Array[Color]([Color(0.55, 0.65, 0.72, 1), Color(0.55, 0.65, 0.72, 1), Color(0.55, 0.65, 0.72, 1)])
+textures = Array[Texture2D]([ExtResource("3_khej8"), ExtResource("3_khej8"), ExtResource("3_khej8")])
 
-[node name="BackgroundRegions" type="Node2D" parent="." unique_id=958459576]
-script = ExtResource("2_mdgow")
-regions = Array[Rect2]([Rect2(0, 0, 768, 484), Rect2(416, 160, 128, 128), Rect2(288, 288, 128, 128), Rect2(544, 288, 128, 128)])
-colors = Array[Color]([Color(0.045, 0.09, 0.2, 0.95), Color(0.55, 0.65, 0.72, 1), Color(0.55, 0.65, 0.72, 1), Color(0.55, 0.65, 0.72, 1)])
-textures = Array[Texture2D]([null, ExtResource("3_w4yy8"), ExtResource("3_w4yy8"), ExtResource("3_w4yy8")])
-
-[node name="BlueSphere" type="Node2D" parent="." unique_id=309356703]
+[node name="BlueSphere" type="Node2D" parent="." unique_id=98794807]
 modulate = Color(0.5, 0.65, 1, 0.6)
 position = Vector2(480, 224)
-script = ExtResource("4_1ljn0")
+script = ExtResource("4_kj7kr")
 item_name = "sphere"
 
-[node name="GoldSphere" type="Node2D" parent="." unique_id=27532084]
+[node name="GoldSphere" type="Node2D" parent="." unique_id=618515223]
 modulate = Color(1, 0.75, 0.3, 0.6)
 position = Vector2(352, 352)
-script = ExtResource("4_1ljn0")
+script = ExtResource("4_kj7kr")
 item_name = "sphere"
 
-[node name="GreenSphere" type="Node2D" parent="." unique_id=474707446]
+[node name="GreenSphere" type="Node2D" parent="." unique_id=1820188527]
 modulate = Color(0.35, 1, 0.45, 0.6)
 position = Vector2(608, 352)
-script = ExtResource("4_1ljn0")
+script = ExtResource("4_kj7kr")
 item_name = "sphere"
 
-[node name="DistantMasonry" type="Node2D" parent="." unique_id=2144290941]
-script = ExtResource("2_mdgow")
-regions = Array[Rect2]([Rect2(128, 64, 128, 64), Rect2(64, 128, 128, 64), Rect2(128, 192, 64, 64), Rect2(256, 128, 64, 128), Rect2(576, 64, 128, 64), Rect2(580, 128, 128, 128)])
-colors = Array[Color]([Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4), Color(0.08, 0.16, 0.35, 0.4)])
-textures = Array[Texture2D]([ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("5_khej8"), ExtResource("6_kj7kr")])
+[node name="CornerCut" type="Node2D" parent="." unique_id=1056723732]
+position = Vector2(256, 384)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="Wall1x2A" type="Node2D" parent="." unique_id=393568619]
+position = Vector2(256, 320)
+scale = Vector2(0.58, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
+
+[node name="Wall1x2A2" type="Node2D" parent="." unique_id=1686487710]
+position = Vector2(383.75, 256)
+rotation = 1.5707964
+scale = Vector2(0.56, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
+
+[node name="CornerCut2" type="Node2D" parent="." unique_id=1922298921]
+position = Vector2(316.75, 256)
+rotation = 1.5707964
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut3" type="Node2D" parent="." unique_id=1244974621]
+position = Vector2(382.5, 256.75)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut4" type="Node2D" parent="." unique_id=694119612]
+position = Vector2(512, 384)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut5" type="Node2D" parent="." unique_id=1406690773]
+position = Vector2(384, 446.25)
+rotation = -1.5707964
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut6" type="Node2D" parent="." unique_id=1955020440]
+position = Vector2(444, 128)
+rotation = 1.5707964
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut7" type="Node2D" parent="." unique_id=305701300]
+position = Vector2(574.5, 189.25)
+rotation = 3.1415927
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut8" type="Node2D" parent="." unique_id=1633558091]
+position = Vector2(512, 256)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+flip_horizontal = true
+
+[node name="Wall1x2A3" type="Node2D" parent="." unique_id=1723356725]
+position = Vector2(384, 192)
+scale = Vector2(0.5, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
+
+[node name="CornerCut9" type="Node2D" parent="." unique_id=225152732]
+position = Vector2(702.25, 318.5)
+rotation = 3.1415927
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+
+[node name="CornerCut10" type="Node2D" parent="." unique_id=1499600671]
+position = Vector2(640, 384)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("6_ek5y0")
+flip_horizontal = true
+
+[node name="Slab1x05" type="Node2D" parent="." unique_id=404256802]
+position = Vector2(320, 410.25)
+scale = Vector2(1, 1.24)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("8_wwodc")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x06" type="Node2D" parent="." unique_id=2136825804]
+position = Vector2(576, 413.5)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("8_wwodc")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x07" type="Node2D" parent="." unique_id=123050469]
+position = Vector2(576, 257.5)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("8_wwodc")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x08" type="Node2D" parent="." unique_id=283484847]
+position = Vector2(448, 128)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("8_wwodc")
+footprint = Vector2(1, 0.5)
+
+[node name="Wall1x2A4" type="Node2D" parent="." unique_id=1201067438]
+position = Vector2(670.75, 320)
+scale = Vector2(0.5, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
+
+[node name="Wall1x2A5" type="Node2D" parent="." unique_id=2054025502]
+position = Vector2(512, 320)
+scale = Vector2(0.5, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
+
+[node name="Slab1x09" type="Node2D" parent="." unique_id=1560725910]
+position = Vector2(448, 284.5)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("8_wwodc")
+footprint = Vector2(1, 0.5)
+
+[node name="Wall1x2A6" type="Node2D" parent="." unique_id=1673425962]
+position = Vector2(542.25, 192)
+scale = Vector2(0.5, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
+
+[node name="Wall1x2A7" type="Node2D" parent="." unique_id=961282362]
+position = Vector2(414.25, 320)
+scale = Vector2(0.5, 1)
+script = ExtResource("5_4ipn0")
+texture = ExtResource("7_ffy8d")
