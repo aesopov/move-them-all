@@ -1,0 +1,113 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_5t2i4"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_6gbd7"]
+[ext_resource type="Texture2D" path="res://assets/pipes/generated/tile_1_-1.png" id="3_noqgt"]
+[ext_resource type="Texture2D" path="res://assets/pipes/generated/tile_10_-1.png" id="4_pa1xb"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/relic_tall.png" id="5_yyngr"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/rubble.png" id="6_qjomu"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/mechanism.png" id="7_sqhbh"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/broken_arch.png" id="8_ktofg"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/broken_column.png" id="9_6g86y"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/relic_small.png" id="10_oga2c"]
+
+[node name="Decor" type="Node2D" unique_id=1969138981]
+script = ExtResource("1_5t2i4")
+
+[node name="Tile11" type="Node2D" parent="." unique_id=1850686862]
+modulate = Color(1, 0.7304568, 0.27952707, 1)
+position = Vector2(192, 320)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("3_noqgt")
+
+[node name="Tile12" type="Node2D" parent="." unique_id=1349350195]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(448, 320)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("3_noqgt")
+
+[node name="Tile13" type="Node2D" parent="." unique_id=395186830]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(192, 448)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("3_noqgt")
+
+[node name="Tile14" type="Node2D" parent="." unique_id=2137346954]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(448, 448)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("3_noqgt")
+
+[node name="Tile101" type="Node2D" parent="." unique_id=1851744829]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(0, 384)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="Tile102" type="Node2D" parent="." unique_id=471893532]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(64, 384)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="Tile103" type="Node2D" parent="." unique_id=1150030335]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(128, 384)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="Tile104" type="Node2D" parent="." unique_id=1429456186]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(256, 256)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="Tile105" type="Node2D" parent="." unique_id=367028668]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(384, 256)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="Tile106" type="Node2D" parent="." unique_id=957589172]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(256, 512)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="Tile107" type="Node2D" parent="." unique_id=76298597]
+modulate = Color(1, 0.7294118, 0.2784314, 1)
+position = Vector2(384, 512)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("4_pa1xb")
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=367363185]
+position = Vector2(704, 64)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("5_yyngr")
+footprint = Vector2(1, 2)
+
+[node name="Rubble" type="Node2D" parent="." unique_id=149367017]
+position = Vector2(64, 704)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("6_qjomu")
+
+[node name="Mechanism" type="Node2D" parent="." unique_id=1465368374]
+position = Vector2(320, 64)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("7_sqhbh")
+
+[node name="BrokenArch" type="Node2D" parent="." unique_id=609089351]
+position = Vector2(288.25, 344.5)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("8_ktofg")
+footprint = Vector2(2, 2)
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=1158801429]
+position = Vector2(128, 704)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("9_6g86y")
+
+[node name="RelicSmall" type="Node2D" parent="." unique_id=1680329427]
+position = Vector2(640, 704)
+script = ExtResource("2_6gbd7")
+texture = ExtResource("10_oga2c")

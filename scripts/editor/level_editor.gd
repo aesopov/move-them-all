@@ -37,7 +37,7 @@ const TOOL_HINTS := {
 	"link": "Click a teleport or pipe, then click its destination. Click the source again to clear its link.",
 	"aim": "Click an item to toggle its goal flag.",
 	"erase": "Click to clear a cell completely. (Right-click erases with any tool.)",
-	"teleport": "Place a teleport, then use Link to connect it.",
+	"teleport": "Place a teleport, then use Link to connect it. Leave its destination empty for an exit-only teleport; disable Two-way links when linking to it.",
 }
 
 ## Palette sections: [title, [[tool id, label, icon kind, icon extra / swatch colour], ...]].
@@ -505,7 +505,7 @@ func _validate() -> String:
 	if board.aims_total() == 0:
 		return "Add at least one goal flag (Modifiers > Goal flag)."
 	for c in Board.N:
-		if board.teleport_to[c] == -1: return "Teleport at %s has no destination." % Board.to_xy(c)
+		# A teleport without an outgoing link is valid (e.g. a one-way exit).
 		if board.pipe_direct[c] and (board.pipe_to[c] < 0 or board.pipe_entries[c] == 0): return "Direct pipe at %s needs a destination and entry direction." % Board.to_xy(c)
 		if board.pipe_ports[c] and Board.directions(board.pipe_ports[c]).size() != 2: return "Elbow at %s needs exactly two open sides." % Board.to_xy(c)
 	var probe := board.clone()
@@ -564,9 +564,9 @@ func _write(path: String) -> void:
 	if err == OK:
 		_saved_state = _fingerprint()
 		App.scan_levels()
-		_refresh_load_options()
 		current_path = path
 		App.editor_path = path
+		_refresh_load_options()
 		_set_status(tr("Saved to %s") % path + ("\n" + tr(_validate()) if _validate() != "" else ""))
 	else:
 		_set_status(tr("Save failed: %s") % error_string(err))
@@ -718,7 +718,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _refresh_load_options() -> void:
-	var previous: Variant = _load_opt.get_item_metadata(_load_opt.selected) if _load_opt.selected >= 0 else null
+	var previous: Variant = current_path
+	if current_path.is_empty() and _load_opt.selected >= 0:
+		previous = _load_opt.get_item_metadata(_load_opt.selected)
 	_load_opt.clear()
 	for path in App.all_level_paths():
 		_load_opt.add_item(App.level_label(path) + "  (" + path.get_file() + ")")

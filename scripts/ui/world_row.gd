@@ -28,12 +28,23 @@ func setup(title: String, idx: int, levels: Array) -> WorldRow:
 			b.text = label + "\n" + str(best)
 			b.add_theme_font_size_override("font_size", 15)
 			b.add_theme_stylebox_override("normal", UiKit.stone(true, Color(1.12, 1.16, 0.72), 6))
-		elif path in App.skipped:
+		elif App.was_skipped(path):
 			b.text = label + "\n" + tr("Skipped")
 			b.add_theme_font_size_override("font_size", 15)
 		b.tooltip_text = tr(App.load_level(path).get("name", ""))
 		grid.add_child(b)
 	(get_node("%Progress") as Label).text = tr("%d / %d completed") % [done, levels.size()]
+	if idx >= 0 and Platform.has_purchases():
+		var locked := false
+		for path in levels:
+			if not App.is_level_unlocked(path, true): locked = true
+		if locked:
+			var buy := Button.new()
+			buy.text = tr("Unlock this world")
+			buy.custom_minimum_size.y = 44
+			buy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			buy.pressed.connect(func(): Platform.open_shop([App.world_product_id(idx)]))
+			$Row/Head.add_child(buy)
 	return self
 
 

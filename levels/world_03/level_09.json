@@ -1,10 +1,78 @@
 {
-	"version": 2,
-	"name": "Downward Despair",
-	"theme": "desert",
 	"imported": true,
+	"items": [
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 1,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 9,
+			"y": 3
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "121",
+			"type": "block_blue",
+			"x": 1,
+			"y": 7
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "121",
+			"type": "block_blue",
+			"x": 4,
+			"y": 7
+		}
+	],
 	"moves": 26,
-	"time": 120,
+	"name": "Downward Despair",
+	"pipes": [],
+	"source": {
+		"file": "LEVEL029.UZ3",
+		"format": "UZ3",
+		"number": 29.0,
+		"sha256": "9de8986753b359927cf9ae48c37cbe73694fd186167cffd9d32a0b0a3ce83249"
+	},
+	"teleports": [
+		{
+			"strict": true,
+			"to": [
+				10,
+				10
+			],
+			"x": 11,
+			"y": 0
+		},
+		{
+			"strict": true,
+			"to": [
+				11,
+				0
+			],
+			"x": 10,
+			"y": 10
+		}
+	],
 	"terrain": [
 		"...#....#...",
 		"...#....#...",
@@ -19,81 +87,7 @@
 		"..##........",
 		"wwwwwww####w"
 	],
-	"items": [
-		{
-			"type": "weight_red",
-			"x": 1,
-			"y": 2,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 9,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
-		},
-		{
-			"type": "block_blue",
-			"x": 1,
-			"y": 7,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "121",
-			"match_label": "11"
-		},
-		{
-			"type": "block_blue",
-			"x": 4,
-			"y": 7,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "121",
-			"match_label": "11"
-		}
-	],
-	"pipes": [],
-	"teleports": [
-		{
-			"x": 11,
-			"y": 0,
-			"to": [
-				10,
-				10
-			],
-			"strict": true
-		},
-		{
-			"x": 10,
-			"y": 10,
-			"to": [
-				11,
-				0
-			],
-			"strict": true
-		}
-	],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL029.UZ3",
-		"number": 29,
-		"sha256": "9de8986753b359927cf9ae48c37cbe73694fd186167cffd9d32a0b0a3ce83249"
-	}
+	"theme": "desert",
+	"time": 120,
+	"version": 2
 }

@@ -1,10 +1,101 @@
 {
-	"version": 2,
-	"name": "Key Kontrol",
-	"theme": "desert",
 	"imported": true,
+	"items": [
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "301",
+			"type": "key_yellow",
+			"x": 0,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 1,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "110",
+			"type": "mover_green",
+			"x": 0,
+			"y": 1
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "303",
+			"type": "key_blue",
+			"x": 1,
+			"y": 1
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "110",
+			"type": "mover_green",
+			"x": 1,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"lock": "blue",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 10,
+			"y": 6
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "yellow",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 10,
+			"y": 7
+		}
+	],
 	"moves": 63,
-	"time": 120,
+	"name": "Key Kontrol",
+	"pipes": [],
+	"skins": [
+		"............",
+		"............",
+		"............",
+		"............",
+		"....i.i.....",
+		"...i...i....",
+		"iii.........",
+		"...i...i....",
+		"....i.i.....",
+		"............",
+		"............",
+		"............"
+	],
+	"source": {
+		"file": "LEVEL023.UZ3",
+		"format": "UZ3",
+		"number": 23.0,
+		"sha256": "6142a1a95850a9cab349d50874ffa8552ceb671fdd99d47a97c46116f2a120f2"
+	},
+	"teleports": [],
 	"terrain": [
 		"..#######...",
 		"...#.#.###..",
@@ -16,126 +107,10 @@
 		".###...#...#",
 		"..######..##",
 		"...###...##.",
-		"w...###.##..",
-		".....###...."
+		"....###.##..",
+		".....####..."
 	],
-	"items": [
-		{
-			"type": "key_yellow",
-			"x": 0,
-			"y": 0,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "301"
-		},
-		{
-			"type": "weight",
-			"x": 1,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "mover_green",
-			"x": 0,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "110"
-		},
-		{
-			"type": "key_blue",
-			"x": 1,
-			"y": 1,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "303"
-		},
-		{
-			"type": "mover_green",
-			"x": 1,
-			"y": 2,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "110"
-		},
-		{
-			"type": "weight",
-			"x": 10,
-			"y": 6,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"lock": "blue",
-			"match_label": "1"
-		},
-		{
-			"type": "padlock",
-			"x": 10,
-			"y": 7,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "yellow"
-		}
-	],
-	"pipes": [
-		{
-			"x": 8,
-			"y": 11,
-			"to": [
-				0,
-				10
-			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
-		}
-	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL023.UZ3",
-		"number": 23,
-		"sha256": "6142a1a95850a9cab349d50874ffa8552ceb671fdd99d47a97c46116f2a120f2"
-	},
-	"skins": [
-		"............",
-		"............",
-		"............",
-		"............",
-		"....p.p.....",
-		"...p...p....",
-		"ppp.........",
-		"...p...p....",
-		"....p.p.....",
-		"............",
-		"............",
-		"............"
-	]
+	"theme": "desert",
+	"time": 120,
+	"version": 2
 }

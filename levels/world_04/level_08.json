@@ -1,153 +1,146 @@
 {
-	"version": 2,
-	"name": "Outpost II",
-	"theme": "ice",
 	"imported": true,
-	"moves": 20,
-	"time": 195,
-	"terrain": [
-		"##...#......",
-		".....#......",
-		"##...#......",
-		".....#......",
-		"##...#......",
-		".....#######",
-		"##...###.##.",
-		"..........#.",
-		".....###.###",
-		"######.....#",
-		"....#..#.#..",
-		"....####.###"
-	],
 	"items": [
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 2,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "mover_green",
 			"x": 3,
-			"y": 0,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 0
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 4,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "mover_green",
 			"x": 2,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 1
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "200",
 			"type": "cube",
 			"x": 3,
-			"y": 1,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "200",
-			"match_label": "2"
+			"y": 1
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "mover_green",
 			"x": 4,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 1
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 9,
-			"y": 7,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 7
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 9,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 9
 		}
 	],
+	"moves": 20,
+	"name": "Outpost II",
 	"pipes": [],
-	"teleports": [
-		{
-			"x": 5,
-			"y": 10,
-			"to": [
-				0,
-				8
-			],
-			"strict": true
-		},
-		{
-			"x": 0,
-			"y": 8
-		}
-	],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL038.UZ3",
-		"number": 38,
-		"sha256": "c92e08212ed311a9320580731068efff5e4e316ed64970c05ab4221932862796"
-	},
 	"skins": [
-		".....p......",
-		".....p......",
-		".....p......",
-		".....p......",
-		".....p......",
-		"......pppppp",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
 		"............",
 		"............",
 		"............",
 		"pppp........",
 		"....p.......",
 		"....p......."
-	]
+	],
+	"source": {
+		"file": "LEVEL038.UZ3",
+		"format": "UZ3",
+		"number": 38.0,
+		"sha256": "c92e08212ed311a9320580731068efff5e4e316ed64970c05ab4221932862796"
+	},
+	"teleports": [
+		{
+			"to": [
+				5,
+				10
+			],
+			"x": 0,
+			"y": 8
+		},
+		{
+			"strict": true,
+			"to": [
+				0,
+				8
+			],
+			"x": 5,
+			"y": 10
+		}
+	],
+	"terrain": [
+		"##...#------",
+		".....#------",
+		"##...#------",
+		".....#------",
+		"##...#------",
+		".....#-###--",
+		"##...###.##-",
+		"..........#-",
+		".....###.###",
+		"######.....#",
+		"----#..#.#..",
+		"----####.###"
+	],
+	"theme": "ice",
+	"time": 195,
+	"version": 2
 }

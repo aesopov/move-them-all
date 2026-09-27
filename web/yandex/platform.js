@@ -89,6 +89,7 @@
   }
   window.PairUpSave = {
     subscribe(fn) { callback = fn; },
+    owner() { return owner; },
     load(legacyJson) {
       // Import the old Godot-only save once, never into every new account.
       if (!read('pairUpLegacyImported')) {
@@ -117,6 +118,8 @@
       let timeout;
       await Promise.race([connect(), new Promise(done => { timeout = setTimeout(done, 8000); })]);
       clearTimeout(timeout);
+      // Recovery runs on every launch, even if the player never opens the shop.
+      if (window.PairUpPurchases) window.PairUpPurchases.init(GodotYandexBridge.ysdk);
       resolve();
     });
   });

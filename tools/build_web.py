@@ -23,6 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def theme_for(path):
     parts = path.split('/')
+    if path.startswith('assets/audio/music/'):
+        return 'music_' + Path(path.removesuffix('.import')).stem
     if path.startswith('assets/items/themes/'):
         return parts[3]
     if path.startswith('assets/tiles/') and parts[2] != 'skins':
@@ -49,7 +51,8 @@ def split_plan(archive, extracted, output):
             related = [path]
             if path.endswith('.import'):
                 related += re.findall(r'"res://([^"\n]+)"', z.read(path).decode().rstrip('\0'))
-                entry['assets'].append(path.removeprefix('assets/').removesuffix('.import'))
+                if not theme.startswith('music_'):
+                    entry['assets'].append(path.removeprefix('assets/').removesuffix('.import'))
             for name in related:
                 if name not in names:
                     raise ValueError(f'Missing dependency {name} for {path}')

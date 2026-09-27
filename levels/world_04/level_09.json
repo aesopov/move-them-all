@@ -1,15 +1,285 @@
 {
-	"version": 2,
-	"name": "Two-In-One Trouble",
-	"theme": "ice",
 	"imported": true,
+	"items": [
+		{
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "604",
+			"type": "plant",
+			"x": 11,
+			"y": 3
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "120",
+			"type": "block_red",
+			"x": 0,
+			"y": 8
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 12,
+			"match_label": "12",
+			"source_sprite": "121",
+			"type": "block_blue",
+			"x": 11,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "208",
+			"type": "bubble",
+			"x": 0,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "202",
+			"type": "torus",
+			"x": 3,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "200",
+			"type": "cube",
+			"x": 4,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "204",
+			"type": "cone",
+			"x": 7,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 8,
+			"y": 9
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "208",
+			"type": "bubble",
+			"x": 11,
+			"y": 9
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "120",
+			"type": "block_red",
+			"x": 0,
+			"y": 10
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "200",
+			"type": "cube",
+			"x": 3,
+			"y": 10
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "202",
+			"type": "torus",
+			"x": 4,
+			"y": 10
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 7,
+			"y": 10
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "204",
+			"type": "cone",
+			"x": 8,
+			"y": 10
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "202",
+			"type": "torus",
+			"x": 3,
+			"y": 11
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "200",
+			"type": "cube",
+			"x": 4,
+			"y": 11
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "204",
+			"type": "cone",
+			"x": 7,
+			"y": 11
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 8,
+			"y": 11
+		}
+	],
 	"moves": 20,
-	"time": 210,
+	"name": "Two-In-One Trouble",
+	"pipes": [
+		{
+			"destination": "cell",
+			"enter": [
+				"up",
+				"down"
+			],
+			"mouth": "down",
+			"to": [
+				0,
+				0
+			],
+			"x": 1,
+			"y": 4
+		},
+		{
+			"destination": "cell",
+			"enter": [
+				"up",
+				"down"
+			],
+			"mouth": "down",
+			"to": [
+				0,
+				0
+			],
+			"x": 10,
+			"y": 4
+		},
+		{
+			"destination": "cell",
+			"enter": [
+				"up"
+			],
+			"mouth": "down",
+			"to": [
+				7,
+				3
+			],
+			"x": 5,
+			"y": 6
+		},
+		{
+			"destination": "cell",
+			"enter": [
+				"up"
+			],
+			"mouth": "down",
+			"to": [
+				4,
+				3
+			],
+			"x": 6,
+			"y": 6
+		}
+	],
+	"skins": [
+		"..ppp..ppp..",
+		"..p.p..p.p..",
+		"..p.p..p.p..",
+		"..p......p..",
+		"p..pp..pp..p",
+		"............",
+		"............",
+		"............",
+		"...pppppp...",
+		"..p......p..",
+		"..p......p..",
+		"............"
+	],
+	"source": {
+		"file": "LEVEL039.UZ3",
+		"format": "UZ3",
+		"number": 39.0,
+		"sha256": "e368f372189503abede23a5e1ec9de30a40ce1a0eafefd730e214415bca0499b"
+	},
+	"teleports": [],
 	"terrain": [
-		"..#......#..",
-		"..#..##w.#..",
-		"..#.w##..#..",
-		"w.#..##..#..",
+		"..###--###..",
+		"..#-#--#-#..",
+		"..#-#--#-#..",
+		"ww#wwwwww#..",
 		"#.########.#",
 		".....##.....",
 		"............",
@@ -19,299 +289,7 @@
 		"..#......#..",
 		"..#......#.."
 	],
-	"items": [
-		{
-			"type": "plant",
-			"x": 11,
-			"y": 3,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 11,
-			"source_sprite": "604",
-			"match_label": "11"
-		},
-		{
-			"type": "block_red",
-			"x": 0,
-			"y": 8,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "120",
-			"match_label": "11"
-		},
-		{
-			"type": "block_blue",
-			"x": 11,
-			"y": 8,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 12,
-			"source_sprite": "121",
-			"match_label": "12"
-		},
-		{
-			"type": "bubble",
-			"x": 0,
-			"y": 9,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "208",
-			"match_label": "1"
-		},
-		{
-			"type": "torus",
-			"x": 3,
-			"y": 9,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "202",
-			"match_label": "1"
-		},
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 9,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "200",
-			"match_label": "2"
-		},
-		{
-			"type": "cone",
-			"x": 7,
-			"y": 9,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "204",
-			"match_label": "4"
-		},
-		{
-			"type": "weight",
-			"x": 8,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "205",
-			"match_label": "3"
-		},
-		{
-			"type": "bubble",
-			"x": 11,
-			"y": 9,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "208",
-			"match_label": "1"
-		},
-		{
-			"type": "block_red",
-			"x": 0,
-			"y": 10,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "120",
-			"match_label": "11"
-		},
-		{
-			"type": "cube",
-			"x": 3,
-			"y": 10,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "200",
-			"match_label": "2"
-		},
-		{
-			"type": "torus",
-			"x": 4,
-			"y": 10,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "202",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 7,
-			"y": 10,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "205",
-			"match_label": "3"
-		},
-		{
-			"type": "cone",
-			"x": 8,
-			"y": 10,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "204",
-			"match_label": "4"
-		},
-		{
-			"type": "torus",
-			"x": 3,
-			"y": 11,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "202",
-			"match_label": "1"
-		},
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 11,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "200",
-			"match_label": "2"
-		},
-		{
-			"type": "cone",
-			"x": 7,
-			"y": 11,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "204",
-			"match_label": "4"
-		},
-		{
-			"type": "weight",
-			"x": 8,
-			"y": 11,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "205",
-			"match_label": "3"
-		}
-	],
-	"pipes": [
-		{
-			"x": 1,
-			"y": 4,
-			"to": [
-				0,
-				0
-			],
-			"destination": "cell",
-			"enter": [
-				"up",
-				"down"
-			],
-			"mouth": "down"
-		},
-		{
-			"x": 10,
-			"y": 4,
-			"to": [
-				0,
-				0
-			],
-			"destination": "cell",
-			"enter": [
-				"up",
-				"down"
-			],
-			"mouth": "down"
-		},
-		{
-			"x": 5,
-			"y": 6,
-			"to": [
-				7,
-				1
-			],
-			"destination": "cell",
-			"enter": [
-				"down"
-			],
-			"mouth": "up"
-		},
-		{
-			"x": 6,
-			"y": 6,
-			"to": [
-				4,
-				2
-			],
-			"destination": "cell",
-			"enter": [
-				"down"
-			],
-			"mouth": "up"
-		}
-	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL039.UZ3",
-		"number": 39,
-		"sha256": "e368f372189503abede23a5e1ec9de30a40ce1a0eafefd730e214415bca0499b"
-	},
-	"skins": [
-		"..p......p..",
-		"..p..pp..p..",
-		"..p..pp..p..",
-		"..p..pp..p..",
-		"p..pp..pp..p",
-		".....pp.....",
-		"............",
-		"............",
-		"...pppppp...",
-		"..p......p..",
-		"..p......p..",
-		"............"
-	]
+	"theme": "ice",
+	"time": 210,
+	"version": 2
 }

@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_176xr"]
+
+[node name="Decor" type="Node2D" unique_id=1681041448]
+script = ExtResource("1_176xr")

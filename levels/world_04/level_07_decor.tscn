@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_cav5t"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_ipcw2"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/relic_tall.png" id="3_ale4n"]
+
+[node name="Decor" type="Node2D" unique_id=966614590]
+script = ExtResource("1_cav5t")
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=1257827174]
+position = Vector2(64, 128)
+script = ExtResource("2_ipcw2")
+texture = ExtResource("3_ale4n")
+footprint = Vector2(1, 2)

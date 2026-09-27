@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_vwoet"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_tonpg"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/relic_tall.png" id="3_b55xi"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/fallen_log.png" id="4_tonpg"]
+
+[node name="Decor" type="Node2D" unique_id=1887934243]
+script = ExtResource("1_vwoet")
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=76323040]
+position = Vector2(320, 448)
+script = ExtResource("2_tonpg")
+texture = ExtResource("3_b55xi")
+footprint = Vector2(1, 2)
+
+[node name="FallenLog" type="Node2D" parent="." unique_id=997589393]
+position = Vector2(0, 213.5)
+rotation = -0.12217305
+script = ExtResource("2_tonpg")
+texture = ExtResource("4_tonpg")
+footprint = Vector2(2, 1)

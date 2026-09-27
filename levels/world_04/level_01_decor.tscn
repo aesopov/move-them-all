@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_lxoyl"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_qd1ec"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/wall.png" id="3_b5wpx"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/cargo_long.png" id="4_kuon4"]
+
+[node name="Decor" type="Node2D" unique_id=1400847967]
+script = ExtResource("1_lxoyl")
+
+[node name="Wall" type="Node2D" parent="." unique_id=304863920]
+position = Vector2(448, 384)
+script = ExtResource("2_qd1ec")
+texture = ExtResource("3_b5wpx")
+
+[node name="Wall2" type="Node2D" parent="." unique_id=5527659]
+position = Vector2(448, 256)
+script = ExtResource("2_qd1ec")
+texture = ExtResource("3_b5wpx")
+
+[node name="Wall3" type="Node2D" parent="." unique_id=1862395817]
+position = Vector2(640, 256)
+script = ExtResource("2_qd1ec")
+texture = ExtResource("3_b5wpx")
+
+[node name="Wall4" type="Node2D" parent="." unique_id=829714530]
+position = Vector2(640, 384)
+script = ExtResource("2_qd1ec")
+texture = ExtResource("3_b5wpx")
+
+[node name="CargoLong" type="Node2D" parent="." unique_id=1719708093]
+position = Vector2(512, 320)
+script = ExtResource("2_qd1ec")
+texture = ExtResource("4_kuon4")
+footprint = Vector2(2, 1)

@@ -1,6 +1,8 @@
 extends Control
 ## Gameplay screen. Layout lives in scenes/game.tscn; this script fills it in and runs the level.
 
+const LEVEL_INTRO := preload("res://scenes/components/level_intro.tscn")
+
 const OVERLAY := preload("res://scenes/components/overlay.tscn")
 
 var board: Board
@@ -12,6 +14,8 @@ var paused := false
 var finished := false
 var presentation_ready := false
 var _resumed := false
+var _awaiting_intro := true
+var _intro: LevelIntro
 var _save_elapsed := 0.0
 
 @onready var view: BoardView = %BoardView
@@ -25,9 +29,12 @@ var _overlay: Overlay
 
 
 func _ready() -> void:
+	_awaiting_intro = not App.testing_from_editor
+	Platform.shop_closed.connect(_refresh_pause_after_shop)
 	var td := WorldTheme.for_level(App.locate(App.editor_path if App.testing_from_editor else App.current_path).x, App.current_data)
 	clock_running = not GameConfig.TIMER_STARTS_ON_FIRST_MOVE
 	%Backdrop.set_theme_data(td)
+	Sound.play_music(td.key)
 
 	board = Board.from_dict(App.current_data)
 	start_board = board.clone()
@@ -82,11 +89,31 @@ func _show_fitted_board() -> void:
 	presentation_ready = true
 	while App._loading_level:
 		await get_tree().process_frame
+	if App.testing_from_editor:
+		_begin_level()
+	else:
+		_show_intro()
+		App.preload_next_world(App.current_path)
+
+
+func _show_intro() -> void:
+	_awaiting_intro = true
+	Platform.gameplay(false)
+	view.end_drag()
+	_intro = LEVEL_INTRO.instantiate()
+	_intro.setup(App.level_label(App.current_path), tr(board.name), board, view.theme_data, elapsed, _resumed)
+	_intro.play_requested.connect(_begin_level)
+	_intro.back_requested.connect(_on_back)
+	add_child(_intro)
+
+
+func _begin_level() -> void:
+	_intro = null
+	_awaiting_intro = false
 	if _resumed:
 		_check_end()
 	else:
 		_settle_start()
-	if not App.testing_from_editor: App.preload_next_world(App.current_path)
 
 
 # ---------------------------------------------------------------------------
@@ -165,8 +192,8 @@ func _update_target(entry: Dictionary) -> void:
 # ---------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
-	Platform.gameplay(not App._loading_level and not paused and not finished and view.modulate.a > 0.0)
-	if clock_running and not App._loading_level and not paused and not finished:
+	Platform.gameplay(not _awaiting_intro and not App._loading_level and not paused and not finished and view.modulate.a > 0.0)
+	if clock_running and not _awaiting_intro and not App._loading_level and not paused and not finished:
 		elapsed += delta
 		_save_elapsed += delta
 		if _save_elapsed >= 5.0:
@@ -179,7 +206,7 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if App._loading_level: return
+	if App._loading_level or _awaiting_intro: return
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
 	match event.keycode:
@@ -192,7 +219,7 @@ var _last_gesture := -1
 
 
 func _on_move(i: int, d: int) -> void:
-	if App._loading_level or finished or paused or view.busy:
+	if _awaiting_intro or App._loading_level or finished or paused or view.busy:
 		return
 	if not board.can_move(i, d):
 		return
@@ -271,7 +298,7 @@ func _update_time() -> void:
 
 
 func _undo() -> void:
-	if history.is_empty() or view.busy or finished:
+	if _awaiting_intro or history.is_empty() or view.busy or finished:
 		return
 	view.end_drag()
 	_last_gesture = -1
@@ -282,7 +309,7 @@ func _undo() -> void:
 
 
 func _restart() -> void:
-	if view.busy:
+	if _awaiting_intro or view.busy:
 		return
 	_close_overlay()
 	view.end_drag()
@@ -295,7 +322,9 @@ func _restart() -> void:
 	paused = false
 	view.set_board(board)
 	_update_hud()
-	_settle_start()
+	_resumed = false
+	if App.testing_from_editor: _begin_level()
+	else: _show_intro()
 
 
 ## Designer levels may start unsettled (floating items, adjacent pairs): resolve that for free.
@@ -316,7 +345,7 @@ func _toggle_touch_mode() -> void:
 
 
 func _toggle_pause() -> void:
-	if finished:
+	if _awaiting_intro or finished:
 		return
 	if paused:
 		paused = false
@@ -327,18 +356,7 @@ func _toggle_pause() -> void:
 	_save_run()
 	var o := _open_overlay(tr("Paused"))
 	o.add_button(tr("Resume"), _toggle_pause)
-	var sound_label := o.add_text(tr("Sound volume") + ": %d%%" % roundi(Sound.volume * 100))
-	var sound_slider := HSlider.new()
-	sound_slider.min_value = 0
-	sound_slider.max_value = 100
-	sound_slider.step = 1
-	sound_slider.value = Sound.volume * 100
-	sound_slider.custom_minimum_size = Vector2(240, 44)
-	o.get_node("%Body").add_child(sound_slider)
-	sound_slider.value_changed.connect(func(value):
-		Sound.set_volume(value / 100.0)
-		sound_label.text = tr("Sound volume") + ": %d%%" % roundi(value))
-	sound_slider.drag_ended.connect(func(_changed): Sound.play("select"))
+	AudioSettings.populate(o)
 	o.add_button(tr("Zoom controls: on") if touch_controls.enabled else tr("Zoom controls: off"), func():
 		_toggle_touch_mode()
 		_toggle_pause())
@@ -347,10 +365,14 @@ func _toggle_pause() -> void:
 			touch_controls.reset_camera()
 			_toggle_pause())
 	o.add_button(tr("Restart"), _restart)
-	if not OS.is_debug_build() and not App.testing_from_editor:
+	if (not OS.is_debug_build() or Platform.has_purchases()) and not App.testing_from_editor:
 		o.add_text(tr("Free skips: %d") % App.skips_remaining())
-	if not OS.is_debug_build() and not App.testing_from_editor and App.can_skip(App.current_path):
-		o.add_button(tr("Skip level (%d left)") % App.skips_remaining(), _confirm_skip)
+		if Platform.has_purchases():
+			o.add_text(tr("Purchased skips: %d") % App.paid_skips_remaining())
+		if App.can_skip(App.current_path):
+			o.add_button(tr("Skip level (%d left)") % (App.skips_remaining() + App.paid_skips_remaining()), _confirm_skip)
+		elif Platform.has_purchases() and App.skip_is_useful(App.current_path) and App.skips_remaining() == 0:
+			o.add_button(tr("Get extra skips"), func(): Platform.open_shop(["skips_5"]))
 	o.add_button(tr("Quit to menu"), _on_back)
 
 
@@ -373,7 +395,7 @@ func _win() -> void:
 		o.add_button(tr("Back to editor"), _on_back)
 	else:
 		var nxt := App.next_level(App.current_path)
-		if nxt != "":
+		if nxt != "" and App.is_level_unlocked(nxt):
 			o.add_button(tr("Next level"), func(): App.start_level(nxt))
 		o.add_button(tr("Level select"), _on_back)
 	o.add_button(tr("Play again"), _restart)
@@ -414,7 +436,7 @@ func _on_back() -> void:
 
 
 func _show_level_info() -> void:
-	if finished or paused:
+	if _awaiting_intro or finished or paused:
 		return
 	view.end_drag()
 	paused = true
@@ -430,7 +452,7 @@ func _show_level_info() -> void:
 
 
 func _save_run() -> void:
-	if App.testing_from_editor or App._loading_level or board == null or finished: return
+	if _awaiting_intro or App.testing_from_editor or App._loading_level or board == null or finished: return
 	var undo := []
 	# Bound cloud payload size; retain the latest 20 undo steps.
 	for past in history.slice(maxi(0, history.size() - 20)):
@@ -455,12 +477,29 @@ func _exit_tree() -> void:
 	Platform.gameplay(false)
 
 
+func _refresh_pause_after_shop() -> void:
+	if paused and not finished:
+		paused = false
+		_toggle_pause()
+
+
 func _confirm_skip() -> void:
 	var o := _open_overlay(tr("Skip this level?"))
-	o.add_text(tr("You can complete it later. This uses one free skip."))
-	o.add_button(tr("Skip level (%d left)") % App.skips_remaining(), func():
-		if App.skip_level(App.current_path):
-			App.start_level(App.next_level(App.current_path)))
-	o.add_button(tr("Cancel"), func():
+	var paid := App.skips_remaining() == 0
+	o.add_text(tr("You can complete it later. This uses one purchased skip.") if paid else tr("You can complete it later. This uses one free skip."))
+	var confirm := o.add_button(tr("Skip level (%d left)") % (App.skips_remaining() + App.paid_skips_remaining()), func(): pass)
+	var cancel := o.add_button(tr("Cancel"), func():
 		paused = false
 		_toggle_pause())
+	confirm.pressed.connect(func():
+		confirm.disabled = true
+		cancel.disabled = true
+		var path := App.current_path
+		var ok := App.skip_level(path) if not paid else await App.skip_level_paid(path)
+		if not is_instance_valid(o) or o.is_queued_for_deletion() or App.current_path != path: return
+		if ok:
+			App.clear_run()
+			App.start_level(App.next_level(App.current_path))
+		else:
+			o.add_text(tr("Could not use a skip. Please try again."))
+			cancel.disabled = false)

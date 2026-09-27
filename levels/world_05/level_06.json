@@ -1,160 +1,90 @@
 {
-	"version": 2,
-	"name": "The Holder Technique",
-	"theme": "ruins",
 	"imported": true,
-	"moves": 51,
-	"time": 120,
-	"terrain": [
-		"######......",
-		"#...........",
-		"######......",
-		"..#.......#.",
-		"..#.########",
-		"..#.#......#",
-		"..#.########",
-		"..#.....#...",
-		"..#.....#...",
-		"..#.........",
-		"..#########.",
-		".#########w."
-	],
 	"items": [
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 7,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "122",
 			"type": "block_blue",
 			"x": 8,
-			"y": 0,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "122",
-			"match_label": "11"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "122",
 			"type": "block_blue",
 			"x": 7,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "122",
-			"match_label": "11"
+			"y": 1
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "303",
 			"type": "key_blue",
 			"x": 6,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "303"
+			"y": 5
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "302",
 			"type": "key_green",
 			"x": 7,
-			"y": 5,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "302"
+			"y": 5
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "blue",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
 			"type": "padlock",
 			"x": 8,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "blue"
+			"y": 5
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "green",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
 			"type": "padlock",
 			"x": 9,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "green"
+			"y": 5
 		},
 		{
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "209",
 			"type": "bomb",
 			"x": 10,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 0,
-			"source_sprite": "209"
+			"y": 5
 		}
 	],
-	"pipes": [
-		{
-			"x": 8,
-			"y": 9,
-			"to": [
-				9,
-				9
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		}
-	],
-	"teleports": [
-		{
-			"x": 1,
-			"y": 1,
-			"to": [
-				5,
-				5
-			],
-			"strict": true
-		},
-		{
-			"x": 5,
-			"y": 5,
-			"to": [
-				1,
-				1
-			],
-			"strict": true
-		}
-	],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL046.UZ3",
-		"number": 46,
-		"sha256": "16ca01e60b16b4375cc7721ef6f21fee6f5928188391fd88c094f5fa2d6ee4c5"
-	},
+	"moves": 51,
+	"name": "The Holder Technique",
+	"pipes": [],
 	"skins": [
 		"ppppp.......",
 		"p...........",
@@ -165,8 +95,51 @@
 		"..p..ppppppp",
 		"..p.....p...",
 		"..p.....p...",
-		"..p.........",
-		"..p.........",
+		"..p.....p...",
+		"............",
 		"............"
-	]
+	],
+	"source": {
+		"file": "LEVEL046.UZ3",
+		"format": "UZ3",
+		"number": 46.0,
+		"sha256": "16ca01e60b16b4375cc7721ef6f21fee6f5928188391fd88c094f5fa2d6ee4c5"
+	},
+	"teleports": [
+		{
+			"strict": true,
+			"to": [
+				5,
+				5
+			],
+			"x": 1,
+			"y": 1
+		},
+		{
+			"strict": true,
+			"to": [
+				1,
+				1
+			],
+			"x": 5,
+			"y": 5
+		}
+	],
+	"terrain": [
+		"######......",
+		"#...........",
+		"######......",
+		"..#.......#.",
+		"..#.########",
+		"..#.#......#",
+		"..#.########",
+		"..#.....#...",
+		"..#.....#...",
+		"..#.....#...",
+		"------------",
+		"------------"
+	],
+	"theme": "ruins",
+	"time": 120,
+	"version": 2
 }

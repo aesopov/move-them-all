@@ -46,6 +46,7 @@ var _frame := 0
 func _ready() -> void:
 	get_window().size_changed.connect(_update_ui_scale)
 	_update_ui_scale()
+	Platform.purchases_changed.connect(func(): progress_changed.emit())
 	_load_progress()
 	scan_levels()
 	_handle_cmdline()
@@ -304,10 +305,11 @@ func is_level_unlocked(path: String, enforce_release := false) -> bool:
 	var paths := campaign_paths()
 	var index := paths.find(path)
 	if index < 0: return false
-	if best_score(path) > 0 or path in skipped: return true
-	for earlier in paths.slice(0, index):
-		if best_score(earlier) <= 0 and earlier not in skipped: return false
-	return true
+	if has_paid_access(path) or best_score(path) > 0 or was_skipped(path): return true
+	if index == 0: return true
+	# Progress continues from any completed/skipped level, including a purchased world.
+	var previous: String = paths[index - 1]
+	return best_score(previous) > 0 or was_skipped(previous)
 
 
 func skips_remaining() -> int:
@@ -318,18 +320,56 @@ func skips_remaining() -> int:
 	return maxi(0, FREE_SKIPS - unfinished)
 
 
-func can_skip(path: String) -> bool:
+func shop_products() -> Array:
+	if not Platform.has_purchases() or "unlock_all_levels" in Platform.purchases.get("owned", []): return []
+	for path in campaign_paths():
+		if not is_level_unlocked(path, true): return ["skips_5", "unlock_all_levels"]
+	return []
+
+
+func world_product_id(idx: int) -> String:
+	if idx < 0 or idx >= worlds.size(): return ""
+	# IDs follow the directory, independent of catalogue ordering.
+	var path: String = worlds[idx].levels[0]
+	return "unlock_" + path.get_base_dir().get_file()
+
+
+func has_paid_access(path: String) -> bool:
+	var owned: Array = Platform.purchases.get("owned", [])
+	return "unlock_all_levels" in owned or ("unlock_" + path.get_base_dir().get_file()) in owned
+
+
+func was_skipped(path: String) -> bool:
+	return path in skipped or path in Platform.purchases.get("paid_skipped", [])
+
+
+func paid_skips_remaining() -> int:
+	return int(Platform.purchases.get("paid_skips", 0))
+
+
+func skip_is_useful(path: String) -> bool:
 	var paths := campaign_paths()
 	var index := paths.find(path)
-	return index >= 0 and index < paths.size() - 1 and is_level_unlocked(path, true) \
-		and best_score(path) == 0 and path not in skipped and skips_remaining() > 0
+	if index < 0 or index >= paths.size() - 1: return false
+	return is_level_unlocked(path, true) and best_score(path) == 0 and not was_skipped(path) \
+		and not is_level_unlocked(paths[index + 1], true)
+
+
+func can_skip(path: String) -> bool:
+	return skip_is_useful(path) and (skips_remaining() > 0 or (paid_skips_remaining() > 0 \
+		and Platform.purchases.get("ready", false) and not Platform.purchases.get("busy", false)))
 
 
 func skip_level(path: String) -> bool:
-	if not can_skip(path): return false
+	if not skip_is_useful(path) or skips_remaining() <= 0: return false
 	skipped.append(path)
 	_save_progress()
 	return true
+
+
+func skip_level_paid(path: String) -> bool:
+	if not can_skip(path) or skips_remaining() > 0: return false
+	return await Platform.spend_paid_skip(path)
 
 
 func save_run(state: Dictionary) -> void:

@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_1kf4i"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_1wqri"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/support_platform.png" id="3_utdhx"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/relic_tall.png" id="4_fd06s"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/wall.png" id="5_rappd"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/wall_2x1_a.png" id="6_1wqri"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/wall_cracked.png" id="7_utdhx"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/cargo_long.png" id="8_fd06s"]
+
+[node name="Decor" type="Node2D" unique_id=1758368398]
+script = ExtResource("1_1kf4i")
+
+[node name="SupportPlatform" type="Node2D" parent="." unique_id=358554652]
+position = Vector2(454, 165.5)
+scale = Vector2(1.56, 1.56)
+script = ExtResource("2_1wqri")
+texture = ExtResource("3_utdhx")
+footprint = Vector2(2, 1)
+flip_horizontal = true
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=1219967887]
+position = Vector2(576, 576)
+script = ExtResource("2_1wqri")
+texture = ExtResource("4_fd06s")
+footprint = Vector2(1, 2)
+
+[node name="Wall" type="Node2D" parent="." unique_id=1482929220]
+modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(320, 384)
+script = ExtResource("2_1wqri")
+texture = ExtResource("5_rappd")
+
+[node name="Wall2x1A" type="Node2D" parent="." unique_id=1593579661]
+modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(192, 384)
+scale = Vector2(2, 1)
+script = ExtResource("2_1wqri")
+texture = ExtResource("6_1wqri")
+
+[node name="Wall2x1A2" type="Node2D" parent="." unique_id=178014485]
+modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(576, 448)
+scale = Vector2(2, 1)
+script = ExtResource("2_1wqri")
+texture = ExtResource("6_1wqri")
+
+[node name="WallCracked" type="Node2D" parent="." unique_id=527821550]
+modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(512, 448)
+script = ExtResource("2_1wqri")
+texture = ExtResource("7_utdhx")
+
+[node name="CargoLong" type="Node2D" parent="." unique_id=865186211]
+position = Vector2(171.25, 135.5)
+script = ExtResource("2_1wqri")
+texture = ExtResource("8_fd06s")
+footprint = Vector2(2, 1)

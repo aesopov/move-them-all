@@ -1,10 +1,137 @@
 {
-	"version": 2,
-	"name": "Inclined to Death",
-	"theme": "ice",
 	"imported": true,
-	"moves": 20,
-	"time": 180,
+	"items": [
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "108",
+			"type": "mover_green",
+			"x": 5,
+			"y": 1
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 7,
+			"y": 1
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 8,
+			"y": 1
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 9,
+			"y": 1
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "108",
+			"type": "mover_green",
+			"x": 4,
+			"y": 2
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "108",
+			"type": "crate",
+			"x": 5,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 6,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 5,
+			"y": 3
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "604",
+			"type": "plant",
+			"x": 10,
+			"y": 8
+		}
+	],
+	"moves": 35,
+	"name": "Inclined to Death",
+	"pipes": [
+		{
+			"destination": "cell",
+			"enter": [
+				"up",
+				"down"
+			],
+			"mouth": "down",
+			"to": [
+				10,
+				8
+			],
+			"x": 8,
+			"y": 10
+		}
+	],
+	"skins": [
+		"....ppppppp.",
+		"...........p",
+		"...........p",
+		".........pp.",
+		"p.......p...",
+		"p.......p...",
+		"p.....pp....",
+		"p....p......",
+		"p....p......",
+		".pppp.......",
+		"............",
+		"............"
+	],
+	"source": {
+		"file": "LEVEL033.UZ3",
+		"format": "UZ3",
+		"number": 33.0,
+		"sha256": "3d82e4f5c3d447076102eed03238a7e6f30e637ebea8edbdefa9ed3dba6bcfa6"
+	},
+	"teleports": [],
 	"terrain": [
 		"...#########",
 		"..........##",
@@ -19,147 +146,7 @@
 		"............",
 		".......##..."
 	],
-	"items": [
-		{
-			"type": "mover_green",
-			"x": 5,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "108"
-		},
-		{
-			"type": "weight",
-			"x": 7,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 8,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "weight",
-			"x": 9,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "mover_green",
-			"x": 4,
-			"y": 2,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "108"
-		},
-		{
-			"type": "crate",
-			"x": 5,
-			"y": 2,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "108"
-		},
-		{
-			"type": "weight",
-			"x": 6,
-			"y": 2,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 5,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "plant",
-			"x": 10,
-			"y": 8,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "604"
-		}
-	],
-	"pipes": [
-		{
-			"x": 8,
-			"y": 10,
-			"to": [
-				10,
-				8
-			],
-			"destination": "cell",
-			"enter": [
-				"up",
-				"down"
-			],
-			"mouth": "down"
-		}
-	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL033.UZ3",
-		"number": 33,
-		"sha256": "3d82e4f5c3d447076102eed03238a7e6f30e637ebea8edbdefa9ed3dba6bcfa6"
-	},
-	"skins": [
-		"....ppppppp.",
-		"...........p",
-		"...........p",
-		".........pp.",
-		"p.......p...",
-		"p.......p...",
-		"p.....pp....",
-		"p....p......",
-		"p....p......",
-		".pppp.......",
-		"............",
-		"............"
-	]
+	"theme": "ice",
+	"time": 180,
+	"version": 2
 }

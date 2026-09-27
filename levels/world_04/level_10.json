@@ -1,132 +1,124 @@
 {
-	"version": 2,
-	"name": "The Vertical Vat",
-	"theme": "ice",
 	"imported": true,
-	"moves": 43,
-	"time": 120,
-	"terrain": [
-		".......#####",
-		"...##..#####",
-		"####.....###",
-		"#..###....##",
-		"#..#.#....##",
-		"#..###......",
-		"#..w.......#",
-		"#..w......##",
-		"#..###....##",
-		"#..###....##",
-		"#..####..###",
-		"########.###"
-	],
 	"items": [
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 0,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "111",
 			"type": "block_blue",
 			"x": 1,
-			"y": 0,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "111",
-			"match_label": "11"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "111",
 			"type": "block_blue",
 			"x": 0,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "111",
-			"match_label": "11"
+			"y": 1
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "111",
 			"type": "mover_green",
 			"x": 8,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "111"
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "208",
 			"type": "bubble",
 			"x": 8,
-			"y": 6,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "208",
-			"match_label": "2"
+			"y": 6
 		}
 	],
+	"moves": 43,
+	"name": "The Vertical Vat",
 	"pipes": [
 		{
-			"x": 2,
-			"y": 1,
+			"destination": "cell",
+			"enter": [
+				"right"
+			],
+			"mouth": "left",
 			"to": [
 				8,
 				8
 			],
+			"x": 2,
+			"y": 1
+		},
+		{
 			"destination": "cell",
 			"enter": [
 				"right"
 			],
-			"mouth": "left"
-		},
-		{
-			"x": 9,
-			"y": 8,
+			"mouth": "left",
 			"to": [
 				1,
 				1
 			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
+			"x": 9,
+			"y": 8
 		}
 	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL040.UZ3",
-		"number": 40,
-		"sha256": "6a2cdeb3355d4dae1d178eeca390c2b1a5b21dd928980dc1b4579f9c5ce8f1d6"
-	},
 	"skins": [
 		"............",
 		"...p........",
 		"............",
-		"....p.......",
-		".....p......",
-		"............",
+		"...iii......",
+		"...i.i......",
+		"...iii......",
 		"............",
 		"............",
 		"..........p.",
 		".....p......",
 		".....p......",
 		".....p......"
-	]
+	],
+	"source": {
+		"file": "LEVEL040.UZ3",
+		"format": "UZ3",
+		"number": 40.0,
+		"sha256": "6a2cdeb3355d4dae1d178eeca390c2b1a5b21dd928980dc1b4579f9c5ce8f1d6"
+	},
+	"teleports": [],
+	"terrain": [
+		".......#----",
+		"...#-..###--",
+		"####.....##-",
+		"#ww###....#-",
+		"#ww#.#....##",
+		"#ww###......",
+		"#www.......#",
+		"#www......##",
+		"#ww###....#-",
+		"#ww###....#-",
+		"#ww####..##-",
+		"########.##-"
+	],
+	"theme": "ice",
+	"time": 120,
+	"version": 2
 }

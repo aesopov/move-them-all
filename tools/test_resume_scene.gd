@@ -29,6 +29,9 @@ func run() -> void:
 	assert(game.board.aims_total() == initial.aims_total())
 	assert(game.history.size() == 1)
 	game._undo()
+	assert(game.board.moves_made == 3, "Intro blocks undo before Play")
+	game._begin_level()
+	game._undo()
 	assert(game.board.it_cell == initial.it_cell and game.board.moves_made == 0)
 	app.current_run.state.revision = "old-level-version"
 	assert(app.resumable_run(path).is_empty())

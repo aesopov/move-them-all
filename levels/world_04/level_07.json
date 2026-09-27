@@ -1,241 +1,225 @@
 {
-	"version": 2,
-	"name": "Outpost I",
-	"theme": "ice",
 	"imported": true,
-	"moves": 39,
-	"time": 180,
-	"terrain": [
-		"#########...",
-		"##########..",
-		"#.......#...",
-		"#...........",
-		"#.......####",
-		"#...........",
-		"#.......#...",
-		"##########..",
-		"############",
-		"#..........#",
-		"#..........#",
-		"#..........#"
-	],
 	"items": [
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 9,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 0
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
 			"type": "weight_red",
 			"x": 11,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
+			"y": 0
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "122",
 			"type": "block_blue",
 			"x": 11,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "122",
-			"match_label": "11"
+			"y": 1
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "208",
 			"type": "bubble",
 			"x": 7,
-			"y": 2,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "208",
-			"match_label": "4"
+			"y": 2
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 10,
-			"y": 2,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 2
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
 			"type": "weight_red",
 			"x": 11,
-			"y": 2,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
+			"y": 2
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
 			"type": "weight_red",
 			"x": 10,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
+			"y": 3
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 11,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 3
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "208",
 			"type": "bubble",
 			"x": 10,
-			"y": 5,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "208",
-			"match_label": "4"
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 11,
-			"y": 5,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "207",
-			"match_label": "3"
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 10,
-			"y": 6,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "207",
-			"match_label": "3"
+			"y": 6
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "208",
 			"type": "bubble",
 			"x": 11,
-			"y": 6,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "208",
-			"match_label": "4"
+			"y": 6
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "122",
 			"type": "block_blue",
 			"x": 10,
-			"y": 7,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "122",
-			"match_label": "11"
+			"y": 7
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 11,
-			"y": 7,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "207",
-			"match_label": "3"
+			"y": 7
 		}
 	],
+	"moves": 39,
+	"name": "Outpost I",
 	"pipes": [
 		{
-			"x": 8,
-			"y": 3,
+			"destination": "cell",
+			"enter": [
+				"left"
+			],
+			"mouth": "right",
 			"to": [
 				7,
 				3
 			],
+			"x": 8,
+			"y": 3
+		},
+		{
 			"destination": "cell",
 			"enter": [
 				"left"
 			],
-			"mouth": "right"
-		},
-		{
-			"x": 8,
-			"y": 5,
+			"mouth": "right",
 			"to": [
 				7,
 				5
 			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
+			"x": 8,
+			"y": 5
 		}
 	],
-	"teleports": [],
+	"skins": [
+		"............",
+		"............",
+		".i..........",
+		".i..........",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............",
+		"............"
+	],
 	"source": {
-		"format": "UZ3",
 		"file": "LEVEL037.UZ3",
-		"number": 37,
+		"format": "UZ3",
+		"number": 37.0,
 		"sha256": "2d8f684425b48dbb04d72c64353eb65a030ff2d43ad660b677f7256757253287"
 	},
-	"skins": [
-		"pppppppp....",
-		".ppppppp....",
-		"p...........",
-		"p...........",
-		"p...........",
-		"p...........",
-		"p...........",
-		".ppppppp....",
-		".pppppppppp.",
-		"p..........p",
-		"p..........p",
-		"p..........p"
-	]
+	"teleports": [],
+	"terrain": [
+		"--------#...",
+		"--------##..",
+		"-#......#...",
+		"-#..........",
+		"-.......####",
+		"-...........",
+		"-.......#...",
+		"--------##..",
+		"-----------#",
+		"------------",
+		"------------",
+		"------------"
+	],
+	"theme": "ice",
+	"time": 180,
+	"version": 2
 }

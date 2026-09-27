@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_haq6e"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_alj5s"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/cargo_long.png" id="3_n3nlj"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/mechanism.png" id="4_hcvtn"]
+
+[node name="Decor" type="Node2D" unique_id=907153696]
+script = ExtResource("1_haq6e")
+
+[node name="CargoLong" type="Node2D" parent="." unique_id=497228925]
+position = Vector2(286.5, 384)
+script = ExtResource("2_alj5s")
+texture = ExtResource("3_n3nlj")
+footprint = Vector2(2, 1)
+
+[node name="Mechanism" type="Node2D" parent="." unique_id=937195370]
+position = Vector2(640, 384)
+script = ExtResource("2_alj5s")
+texture = ExtResource("4_hcvtn")

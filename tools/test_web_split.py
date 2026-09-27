@@ -13,6 +13,8 @@ class SplitTests(unittest.TestCase):
             contents = {
                 'assets/items/themes/desert/plant.png.import': b'path="res://.godot/imported/cactus.ctex"',
                 '.godot/imported/cactus.ctex': b'cactus',
+                'assets/audio/music/rippling_arpeggios.mp3.import': b'path="res://.godot/imported/music.mp3str"',
+                '.godot/imported/music.mp3str': b'music',
                 'project.binary': b'project',
                 'scripts/game.gdc': b'script',
                 'assets/tiles/desert/floor_a.png.import': b'path="res://.godot/imported/floor.ctex"\0',
@@ -26,7 +28,11 @@ class SplitTests(unittest.TestCase):
                 for name, data in contents.items(): z.writestr(name, data)
             plan = split_plan(archive, root / 'files', root / 'output')
             deferred = plan['themes']['desert']['files']
-            self.assertEqual(set(plan['base']) | set(deferred), set(contents))
+            music = plan['themes']['music_rippling_arpeggios']
+            self.assertEqual(set(plan['base']) | set(deferred) | set(music['files']), set(contents))
+            self.assertEqual(music['assets'], [], 'Do not decode music as a texture')
+            self.assertIn('.godot/imported/music.mp3str', music['files'])
+            self.assertNotIn('.godot/imported/music.mp3str', plan['base'])
             self.assertFalse(set(plan['base']) & set(deferred))
             self.assertIn('.godot/imported/floor.ctex', deferred)
             self.assertIn('.godot/imported/menu.ctex', plan['base'])

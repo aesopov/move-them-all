@@ -7,6 +7,8 @@ var _t := 0.0
 
 func _ready() -> void:
 	Platform.menu_ready()
+	Sound.play_music()
+	%AudioButton.pressed.connect(_open_audio_settings)
 	App.try_resume_run.call_deferred()
 	App.preload_menu_world()
 	%PlayButton.pressed.connect(func(): App.goto("select"))
@@ -56,7 +58,7 @@ func _responsive_layout() -> void:
 	$Center/Menu/Title.add_theme_font_size_override("font_size", 40 if short else (46 if narrow else 84))
 	%DesignerButton.visible = App.can_use_designer() and not narrow and not OS.has_feature("mobile")
 	%QuitButton.visible = not OS.has_feature("mobile") and not OS.has_feature("web")
-	for button in [%PlayButton, %DesignerButton, %QuitButton]:
+	for button in [%PlayButton, %AudioButton, %DesignerButton, %QuitButton]:
 		button.custom_minimum_size.y = 48 if short else 58
 
 
@@ -81,3 +83,11 @@ func _add_language_selector() -> void:
 		else:
 			push_error("Could not save language preference: " + error_string(err)))
 	$Center/Menu.add_child(options)
+
+
+func _open_audio_settings() -> void:
+	var overlay: Overlay = preload("res://scenes/components/overlay.tscn").instantiate()
+	add_child(overlay)
+	overlay.set_title(tr("Audio settings"))
+	AudioSettings.populate(overlay)
+	overlay.add_button(tr("Close"), overlay.queue_free)

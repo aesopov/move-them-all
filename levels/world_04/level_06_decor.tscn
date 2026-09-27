@@ -1,0 +1,109 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_7utvb"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_kff87"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/slab_1x05.png" id="3_h2be1"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/slab_2x05.png" id="4_c6fl2"]
+
+[node name="Decor" type="Node2D" unique_id=533328381]
+script = ExtResource("1_7utvb")
+
+[node name="Slab1x05" type="Node2D" parent="." unique_id=551278888]
+position = Vector2(320, 422)
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab2x05" type="Node2D" parent="." unique_id=1357088058]
+position = Vector2(384, 422)
+script = ExtResource("2_kff87")
+texture = ExtResource("4_c6fl2")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x06" type="Node2D" parent="." unique_id=688978842]
+position = Vector2(280, 256)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("4_c6fl2")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x06" type="Node2D" parent="." unique_id=472258036]
+position = Vector2(280, 192)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab2x07" type="Node2D" parent="." unique_id=131840420]
+position = Vector2(280, 64)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("4_c6fl2")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x07" type="Node2D" parent="." unique_id=1944645053]
+position = Vector2(280, 0)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x08" type="Node2D" parent="." unique_id=2102000471]
+position = Vector2(576, 230)
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab2x08" type="Node2D" parent="." unique_id=1710185632]
+position = Vector2(580.75, 256)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("4_c6fl2")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x09" type="Node2D" parent="." unique_id=77416319]
+position = Vector2(665, 256)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("4_c6fl2")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x09" type="Node2D" parent="." unique_id=991811056]
+position = Vector2(665, 384)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x10" type="Node2D" parent="." unique_id=205104326]
+position = Vector2(0, 293.25)
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x11" type="Node2D" parent="." unique_id=113392683]
+position = Vector2(131, 0)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x12" type="Node2D" parent="." unique_id=1452568981]
+position = Vector2(131, 192)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab2x10" type="Node2D" parent="." unique_id=1329139204]
+position = Vector2(131, 64)
+rotation = 1.5707964
+script = ExtResource("2_kff87")
+texture = ExtResource("4_c6fl2")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x13" type="Node2D" parent="." unique_id=756766769]
+position = Vector2(704, 486)
+script = ExtResource("2_kff87")
+texture = ExtResource("3_h2be1")
+footprint = Vector2(1, 0.5)

@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_aw1ve"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_c4mi2"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/barricade.png" id="3_yi50h"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/broken_column.png" id="4_eqyvn"]
+
+[node name="Decor" type="Node2D" unique_id=928917659]
+script = ExtResource("1_aw1ve")
+
+[node name="Barricade" type="Node2D" parent="." unique_id=414698156]
+position = Vector2(192, 202.5)
+script = ExtResource("2_c4mi2")
+texture = ExtResource("3_yi50h")
+footprint = Vector2(2, 1)
+flip_horizontal = true
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=1117325572]
+position = Vector2(576, 261.5)
+script = ExtResource("2_c4mi2")
+texture = ExtResource("4_eqyvn")

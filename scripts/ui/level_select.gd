@@ -5,6 +5,7 @@ const WORLD_ROW := preload("res://scenes/components/world_row.tscn")
 
 
 func _ready() -> void:
+	Sound.play_music()
 	resized.connect(_responsive_layout)
 	_responsive_layout()
 	App.scan_levels()
@@ -13,11 +14,13 @@ func _ready() -> void:
 		App.editor_data = null
 		App.editor_path = ""
 		App.goto("editor"))
+	%ShopButton.pressed.connect(func(): Platform.open_shop(App.shop_products()))
 	App.progress_changed.connect(_refresh_progress)
 	_refresh_progress()
 
 
 func _refresh_progress() -> void:
+	%ShopButton.visible = not App.shop_products().is_empty()
 	for row in %WorldList.get_children():
 		%WorldList.remove_child(row)
 		row.queue_free()

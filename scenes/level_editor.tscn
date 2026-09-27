@@ -3,11 +3,14 @@
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_1mfi1"]
 [ext_resource type="Script" path="res://scripts/game/board_view.gd" id="2_5u7ie"]
 
+[ext_resource type="Theme" path="res://ui/editor_theme.tres" id="3_editor_theme"]
+
 [node name="LevelEditor" type="Control" unique_id=583498671]
 layout_mode = 3
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource("3_editor_theme")
 script = ExtResource("1_1mfi1")
 
 [node name="Background" type="ColorRect" parent="." unique_id=722883065]

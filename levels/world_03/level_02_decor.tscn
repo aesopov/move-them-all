@@ -1,0 +1,89 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_l4hfd"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_voyjn"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/slab_1x05.png" id="3_byxj0"]
+[ext_resource type="Texture2D" path="res://assets/tiles/desert/decor/slab_2x05.png" id="4_j782a"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/fallen_log.png" id="5_voyjn"]
+
+[node name="Decor" type="Node2D" unique_id=1645811114]
+script = ExtResource("1_l4hfd")
+
+[node name="Slab1x05" type="Node2D" parent="." unique_id=670630242]
+position = Vector2(192, 164.75)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab2x05" type="Node2D" parent="." unique_id=623265157]
+position = Vector2(256, 164)
+script = ExtResource("2_voyjn")
+texture = ExtResource("4_j782a")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x06" type="Node2D" parent="." unique_id=1451097251]
+position = Vector2(384, 164)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x07" type="Node2D" parent="." unique_id=473375982]
+position = Vector2(128, 292)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x08" type="Node2D" parent="." unique_id=1899086746]
+position = Vector2(192, 292)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x09" type="Node2D" parent="." unique_id=1915055931]
+position = Vector2(384, 292)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab2x06" type="Node2D" parent="." unique_id=1788081270]
+position = Vector2(256, 292)
+script = ExtResource("2_voyjn")
+texture = ExtResource("4_j782a")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x07" type="Node2D" parent="." unique_id=1379059906]
+position = Vector2(448, 420)
+script = ExtResource("2_voyjn")
+texture = ExtResource("4_j782a")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x08" type="Node2D" parent="." unique_id=417686102]
+position = Vector2(128, 548)
+script = ExtResource("2_voyjn")
+texture = ExtResource("4_j782a")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x09" type="Node2D" parent="." unique_id=845954671]
+position = Vector2(576, 612)
+script = ExtResource("2_voyjn")
+texture = ExtResource("4_j782a")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x10" type="Node2D" parent="." unique_id=298263927]
+position = Vector2(256, 548)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x11" type="Node2D" parent="." unique_id=1590453456]
+position = Vector2(512, 612)
+script = ExtResource("2_voyjn")
+texture = ExtResource("3_byxj0")
+footprint = Vector2(1, 0.5)
+
+[node name="FallenLog" type="Node2D" parent="." unique_id=1290499832]
+position = Vector2(208.25, 237.25)
+rotation = 0.03926991
+script = ExtResource("2_voyjn")
+texture = ExtResource("5_voyjn")
+footprint = Vector2(2, 1)

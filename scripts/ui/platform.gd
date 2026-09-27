@@ -16,6 +16,7 @@ func _ready() -> void:
 	if bridge == null: return
 	_pause_callback = JavaScriptBridge.create_callback(_platform_event)
 	bridge.setPauseResumeCallback(_pause_callback)
+	_subscribe_purchases()
 
 func language() -> String:
 	if bridge == null: return ""
@@ -40,18 +41,19 @@ func _platform_event(args: Array) -> void:
 	var pause: bool = event.get("event", "") == "pause"
 	if event.get("event", "") not in ["pause", "resume"]: return
 	_sdk_paused = pause
-	_set_platform_pause(_sdk_paused or _unfocused)
+	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
 
 func _notification(what: int) -> void:
 	if bridge == null: return
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT: _unfocused = true
 	elif what == NOTIFICATION_APPLICATION_FOCUS_IN: _unfocused = false
 	else: return
-	_set_platform_pause(_sdk_paused or _unfocused)
+	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
 
 func _set_platform_pause(value: bool) -> void:
 	if value == _platform_paused: return
 	_platform_paused = value
+	Sound.set_platform_paused(value)
 	if value:
 		_previous_mute = AudioServer.is_bus_mute(0)
 		AudioServer.set_bus_mute(0, true)
@@ -79,3 +81,39 @@ func load_progress(legacy: Dictionary) -> Dictionary:
 func save_progress(data: Dictionary) -> void:
 	var storage = JavaScriptBridge.get_interface("PairUpSave")
 	storage.save(JSON.stringify(data))
+
+
+signal purchases_changed
+signal shop_closed
+signal paid_skip_finished(success: bool)
+var purchases := {"ready": false, "busy": false, "modal": false, "owned": [], "paid_skips": 0, "paid_skipped": []}
+var _purchases_callback: JavaScriptObject
+var _spend_callback: JavaScriptObject
+var _shop_paused := false
+
+func has_purchases() -> bool:
+	return OS.has_feature("web") and JavaScriptBridge.get_interface("PairUpPurchases") != null
+
+func _subscribe_purchases() -> void:
+	if not has_purchases(): return
+	_purchases_callback = JavaScriptBridge.create_callback(func(args: Array):
+		var data = JSON.parse_string(str(args[0]))
+		if not data is Dictionary: return
+		var was_open := _shop_paused
+		purchases = data
+		_shop_paused = bool(data.get("modal", false))
+		_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
+		purchases_changed.emit()
+		if was_open and not _shop_paused: shop_closed.emit())
+	JavaScriptBridge.get_interface("PairUpPurchases").subscribe(_purchases_callback)
+
+func open_shop(ids: Array) -> void:
+	if has_purchases(): JavaScriptBridge.get_interface("PairUpPurchases").openShop(JSON.stringify(ids))
+
+func spend_paid_skip(path: String) -> bool:
+	if not has_purchases() or not purchases.ready or purchases.busy: return false
+	_spend_callback = JavaScriptBridge.create_callback(func(args: Array):
+		var result = JSON.parse_string(str(args[0]))
+		paid_skip_finished.emit(result is Dictionary and result.get("ok", false)))
+	JavaScriptBridge.get_interface("PairUpPurchases").spend(path, _spend_callback)
+	return await paid_skip_finished

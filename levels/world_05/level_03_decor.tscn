@@ -1,0 +1,34 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_8hr7e"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_ydxdo"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/relic_small.png" id="3_nr10v"]
+
+[node name="Decor" type="Node2D" unique_id=1048391405]
+script = ExtResource("1_8hr7e")
+
+[node name="RelicSmall" type="Node2D" parent="." unique_id=1075047409]
+position = Vector2(128, 128)
+scale = Vector2(2, 2)
+script = ExtResource("2_ydxdo")
+texture = ExtResource("3_nr10v")
+
+[node name="RelicSmall2" type="Node2D" parent="." unique_id=617590223]
+position = Vector2(512, 128)
+scale = Vector2(2, 2)
+script = ExtResource("2_ydxdo")
+texture = ExtResource("3_nr10v")
+flip_horizontal = true
+
+[node name="RelicSmall3" type="Node2D" parent="." unique_id=586857061]
+position = Vector2(128, 384)
+scale = Vector2(2, 2)
+script = ExtResource("2_ydxdo")
+texture = ExtResource("3_nr10v")
+flip_horizontal = true
+
+[node name="RelicSmall4" type="Node2D" parent="." unique_id=335303246]
+position = Vector2(512, 384)
+scale = Vector2(2, 2)
+script = ExtResource("2_ydxdo")
+texture = ExtResource("3_nr10v")

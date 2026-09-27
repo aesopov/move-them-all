@@ -831,6 +831,10 @@ func _draw_pipe_wall(c: int) -> void:
 		var nb := board.step(c, d)
 		if _is_skin(nb, Board.WallSkin.PIPE) or (nb >= 0 and board.pipe_mouth[nb] == d):
 			mask |= 1 << d
+	# Optional visual branches toward landing cells without adding an entrance.
+	for branch in board.meta.get("pipe_frame_ports", []):
+		if Board.cell_of(int(branch.x), int(branch.y)) == c:
+			mask |= Board.direction_mask(branch.get("ports", []))
 	PipeArt.draw_tile(self, _cell_rect(c), mask, _pipe_tint())
 
 

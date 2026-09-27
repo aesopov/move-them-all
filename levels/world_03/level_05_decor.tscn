@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_pfmno"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_vice6"]
+[ext_resource type="Texture2D" path="res://assets/pipes/generated/tile_5_-2.png" id="3_dhhj3"]
+
+[node name="Decor" type="Node2D" unique_id=2099653559]
+script = ExtResource("1_pfmno")
+
+[node name="Tile52" type="Node2D" parent="." unique_id=1665341149]
+position = Vector2(192, 64)
+script = ExtResource("2_vice6")
+texture = ExtResource("3_dhhj3")

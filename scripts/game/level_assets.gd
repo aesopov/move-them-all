@@ -11,11 +11,12 @@ var cancelled := false
 var progress: Label
 var error_text := ""
 
-func ensure_theme(theme: String, download_only := false) -> bool:
-	background = download_only
+func ensure_theme(theme: String, download_only := false, low_priority := false) -> bool:
+	background = download_only or low_priority
 	requested_theme = theme
 	while is_instance_valid(active):
 		if download_only: return true # Speculative requests never queue behind gameplay.
+		if low_priority: return false # Music retries later, without delaying a level load.
 		if active.background and active.requested_theme != theme: active.cancelled = true
 		await get_tree().process_frame
 	active = self
