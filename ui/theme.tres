@@ -3,20 +3,16 @@
 [ext_resource type="FontFile" path="res://assets/fonts/MergeUI.ttf" id="1_font"]
 [ext_resource type="FontFile" path="res://assets/fonts/LapsusPro-Bold.otf" id="4_bold"]
 
-[ext_resource type="Texture2D" path="res://assets/ui/stone/button.png" id="2_button"]
+[ext_resource type="Script" path="res://scripts/ui/button_surface.gd" id="2_button_surface"]
 [ext_resource type="Texture2D" path="res://assets/ui/stone/panel.png" id="3_panel"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_denks"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_denks"]
 content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.55, 0.62, 0.62, 1)
+script = ExtResource("2_button_surface")
+state = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqugq"]
 content_margin_left = 14.0
@@ -34,41 +30,29 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jf26r"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_jf26r"]
 content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(1.23, 1.23, 1.15, 1)
+script = ExtResource("2_button_surface")
+state = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6lx7k"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_6lx7k"]
 content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(1, 1, 1, 1)
+script = ExtResource("2_button_surface")
+state = 0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iqtc0"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_iqtc0"]
 content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.7, 0.79, 0.74, 1)
+script = ExtResource("2_button_surface")
+state = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7any1"]
 content_margin_left = 6.0
@@ -150,53 +134,37 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mo6nk"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_mo6nk"]
 content_margin_left = 44.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(1.23, 1.23, 1.15, 1)
+script = ExtResource("2_button_surface")
+state = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qijjd"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_qijjd"]
 content_margin_left = 44.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.85, 1.05, 0.74, 1)
+script = ExtResource("2_button_surface")
+state = 2
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_de4b7"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_de4b7"]
 content_margin_left = 44.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(1, 1, 1, 1)
+script = ExtResource("2_button_surface")
+state = 0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yipae"]
+[sub_resource type="StyleBox" id="StyleBoxTexture_yipae"]
 content_margin_left = 44.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 8.0
-texture = ExtResource("2_button")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.85, 1.05, 0.74, 1)
+script = ExtResource("2_button_surface")
+state = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxik8"]
 content_margin_left = 6.0
@@ -282,6 +250,12 @@ CheckBox/styles/hover = SubResource("StyleBoxTexture_jf26r")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_jf26r")
 CheckBox/styles/normal = SubResource("StyleBoxTexture_6lx7k")
 CheckBox/styles/pressed = SubResource("StyleBoxTexture_iqtc0")
+CheckButton/styles/disabled = SubResource("StyleBoxTexture_denks")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_rqugq")
+CheckButton/styles/hover = SubResource("StyleBoxTexture_jf26r")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxTexture_jf26r")
+CheckButton/styles/normal = SubResource("StyleBoxTexture_6lx7k")
+CheckButton/styles/pressed = SubResource("StyleBoxTexture_iqtc0")
 DimLabel/base_type = &"Label"
 DimLabel/colors/font_color = Color(0.62, 0.7, 0.82, 1)
 DimLabel/font_sizes/font_size = 15

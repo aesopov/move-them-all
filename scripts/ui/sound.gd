@@ -17,12 +17,14 @@ const MUSIC := {
 	"rippling": "res://assets/audio/music/rippling_arpeggios.mp3",
 	"sunlit": "res://assets/audio/music/sunlit_mystery.mp3",
 }
+var presentation_busy := false
 var volume := 0.6
 var music_enabled := true
 var music_volume := 0.35
 var _music_player: AudioStreamPlayer
 var _music_track := ""
 var _requested_music := ""
+var _music_request := 0
 var _music_loading := false
 var _music_started := false
 var _music_tween: Tween
@@ -100,9 +102,24 @@ func set_platform_paused(value: bool) -> void:
 		for player in _players: player.stop()
 
 
+func stop_music() -> void:
+	_music_request += 1
+	_requested_music = ""
+	_music_track = ""
+	_music_loading = false
+	_music_started = false
+	if _music_tween: _music_tween.kill()
+	if is_instance_valid(_music_player):
+		_music_player.stop()
+		_music_player.stream = null
+	_apply_music_gain(0.0)
+
+
 func play_music(theme := "") -> void:
 	var track := "sunlit" if theme == "desert" else "rippling"
 	if track == _requested_music and (_music_loading or track == _music_track): return
+	_music_request += 1
+	var request := _music_request
 	_requested_music = track
 	_music_loading = true
 	var loader := LevelAssets.new()
@@ -110,14 +127,24 @@ func play_music(theme := "") -> void:
 	var path: String = MUSIC[track]
 	var loaded := await loader.ensure_theme("music_" + path.get_file().get_basename(), false, true)
 	loader.queue_free()
-	if track != _requested_music: return # A scene change requested another track.
+	if request != _music_request: return # A scene change requested another track.
 	_music_loading = false
 	if not loaded:
 		# Music is optional: failed/cancelled downloads never block gameplay.
 		get_tree().create_timer(5.0).timeout.connect(func():
-			if _requested_music == track: play_music(theme))
+			if request == _music_request: play_music(theme))
 		return
-	var stream := load(path) as AudioStreamMP3
+	while presentation_busy:
+		await get_tree().process_frame
+	if request != _music_request: return
+	ResourceLoader.load_threaded_request(path)
+	while ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		await get_tree().process_frame
+	while presentation_busy:
+		await get_tree().process_frame
+	if request != _music_request: return
+	if ResourceLoader.load_threaded_get_status(path) != ResourceLoader.THREAD_LOAD_LOADED: return
+	var stream := ResourceLoader.load_threaded_get(path) as AudioStreamMP3
 	if stream == null: return
 	_music_track = track
 	if _music_tween: _music_tween.kill()
@@ -125,6 +152,9 @@ func play_music(theme := "") -> void:
 	if _music_player.playing:
 		_music_tween.tween_method(_apply_music_gain, _music_gain, 0.0, 0.6)
 	_music_tween.tween_callback(func():
+		while presentation_busy:
+			await get_tree().process_frame
+		if request != _music_request: return
 		_music_player.stop()
 		_music_started = false
 		_music_player.stream = stream

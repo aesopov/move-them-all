@@ -25,6 +25,9 @@ func ensure_theme(theme: String, download_only := false, low_priority := false) 
 	return result
 
 func _prepare(theme: String, download_only: bool) -> bool:
+	while background and Sound.presentation_busy:
+		if cancelled: return false
+		await get_tree().process_frame
 	if not FileAccess.file_exists(MANIFEST): return true
 	var manifest = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST))
 	if not manifest is Dictionary or not manifest.get("themes", {}).has(theme):
@@ -65,6 +68,9 @@ func _prepare(theme: String, download_only: bool) -> bool:
 					progress.text = tr("Loading level assets…") + " %d%%" % clampi(int(100.0 * http.get_downloaded_bytes() / maxf(1, entry.bytes)), 0, 100)
 				await get_tree().process_frame
 		http.queue_free()
+		while background and Sound.presentation_busy:
+			if cancelled: return false
+			await get_tree().process_frame
 		if err == OK and not completed.is_empty() and completed[0][0] == HTTPRequest.RESULT_SUCCESS and completed[0][1] == 200:
 			var download := FileAccess.open(local + ".part", FileAccess.WRITE)
 			if download:

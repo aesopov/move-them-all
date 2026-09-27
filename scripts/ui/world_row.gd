@@ -27,11 +27,34 @@ func setup(title: String, idx: int, levels: Array) -> WorldRow:
 			done += 1
 			b.text = label + "\n" + str(best)
 			b.add_theme_font_size_override("font_size", 15)
-			b.add_theme_stylebox_override("normal", UiKit.stone(true, Color(1.12, 1.16, 0.72), 6))
+			var completed_style: StyleBox = load("res://ui/theme.tres").get_stylebox("hover", "Button").duplicate()
+			for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+				completed_style.set_content_margin(side, 6)
+			b.add_theme_stylebox_override("normal", completed_style)
 		elif App.was_skipped(path):
-			b.text = label + "\n" + tr("Skipped")
+			var free_skip := path in App.skipped
+			b.text = label + "\n "
 			b.add_theme_font_size_override("font_size", 15)
+			for state_name in ["normal", "hover", "pressed", "hover_pressed"]:
+				var style: StyleBox = load("res://ui/theme.tres").get_stylebox(state_name, "Button").duplicate()
+				style.set("skip_kind", 1 if free_skip else 2)
+				for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]: style.set_content_margin(side, 6)
+				b.add_theme_stylebox_override(state_name, style)
+			var marker := Label.new()
+			marker.text = "»"
+			marker.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			marker.add_theme_color_override("font_color", Color("9fe7df") if free_skip else Color("ffdc8c"))
+			marker.add_theme_font_size_override("font_size", 18)
+			b.add_child(marker)
+			marker.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+			marker.offset_top = -35
+			marker.offset_bottom = -5
+
 		b.tooltip_text = tr(App.load_level(path).get("name", ""))
+		if best == 0 and App.was_skipped(path):
+			b.tooltip_text += "\n" + (tr("Free skip") if path in App.skipped else tr("Paid skip"))
+			b.tooltip_text += "\n" + (tr("Complete this level to restore one free skip.") if path in App.skipped else tr("Purchased skips are single-use and are not restored after completing the level."))
 		grid.add_child(b)
 	(get_node("%Progress") as Label).text = tr("%d / %d completed") % [done, levels.size()]
 	if idx >= 0 and Platform.has_purchases():

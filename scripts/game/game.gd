@@ -34,7 +34,7 @@ func _ready() -> void:
 	var td := WorldTheme.for_level(App.locate(App.editor_path if App.testing_from_editor else App.current_path).x, App.current_data)
 	clock_running = not GameConfig.TIMER_STARTS_ON_FIRST_MOVE
 	%Backdrop.set_theme_data(td)
-	Sound.play_music(td.key)
+	Sound.presentation_busy = not App.testing_from_editor
 
 	board = Board.from_dict(App.current_data)
 	start_board = board.clone()
@@ -108,6 +108,7 @@ func _show_intro() -> void:
 
 
 func _begin_level() -> void:
+	Sound.play_music(view.theme_data.key)
 	_intro = null
 	_awaiting_intro = false
 	if _resumed:
@@ -164,7 +165,7 @@ func _fill_targets(container: Control, track := false) -> void:
 		icon.theme_key = view.theme_data.key
 		icon.set_process(false)
 		row.add_child(icon)
-		if group.badge != "":
+		if OS.is_debug_build() and group.badge != "":
 			var badge := Label.new()
 			badge.text = "#" + group.badge
 			badge.theme_type_variation = "DimLabel"
@@ -365,6 +366,12 @@ func _toggle_pause() -> void:
 			touch_controls.reset_camera()
 			_toggle_pause())
 	o.add_button(tr("Restart"), _restart)
+	if Platform.has_purchases() and Platform.purchases.get("busy", false):
+		var loading := o.add_text(tr("Checking purchases…"))
+		while Platform.purchases.get("busy", false):
+			await Platform.purchases_changed
+			if not is_instance_valid(o) or o.is_queued_for_deletion(): return
+		loading.queue_free()
 	if (not OS.is_debug_build() or Platform.has_purchases()) and not App.testing_from_editor:
 		o.add_text(tr("Free skips: %d") % App.skips_remaining())
 		if Platform.has_purchases():
@@ -472,6 +479,8 @@ func _notification(what: int) -> void:
 
 
 func _exit_tree() -> void:
+	Sound.stop_music()
+	Sound.presentation_busy = false
 	# A transition sets App.current_path before removing the previous scene.
 	# Its last move was already saved; do not save it under the new path.
 	Platform.gameplay(false)
@@ -487,11 +496,22 @@ func _confirm_skip() -> void:
 	var o := _open_overlay(tr("Skip this level?"))
 	var paid := App.skips_remaining() == 0
 	o.add_text(tr("You can complete it later. This uses one purchased skip.") if paid else tr("You can complete it later. This uses one free skip."))
+	o.add_text(tr("Purchased skips are single-use and are not restored after completing the level.") if paid else tr("Complete this level to restore one free skip."))
 	var confirm := o.add_button(tr("Skip level (%d left)") % (App.skips_remaining() + App.paid_skips_remaining()), func(): pass)
 	var cancel := o.add_button(tr("Cancel"), func():
 		paused = false
 		_toggle_pause())
+	var spending := [false]
+	var refresh := func():
+		if not is_instance_valid(o) or o.is_queued_for_deletion(): return
+		confirm.text = tr("Skip level (%d left)") % (App.skips_remaining() + App.paid_skips_remaining())
+		confirm.disabled = spending[0] or not App.can_skip(App.current_path)
+	Platform.purchases_changed.connect(refresh)
+	o.tree_exiting.connect(func():
+		if Platform.purchases_changed.is_connected(refresh): Platform.purchases_changed.disconnect(refresh))
+	refresh.call()
 	confirm.pressed.connect(func():
+		spending[0] = true
 		confirm.disabled = true
 		cancel.disabled = true
 		var path := App.current_path
@@ -502,4 +522,6 @@ func _confirm_skip() -> void:
 			App.start_level(App.next_level(App.current_path))
 		else:
 			o.add_text(tr("Could not use a skip. Please try again."))
+			spending[0] = false
+			refresh.call()
 			cancel.disabled = false)

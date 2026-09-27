@@ -31,6 +31,7 @@ signal progress_changed
 const FREE_SKIPS := 5
 var progress := {}
 var skipped: Array = []
+var paid_skipped: Array = []
 var _loading_level := false
 var current_run := {"updated_at": 0, "state": {}}
 var pending_run := {}
@@ -46,7 +47,8 @@ var _frame := 0
 func _ready() -> void:
 	get_window().size_changed.connect(_update_ui_scale)
 	_update_ui_scale()
-	Platform.purchases_changed.connect(func(): progress_changed.emit())
+	Platform.purchases_changed.connect(func():
+		if not Platform.purchases.get("busy", false): progress_changed.emit())
 	_load_progress()
 	scan_levels()
 	_handle_cmdline()
@@ -340,7 +342,7 @@ func has_paid_access(path: String) -> bool:
 
 
 func was_skipped(path: String) -> bool:
-	return path in skipped or path in Platform.purchases.get("paid_skipped", [])
+	return path in skipped or path in paid_skipped or path in Platform.purchases.get("paid_skipped", [])
 
 
 func paid_skips_remaining() -> int:
@@ -406,7 +408,7 @@ func try_resume_run() -> void:
 
 
 func _save_progress() -> void:
-	var data := {"version": 2, "scores": progress, "skipped": skipped, "current_run": current_run}
+	var data := {"version": 2, "scores": progress, "skipped": skipped, "paid_skipped": paid_skipped, "current_run": current_run}
 	if Platform.has_player_storage():
 		Platform.save_progress(data)
 		return
@@ -429,11 +431,17 @@ func _apply_progress(data: Dictionary) -> void:
 		for path in used:
 			if path is String and path not in skipped: skipped.append(path)
 
+	var paid: Variant = data.get("paid_skipped", [])
+	if paid is Array:
+		for path in paid:
+			if path is String and path not in paid_skipped: paid_skipped.append(path)
+
 
 func _replace_platform_progress(data: Dictionary) -> void:
 	current_run = {"updated_at": 0, "state": {}}
 	progress.clear()
 	skipped.clear()
+	paid_skipped.clear()
 	_apply_progress(data)
 	progress_changed.emit()
 	try_resume_run.call_deferred()

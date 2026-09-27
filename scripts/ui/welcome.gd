@@ -7,7 +7,7 @@ var _t := 0.0
 
 func _ready() -> void:
 	Platform.menu_ready()
-	Sound.play_music()
+	Sound.stop_music()
 	%AudioButton.pressed.connect(_open_audio_settings)
 	App.try_resume_run.call_deferred()
 	App.preload_menu_world()

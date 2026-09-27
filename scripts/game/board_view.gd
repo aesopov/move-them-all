@@ -243,7 +243,7 @@ func _sync() -> void:
 			items_layer.add_child(n)
 			nodes[i] = n
 		n.show_goal = editor_mode # goals are hidden in play, shown in the level designer
-		n.match_label = str(board.it_meta[i].get("match_label", ""))
+		n.match_label = str(board.it_meta[i].get("match_label", "")) if editor_mode or OS.is_debug_build() else ""
 		n.visual = str(board.it_meta[i].get("visual", ""))
 		n.theme_key = theme_data.key
 		n.setup(i, board.it_type[i], board.it_lock[i], board.it_aim[i] == 1, cell, board.grav(i))

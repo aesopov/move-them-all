@@ -9,12 +9,17 @@
   let ready = false, busy = false, modal = false, paying = false, error = '', retry, subscriber;
   let tail = Promise.resolve(), queued = 0;
   const listeners = new Set();
+  let committed = {ready: false, owned: [], catalog: [], paid_skips: 0, paid_skipped: []};
   function snapshot() {
-    return {ready, busy, modal, paying, error, owned: [...owned], catalog,
+    // Publish financial data atomically, never midway through recovery/fulfillment.
+    if (!busy) committed = {ready, owned: [...owned], catalog,
       paid_skips: ledger.receipts.length * 5 - Object.keys(ledger.spent).length,
       paid_skipped: [...new Set(Object.values(ledger.spent))]};
+    return {...committed, busy, modal, paying, error};
   }
-  function publish() { if (subscriber) subscriber(JSON.stringify(snapshot())); for (const fn of listeners) fn(); }
+  function publish() {
+    if (!busy && owner) window.PairUpSave?.recordPaidSkips?.(owner, [...new Set(Object.values(ledger.spent))]);
+    if (subscriber) subscriber(JSON.stringify(snapshot())); for (const fn of listeners) fn(); }
   function normalize(data) {
     const value = empty();
     if (!data || typeof data !== 'object') return value;
@@ -36,7 +41,13 @@
     }
     owner = id; player = next;
     const data = await player.getData([KEY]);
-    ledger = normalize(data[KEY]);
+    const remote = normalize(data[KEY]);
+    // A Player read can lag a successful flushed write. Never discard an
+    // acknowledged receipt or spend when refreshing the same account.
+    const merged = normalize({receipts: [...remote.receipts, ...ledger.receipts],
+      spent: {...ledger.spent, ...remote.spent}});
+    if (JSON.stringify(merged) !== JSON.stringify(remote)) await persist(merged);
+    else ledger = remote;
   }
   async function persist(next) {
     await player.setData({[KEY]: next}, true);

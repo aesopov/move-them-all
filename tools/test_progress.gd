@@ -14,6 +14,11 @@ func _run() -> void:
 	mock.source_code = 'extends "res://scripts/app.gd"\nfunc _save_progress() -> void:\n\tpass\n'
 	assert(mock.reload() == OK)
 	var app = mock.new()
+	var recovered = mock.new()
+	recovered._apply_progress({"paid_skipped": ["res://levels/world_01/level_03.json"]})
+	check(recovered.was_skipped("res://levels/world_01/level_03.json"), "Paid marker restored from progress without purchase snapshot")
+	check(recovered.skips_remaining() == 5, "Recovered paid marker does not use free slots")
+	recovered.free()
 	var paths := []
 	for i in 8: paths.append("res://levels/test_%d.json" % i)
 	app.worlds = [{"index": 0, "levels": paths.slice(0, 4)}, {"index": 1, "levels": paths.slice(4)}]

@@ -5,7 +5,7 @@ const WORLD_ROW := preload("res://scenes/components/world_row.tscn")
 
 
 func _ready() -> void:
-	Sound.play_music()
+	Sound.stop_music()
 	resized.connect(_responsive_layout)
 	_responsive_layout()
 	App.scan_levels()

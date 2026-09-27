@@ -18,6 +18,7 @@ var _appeared := false
 var _time := 0.0
 var _accent := UiKit.GOLD
 var target_count := 0
+var _layout_key := Vector3(-1, -1, -1)
 
 
 func setup(level: String, level_name: String, board: Board, theme_data: Dictionary, seconds_used := 0.0, resumed := false) -> void:
@@ -168,25 +169,27 @@ func _label(text: String, font_size: int, color: Color) -> Label:
 
 
 func _add_target(group: Dictionary, theme_key: String) -> void:
-	var tile := PanelContainer.new()
-	tile.custom_minimum_size = Vector2(92, 96)
+	var tile := Control.new()
+	tile.custom_minimum_size = Vector2(76, 80)
 	tile.tooltip_text = AssetLib.item_label(group.type, theme_key)
-	tile.add_theme_stylebox_override("panel", UiKit.box(Color("21434a"), _accent.darkened(0.35), 16, 1, 8))
 	_targets.add_child(tile)
 	_tiles.append(tile)
-	var stack := VBoxContainer.new()
-	stack.add_theme_constant_override("separation", 0)
-	tile.add_child(stack)
-	var icon := IconView.make("item", group.type, 0, 54)
+	var icon := IconView.make("item", group.type, 0, 68)
 	icon.theme_key = theme_key
-	stack.add_child(icon)
-	var count := _label("× %d" % group.count, 22, Color("fff0c3"))
+	icon.set_process(false)
+	tile.add_child(icon)
+	var badge := PanelContainer.new()
+	badge.position = Vector2(45, 48)
+	badge.custom_minimum_size = Vector2(30, 28)
+	badge.add_theme_stylebox_override("panel", UiKit.box(Color("123039"), Color("dfc481"), 14, 1, 3))
+	tile.add_child(badge)
+	var count := _label(str(group.count), 19, Color("fff0c3"))
 	count.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	stack.add_child(count)
-	if group.badge != "":
-		var badge := _label("#" + group.badge, 12, Color("c3dcd4"))
-		badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		stack.add_child(badge)
+	badge.add_child(count)
+	if OS.is_debug_build() and group.badge != "":
+		var debug_id := _label("#" + group.badge, 12, Color("c3dcd4"))
+		debug_id.position = Vector2(0, 66)
+		tile.add_child(debug_id)
 
 
 func _add_stat(parent: HBoxContainer, kind: String, title: String, value: String) -> void:
@@ -215,6 +218,9 @@ func _ready() -> void:
 
 func _layout() -> void:
 	if _card == null: return
+	var key := Vector3(size.x, size.y, _body.get_combined_minimum_size().y)
+	if key == _layout_key: return
+	_layout_key = key
 	var width := minf(620, size.x - 32)
 	_card.custom_minimum_size.x = width
 	_card.size.x = width
@@ -240,6 +246,7 @@ func _appear() -> void:
 	for i in _tiles.size(): tween.tween_property(_tiles[i], "modulate:a", 1.0, 0.22).set_delay(0.15 + i * 0.045)
 	await tween.finished
 	_appeared = true
+	Sound.presentation_busy = false
 	_play.grab_focus()
 
 
@@ -269,3 +276,7 @@ func _draw() -> void:
 		var distance := minf(size.x, size.y) * (0.39 + 0.035 * sin(_time + i))
 		var point := size * 0.5 + Vector2(cos(angle), sin(angle)) * distance
 		draw_circle(point, 1.8 + sin(_time * 1.3 + i) * 0.8, Color(_accent, 0.28))
+
+
+func _exit_tree() -> void:
+	Sound.presentation_busy = false

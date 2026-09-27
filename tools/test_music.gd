@@ -17,7 +17,11 @@ func _run() -> void:
 	var sound = script.new()
 	sound.settings_path = SETTINGS
 	root.add_child(sound)
+	sound.presentation_busy = true
 	sound.play_music()
+	await create_timer(0.1).timeout
+	check(sound._music_player.stream == null, "Music preparation waits for intro animation")
+	sound.presentation_busy = false
 	await create_timer(1.0).timeout
 	check(sound._music_player.playing, "Default track starts")
 	check(sound._music_player.stream is AudioStreamMP3 and sound._music_player.stream.loop, "MP3 music loops")
@@ -69,8 +73,21 @@ func _run() -> void:
 	event.pressed = true
 	restored._input(event)
 	check(restored._music_player.playing, "First gesture starts requested music")
-	sound._music_player.stop()
-	restored._music_player.stop()
+	restored.stop_music()
+	restored.set_music_enabled(true)
+	restored.set_platform_paused(false)
+	check(not restored._music_player.playing and restored._music_player.stream == null, "Menu stop cannot restart on settings or focus changes")
+	restored.presentation_busy = true
+	restored.play_music("desert")
+	restored.stop_music()
+	restored.presentation_busy = false
+	await create_timer(0.2).timeout
+	check(restored._music_player.stream == null, "Leaving a level cancels pending music")
+	restored.play_music()
+	await create_timer(1.0).timeout
+	check(restored._music_player.playing, "Entering another level starts music again")
+	sound.stop_music()
+	restored.stop_music()
 	await create_timer(0.1).timeout
 	sound.free()
 	restored.free()

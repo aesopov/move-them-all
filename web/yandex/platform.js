@@ -2,7 +2,7 @@
  * local journal. Never upload defaults until a successful cloud read. */
 (function () {
   const KEY = 'pairUpProgress';
-  const empty = () => ({version: 2, scores: {}, skipped: [], current_run: {updated_at: 0, state: {}}});
+  const empty = () => ({version: 2, scores: {}, skipped: [], paid_skipped: [], current_run: {updated_at: 0, state: {}}});
   const read = key => { try { return JSON.parse(localStorage.getItem(key)); } catch (_) { return null; } };
   const write = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} };
   function merge(...records) {
@@ -22,6 +22,10 @@
       for (const path of Array.isArray(record.skipped) ? record.skipped : []) {
         if (typeof path === 'string' && path.startsWith('res://levels/') && !result.skipped.includes(path))
           result.skipped.push(path);
+      }
+      for (const path of Array.isArray(record.paid_skipped) ? record.paid_skipped : []) {
+        if (typeof path === 'string' && /^res:\/\/levels\/world_\d+\/level_\d+\.json$/.test(path) && !result.paid_skipped.includes(path))
+          result.paid_skipped.push(path);
       }
     }
     return result;
@@ -90,6 +94,15 @@
   window.PairUpSave = {
     subscribe(fn) { callback = fn; },
     owner() { return owner; },
+    recordPaidSkips(id, paths) {
+      if (id !== owner || !Array.isArray(paths)) return;
+      const next = merge(state, {paid_skipped: paths});
+      if (next.paid_skipped.length === state.paid_skipped.length) return;
+      state = next;
+      dirty = true;
+      publish(); // Account-scoped local journal is written before navigation/reload.
+      scheduleSave();
+    },
     load(legacyJson) {
       // Import the old Godot-only save once, never into every new account.
       if (!read('pairUpLegacyImported')) {

@@ -9,10 +9,11 @@ async function setup(options = {}) {
   const backend = options.backend || {data: {}, pending: [], next: 0};
   const calls = [], timers = new Map();
   let failRead = !!options.failRead, failWrite = !!options.failWrite, failConsume = false, lostWrite = false, lostBuy = false, cancelled = false;
+  let staleData = null;
   let owner = 'alice', serial = 0, activeWrites = 0, maxWrites = 0;
   const player = {
     getUniqueID: () => owner,
-    getData: async () => { calls.push('read'); if (failRead) throw Error('offline'); return clone(backend.data); },
+    getData: async () => { calls.push('read'); if (failRead) throw Error('offline'); return clone(staleData || backend.data); },
     setData: async (data, flush) => {
       assert.equal(flush, true); calls.push('save');
       activeWrites++; maxWrites = Math.max(maxWrites, activeWrites); await Promise.resolve(); activeWrites--;
@@ -47,7 +48,7 @@ async function setup(options = {}) {
   const sdk={getPlayer:async()=>player,getPayments:async options=>{assert.equal(options.signed,false);return payment;}};
   await api.init(sdk);
   return {api,backend,calls,timers,view:()=>JSON.parse(api.snapshot()),maxWrites:()=>maxWrites,
-    failRead:v=>failRead=v,failWrite:v=>failWrite=v,failConsume:v=>failConsume=v,
+    staleData:v=>staleData=v,failRead:v=>failRead=v,failWrite:v=>failWrite=v,failConsume:v=>failConsume=v,
     lostWrite:v=>lostWrite=v,lostBuy:v=>lostBuy=v,cancel:v=>cancelled=v,owner:v=>owner=v};
 }
 (async () => {
@@ -70,6 +71,15 @@ async function setup(options = {}) {
   assert((await a.api.buy('skips_5')).ok); assert.equal(a.view().paid_skips,10);
   assert((await a.api.spend(path(6))).ok); assert.equal(a.view().paid_skips,9);
   assert((await a.api.spend(path(6))).ok); assert.equal(a.view().paid_skips,9,'Same level cannot spend twice');
+  const stale = await setup();
+  await stale.api.buy('skips_5');
+  stale.staleData({});
+  await stale.api.refresh();
+  assert.equal(stale.view().paid_skips,5,'Stale read preserves acknowledged credits');
+  assert((await stale.api.spend(path(7))).ok);
+  assert.equal(stale.view().paid_skips,4,'Spending after stale read deducts exactly one');
+  await stale.api.refresh();
+  assert.equal(stale.view().paid_skips,4,'Stale read cannot resurrect spent credits');
   const reopened=await setup({backend:a.backend});
   assert.equal(reopened.view().paid_skips,9); assert.deepEqual(reopened.view().paid_skipped,[path(6)]);
   assert(!((await reopened.api.spend('bad')).ok));

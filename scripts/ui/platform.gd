@@ -114,6 +114,6 @@ func spend_paid_skip(path: String) -> bool:
 	if not has_purchases() or not purchases.ready or purchases.busy: return false
 	_spend_callback = JavaScriptBridge.create_callback(func(args: Array):
 		var result = JSON.parse_string(str(args[0]))
-		paid_skip_finished.emit(result is Dictionary and result.get("ok", false)))
+		paid_skip_finished.emit.call_deferred(result is Dictionary and result.get("ok", false)))
 	JavaScriptBridge.get_interface("PairUpPurchases").spend(path, _spend_callback)
 	return await paid_skip_finished

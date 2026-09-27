@@ -21,6 +21,18 @@ async function setup({cloud={}, failRead=false, failWrite=false, storage=new Map
     async advance(ms){now+=ms;for(const [id,t] of [...timers])if(t.at<=now){timers.delete(id);t.fn();}await tick();}};
 }
 (async()=>{
+  const paid = await setup();
+  paid.env.PairUpSave.recordPaidSkips('alice', [path(3)]);
+  assert.deepEqual(JSON.parse(paid.storage.get('pairUpSave:alice')).paid_skipped, [path(3)], 'Confirmed paid skip journaled immediately');
+  const reloadPaid = await setup({storage:paid.storage, failRead:true});
+  const restoredPaid = JSON.parse(reloadPaid.env.PairUpSave.load('{}'));
+  assert.deepEqual(restoredPaid.paid_skipped, [path(3)], 'Reload restores paid skip even with purchase/cloud recovery unavailable');
+  assert.deepEqual(restoredPaid.skipped, [], 'Paid markers never consume free skip slots');
+  await paid.advance(4000);
+  assert.deepEqual(Array.from(paid.writes[0].pairUpProgress.paid_skipped), [path(3)], 'Paid marker included in cloud progress');
+  const another = await setup({storage:paid.storage, id:'bob'});
+  assert.deepEqual(JSON.parse(another.env.PairUpSave.load('{}')).paid_skipped, [], 'Paid skip journal is account isolated');
+
   const a=await setup({cloud:{pairUpProgress:{scores:{[path(1)]:2000},skipped:[path(2)]}}});
   const loaded=JSON.parse(a.env.PairUpSave.load(JSON.stringify({[path(1)]:1000,[path(3)]:700})));
   assert.equal(loaded.scores[path(1)],2000);assert.equal(loaded.scores[path(3)],700);

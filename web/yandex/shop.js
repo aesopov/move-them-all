@@ -10,7 +10,7 @@
     pt_BR: ['Loja', 'Fechar', 'Comprar', 'Verificando compras…', 'As compras estão indisponíveis. Tente novamente.', 'Tentar novamente', 'Compra restaurada ou concluída.', 'O pagamento foi cancelado ou não foi concluído. Compras pendentes serão recuperadas automaticamente.', 'Todas essas fases já estão desbloqueadas.', 'Sua conta mudou. Recarregue para restaurar as compras.', 'Recarregar', 'Pulos comprados'],
     tr: ['Mağaza', 'Kapat', 'Satın al', 'Satın alımlar kontrol ediliyor…', 'Satın alımlar kullanılamıyor. Lütfen tekrar dene.', 'Tekrar dene', 'Satın alım geri yüklendi veya tamamlandı.', 'Ödeme iptal edildi veya tamamlanamadı. Bekleyen satın alımlar otomatik olarak geri yüklenecek.', 'Bu bölümlerin tümü zaten açık.', 'Hesabın değişti. Satın alımları geri yüklemek için oyunu yeniden yükle.', 'Yeniden yükle', 'Satın alınan atlama hakları']
   };
-  let dialog, list, status, close, requested = [], message = '';
+  let dialog, list, status, close, requested = [], message = '', loading = false;
   const api = window.PairUpPurchases;
   function text() {
     const lang = (window.mergeYandexLanguage || 'en').replace('-', '_');
@@ -29,7 +29,12 @@
     if (!dialog) return;
     const state = JSON.parse(api.snapshot()), t = text();
     close.disabled = state.paying;
-    status.textContent = state.busy ? t[3] : state.error === 'account_changed' ? t[9] : state.error ? t[4] : message;
+    status.textContent = loading || state.busy ? t[3] : state.error === 'account_changed' ? t[9] : state.error ? t[4] : message;
+    if (loading || state.busy) {
+      // Keep an already rendered shop stable during checkout or background refresh.
+      for (const button of list.querySelectorAll('button')) button.disabled = true;
+      return;
+    }
     list.replaceChildren();
     if (!state.ready) {
       if (!state.busy) button(state.error === 'account_changed' ? t[10] : t[5], list, () => {
@@ -71,7 +76,7 @@
   }
   api.openShop = function (idsJson) {
     if (dialog) return;
-    requested = JSON.parse(idsJson); message = '';
+    requested = JSON.parse(idsJson); message = ''; loading = true;
     if (!document.getElementById('pair-up-shop-style')) {
       const style = element('style', '', document.head); style.id = 'pair-up-shop-style';
       style.textContent = `#pair-up-shop{position:fixed;inset:0;z-index:10000;background:#020c13dc;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font:17px/1.45 system-ui,sans-serif;color:#f5f3df;touch-action:pan-y}#pair-up-shop *{box-sizing:border-box}#pair-up-shop section{width:480px;max-width:100%;max-height:100%;overflow:auto;background:#092c32;border:3px solid #ac955b;border-radius:20px;padding:20px;box-shadow:0 12px 60px #000}#pair-up-shop header{display:flex;align-items:center;justify-content:space-between;gap:12px}#pair-up-shop h2{margin:0;color:#ffda76;font-size:28px}#pair-up-shop h3{font-size:20px;margin:0 0 8px}#pair-up-shop p{margin:10px 0}#pair-up-shop article{border-top:1px solid #678075;padding:18px 0;display:flow-root}#pair-up-shop article>img{float:left;margin:0 14px 8px 0;border-radius:12px}#pair-up-shop button{font:inherit;background:#155059;color:#fff5d5;border:1px solid #bea55e;border-radius:10px;min-height:44px;padding:9px 16px;cursor:pointer;white-space:normal}#pair-up-shop article button{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;clear:both}#pair-up-shop button:disabled{opacity:.5;cursor:wait}#pair-up-shop button:focus-visible{outline:3px solid #ffe09b;outline-offset:3px}`;
@@ -93,7 +98,13 @@
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
       }
     });
-    api.setModal(true); render(); close.focus(); api.refresh();
+    api.setModal(true); render(); close.focus();
+    const opening = dialog;
+    api.refresh().finally(() => {
+      if (dialog !== opening) return;
+      loading = false;
+      render();
+    });
   };
   api.listen(render);
 })();
