@@ -829,7 +829,7 @@ func _draw_pipe_wall(c: int) -> void:
 	var mask := 0
 	for d in 4:
 		var nb := board.step(c, d)
-		if _is_skin(nb, Board.WallSkin.PIPE) or (nb >= 0 and board.pipe_mouth[nb] == d):
+		if _is_skin(nb, Board.WallSkin.PIPE) or (nb >= 0 and ((board.pipe_ports[nb] & (1 << Board.opposite(d))) if board.pipe_ports[nb] else board.pipe_mouth[nb] == d)):
 			mask |= 1 << d
 	# Optional visual branches toward landing cells without adding an entrance.
 	for branch in board.meta.get("pipe_frame_ports", []):
@@ -981,7 +981,10 @@ func _draw_pipe(c: int) -> void:
 	if board.pipe_ports[c]:
 		if board.pipe_landing[c]:
 			col.a = 0.65
-		PipeArt.draw_tile(L, Rect2(ctr - Vector2.ONE * s * 0.5, Vector2.ONE * s), board.pipe_ports[c], col, -2)
+		if board.pipe_to[c] >= 0 and not board.pipe_landing[c]:
+			PipeArt.draw_linked_elbow(L, _cell_rect(c), board.pipe_ports[c], m, col)
+		else:
+			PipeArt.draw_tile(L, _cell_rect(c), board.pipe_ports[c], col, -2)
 		return
 	if board.pipe_landing[c]:
 		col.a = 0.65

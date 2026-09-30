@@ -25,8 +25,9 @@ class YandexPackageTests(unittest.TestCase):
                 self.assertNotIn('index.pck.gz',archive.namelist())
                 html=archive.read('index.html').decode()
                 self.assertIn('src="/sdk.js"',html)
-                for name in ['purchases.js', 'shop.js', 'purchase-icons/skips_5.png', 'purchase-icons/unlock_world.png', 'purchase-icons/unlock_all.png']:
+                for name in ['ads.js', 'storage.js', 'purchases.js', 'shop.js', 'purchase-icons/skips_5.png', 'purchase-icons/unlock_world.png', 'purchase-icons/unlock_all.png', 'purchase-icons/disable_ads.png']:
                     self.assertIn(name, archive.namelist())
+                self.assertLess(html.index('storage.js'), html.index('purchases.js'))
                 self.assertLess(html.index('purchases.js'), html.index('shop.js'))
                 self.assertLess(html.index('shop.js'), html.index('platform.js'))
                 self.assertIn('window.mergeYandexReady.then(() => engine.startGame',html)

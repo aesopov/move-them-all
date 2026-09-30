@@ -30,6 +30,7 @@ func run() -> void:
 	await create_timer(0.8).timeout
 	check(game._intro != null and game._awaiting_intro, "Intro appears before play")
 	var intro = game._intro
+	check(intro.get_canvas_layer_node().layer > 0 and game.view.get_canvas_layer_node() == null, "Intro renders above all board decoration Z indices")
 	var remaining := 0
 	for i in game.board.it_type.size():
 		if game.board.it_aim[i] and game.board.it_cell[i] >= 0: remaining += 1

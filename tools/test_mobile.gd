@@ -34,6 +34,7 @@ func _initialize() -> void:
 		check(game.board.moves_made == 0, "rotation preserves game state")
 	game._show_level_info()
 	await frames(12)
+	check(game._overlay.get_canvas_layer_node().layer > 0 and game.view.get_canvas_layer_node() == null, "Dialogs render above board decorations")
 	check(game.paused and game._overlay != null, "instructions pause gameplay")
 	check(game._overlay.get_node("Center/Panel").size.y < viewport.size.y, "instructions scroll within screen")
 	game._toggle_pause()

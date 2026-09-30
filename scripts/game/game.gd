@@ -15,7 +15,9 @@ var finished := false
 var presentation_ready := false
 var _resumed := false
 var _awaiting_intro := true
+var _ad_pending := false
 var _intro: LevelIntro
+var _dialogs: CanvasLayer
 var _save_elapsed := 0.0
 
 @onready var view: BoardView = %BoardView
@@ -29,6 +31,11 @@ var _overlay: Overlay
 
 
 func _ready() -> void:
+	# Canvas layers isolate modal UI from any Z Index used by board decorations.
+	_dialogs = CanvasLayer.new()
+	_dialogs.name = "Dialogs"
+	_dialogs.layer = 10
+	add_child(_dialogs)
 	_awaiting_intro = not App.testing_from_editor
 	Platform.shop_closed.connect(_refresh_pause_after_shop)
 	var td := WorldTheme.for_level(App.locate(App.editor_path if App.testing_from_editor else App.current_path).x, App.current_data)
@@ -75,6 +82,8 @@ func _ready() -> void:
 	_fill_panels()
 	%BackButton.pressed.connect(_on_back)
 	%PauseButton.pressed.connect(_toggle_pause)
+	_mark_ad_button(%UndoButton)
+	_mark_ad_button(%RestartButton)
 	%UndoButton.pressed.connect(_undo)
 	%RestartButton.pressed.connect(_restart)
 	_update_hud()
@@ -104,7 +113,7 @@ func _show_intro() -> void:
 	_intro.setup(App.level_label(App.current_path), tr(board.name), board, view.theme_data, elapsed, _resumed)
 	_intro.play_requested.connect(_begin_level)
 	_intro.back_requested.connect(_on_back)
-	add_child(_intro)
+	_dialogs.add_child(_intro)
 
 
 func _begin_level() -> void:
@@ -207,7 +216,7 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if App._loading_level or _awaiting_intro: return
+	if _ad_pending or App._loading_level or _awaiting_intro: return
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
 	match event.keycode:
@@ -220,7 +229,7 @@ var _last_gesture := -1
 
 
 func _on_move(i: int, d: int) -> void:
-	if _awaiting_intro or App._loading_level or finished or paused or view.busy:
+	if _ad_pending or _awaiting_intro or App._loading_level or finished or paused or view.busy:
 		return
 	if not board.can_move(i, d):
 		return
@@ -299,8 +308,9 @@ func _update_time() -> void:
 
 
 func _undo() -> void:
-	if _awaiting_intro or history.is_empty() or view.busy or finished:
+	if _ad_pending or _awaiting_intro or history.is_empty() or view.busy or finished:
 		return
+	if not await _action_ad(): return
 	view.end_drag()
 	_last_gesture = -1
 	board = history.pop_back()
@@ -310,8 +320,9 @@ func _undo() -> void:
 
 
 func _restart() -> void:
-	if _awaiting_intro or view.busy:
+	if _ad_pending or _awaiting_intro or view.busy:
 		return
+	if not await _action_ad(): return
 	_close_overlay()
 	view.end_drag()
 	_last_gesture = -1
@@ -365,7 +376,7 @@ func _toggle_pause() -> void:
 		o.add_button(tr("Reset zoom"), func():
 			touch_controls.reset_camera()
 			_toggle_pause())
-	o.add_button(tr("Restart"), _restart)
+	_mark_ad_button(o.add_button(tr("Restart"), _restart))
 	if Platform.has_purchases() and Platform.purchases.get("busy", false):
 		var loading := o.add_text(tr("Checking purchases…"))
 		while Platform.purchases.get("busy", false):
@@ -405,26 +416,26 @@ func _win() -> void:
 		if nxt != "" and App.is_level_unlocked(nxt):
 			o.add_button(tr("Next level"), func(): App.start_level(nxt))
 		o.add_button(tr("Level select"), _on_back)
-	o.add_button(tr("Play again"), _restart)
+	_mark_ad_button(o.add_button(tr("Play again"), _restart))
 
 
 func _lose(reason: String) -> void:
 	finished = true
 	var o := _open_overlay(reason)
 	o.add_text(tr("Some goal pieces survived this time."))
-	o.add_button(tr("Try again"), _restart)
+	_mark_ad_button(o.add_button(tr("Try again"), _restart))
 	if not history.is_empty():
-		o.add_button(tr("Undo last move"), func():
+		_mark_ad_button(o.add_button(tr("Undo last move"), func():
 			_close_overlay()
 			finished = false
-			_undo())
+			_undo()))
 	o.add_button(tr("Back to editor") if App.testing_from_editor else tr("Level select"), _on_back)
 
 
 func _open_overlay(title: String) -> Overlay:
 	_close_overlay()
 	_overlay = OVERLAY.instantiate()
-	add_child(_overlay)
+	_dialogs.add_child(_overlay)
 	return _overlay.set_title(title)
 
 
@@ -525,3 +536,28 @@ func _confirm_skip() -> void:
 			spending[0] = false
 			refresh.call()
 			cancel.disabled = false)
+
+
+func _mark_ad_button(button: Button) -> void:
+	if not Platform.fullscreen_ads_available() or App.testing_from_editor: return
+	var refresh := func():
+		if not is_instance_valid(button): return
+		var enabled: bool = "disable_ads" not in Platform.purchases.get("owned", [])
+		button.icon = load("res://assets/ui/ads/fullscreen_ad.png") if enabled else null
+		button.tooltip_text = tr("Shows an ad before this action.") if enabled else ""
+	refresh.call()
+	Platform.purchases_changed.connect(refresh)
+	tree_exiting.connect(func():
+		if Platform.purchases_changed.is_connected(refresh): Platform.purchases_changed.disconnect(refresh))
+	button.expand_icon = true
+	button.add_theme_constant_override("icon_max_width", 32)
+
+func _action_ad() -> bool:
+	if "disable_ads" in Platform.purchases.get("owned", []): return true
+	if not Platform.fullscreen_ads_available() or App.testing_from_editor: return true
+	_ad_pending = true
+	view.end_drag()
+	_save_run()
+	await Platform.show_fullscreen_ad()
+	_ad_pending = false
+	return is_inside_tree() and not is_queued_for_deletion()

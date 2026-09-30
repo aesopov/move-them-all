@@ -1,151 +1,152 @@
 {
-	"version": 2,
-	"name": "Sizzle",
-	"theme": "ruins",
 	"imported": true,
-	"moves": 58,
-	"time": 150,
-	"terrain": [
-		"############",
-		"#...#.......",
-		"#...#####...",
-		"#..........#",
-		"#..........#",
-		"#..###.....#",
-		"######wwwww#",
-		"#...##wwwww#",
-		"#...###www##",
-		"#...########",
-		"#...########",
-		"############"
-	],
 	"items": [
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "107",
 			"type": "block_red",
 			"x": 2,
-			"y": 3,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "107",
-			"match_label": "11"
+			"y": 3
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 2,
-			"y": 4,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "207",
-			"match_label": "3"
+			"y": 4
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 4,
+			"match_label": "4",
+			"source_sprite": "208",
 			"type": "bubble",
 			"x": 2,
-			"y": 5,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 4,
-			"source_sprite": "208",
-			"match_label": "4"
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
 			"type": "weight_red",
 			"x": 2,
-			"y": 7,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
+			"y": 7
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 2,
-			"y": 8,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 8
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "107",
 			"type": "block_red",
 			"x": 2,
-			"y": 9,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "107",
-			"match_label": "11"
+			"y": 9
 		}
 	],
+	"moves": 58,
+	"name": "Sizzle",
 	"pipes": [
 		{
-			"x": 11,
-			"y": 2,
+			"mouth": "left",
+			"ports": [
+				"down",
+				"left"
+			],
 			"to": [
 				8,
-				7
+				8
 			],
-			"destination": "cell",
-			"enter": [
-				"right"
+			"x": 11,
+			"y": 2
+		},
+		{
+			"mouth": "up",
+			"to": [
+				11,
+				2
 			],
-			"mouth": "left"
+			"x": 8,
+			"y": 8
 		}
 	],
+	"skins": [
+		"............",
+		"....i.......",
+		".....iii....",
+		"...........p",
+		"...........p",
+		"...........p",
+		".ppp.......p",
+		"...........p",
+		"...........p",
+		"........p..p",
+		"........p..p",
+		"........pppp"
+	],
+	"source": {
+		"file": "LEVEL049.UZ3",
+		"format": "UZ3",
+		"number": 49.0,
+		"sha256": "3296f94a5e886d358a42258e71425efbeec28a514e4ebac7b604b38c5d6fe258"
+	},
 	"teleports": [
 		{
-			"x": 1,
-			"y": 1,
+			"strict": true,
 			"to": [
 				2,
 				10
 			],
-			"strict": true
+			"x": 1,
+			"y": 1
 		},
 		{
-			"x": 2,
-			"y": 10,
+			"strict": true,
 			"to": [
 				1,
 				1
 			],
-			"strict": true
+			"x": 2,
+			"y": 10
 		}
 	],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL049.UZ3",
-		"number": 49,
-		"sha256": "3296f94a5e886d358a42258e71425efbeec28a514e4ebac7b604b38c5d6fe258"
-	},
-	"skins": [
-		".ppp.pppppp.",
-		"p...p.......",
-		"p....ppp....",
-		"p..........p",
-		"p..........p",
-		"p..........p",
-		"pppp.......p",
-		"p...p......p",
-		"p...p......p",
-		"p...p...p..p",
-		"p...p...p..p",
-		".ppp....pppp"
-	]
+	"terrain": [
+		"------------",
+		"-...#.......",
+		"-...#####...",
+		"-..........#",
+		"-..........#",
+		"-..###.....#",
+		"-#####wwwww#",
+		"-...-#wwwww#",
+		"-...--#w.w##",
+		"-...---###-#",
+		"-...---##--#",
+		"--------####"
+	],
+	"theme": "ruins",
+	"time": 150,
+	"version": 2
 }

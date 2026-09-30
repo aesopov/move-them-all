@@ -1,21 +1,41 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_aw1ve"]
-[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_c4mi2"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/barricade.png" id="3_yi50h"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/broken_column.png" id="4_eqyvn"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_eqyvn"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_vhmef"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/barricade.png" id="3_y46t3"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/broken_column.png" id="4_er2i2"]
+[ext_resource type="Texture2D" path="res://assets/liquids/water_body.png" id="5_dpm10"]
+[ext_resource type="Texture2D" path="res://assets/liquids/water_surface.png" id="6_q2lwu"]
 
-[node name="Decor" type="Node2D" unique_id=928917659]
-script = ExtResource("1_aw1ve")
+[node name="Decor" type="Node2D" unique_id=1368032955]
+script = ExtResource("1_eqyvn")
 
-[node name="Barricade" type="Node2D" parent="." unique_id=414698156]
+[node name="Barricade" type="Node2D" parent="." unique_id=235615980]
 position = Vector2(192, 202.5)
-script = ExtResource("2_c4mi2")
-texture = ExtResource("3_yi50h")
+script = ExtResource("2_vhmef")
+texture = ExtResource("3_y46t3")
 footprint = Vector2(2, 1)
 flip_horizontal = true
 
-[node name="BrokenColumn" type="Node2D" parent="." unique_id=1117325572]
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=443908770]
 position = Vector2(576, 261.5)
-script = ExtResource("2_c4mi2")
-texture = ExtResource("4_eqyvn")
+script = ExtResource("2_vhmef")
+texture = ExtResource("4_er2i2")
+
+[node name="WaterBody" type="Node2D" parent="." unique_id=1798058989]
+z_index = 1
+modulate = Color(1, 1, 1, 0.3019608)
+position = Vector2(128, 192)
+script = ExtResource("2_vhmef")
+texture = ExtResource("5_dpm10")
+footprint = Vector2(10, 7)
+repeat_texture = true
+
+[node name="WaterSurface" type="Node2D" parent="." unique_id=835455587]
+z_index = 1
+modulate = Color(1, 1, 1, 0.3019608)
+position = Vector2(128, 128)
+script = ExtResource("2_vhmef")
+texture = ExtResource("6_q2lwu")
+footprint = Vector2(10, 1)
+repeat_texture = true

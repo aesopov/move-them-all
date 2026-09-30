@@ -22,6 +22,7 @@ func _ready() -> void:
 	side = game.get_node("Margin/Columns/Side")
 	original_children = header.get_children()
 	original_buttons = game.get_node("%UndoButton").get_parent()
+	original_buttons.vertical = Platform.fullscreen_ads_available() and not App.testing_from_editor
 	mobile_header = VBoxContainer.new()
 	mobile_header.add_theme_constant_override("separation", 12)
 	header.get_parent().add_child(mobile_header)
@@ -104,7 +105,7 @@ func _refresh() -> void:
 		for name in ["UndoButton", "RestartButton"]:
 			var button: Button = game.get_node("%" + name)
 			if button.get_parent() != original_buttons: button.reparent(original_buttons)
-			button.custom_minimum_size = Vector2.ZERO
+			button.custom_minimum_size = Vector2(0, 52) if Platform.fullscreen_ads_available() and not App.testing_from_editor else Vector2.ZERO
 			button.autowrap_mode = TextServer.AUTOWRAP_OFF
 			button.size_flags_horizontal = Control.SIZE_FILL
 		for name in ["PauseButton", "BackButton"]:

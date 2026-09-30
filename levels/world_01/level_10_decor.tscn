@@ -1,25 +1,63 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_hbh7v"]
-[ext_resource type="Script" path="res://scripts/game/scenery_layers.gd" id="2_5kt10"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_pha00"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_pycih"]
+[ext_resource type="Texture2D" path="res://assets/liquids/lava_body.png" id="3_y1yu1"]
+[ext_resource type="Texture2D" path="res://assets/liquids/acid_body.png" id="4_dabxp"]
+[ext_resource type="Texture2D" path="res://assets/liquids/water_body.png" id="5_ym161"]
 
-[node name="Decor" type="Node2D" unique_id=555613641]
-script = ExtResource("1_hbh7v")
+[node name="Decor" type="Node2D" unique_id=1107078005]
+script = ExtResource("1_pha00")
 
-[node name="Background" type="Node2D" parent="." unique_id=256597945]
-show_behind_parent = true
+[node name="LavaBody" type="Node2D" parent="." unique_id=353021088]
+modulate = Color(1, 1, 1, 0.4509804)
+z_index = 1
+position = Vector2(320, 0)
+script = ExtResource("2_pycih")
+texture = ExtResource("3_y1yu1")
+footprint = Vector2(2, 12)
+repeat_texture = true
+
+[node name="AcidBody" type="Node2D" parent="." unique_id=1253877657]
+modulate = Color(1, 1, 1, 0.39215687)
 z_index = 1
 position = Vector2(0, 320)
-scale = Vector2(6, 1)
-script = ExtResource("2_5kt10")
-regions = Array[Rect2]([Rect2(0, 0, 128, 128)])
-colors = Array[Color]([Color(0.7, 0.2, 0.2, 0.2)])
+script = ExtResource("2_pycih")
+texture = ExtResource("4_dabxp")
+footprint = Vector2(12, 2)
+repeat_texture = true
 
-[node name="Background2" type="Node2D" parent="." unique_id=141431383]
-show_behind_parent = true
+[node name="WaterBody" type="Node2D" parent="." unique_id=1793021552]
+modulate = Color(1, 1, 1, 0.39215687)
 z_index = 1
-position = Vector2(320, -0.25)
-scale = Vector2(1, 6)
-script = ExtResource("2_5kt10")
-regions = Array[Rect2]([Rect2(0, 0, 128, 128)])
-colors = Array[Color]([Color(0.7, 0.2, 0.2, 0.2)])
+script = ExtResource("2_pycih")
+texture = ExtResource("5_ym161")
+footprint = Vector2(5, 5)
+repeat_texture = true
+
+[node name="WaterBody2" type="Node2D" parent="." unique_id=1228756346]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 1
+position = Vector2(448, 0)
+script = ExtResource("2_pycih")
+texture = ExtResource("5_ym161")
+footprint = Vector2(5, 5)
+repeat_texture = true
+
+[node name="WaterBody3" type="Node2D" parent="." unique_id=1298619808]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 1
+position = Vector2(448, 448)
+script = ExtResource("2_pycih")
+texture = ExtResource("5_ym161")
+footprint = Vector2(5, 5)
+repeat_texture = true
+
+[node name="WaterBody4" type="Node2D" parent="." unique_id=1071431912]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 1
+position = Vector2(0, 448)
+script = ExtResource("2_pycih")
+texture = ExtResource("5_ym161")
+footprint = Vector2(5, 5)
+repeat_texture = true

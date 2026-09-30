@@ -2,13 +2,17 @@
  * local journal. Never upload defaults until a successful cloud read. */
 (function () {
   const KEY = 'pairUpProgress';
-  const empty = () => ({version: 2, scores: {}, skipped: [], paid_skipped: [], current_run: {updated_at: 0, state: {}}});
+  const empty = () => ({version: 2, scores: {}, skipped: [], paid_skipped: [], last_played: {updated_at:0, path:""}, current_run: {updated_at: 0, state: {}}});
   const read = key => { try { return JSON.parse(localStorage.getItem(key)); } catch (_) { return null; } };
   const write = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {} };
   function merge(...records) {
     const result = empty();
     for (const record of records) {
       if (!record || typeof record !== 'object' || Array.isArray(record)) continue;
+      const last = record.last_played;
+      if (last && Number.isSafeInteger(last.updated_at) && last.updated_at >= result.last_played.updated_at &&
+          typeof last.path === 'string' && /^res:\/\/levels\/world_\d+\/level_\d+\.json$/.test(last.path))
+        result.last_played = {...last};
       const run = record.current_run;
       if (run && Number.isSafeInteger(run.updated_at) && run.updated_at >= result.current_run.updated_at &&
           run.state && typeof run.state === 'object' && !Array.isArray(run.state)) {
@@ -56,7 +60,7 @@
     dirty = false;
     lastWrite = Date.now();
     try {
-      await bounded(player.setData({[KEY]: JSON.parse(JSON.stringify(state))}, true));
+      await bounded(window.PairUpStorage.write(player, {[KEY]: JSON.parse(JSON.stringify(state))}));
     } catch (error) {
       dirty = true;
       console.warn('[Pair Up] Cloud save deferred', error);
@@ -94,6 +98,15 @@
   window.PairUpSave = {
     subscribe(fn) { callback = fn; },
     owner() { return owner; },
+    async resetPurchases(purchasePlayer, ledger) {
+      if (purchasePlayer.getUniqueID() !== owner) throw Error('account_changed');
+      // Update the autosave source before queuing the reset, so later writes cannot restore markers.
+      state.paid_skipped = [];
+      dirty = true;
+      publish();
+      await window.PairUpStorage.write(purchasePlayer, {pairUpPurchasesV1:ledger, [KEY]:JSON.parse(JSON.stringify(state))});
+      scheduleSave();
+    },
     recordPaidSkips(id, paths) {
       if (id !== owner || !Array.isArray(paths)) return;
       const next = merge(state, {paid_skipped: paths});
@@ -133,6 +146,7 @@
       clearTimeout(timeout);
       // Recovery runs on every launch, even if the player never opens the shop.
       if (window.PairUpPurchases) window.PairUpPurchases.init(GodotYandexBridge.ysdk);
+      window.PairUpAds?.init(GodotYandexBridge.ysdk, player);
       resolve();
     });
   });

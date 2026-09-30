@@ -8,6 +8,9 @@ var _platform_paused := false
 var _previous_mute := false
 var _sdk_paused := false
 var _unfocused := false
+var _ad_paused := false
+var _ad_callback: JavaScriptObject
+signal fullscreen_ad_finished
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -41,14 +44,14 @@ func _platform_event(args: Array) -> void:
 	var pause: bool = event.get("event", "") == "pause"
 	if event.get("event", "") not in ["pause", "resume"]: return
 	_sdk_paused = pause
-	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
+	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused or _ad_paused)
 
 func _notification(what: int) -> void:
 	if bridge == null: return
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT: _unfocused = true
 	elif what == NOTIFICATION_APPLICATION_FOCUS_IN: _unfocused = false
 	else: return
-	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
+	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused or _ad_paused)
 
 func _set_platform_pause(value: bool) -> void:
 	if value == _platform_paused: return
@@ -102,7 +105,7 @@ func _subscribe_purchases() -> void:
 		var was_open := _shop_paused
 		purchases = data
 		_shop_paused = bool(data.get("modal", false))
-		_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
+		_set_platform_pause(_sdk_paused or _unfocused or _shop_paused or _ad_paused)
 		purchases_changed.emit()
 		if was_open and not _shop_paused: shop_closed.emit())
 	JavaScriptBridge.get_interface("PairUpPurchases").subscribe(_purchases_callback)
@@ -117,3 +120,33 @@ func spend_paid_skip(path: String) -> bool:
 		paid_skip_finished.emit.call_deferred(result is Dictionary and result.get("ok", false)))
 	JavaScriptBridge.get_interface("PairUpPurchases").spend(path, _spend_callback)
 	return await paid_skip_finished
+
+
+var _reset_callback: JavaScriptObject
+signal purchases_reset(success: bool)
+
+func can_reset_purchases() -> bool:
+	return has_purchases() and bool(JavaScriptBridge.get_interface("PairUpPurchases").canReset())
+
+func reset_purchases() -> bool:
+	if not can_reset_purchases(): return false
+	_reset_callback = JavaScriptBridge.create_callback(func(args: Array):
+		var result = JSON.parse_string(str(args[0]))
+		purchases_reset.emit.call_deferred(result is Dictionary and result.get("ok", false)))
+	JavaScriptBridge.get_interface("PairUpPurchases").reset(_reset_callback)
+	return await purchases_reset
+
+
+func fullscreen_ads_available() -> bool:
+	return OS.has_feature("web") and JavaScriptBridge.get_interface("PairUpAds") != null
+
+func show_fullscreen_ad() -> void:
+	if not fullscreen_ads_available() or "disable_ads" in purchases.get("owned", []) or _ad_paused: return
+	_ad_paused = true
+	_set_platform_pause(true)
+	_ad_callback = JavaScriptBridge.create_callback(func(_args: Array):
+		_ad_paused = false
+		_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
+		fullscreen_ad_finished.emit.call_deferred())
+	JavaScriptBridge.get_interface("PairUpAds").show(_ad_callback)
+	await fullscreen_ad_finished

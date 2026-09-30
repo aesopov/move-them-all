@@ -193,3 +193,62 @@ fulfillment and reconnect; verify pending skip receipts disappear only after
 credits are saved; restore permanent purchases on another device; spend a paid
 skip after using five free skips. Local tests use a mocked SDK and make no real
 charges. The ZIP does not include the mock SDK or a signing secret.
+
+### Shared cloud writes
+
+`web/yandex/storage.js` serializes progress and purchase writes. Each write first
+reads the complete player record, then saves that record with the changed key.
+Do not call `setData` with only progression or only purchases: replacing the record
+would erase the other subsystem's data after a successful receipt consumption.
+A failed read prevents writing, and a failed purchase write prevents consumption.
+Web Locks serialize these writes across tabs where supported; this is not a
+cross-device transactional backend.
+
+Run `node tools/test_yandex_purchase_persistence.cjs` for the combined
+buy → progress autosave → fresh session → spend → autosave → fresh session test.
+Its mock replaces the entire record and each session uses empty local storage.
+
+### Resetting test purchases
+
+In the game iframe's browser console, enable the testing-only main-menu button:
+
+```js
+localStorage.setItem('pairUpPurchaseTesting', '1');
+location.reload();
+```
+
+Alternatively add `purchase-testing=1` to the game iframe URL. This is an explicit
+local testing switch, not developer authentication. The normal UI hides the button.
+The button asks for confirmation, consumes all recognized outstanding product
+receipts (including permanent unlocks), clears the paid credit ledger and paid-skip
+markers, and preserves scores and free-skip history. It does not refund payments.
+Unknown product receipts are left untouched. Disable it with
+`localStorage.removeItem('pairUpPurchaseTesting')` and reload.
+
+### Direct Yandex launch
+
+Ordinary Yandex sessions bypass the welcome UI and open the timestamped
+`last_played` campaign level (including its valid saved checkpoint), or 1-1 for a
+new player. The pointer is saved independently of the checkpoint so winning a
+level does not erase it. Older saves fall back to their checkpoint, then the
+furthest completed/skipped level. Menu navigation returns to level selection.
+The purchase-testing opt-in retains the welcome screen and disables auto-resume.
+
+### Undo and restart ads
+
+Yandex Undo/Restart actions call `ysdk.adv.showFullscreenAdv` through `ads.js`.
+The same flow applies to keyboard shortcuts and the pause/result dialog actions.
+Empty Undo does not request an ad. Native builds and editor test-play bypass ads.
+Gameplay and audio pause while the request is active. Close, no-fill, error and
+offline callbacks complete the action once; rapid repeated input cannot queue ads.
+The platform controls fullscreen-ad frequency; this is not a rewarded-video gate.
+The generated video-screen icon marks these buttons, with a translated tooltip.
+Desktop Yandex controls are stacked; compact layouts retain the horizontal footer.
+
+Checks: `node tools/test_yandex_ads.cjs` and Godot `tools/test_action_ads.gd`.
+
+### Ad policy and Disable Ads
+
+Enable **Использовать API для показа sticky-баннера** in the Yandex console's sticky-banner advertising settings. The game controls banners with `showBannerAdv()` / `hideBannerAdv()` after player status and purchase recovery resolve. `player.getPayingStatus() === 'paying'` suppresses sticky banners only; other statuses allow them. Banner/API errors do not block gameplay.
+
+Import the `disable_ads` product from `localization/yandex-purchases.csv` (price 200), using `assets/ui/purchases/disable_ads.png` (256×256). This permanent, non-consumable purchase disables sticky banners and Undo/Restart fullscreen ads. Its SDK receipt is retained for restoration on launch; Unlock All does not include or block this separate product. The testing-only purchase reset also removes this entitlement. No banners are enabled while purchase recovery is unresolved.

@@ -169,6 +169,25 @@ static func draw_tile(canvas: CanvasItem, rect: Rect2, mask: int, tint := Color.
 	canvas.draw_texture_rect(texture(mask, mouth), rect, false, painted)
 
 
+## Linked elbows have one open mouth; the other port joins the pipe frame.
+static func draw_linked_elbow(canvas: CanvasItem, rect: Rect2, mask: int, mouth: int, tint := Color.WHITE) -> void:
+	draw_tile(canvas, rect, mask, tint)
+	var source := Rect2(0, 0, RESOLUTION, RESOLUTION)
+	var band := RESOLUTION * 0.19
+	match mouth:
+		Board.UP: source.size.y = band
+		Board.RIGHT:
+			source.position.x = RESOLUTION - band
+			source.size.x = band
+		Board.DOWN:
+			source.position.y = RESOLUTION - band
+			source.size.y = band
+		Board.LEFT: source.size.x = band
+	var destination := Rect2(rect.position + source.position / RESOLUTION * rect.size, source.size / RESOLUTION * rect.size)
+	var painted := tint.lerp(Color(tint.get_luminance(), tint.get_luminance(), tint.get_luminance(), tint.a), 0.22)
+	canvas.draw_texture_rect_region(texture(0, mouth), destination, source, painted)
+
+
 static func draw_path(canvas: CanvasItem, points: PackedVector2Array, cell_size: float, tint: Color) -> void:
 	if points.size() < 2:
 		return

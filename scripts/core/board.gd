@@ -49,7 +49,7 @@ var pipe_mouth := PackedInt32Array()
 var pipe_to := PackedInt32Array()
 ## Landing exits can only be entered through their linked tube.
 var pipe_landing := PackedByteArray()
-## Two-port elbows route directly between their open sides.
+## Elbow geometry; unlinked elbows route locally, linked elbows use pipe_to.
 var pipe_ports := PackedByteArray()
 ## Imported pipes target a landing cell, not another mouth. Entry masks use
 ## movement directions (UP means the piece moves up into the source).
@@ -411,7 +411,7 @@ func _resolve(i: int, from: int, d: int, depth: int) -> Variant:
 	if pipe_direct[p]:
 		if not pipe_entries[p] & (1 << d): return null
 		return _land(i, p, pipe_to[p], true)
-	if pipe_ports[p]:
+	if pipe_ports[p] and (pipe_to[p] < 0 or pipe_landing[p]):
 		var entered := opposite(d)
 		if not pipe_ports[p] & (1 << entered):
 			return null

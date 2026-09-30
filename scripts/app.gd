@@ -36,6 +36,7 @@ var _loading_level := false
 var current_run := {"updated_at": 0, "state": {}}
 var pending_run := {}
 var _auto_resumed := false
+var last_played := {"updated_at": 0, "path": ""}
 
 
 var _shot_path := ""
@@ -87,6 +88,7 @@ func _process(_delta: float) -> void:
 
 
 func goto(scene: String) -> void:
+	if scene == "welcome" and direct_yandex_launch(): scene = "select"
 	if scene == "editor" and not can_use_designer(): return
 	get_tree().change_scene_to_file(SCENES[scene])
 
@@ -260,6 +262,8 @@ func start_level(path: String) -> void:
 		_loading_level = false
 		push_error("Could not open gameplay scene: %s" % error)
 		return
+	last_played = {"updated_at": maxi(int(Time.get_unix_time_from_system() * 1000), int(last_played.updated_at) + 1), "path": path}
+	_save_progress()
 	await get_tree().scene_changed
 	var game := get_tree().current_scene
 	# Board fitting needs a few layout frames; keep the cover until it is ready.
@@ -323,10 +327,16 @@ func skips_remaining() -> int:
 
 
 func shop_products() -> Array:
-	if not Platform.has_purchases() or "unlock_all_levels" in Platform.purchases.get("owned", []): return []
-	for path in campaign_paths():
-		if not is_level_unlocked(path, true): return ["skips_5", "unlock_all_levels"]
-	return []
+	if not Platform.has_purchases(): return []
+	var owned: Array = Platform.purchases.get("owned", [])
+	var products: Array = []
+	if "unlock_all_levels" not in owned:
+		for path in campaign_paths():
+			if not is_level_unlocked(path, true):
+				products.append_array(["skips_5", "unlock_all_levels"])
+				break
+	if "disable_ads" not in owned: products.append("disable_ads")
+	return products
 
 
 func world_product_id(idx: int) -> String:
@@ -397,7 +407,7 @@ func resumable_run(path: String) -> Dictionary:
 
 
 func try_resume_run() -> void:
-	if _auto_resumed or _loading_level or not Platform.has_player_storage(): return
+	if _auto_resumed or _loading_level or not Platform.has_player_storage() or Platform.can_reset_purchases(): return
 	var scene := get_tree().current_scene
 	if scene == null or scene.scene_file_path != SCENES.welcome: return
 	var path = current_run.state.get("path", "")
@@ -408,7 +418,7 @@ func try_resume_run() -> void:
 
 
 func _save_progress() -> void:
-	var data := {"version": 2, "scores": progress, "skipped": skipped, "paid_skipped": paid_skipped, "current_run": current_run}
+	var data := {"version": 2, "scores": progress, "skipped": skipped, "paid_skipped": paid_skipped, "last_played": last_played, "current_run": current_run}
 	if Platform.has_player_storage():
 		Platform.save_progress(data)
 		return
@@ -417,6 +427,9 @@ func _save_progress() -> void:
 
 
 func _apply_progress(data: Dictionary) -> void:
+	var last = data.get("last_played", {})
+	if last is Dictionary and last.get("path") is String and (last.get("updated_at") is int or last.get("updated_at") is float):
+		if last.updated_at >= last_played.updated_at: last_played = last.duplicate()
 	var run = data.get("current_run", {})
 	if run is Dictionary and run.get("state") is Dictionary and (run.get("updated_at") is int or run.get("updated_at") is float):
 		if run.updated_at >= current_run.updated_at:
@@ -438,6 +451,7 @@ func _apply_progress(data: Dictionary) -> void:
 
 
 func _replace_platform_progress(data: Dictionary) -> void:
+	last_played = {"updated_at": 0, "path": ""}
 	current_run = {"updated_at": 0, "state": {}}
 	progress.clear()
 	skipped.clear()
@@ -494,3 +508,27 @@ func preload_level_assets(path: String) -> void:
 	var theme := WorldTheme.for_level(locate(path).x, load_level(path))
 	await loader.ensure_theme(theme.key, true)
 	loader.queue_free()
+
+
+func direct_yandex_launch() -> bool:
+	return Platform.has_player_storage() and not Platform.can_reset_purchases()
+
+
+func launch_level_path() -> String:
+	var paths := campaign_paths()
+	for path in [last_played.path, current_run.state.get("path", "")]:
+		if path in paths and is_level_unlocked(path, true): return path
+	# Older saves did not retain a last-played pointer after completing a level.
+	for i in range(paths.size() - 1, -1, -1):
+		if best_score(paths[i]) > 0 or was_skipped(paths[i]): return paths[i]
+	return paths.front() if not paths.is_empty() else ""
+
+
+func launch_yandex_level() -> void:
+	if _auto_resumed or _loading_level: return
+	_auto_resumed = true
+	while Platform.purchases.get("busy", false):
+		await Platform.purchases_changed
+	var path := launch_level_path()
+	if path != "": start_level(path)
+	else: goto("select")

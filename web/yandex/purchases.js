@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   const KEY = 'pairUpPurchasesV1';
-  const known = id => id === 'skips_5' || id === 'unlock_all_levels' || /^unlock_world_(0[1-9]|1[01])$/.test(id);
+  const known = id => id === 'disable_ads' || id === 'skips_5' || id === 'unlock_all_levels' || /^unlock_world_(0[1-9]|1[01])$/.test(id);
   const empty = () => ({version: 1, receipts: [], spent: {}});
   let sdk, payments, player, owner, ledger = empty(), owned = [], catalog = [];
   let ready = false, busy = false, modal = false, paying = false, error = '', retry, subscriber;
@@ -50,7 +50,7 @@
     else ledger = remote;
   }
   async function persist(next) {
-    await player.setData({[KEY]: next}, true);
+    await window.PairUpStorage.write(player, {[KEY]: next});
     ledger = next;
     publish();
   }
@@ -113,6 +113,28 @@
     return result;
   }
   const api = window.PairUpPurchases = {
+    canReset() {
+      try { return new URLSearchParams(window.location.search).get('purchase-testing') === '1' || localStorage.getItem('pairUpPurchaseTesting') === '1'; }
+      catch (_) { return false; }
+    },
+    reset(callback) {
+      const finish = result => { if (callback) callback(JSON.stringify(result)); return result; };
+      if (!api.canReset() || busy || !sdk) return Promise.resolve(finish({ok:false}));
+      return transaction(async () => {
+        if (!payments) payments = await sdk.getPayments({signed:false});
+        await context();
+        const receipts = await payments.getPurchases();
+        for (const receipt of receipts) {
+          if (known(receipt.productID)) await payments.consumePurchase(receipt.purchaseToken);
+        }
+        // Explicit testing reset: discard credits only after outstanding receipts are removed.
+        if (!window.PairUpSave?.resetPurchases) throw Error('storage_unavailable');
+        ledger = empty(); owned = [];
+        await window.PairUpSave.resetPurchases(player, ledger);
+        ready = true;
+        return {ok:true};
+      }).then(finish);
+    },
     init(value) { sdk = value; return api.refresh(); },
     subscribe(fn) { subscriber = fn; publish(); },
     listen(fn) { listeners.add(fn); },
@@ -126,7 +148,7 @@
       if (busy || !ready || !known(id)) return Promise.resolve({ok: false, error: 'unavailable'});
       return transaction(async () => {
         await recover(); // Recover pending charges BEFORE accepting another payment.
-        if (owned.includes('unlock_all_levels') || owned.includes(id)) return {ok: false, error: 'owned'};
+        if ((id !== 'disable_ads' && owned.includes('unlock_all_levels')) || owned.includes(id)) return {ok: false, error: 'owned'};
         if (!catalog.some(p => p.id === id)) return {ok: false, error: 'unavailable'};
         let receipt;
         try {

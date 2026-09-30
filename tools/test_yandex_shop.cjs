@@ -23,7 +23,7 @@ const api = {
 const context = {window:{PairUpPurchases:api},document:{body,head:new Element('head'),createElement:tag=>new Element(tag),getElementById:()=>null},GodotYandexBridge:{refocusCanvas(){}}};
 vm.runInNewContext(fs.readFileSync('web/yandex/shop.js','utf8'),context);
 (async()=>{
-  api.openShop('["skips_5"]');
+  api.openShop('["skips_5","disable_ads"]');
   const panel=body.children[0].children[0], status=panel.children[1], list=panel.children[2];
   assert.equal(list.children.length,0,'Never render the cached balance on open');
   assert.equal(status.textContent,'Checking purchases…');
@@ -36,5 +36,9 @@ vm.runInNewContext(fs.readFileSync('web/yandex/shop.js','utf8'),context);
   state.busy=true; listener();
   assert.equal(list.children[1],card,'Background refresh preserves card DOM');
   assert(list.querySelectorAll().every(button=>button.disabled),'No purchase during refresh');
+  state.busy=false; state.owned=['unlock_all_levels'];
+  state.catalog.push({id:'disable_ads',title:'Disable Ads',description:'No ads',price:'200'});
+  listener();
+  assert(list.children.some(c=>c.children.some(x=>x.textContent==='Disable Ads')), 'Disable Ads remains in shop after Unlock All');
   console.log('Shop: loading first, no intermediate balances, stable cards during refresh passed');
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -167,10 +167,10 @@ script = ExtResource("2_button_surface")
 state = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxik8"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
 texture = ExtResource("3_panel")
 texture_margin_left = 16.0
 texture_margin_top = 16.0

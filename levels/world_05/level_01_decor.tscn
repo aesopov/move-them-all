@@ -1,23 +1,43 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_ht4pc"]
-[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_1bndp"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/fallen_log.png" id="3_y4bq5"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_y4bq5"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_vihjj"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/fallen_log.png" id="3_jeb8y"]
+[ext_resource type="Texture2D" path="res://assets/liquids/water_body.png" id="4_1dyee"]
+[ext_resource type="Texture2D" path="res://assets/liquids/water_surface.png" id="5_n67vo"]
 
-[node name="Decor" type="Node2D" unique_id=1512682897]
-script = ExtResource("1_ht4pc")
+[node name="Decor" type="Node2D" unique_id=2108117319]
+script = ExtResource("1_y4bq5")
 fit_cells = Rect2i(2, 2, 10, 8)
 
-[node name="FallenLog2" type="Node2D" parent="." unique_id=1135697640]
+[node name="FallenLog2" type="Node2D" parent="." unique_id=984948780]
 position = Vector2(380.75, 192)
-script = ExtResource("2_1bndp")
-texture = ExtResource("3_y4bq5")
+script = ExtResource("2_vihjj")
+texture = ExtResource("3_jeb8y")
 footprint = Vector2(2, 1)
 
-[node name="FallenLog" type="Node2D" parent="." unique_id=1542409709]
+[node name="FallenLog" type="Node2D" parent="." unique_id=456298207]
 position = Vector2(276.5, 204.25)
 rotation = -0.5061455
-script = ExtResource("2_1bndp")
-texture = ExtResource("3_y4bq5")
+script = ExtResource("2_vihjj")
+texture = ExtResource("3_jeb8y")
 footprint = Vector2(2, 1)
 flip_horizontal = true
+
+[node name="WaterBody" type="Node2D" parent="." unique_id=1264526814]
+modulate = Color(1, 1, 1, 0.3019608)
+z_index = 1
+position = Vector2(128, 384)
+script = ExtResource("2_vihjj")
+texture = ExtResource("4_1dyee")
+footprint = Vector2(10, 4)
+repeat_texture = true
+
+[node name="WaterSurface" type="Node2D" parent="." unique_id=731700250]
+modulate = Color(1, 1, 1, 0.3019608)
+z_index = 1
+position = Vector2(128, 320)
+script = ExtResource("2_vihjj")
+texture = ExtResource("5_n67vo")
+footprint = Vector2(10, 1)
+repeat_texture = true

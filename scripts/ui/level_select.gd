@@ -6,6 +6,7 @@ const WORLD_ROW := preload("res://scenes/components/world_row.tscn")
 
 func _ready() -> void:
 	Sound.stop_music()
+	%BackButton.visible = not App.direct_yandex_launch()
 	resized.connect(_responsive_layout)
 	_responsive_layout()
 	App.scan_levels()

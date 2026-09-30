@@ -8,6 +8,15 @@ var _t := 0.0
 func _ready() -> void:
 	Platform.menu_ready()
 	Sound.stop_music()
+	if App.direct_yandex_launch():
+		hide()
+		App.launch_yandex_level.call_deferred()
+		return
+	if Platform.can_reset_purchases():
+		var reset := Button.new()
+		reset.text = tr("Reset purchases (testing)")
+		reset.pressed.connect(_reset_purchases)
+		%AudioButton.get_parent().add_child(reset)
 	%AudioButton.pressed.connect(_open_audio_settings)
 	App.try_resume_run.call_deferred()
 	App.preload_menu_world()
@@ -91,3 +100,23 @@ func _open_audio_settings() -> void:
 	overlay.set_title(tr("Audio settings"))
 	AudioSettings.populate(overlay)
 	overlay.add_button(tr("Close"), overlay.queue_free)
+
+
+func _reset_purchases() -> void:
+	var overlay: Overlay = preload("res://scenes/components/overlay.tscn").instantiate()
+	add_child(overlay)
+	overlay.set_title(tr("Reset purchases (testing)"))
+	overlay.add_text(tr("Remove all purchased unlocks, remaining paid skips and paid-skip markers? Scores and free skips are kept. This cannot be undone."))
+	var confirm := overlay.add_button(tr("Reset purchases"), func(): pass)
+	var cancel := overlay.add_button(tr("Cancel"), overlay.queue_free)
+	confirm.pressed.connect(func():
+		confirm.disabled = true
+		cancel.disabled = true
+		var ok := await Platform.reset_purchases()
+		if not is_instance_valid(overlay): return
+		if ok:
+			App.goto("welcome")
+		else:
+			overlay.add_text(tr("Could not reset purchases. Please try again."))
+			confirm.disabled = false
+			cancel.disabled = false)

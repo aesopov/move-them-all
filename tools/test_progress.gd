@@ -22,6 +22,17 @@ func _run() -> void:
 	var paths := []
 	for i in 8: paths.append("res://levels/test_%d.json" % i)
 	app.worlds = [{"index": 0, "levels": paths.slice(0, 4)}, {"index": 1, "levels": paths.slice(4)}]
+	check(app.launch_level_path() == paths[0], "First launch selects first level")
+	var launch = mock.new()
+	launch.worlds = app.worlds
+	launch.progress = {paths[0]: 100, paths[1]: 100}
+	launch.last_played = {"updated_at": 20, "path": paths[0]}
+	check(launch.launch_level_path() == paths[0], "Last replayed level takes priority over furthest completion")
+	launch.current_run = {"updated_at": 30, "state": {}}
+	check(launch.launch_level_path() == paths[0], "Clearing checkpoint preserves last played level")
+	launch.last_played = {"updated_at": 0, "path": ""}
+	check(launch.launch_level_path() == paths[1], "Legacy completed save has a launch fallback")
+	launch.free()
 	check(app.is_level_unlocked(paths[0], true), "First level starts unlocked")
 	check(not app.is_level_unlocked(paths[1], true), "Later levels start locked")
 	check(not app.skip_level(paths[2]), "Cannot skip a locked level")

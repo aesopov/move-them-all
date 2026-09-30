@@ -15,12 +15,19 @@ async function setup({cloud={}, failRead=false, failWrite=false, storage=new Map
     document:{documentElement:{},addEventListener(){}}, addEventListener(){},
     setTimeout(fn,delay){const id=++serial;timers.set(id,{fn,at:now+delay});return id;},clearTimeout:id=>timers.delete(id),
     GodotYandexBridge:{ysdk:{getPlayer:async()=>player},init:(_,cb)=>cb(JSON.stringify({success:true,data:{environment:{i18n:{lang:'ru'}}}}))}};
-  env.window=env;vm.runInNewContext(source,env);await tick();await env.mergeYandexReady;
+  env.window=env;vm.runInNewContext(fs.readFileSync('web/yandex/storage.js','utf8'),env);vm.runInNewContext(source,env);await tick();await env.mergeYandexReady;
   return {env,storage,writes,calls,
     recover(){readFailure=false;writeFailure=false;},
     async advance(ms){now+=ms;for(const [id,t] of [...timers])if(t.at<=now){timers.delete(id);t.fn();}await tick();}};
 }
 (async()=>{
+  const launch = await setup({cloud:{pairUpProgress:{last_played:{updated_at:20,path:path(2)}}}});
+  launch.env.PairUpSave.save(JSON.stringify({last_played:{updated_at:10,path:path(1)}}));
+  assert.equal(JSON.parse(launch.env.PairUpSave.load('{}')).last_played.path,path(2),'Older pointer cannot replace last played');
+  launch.env.PairUpSave.save(JSON.stringify({last_played:{updated_at:30,path:path(1)},current_run:{updated_at:30,state:{}}}));
+  const launchReload = await setup({storage:launch.storage});
+  assert.equal(JSON.parse(launchReload.env.PairUpSave.load('{}')).last_played.path,path(1),'Last replayed level survives reload after checkpoint cleared');
+
   const paid = await setup();
   paid.env.PairUpSave.recordPaidSkips('alice', [path(3)]);
   assert.deepEqual(JSON.parse(paid.storage.get('pairUpSave:alice')).paid_skipped, [path(3)], 'Confirmed paid skip journaled immediately');

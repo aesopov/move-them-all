@@ -157,6 +157,20 @@ func _init() -> void:
 		var second := b.add_item(ItemDefs.index_of("torus"), Board.cell_of(7, 6))
 		b.add_item(ItemDefs.index_of("cone"), landing)
 		check(not b.can_move(second, Board.UP), "occupied landing blocks tube entry")
+	# A linked elbow follows its tube, even when its visible rear meets a wall.
+	b = Board.from_dict(JSON.parse_string(FileAccess.get_file_as_string("res://levels/world_05/level_09.json")))
+	var linked_start := Board.cell_of(10, 2)
+	var linked_exit := Board.cell_of(8, 7)
+	var linked_item := b.add_item(ItemDefs.index_of("cube"), linked_start)
+	b.item_at[linked_start] = -1
+	var linked_route = b._resolve(linked_item, linked_start, Board.RIGHT, 0)
+	check(linked_route != null and linked_route.final == linked_exit, "5-9 elbow at (11,2) reaches linked exit")
+	if linked_route != null:
+		check(linked_route.path[1] == ["pipe_out", Board.cell_of(8, 8)], "5-9 animates through destination pipe")
+	b.add_item(ItemDefs.index_of("torus"), linked_exit)
+	check(b._resolve(linked_item, linked_start, Board.RIGHT, 0) == null, "occupied linked exit blocks elbow")
+	var reverse_route = b._resolve(linked_item, linked_exit, Board.DOWN, 0)
+	check(reverse_route != null and reverse_route.final == linked_start, "5-9 linked elbow permits return trip")
 	# Real elbows route between their two ports in either direction.
 	for entry_side in [Board.UP, Board.RIGHT]:
 		b = Board.new()

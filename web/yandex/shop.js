@@ -45,12 +45,12 @@
     }
     element('p', `${t[11]}: ${state.paid_skips}`, list);
     const products = state.catalog.filter(p => requested.includes(p.id) &&
-      !state.owned.includes(p.id) && !state.owned.includes('unlock_all_levels'));
+      !state.owned.includes(p.id) && (p.id === 'disable_ads' || !state.owned.includes('unlock_all_levels')));
     if (!products.length) element('p', t[8], list);
     for (const product of products) {
       const card = element('article', '', list);
       const icon = element('img', '', card);
-      icon.src = `purchase-icons/${product.id === 'skips_5' ? 'skips_5' : product.id === 'unlock_all_levels' ? 'unlock_all' : 'unlock_world'}.png`;
+      icon.src = `purchase-icons/${product.id === 'disable_ads' ? 'disable_ads' : product.id === 'skips_5' ? 'skips_5' : product.id === 'unlock_all_levels' ? 'unlock_all' : 'unlock_world'}.png`;
       icon.alt = ''; icon.width = 88; icon.height = 88;
       element('h3', product.title, card);
       element('p', product.description, card);

@@ -18,13 +18,13 @@ async function setup(options = {}) {
       assert.equal(flush, true); calls.push('save');
       activeWrites++; maxWrites = Math.max(maxWrites, activeWrites); await Promise.resolve(); activeWrites--;
       if (failWrite) throw Error('save failed');
-      Object.assign(backend.data, clone(data));
+      backend.data = clone(data);
       if (lostWrite) throw Error('ack lost');
     }
   };
   const payment = {
     getPurchases: async () => { calls.push('purchases'); return clone(backend.pending); },
-    getCatalog: async () => ['skips_5', 'unlock_world_03', 'unlock_all_levels'].map(id => ({id, title:id,
+    getCatalog: async () => ['skips_5', 'unlock_world_03', 'unlock_all_levels', 'disable_ads'].map(id => ({id, title:id,
       description:'Description', price:'50 YAN', priceValue:'50', priceCurrencyCode:'YAN', getPriceCurrencyImage: () => 'https://example.test/currency.png'})),
     purchase: async ({id}) => {
       calls.push(`buy:${id}`); if (cancelled) throw Error('cancelled');
@@ -43,7 +43,7 @@ async function setup(options = {}) {
   const env = {console:{warn(){}}, navigator:{}, document:{addEventListener(){}}, addEventListener(){},
     setTimeout:(fn, ms) => { const id=++serial;timers.set(id,{fn,ms});return id; },clearTimeout:id=>timers.delete(id)};
   env.window=env;
-  vm.runInNewContext(source,env);
+  vm.runInNewContext(fs.readFileSync('web/yandex/storage.js','utf8'),env);vm.runInNewContext(source,env);
   const api=env.PairUpPurchases;
   const sdk={getPlayer:async()=>player,getPayments:async options=>{assert.equal(options.signed,false);return payment;}};
   await api.init(sdk);
@@ -105,6 +105,11 @@ async function setup(options = {}) {
   assert.equal(a.calls.filter(c=>c.startsWith('buy:')).length,before,'Owned all blocks redundant purchases');
   assert(!(await a.api.spend(path(7))).ok,'Unlock all blocks redundant paid skip');
   assert(a.backend.pending.some(p=>p.productID==='unlock_all_levels'));
+  assert((await a.api.buy('disable_ads')).ok, 'Unlock all does not block Disable Ads');
+  assert(!(await a.api.buy('disable_ads')).ok, 'Permanent product cannot be bought twice');
+  const noads = await setup({backend:a.backend});
+  assert(noads.view().owned.includes('disable_ads'), 'No-ads ownership survives reload');
+  assert(a.backend.pending.some(p=>p.productID==='disable_ads'), 'No-ads receipt stays unconsumed');
   a.owner('bob'); await a.api.refresh();
   assert.equal(a.view().error,'account_changed'); assert.equal(a.view().paid_skips,0); assert.deepEqual(a.view().owned,[]);
   console.log('Yandex purchases: startup recovery, durable grant-before-consume, retry deduplication, permanent ownership, paid spending, reload, lost responses, cancellation, account isolation and double-click guard passed');
