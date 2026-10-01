@@ -743,24 +743,20 @@ func _detonate(b: int, ev: Array) -> void:
 	var c := it_cell[b]
 	_kill(b, "bomb", ev)
 	ev.append({"e": "blast", "cell": c})
-	var r := GameConfig.BOMB_RADIUS
-	var cx := c % W
-	var cy := c / W
 	var chain := []
-	for y in range(cy - r, cy + r + 1):
-		for x in range(cx - r, cx + r + 1):
-			if x < 0 or y < 0 or x >= W or y >= H:
-				continue
-			var nb := y * W + x
-			if terrain[nb] == T.BREAKABLE:
-				terrain[nb] = T.FLOOR
-				ev.append({"e": "break", "cell": nb})
-			var j := item_at[nb]
-			if j >= 0 and it_lock[j] == 0 and destructible(j):
-				if ItemDefs.kind(it_type[j]) == ItemDefs.Kind.BOMB:
-					chain.append(j)
-				else:
-					_kill(j, "blast", ev)
+	for direction in 4:
+		var nb := step(c, direction)
+		if nb < 0:
+			continue
+		if terrain[nb] == T.BREAKABLE:
+			terrain[nb] = T.FLOOR
+			ev.append({"e": "break", "cell": nb})
+		var j := item_at[nb]
+		if j >= 0 and it_lock[j] == 0 and destructible(j):
+			if ItemDefs.kind(it_type[j]) == ItemDefs.Kind.BOMB:
+				chain.append(j)
+			else:
+				_kill(j, "blast", ev)
 	for j in chain:
 		if it_cell[j] >= 0:
 			_detonate(j, ev)

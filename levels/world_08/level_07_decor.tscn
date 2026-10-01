@@ -1,0 +1,26 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_y3ybv"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_sb31n"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/broken_column.png" id="3_lcdy5"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/relic_small.png" id="4_gkeim"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/cargo_long.png" id="5_g36fj"]
+
+[node name="Decor" type="Node2D" unique_id=1333892301]
+script = ExtResource("1_y3ybv")
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=201567908]
+position = Vector2(448, 0)
+script = ExtResource("2_sb31n")
+texture = ExtResource("3_lcdy5")
+
+[node name="RelicSmall" type="Node2D" parent="." unique_id=1147575972]
+position = Vector2(384, 640)
+script = ExtResource("2_sb31n")
+texture = ExtResource("4_gkeim")
+
+[node name="CargoLong" type="Node2D" parent="." unique_id=1359220342]
+position = Vector2(222, 704)
+script = ExtResource("2_sb31n")
+texture = ExtResource("5_g36fj")
+footprint = Vector2(2, 1)

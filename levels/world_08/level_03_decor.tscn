@@ -1,0 +1,63 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_7sdc3"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_wm1s5"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/slab_2x05.png" id="3_pe3x5"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/slab_1x05.png" id="4_0fwc4"]
+
+[node name="Decor" type="Node2D" unique_id=363448599]
+script = ExtResource("1_7sdc3")
+
+[node name="Slab2x05" type="Node2D" parent="." unique_id=2124494265]
+position = Vector2(640, 377.75)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("3_pe3x5")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x06" type="Node2D" parent="." unique_id=79407626]
+position = Vector2(0, 122)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("3_pe3x5")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x07" type="Node2D" parent="." unique_id=1538723323]
+position = Vector2(128, 122)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("3_pe3x5")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x08" type="Node2D" parent="." unique_id=1992847334]
+position = Vector2(256, 122)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("3_pe3x5")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x09" type="Node2D" parent="." unique_id=1806947897]
+position = Vector2(384, 122)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("3_pe3x5")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab2x10" type="Node2D" parent="." unique_id=1522843184]
+position = Vector2(512, 122)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("3_pe3x5")
+footprint = Vector2(2, 0.5)
+
+[node name="Slab1x05" type="Node2D" parent="." unique_id=867382102]
+position = Vector2(320, 571)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("4_0fwc4")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x06" type="Node2D" parent="." unique_id=1790100077]
+position = Vector2(640, 699.25)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("4_0fwc4")
+footprint = Vector2(1, 0.5)
+
+[node name="Slab1x07" type="Node2D" parent="." unique_id=2034274167]
+position = Vector2(64, 250.25)
+script = ExtResource("2_wm1s5")
+texture = ExtResource("4_0fwc4")
+footprint = Vector2(1, 0.5)

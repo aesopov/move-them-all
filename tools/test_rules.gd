@@ -231,10 +231,10 @@ func _init() -> void:
 	b.play(passenger, Board.DOWN)
 	check(b.it_cell[passenger] == Board.cell_of(8, 3), "entering elbow from above exits right")
 	# bomb
-	b = mk(["%c", "B."])
-	b.play(1, Board.DETONATE)
+	b = mk(["%.", "Bc"])
+	b.settle()
 	check(b.is_won() and b.terrain[0] == Board.T.FLOOR, "bomb destroys and breaks wall")
-	# Both colours of utility boxes survive manual and automatic blasts.
+	# Both colours of utility boxes survive direct and automatic blasts.
 	for box_name in ["block_red", "block_blue", "mover_green", "mover_red"]:
 		for automatic in [false, true]:
 			b = Board.new()
@@ -245,9 +245,25 @@ func _init() -> void:
 			if automatic:
 				b.settle()
 			else:
-				b.play(bomb, Board.DETONATE)
+				b._detonate(bomb, [])
 			check(b.it_cell[box] == Board.cell_of(5, 4), box_name + " survives bomb (automatic=%s)" % automatic)
 			check(b.it_cell[target] == -1 and b.terrain[Board.cell_of(3, 4)] == Board.T.FLOOR, "blast still destroys ordinary pieces and cracked walls")
+	# Blast is a cross: diagonal items, walls and bombs remain untouched.
+	b = Board.new()
+	var cross_bomb := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(5, 5))
+	var victims: Array[int] = []
+	for direction in 4:
+		victims.append(b.add_item(ItemDefs.index_of("crystal"), b.step(Board.cell_of(5, 5), direction)))
+	var diagonal_item := b.add_item(ItemDefs.index_of("crystal"), Board.cell_of(4, 4))
+	var diagonal_bomb := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(6, 6))
+	b.terrain[Board.cell_of(4, 6)] = Board.T.BREAKABLE
+	check(not b.can_move(cross_bomb, Board.DETONATE), "manual bomb activation is disabled")
+	check(b.play(cross_bomb, Board.DETONATE).is_empty() and b.it_cell[cross_bomb] >= 0, "manual activation does not consume bomb")
+	b._detonate(cross_bomb, [])
+	for victim in victims:
+		check(b.it_cell[victim] == -1, "orthogonal neighbor is destroyed")
+	check(b.it_cell[diagonal_item] >= 0 and b.it_cell[diagonal_bomb] >= 0, "diagonal item and bomb survive")
+	check(b.terrain[Board.cell_of(4, 6)] == Board.T.BREAKABLE, "diagonal cracked wall survives")
 	# Bombs fall by default.
 	b = Board.new()
 	var bomb_id := b.add_item(ItemDefs.index_of("bomb"), Board.cell_of(3, 1))

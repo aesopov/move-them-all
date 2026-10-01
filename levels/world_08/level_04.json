@@ -1,194 +1,152 @@
 {
-	"version": 2,
-	"name": "Three Up, Three Down",
-	"theme": "swamp",
 	"imported": true,
-	"moves": 39,
-	"time": 135,
-	"terrain": [
-		"##aaaa##....",
-		"##....###...",
-		"##....###...",
-		"###.##aa##..",
-		"............",
-		"#.####.#.###",
-		"............",
-		"####.######.",
-		"............",
-		"######.#aa.#",
-		"#####..###..",
-		"####...#...."
-	],
 	"items": [
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 9,
-			"y": 0,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "207",
-			"match_label": "2"
+			"y": 0
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 2,
-			"y": 2,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 2
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "303",
 			"type": "key_blue",
 			"x": 5,
-			"y": 2,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "303"
+			"y": 2
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 9,
-			"y": 2,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 2
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "blue",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
 			"type": "padlock",
 			"x": 10,
-			"y": 3,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "blue"
+			"y": 3
 		},
 		{
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 665,
+			"match_label": "665",
+			"movable": false,
+			"source_sprite": "138",
 			"type": "rock",
+			"visual": "cracked_stone",
 			"x": 1,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": true,
-			"match_group": 665,
-			"source_sprite": "138",
-			"visual": "cracked_stone",
-			"match_label": "665"
+			"y": 5
 		},
 		{
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 665,
+			"match_label": "665",
+			"movable": false,
+			"source_sprite": "138",
 			"type": "rock",
-			"x": 8,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": true,
-			"match_group": 665,
-			"source_sprite": "138",
 			"visual": "cracked_stone",
-			"match_label": "665"
+			"x": 8,
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 5,
-			"y": 10,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "207",
-			"match_label": "2"
+			"y": 10
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 11,
-			"y": 10,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "207",
-			"match_label": "2"
+			"y": 10
 		},
 		{
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "209",
 			"type": "bomb",
 			"x": 4,
-			"y": 11,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 0,
-			"source_sprite": "209"
+			"y": 11
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 11,
-			"y": 11,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 11
 		}
 	],
+	"moves": 39,
+	"name": "Three Up, Three Down",
 	"pipes": [
 		{
-			"x": 6,
-			"y": 5,
+			"mouth": "up",
 			"to": [
-				8,
+				9,
 				8
 			],
-			"destination": "cell",
-			"enter": [
-				"up",
-				"down"
-			],
-			"mouth": "down"
+			"x": 6,
+			"y": 5
 		},
 		{
-			"x": 9,
-			"y": 8,
+			"mouth": "left",
+			"ports": [
+				"up",
+				"left"
+			],
 			"to": [
 				6,
-				4
+				5
 			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
+			"x": 9,
+			"y": 8
 		}
 	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL074.UZ3",
-		"number": 74,
-		"sha256": "13d3de5692377a4c826f4cc61f8f1bdb6ddc1214d8f40042230f88dea9de81fc"
-	},
 	"skins": [
 		"............",
 		"............",
@@ -202,5 +160,29 @@
 		"............",
 		"............",
 		"............"
-	]
+	],
+	"source": {
+		"file": "LEVEL074.UZ3",
+		"format": "UZ3",
+		"number": 74.0,
+		"sha256": "13d3de5692377a4c826f4cc61f8f1bdb6ddc1214d8f40042230f88dea9de81fc"
+	},
+	"teleports": [],
+	"terrain": [
+		"-#aaaa##....",
+		"-#....###...",
+		"-#....###...",
+		"-##.##aa##..",
+		"-...........",
+		"-.####.#.###",
+		"-...........",
+		"-###.######.",
+		"-...........",
+		"-#####.#aa.#",
+		"---##..###..",
+		"---#...#...."
+	],
+	"theme": "swamp",
+	"time": 135,
+	"version": 2
 }

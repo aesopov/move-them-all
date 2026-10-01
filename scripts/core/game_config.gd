@@ -22,10 +22,8 @@ const TIMER_STARTS_ON_FIRST_MOVE := true
 const MIN_MATCH_GROUP := 2
 ## Item A surrounded on all 4 sides by items of one other type B -> all 5 explode.
 const SURROUND_RULE_ENABLED := true
-## Bomb blast radius (1 = the 3x3 square around the bomb).
-const BOMB_RADIUS := 1
-## Tapping a bomb detonates it (counts as one move).
-const TAP_TO_DETONATE_BOMB := true
+## Bombs activate through gameplay contact, never direct clicks/taps.
+const TAP_TO_DETONATE_BOMB := false
 ## A match explosion breaks breakable walls next to it.
 const MATCH_BREAKS_ADJACENT_WALLS := true
 ## A match explosion sets off bombs next to it.

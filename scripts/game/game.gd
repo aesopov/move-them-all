@@ -461,7 +461,7 @@ func _show_level_info() -> void:
 	var panel := _open_overlay(tr("Level info"))
 	panel.add_text(tr("Destroy all goal pieces. Moves and time are bonus targets."))
 	if touch_controls.enabled:
-		panel.add_text(tr("Pinch to zoom; drag to pan. Tap a piece, then a cell in the same row or column. Stops before transports. Tap a selected bomb again to detonate."))
+		panel.add_text(tr("Pinch to zoom; drag to pan. Tap a piece, then a cell in the same row or column. Stops before transports."))
 	var targets := HFlowContainer.new()
 	targets.add_theme_constant_override("h_separation", 16)
 	panel.get_node("%Body").add_child(targets)

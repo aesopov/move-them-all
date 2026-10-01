@@ -26,7 +26,7 @@ func _initialize() -> void:
 	await _load({"moves": 10, "time": 60, "terrain": ["............", "............", "............", "..#........."], "items": [
 		{"type": "bomb", "x": 2, "y": 2}, {"type": "star", "x": 3, "y": 2, "aim": true}]})
 	await _drag(Vector2i(2, 2), Vector2i(2, 2))
-	fails += _check(game.board.is_won(), "tap detonates bomb")
+	fails += _check(not game.board.is_won(), "tap does not detonate bomb")
 	# 4) Over the move limit: no failure
 	await _load({"moves": 1, "time": 60, "terrain": [], "items": [
 		{"type": "crystal", "x": 0, "y": 0, "aim": true}, {"type": "crystal", "x": 5, "y": 0, "aim": true}]})

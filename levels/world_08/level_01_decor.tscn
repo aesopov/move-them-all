@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_8aipi"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_jtbi7"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/barricade.png" id="3_klwxg"]
+[ext_resource type="Texture2D" path="res://assets/tiles/swamp/decor/relic_tall.png" id="4_rsdm4"]
+
+[node name="Decor" type="Node2D" unique_id=340553359]
+script = ExtResource("1_8aipi")
+
+[node name="Barricade" type="Node2D" parent="." unique_id=1001682737]
+position = Vector2(512, 320)
+script = ExtResource("2_jtbi7")
+texture = ExtResource("3_klwxg")
+footprint = Vector2(2, 1)
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=428829553]
+position = Vector2(576, 128)
+script = ExtResource("2_jtbi7")
+texture = ExtResource("4_rsdm4")
+footprint = Vector2(1, 2)

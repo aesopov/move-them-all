@@ -352,12 +352,7 @@ func _gui_input(event: InputEvent) -> void:
 			_dragged = false
 			gesture += 1
 		elif _drag_item >= 0:
-			var i := _drag_item
 			end_drag()
-			# A click without dragging detonates a bomb.
-			if not _dragged and not busy and board.it_cell[i] >= 0 \
-					and ItemDefs.kind(board.it_type[i]) == ItemDefs.Kind.BOMB:
-				move_requested.emit(i, Board.DETONATE)
 		accept_event()
 	elif event is InputEventMouseMotion:
 		var c := cell_at(event.position)
@@ -382,12 +377,8 @@ func end_drag() -> void:
 func tap_cell(c: int) -> void:
 	if busy or c < 0 or board == null: return
 	if tap_item >= 0 and board.it_cell[tap_item] == c:
-		if ItemDefs.kind(board.it_type[tap_item]) == ItemDefs.Kind.BOMB:
-			gesture += 1
-			move_requested.emit(tap_item, Board.DETONATE)
-		else:
-			tap_item = -1
-			selected_cell = -1
+		tap_item = -1
+		selected_cell = -1
 		return
 	if tap_item >= 0 and board.it_cell[tap_item] < 0: tap_item = -1
 	if board.item_at[c] >= 0 and tap_item < 0:
@@ -454,7 +445,7 @@ func _drive_drag() -> void:
 		if delta.x != 0: dirs.append(horiz)
 	if dirs.is_empty():
 		return
-	# A drag towards a blocked cell counts as dragging (no bomb tap on release), but does nothing.
+	# A drag towards a blocked cell counts as dragging, but does nothing.
 	_dragged = true
 	for d in dirs:
 		if board.can_move(i, d):

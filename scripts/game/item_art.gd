@@ -20,7 +20,11 @@ static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marke
 	if tex:
 		if ItemDefs.name_of(type) in ["crate", "mover_green", "mover_red", "block_blue", "block_red"]:
 			if not _equipment_regions.has(tex):
-				_equipment_regions[tex] = FLOATING_CRATE_REGION if visual == "floating_crate" else Rect2(tex.get_image().get_used_rect())
+				if visual == "floating_crate":
+					var import_scale := tex.get_size() / 1254.0
+					_equipment_regions[tex] = Rect2(FLOATING_CRATE_REGION.position * import_scale, FLOATING_CRATE_REGION.size * import_scale)
+				else:
+					_equipment_regions[tex] = Rect2(tex.get_image().get_used_rect())
 			var region: Rect2 = _equipment_regions[tex]
 			var size := region.size * (s / maxf(region.size.x, region.size.y))
 			ci.draw_texture_rect_region(tex, Rect2(-size * 0.5, size), region)
