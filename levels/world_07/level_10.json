@@ -1,150 +1,123 @@
 {
-	"version": 2,
-	"name": "Friendly Forest",
-	"theme": "volcano",
 	"imported": true,
-	"moves": 52,
-	"time": 145,
-	"terrain": [
-		"####...#####",
-		"##.........#",
-		"##..........",
-		"#.........##",
-		"#.........##",
-		"#.........##",
-		"#..........#",
-		"#..........#",
-		"#......##..#",
-		"#...##.#...#",
-		"#.#..#.#...#",
-		"############"
-	],
 	"items": [
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "crate",
 			"x": 9,
-			"y": 8,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 8
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "crate",
 			"x": 10,
-			"y": 8,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 8
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 8,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 9
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "crate",
 			"x": 9,
-			"y": 9,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 9
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "crate",
 			"x": 10,
-			"y": 9,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 9
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 1,
-			"y": 10,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
+			"y": 10
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "crate",
 			"x": 8,
-			"y": 10,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 10
 		},
 		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "119",
 			"type": "crate",
 			"x": 9,
-			"y": 10,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "119"
+			"y": 10
 		}
 	],
+	"moves": 52,
+	"name": "Friendly Forest",
 	"pipes": [
 		{
-			"x": 10,
-			"y": 10,
+			"mouth": "down",
+			"x": 11,
+			"y": 1
+		},
+		{
+			"mouth": "left",
 			"to": [
 				11,
-				2
+				1
 			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
+			"x": 10,
+			"y": 10
 		}
 	],
-	"teleports": [],
 	"source": {
-		"format": "UZ3",
 		"file": "LEVEL070.UZ3",
-		"number": 70,
+		"format": "UZ3",
+		"number": 70.0,
 		"sha256": "f2055ce6c5034b2bd46c6217d78ea6ffaf9d911d339e363491f657bdebc93a2e"
 	},
-	"skins": [
-		"............",
-		"...........p",
-		"............",
-		"............",
-		"............",
-		"............",
-		"............",
-		"............",
-		"............",
-		"............",
-		"............",
-		"............"
-	]
+	"teleports": [],
+	"terrain": [
+		"-###...#####",
+		"-#..........",
+		"-#..........",
+		"-.........##",
+		"-.........##",
+		"-.........##",
+		"-..........#",
+		"-..........#",
+		"-......##..#",
+		"-...##.#...#",
+		"-.#..#.#...#",
+		"------------"
+	],
+	"theme": "volcano",
+	"time": 145,
+	"version": 2
 }

@@ -78,6 +78,28 @@ func _init() -> void:
 	check(not b.can_move(pl, Board.LEFT), "padlock can't be moved")
 	b.play(ky, Board.RIGHT)
 	check(b.it_cell[pl] < 0 and b.it_cell[ky] < 0 and b.is_won(), "key opens padlock, both disappear")
+	# One key opens all orthogonally adjacent same-color locks, then is consumed.
+	b = Board.new()
+	var center := Board.cell_of(5, 5)
+	var multi_key := b.add_item(ItemDefs.index_of("key_red"), center)
+	var adjacent: Array[int] = []
+	for direction in 4:
+		adjacent.append(b.add_item(ItemDefs.index_of("padlock" if direction % 2 else "cube"), b.step(center, direction), ItemDefs.LockColor.RED))
+	var diagonal := b.add_item(ItemDefs.index_of("cube"), Board.cell_of(4, 4), ItemDefs.LockColor.RED)
+	var unlocks := b._unlock_step()
+	check(unlocks.size() == 4 and b.it_cell[multi_key] == -1, "one key unlocks all four matching neighbors and disappears")
+	for direction in 4:
+		check(b.it_lock[adjacent[direction]] == 0, "neighbor %d is unlocked" % direction)
+		check((b.it_cell[adjacent[direction]] == -1) == (direction % 2 == 1), "only standalone padlocks disappear")
+	check(b.it_lock[diagonal] == ItemDefs.LockColor.RED, "diagonal lock is unaffected")
+	check(b._unlock_step().is_empty(), "consumed key emits no further unlocks")
+	b = Board.new()
+	multi_key = b.add_item(ItemDefs.index_of("key_red"), center)
+	var left_lock := b.add_item(ItemDefs.index_of("cube"), b.step(center, Board.LEFT), ItemDefs.LockColor.RED)
+	var right_lock := b.add_item(ItemDefs.index_of("cube"), b.step(center, Board.RIGHT), ItemDefs.LockColor.RED)
+	var wrong_color := b.add_item(ItemDefs.index_of("cube"), b.step(center, Board.UP), ItemDefs.LockColor.BLUE)
+	check(b._unlock_step().size() == 2 and b.it_lock[left_lock] == 0 and b.it_lock[right_lock] == 0, "key between two locks opens both")
+	check(b.it_lock[wrong_color] == ItemDefs.LockColor.BLUE, "adjacent different-color lock is unaffected")
 	# Contact unlocks before a falling key can drop out of reach.
 	for standalone in [true, false]:
 		b = Board.new()

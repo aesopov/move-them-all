@@ -5,14 +5,14 @@
 [ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="3_l58yy"]
 [ext_resource type="Texture2D" path="res://assets/tiles/waterfall/decor/broken_column.png" id="4_mr6p3"]
 
-[node name="Decor" type="Node2D" unique_id=1389030203]
+[node name="Decor" type="Node2D" unique_id=456196041]
 script = ExtResource("1_27c3u")
 
-[node name="Tube" type="Node2D" parent="." unique_id=1087928947]
+[node name="Tube" type="Node2D" parent="." unique_id=417178835]
 script = ExtResource("2_xtbpk")
 points = PackedVector2Array(480, 320, 480, 256)
 
-[node name="BrokenColumn" type="Node2D" parent="." unique_id=562838696]
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=896722735]
 position = Vector2(512, 512)
 scale = Vector2(2, 2)
 script = ExtResource("3_l58yy")

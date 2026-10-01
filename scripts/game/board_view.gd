@@ -178,7 +178,7 @@ func set_board(b: Board) -> void:
 	board = b
 	_update_size()
 	for n in nodes.values():
-		n.queue_free()
+		_free_item(n)
 	nodes.clear()
 	refresh()
 
@@ -224,12 +224,18 @@ func _process(delta: float) -> void:
 # Model sync
 # ---------------------------------------------------------------------------
 
+## Item and mask share ownership. Leaving the tree can be a reparent, so
+## dispose explicitly instead of using tree_exited as a destruction signal.
+func _free_item(n: ItemNode) -> void:
+	n.get_parent().queue_free()
+
+
 func _sync() -> void:
 	if board == null:
 		return
 	for id in nodes.keys():
 		if id >= board.it_cell.size() or board.it_cell[id] < 0:
-			nodes[id].queue_free()
+			_free_item(nodes[id])
 			nodes.erase(id)
 	for i in board.it_type.size():
 		var c := board.it_cell[i]
@@ -238,9 +244,11 @@ func _sync() -> void:
 		var n: ItemNode = nodes.get(i)
 		if n == null or n.type != board.it_type[i]:
 			if n:
-				n.queue_free()
+				_free_item(n)
 			n = ItemNode.new()
-			items_layer.add_child(n)
+			var clip := Polygon2D.new()
+			items_layer.add_child(clip)
+			clip.add_child(n)
 			nodes[i] = n
 		n.show_goal = editor_mode # goals are hidden in play, shown in the level designer
 		n.match_label = str(board.it_meta[i].get("match_label", "")) if editor_mode or OS.is_debug_build() else ""
@@ -251,6 +259,7 @@ func _sync() -> void:
 		n.scale = Vector2.ONE
 		n.modulate = Color.WHITE
 		n.visible = true
+		_clear_pipe_clip(n)
 
 
 func _compute_groups() -> void:
@@ -506,6 +515,25 @@ func _at(start: float, f: Callable) -> void:
 	_sched.tween_callback(f).set_delay(start)
 
 
+## Mask the whole item (including labels and effects) at the mouth's plane.
+## The mask stays in board coordinates while the item moves beneath it.
+func _set_pipe_clip(n: ItemNode, mouth_center: Vector2, outward: Vector2) -> void:
+	var clip := n.get_parent() as Polygon2D
+	var axis := outward.normalized()
+	var edge := mouth_center + axis * cell * 0.49
+	var reach := cell * (Board.W + Board.H)
+	var side := axis.orthogonal() * reach
+	clip.polygon = PackedVector2Array([edge - side, edge + side,
+		edge + side + axis * reach, edge - side + axis * reach])
+	clip.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
+
+
+func _clear_pipe_clip(n: ItemNode) -> void:
+	var clip := n.get_parent() as Polygon2D
+	clip.clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
+	clip.polygon = PackedVector2Array()
+
+
 ## Schedules one event at time `start`; returns how long the timeline should
 ## wait before the next step may begin.
 func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
@@ -518,11 +546,13 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 			if not auto: tw.tween_callback(func(): Sound.play("move"))
 			var total := 0.0
 			var slide := GameConfig.ANIM_FALL if auto else GameConfig.ANIM_SLIDE
-			for seg in e.path:
+			for segment_index in e.path.size():
+				var seg: Array = e.path[segment_index]
 				var target := center(seg[1])
 				match seg[0]:
 					"slide":
 						tw.tween_property(n, "position", target, slide)
+						tw.tween_callback(func(): _clear_pipe_clip(n))
 						total += slide
 					"tele":
 						tw.tween_callback(func(): Sound.play("teleport"))
@@ -535,14 +565,26 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 						tw.tween_property(n, "scale", Vector2.ONE, GameConfig.ANIM_TELEPORT)
 						total += GameConfig.ANIM_TELEPORT * 2
 					"pipe_in":
-						tw.tween_callback(func(): Sound.play("pipe"))
+						tw.tween_callback(func():
+							Sound.play("pipe")
+							if n.position.is_equal_approx(target):
+								n.hide() # Returning from a landing already inside the tube.
+							else:
+								_set_pipe_clip(n, target, n.position - target))
 						tw.tween_property(n, "position", target, GameConfig.ANIM_PIPE)
 						tw.tween_callback(n.hide)
 						total += GameConfig.ANIM_PIPE
 					"pipe_out":
+						var outward := Vector2.ZERO
+						if segment_index + 1 < e.path.size():
+							outward = center(e.path[segment_index + 1][1]) - target
 						tw.tween_interval(GameConfig.ANIM_PIPE)
 						tw.tween_callback(func():
 							n.position = target
+							if outward != Vector2.ZERO:
+								_set_pipe_clip(n, target, outward)
+							else:
+								_clear_pipe_clip(n)
 							n.show())
 						total += GameConfig.ANIM_PIPE
 			_chain_end(n, start + total)
@@ -559,41 +601,28 @@ func _schedule_event(e: Dictionary, auto: bool, start: float) -> float:
 			# Let the next step (usually items falling into the gap) start while the pop fades.
 			return GameConfig.ANIM_DESTROY * 0.55
 		"unlock":
-			_at(start, func(): Sound.play("unlock"))
 			var item: ItemNode = nodes.get(e.id)
-			var key: ItemNode = nodes.get(e.key)
 			if item == null:
 				return 0.0
+			var key: ItemNode = nodes.get(e.key)
+			var d := GameConfig.ANIM_UNLOCK * 0.6
 			if key:
+				# Consume once; every adjacent lock opens at the same instant.
 				nodes.erase(e.key)
+				_at(start, func(): Sound.play("unlock"))
 				var tw := _chain(key, start)
-				var d := GameConfig.ANIM_UNLOCK * 0.6
-				# Target is where the locked item will be at that moment (it may still be falling).
-				tw.tween_callback(func():
-					var kt := key.create_tween().set_parallel(true)
-					kt.tween_property(key, "position", key.position.lerp(item.position, 0.6), d)
-					kt.tween_property(key, "scale", Vector2(0.4, 0.4), d))
-				tw.tween_interval(d)
-				var opened: bool = e.get("open", false)
-				var id: int = e.id
-				tw.tween_callback(func():
-					Fx.destroy(fx_layer, item.position, ItemDefs.lock_color(item.lock), "key", cell)
-					if opened:
-						_explode(id, "key") # standalone padlock: gone once opened
-					else:
-						item.lock = 0
-						item.queue_redraw()
-					key.queue_free())
+				tw.tween_property(key, "scale", Vector2.ZERO, d)
+				tw.tween_callback(func(): _free_item(key))
 				_chain_end(key, start + d)
-			else:
-				var opened: bool = e.get("open", false)
-				var id: int = e.id
-				_at(start, func():
-					if opened:
-						_explode(id, "key")
-					else:
-						item.lock = 0
-						item.queue_redraw())
+			var opened: bool = e.get("open", false)
+			var id: int = e.id
+			_at(start + d, func():
+				Fx.destroy(fx_layer, item.position, ItemDefs.lock_color(item.lock), "key", cell)
+				if opened:
+					_explode(id, "key")
+				else:
+					item.lock = 0
+					item.queue_redraw())
 			return GameConfig.ANIM_UNLOCK
 		"break":
 			var c: int = e.cell
@@ -630,7 +659,7 @@ func _explode(id: int, cause: String) -> void:
 		tw.tween_property(n, "scale", Vector2(1.3, 1.3), GameConfig.ANIM_DESTROY * 0.35)
 		tw.tween_property(n, "scale", Vector2.ZERO, GameConfig.ANIM_DESTROY * 0.65)
 		tw.parallel().tween_property(n, "modulate:a", 0.0, GameConfig.ANIM_DESTROY * 0.65)
-	tw.tween_callback(n.queue_free)
+	tw.tween_callback(func(): _free_item(n))
 
 
 # ---------------------------------------------------------------------------

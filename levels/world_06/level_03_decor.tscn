@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_ft7ll"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_gp7gd"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/broken_column.png" id="3_fl2nt"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/cargo_long.png" id="4_pogvd"]
+
+[node name="Decor" type="Node2D" unique_id=2070626913]
+script = ExtResource("1_ft7ll")
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=1448372456]
+position = Vector2(384, 256)
+script = ExtResource("2_gp7gd")
+texture = ExtResource("3_fl2nt")
+
+[node name="CargoLong" type="Node2D" parent="." unique_id=1377172803]
+position = Vector2(512, 582.5)
+script = ExtResource("2_gp7gd")
+texture = ExtResource("4_pogvd")
+footprint = Vector2(2, 1)

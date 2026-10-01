@@ -126,26 +126,18 @@
 	"name": "Planned Approach",
 	"pipes": [
 		{
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
 			"mouth": "left",
 			"to": [
-				9,
+				8,
 				6
 			],
 			"x": 3,
 			"y": 6
 		},
 		{
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
 			"mouth": "right",
 			"to": [
-				2,
+				3,
 				6
 			],
 			"x": 8,

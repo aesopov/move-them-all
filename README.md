@@ -67,7 +67,7 @@ Item types (gravity, behaviour) are table rows in [`scripts/core/item_defs.gd`](
 |---|---|
 | `scenes/*.tscn` | Screens: `welcome`, `level_select`, `game`, `level_editor`. Layouts are edited in the Godot editor. |
 | `scenes/components/*.tscn` | Reusable pieces instanced by the screens: `legend_row`, `overlay` (pause/win/lose), `world_row`, `level_button`, `tool_button`. |
-| `ui/theme.tres` | Project-wide theme (`gui/theme/custom`): colours, fonts, button/panel styles, and type variations such as `HeaderLabel`, `DimLabel`, `HudValue`, `TitleLabel`, `BigButton`, `ToolButton`, `OverlayPanel`. |
+| `ui/theme.tres` | Project-wide runtime theme (loaded by `App._ready()` after the scene tree exists): colours, fonts, button/panel styles, and type variations such as `HeaderLabel`, `DimLabel`, `HudValue`, `TitleLabel`, `BigButton`, `ToolButton`, `OverlayPanel`. |
 | `scripts/core/board.gd` | The rules engine. Pure data, no nodes. `play()` returns animation steps. |
 | `scripts/game/` | Board view and animation, item art, effects, world themes and backdrops, game screen logic. |
 | `scripts/editor/level_editor.gd` | Level designer logic. |

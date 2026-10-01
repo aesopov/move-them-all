@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_4j0cn"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_jf6ay"]
+[ext_resource type="Texture2D" path="res://assets/tiles/volcano/decor/broken_column.png" id="3_amxem"]
+
+[node name="Decor" type="Node2D" unique_id=1545797875]
+script = ExtResource("1_4j0cn")
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=950883010]
+position = Vector2(292, 292)
+script = ExtResource("2_jf6ay")
+texture = ExtResource("3_amxem")
+footprint = Vector2(3, 3)

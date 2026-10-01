@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_3k20q"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_cmrxu"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/fallen_log.png" id="3_i4q32"]
+
+[node name="Decor" type="Node2D" unique_id=760794479]
+script = ExtResource("1_3k20q")
+
+[node name="FallenLog" type="Node2D" parent="." unique_id=406228413]
+position = Vector2(146.5, 320.75)
+rotation = 1.5707964
+script = ExtResource("2_cmrxu")
+texture = ExtResource("3_i4q32")
+footprint = Vector2(2, 1)
+
+[node name="FallenLog3" type="Node2D" parent="." unique_id=12101142]
+position = Vector2(245, 320.75)
+rotation = 1.5707964
+script = ExtResource("2_cmrxu")
+texture = ExtResource("3_i4q32")
+footprint = Vector2(2, 1)
+
+[node name="FallenLog2" type="Node2D" parent="." unique_id=2286111]
+position = Vector2(96.25, 430.75)
+script = ExtResource("2_cmrxu")
+texture = ExtResource("3_i4q32")
+footprint = Vector2(2, 1)

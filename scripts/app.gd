@@ -46,6 +46,11 @@ var _frame := 0
 
 
 func _ready() -> void:
+	# Scripted styles cannot be loaded through gui/theme/custom: the debugger
+	# polls them before SceneTree exists (Godot issue #111656).
+	# Merge after startup so all controls retain the global theme fallback,
+	# including popups and controls with a partial theme of their own.
+	ThemeDB.get_default_theme().merge_with(load("res://ui/theme.tres"))
 	get_window().size_changed.connect(_update_ui_scale)
 	_update_ui_scale()
 	Platform.purchases_changed.connect(func():

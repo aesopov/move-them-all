@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_yqnku"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_c86jg"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/relic_tall.png" id="3_yr0yr"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/mechanism.png" id="4_yr0yr"]
+
+[node name="Decor" type="Node2D" unique_id=1836852160]
+script = ExtResource("1_yqnku")
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=1579085738]
+position = Vector2(0, 192)
+script = ExtResource("2_c86jg")
+texture = ExtResource("3_yr0yr")
+footprint = Vector2(1, 2)
+
+[node name="Mechanism" type="Node2D" parent="." unique_id=1410037577]
+position = Vector2(256, 448)
+script = ExtResource("2_c86jg")
+texture = ExtResource("4_yr0yr")

@@ -1,10 +1,210 @@
 {
-	"version": 2,
-	"name": "Coastal Finale",
-	"theme": "volcano",
 	"imported": true,
-	"moves": 20,
-	"time": 240,
+	"items": [
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 2,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 3,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 4,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "green",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 5,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"lock": "green",
+			"match_group": 0,
+			"source_sprite": "300",
+			"type": "key_red",
+			"x": 0,
+			"y": 2
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "200",
+			"type": "cube",
+			"x": 4,
+			"y": 5
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "200",
+			"type": "cube",
+			"x": 4,
+			"y": 7
+		},
+		{
+			"destructible": false,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "302",
+			"type": "key_green",
+			"x": 5,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "none",
+			"match_group": 3,
+			"match_label": "3",
+			"source_sprite": "200",
+			"type": "cube",
+			"x": 6,
+			"y": 7
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "red",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 11,
+			"y": 7
+		},
+		{
+			"destructible": false,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "302",
+			"type": "key_green",
+			"x": 5,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 11,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 11,
+			"y": 9
+		}
+	],
+	"moves": 130,
+	"name": "Coastal Finale",
+	"pipes": [
+		{
+			"mouth": "right",
+			"to": [
+				2,
+				5
+			],
+			"x": 5,
+			"y": 2
+		},
+		{
+			"mouth": "down",
+			"to": [
+				5,
+				2
+			],
+			"x": 2,
+			"y": 5
+		},
+		{
+			"mouth": "right",
+			"ports": [
+				"right",
+				"down"
+			],
+			"to": [
+				6,
+				9
+			],
+			"x": 9,
+			"y": 6
+		},
+		{
+			"mouth": "left",
+			"to": [
+				9,
+				6
+			],
+			"x": 6,
+			"y": 9
+		}
+	],
+	"skins": [
+		"............",
+		"............",
+		"...pp.......",
+		"..p.........",
+		"..p.........",
+		"............",
+		"............",
+		".........p..",
+		".........p..",
+		".......pp...",
+		"............",
+		"............"
+	],
+	"source": {
+		"file": "LEVEL065.UZ3",
+		"format": "UZ3",
+		"number": 65.0,
+		"sha256": "df682ce2eef44f61e5dc803bc3e520fad01a2cb17524334540d9a9a78b1044c7"
+	},
+	"teleports": [],
 	"terrain": [
 		"##..........",
 		"#####.......",
@@ -19,235 +219,7 @@
 		".......#####",
 		"llllllllllll"
 	],
-	"items": [
-		{
-			"type": "weight_red",
-			"x": 2,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 3,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
-		},
-		{
-			"type": "weight_red",
-			"x": 4,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
-		},
-		{
-			"type": "padlock",
-			"x": 5,
-			"y": 0,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "green"
-		},
-		{
-			"type": "key_red",
-			"x": 0,
-			"y": 2,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "300",
-			"lock": "green"
-		},
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 5,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "200",
-			"match_label": "3"
-		},
-		{
-			"type": "cube",
-			"x": 4,
-			"y": 7,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "200",
-			"match_label": "3"
-		},
-		{
-			"type": "key_green",
-			"x": 5,
-			"y": 7,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "302"
-		},
-		{
-			"type": "cube",
-			"x": 6,
-			"y": 7,
-			"aim": true,
-			"gravity": "none",
-			"movable": true,
-			"destructible": true,
-			"match_group": 3,
-			"source_sprite": "200",
-			"match_label": "3"
-		},
-		{
-			"type": "padlock",
-			"x": 11,
-			"y": 7,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "red"
-		},
-		{
-			"type": "key_green",
-			"x": 5,
-			"y": 8,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "302"
-		},
-		{
-			"type": "weight_red",
-			"x": 11,
-			"y": 8,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 11,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
-		}
-	],
-	"pipes": [
-		{
-			"x": 5,
-			"y": 2,
-			"to": [
-				2,
-				6
-			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
-		},
-		{
-			"x": 2,
-			"y": 5,
-			"to": [
-				6,
-				2
-			],
-			"destination": "cell",
-			"enter": [
-				"down"
-			],
-			"mouth": "up"
-		},
-		{
-			"x": 9,
-			"y": 6,
-			"to": [
-				5,
-				9
-			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
-		},
-		{
-			"x": 6,
-			"y": 9,
-			"to": [
-				10,
-				6
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		}
-	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL065.UZ3",
-		"number": 65,
-		"sha256": "df682ce2eef44f61e5dc803bc3e520fad01a2cb17524334540d9a9a78b1044c7"
-	},
-	"skins": [
-		"............",
-		"............",
-		"...pp.......",
-		"..p.........",
-		"..p.........",
-		"............",
-		"............",
-		".........p..",
-		".........p..",
-		".......pp...",
-		"............",
-		"............"
-	]
+	"theme": "volcano",
+	"time": 240,
+	"version": 2
 }

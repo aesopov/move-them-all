@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_x3ehu"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_8gxl4"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/support_platform.png" id="3_nni0e"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/relic_small.png" id="4_d74bi"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/barricade.png" id="5_nni0e"]
+
+[node name="Decor" type="Node2D" unique_id=475824592]
+script = ExtResource("1_x3ehu")
+
+[node name="SupportPlatform" type="Node2D" parent="." unique_id=1989895541]
+position = Vector2(128, 181)
+script = ExtResource("2_8gxl4")
+texture = ExtResource("3_nni0e")
+footprint = Vector2(2, 1)
+
+[node name="SupportPlatform2" type="Node2D" parent="." unique_id=1664384147]
+position = Vector2(128, 308.75)
+script = ExtResource("2_8gxl4")
+texture = ExtResource("3_nni0e")
+footprint = Vector2(2, 1)
+
+[node name="SupportPlatform3" type="Node2D" parent="." unique_id=1994193170]
+position = Vector2(128, 436)
+script = ExtResource("2_8gxl4")
+texture = ExtResource("3_nni0e")
+footprint = Vector2(2, 1)
+
+[node name="RelicSmall" type="Node2D" parent="." unique_id=732962455]
+position = Vector2(512, 192)
+script = ExtResource("2_8gxl4")
+texture = ExtResource("4_d74bi")
+
+[node name="Barricade" type="Node2D" parent="." unique_id=1684955844]
+position = Vector2(448, 0)
+script = ExtResource("2_8gxl4")
+texture = ExtResource("5_nni0e")
+footprint = Vector2(2, 1)

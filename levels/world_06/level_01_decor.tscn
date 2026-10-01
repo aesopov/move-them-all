@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_a7j1i"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_2oqtw"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ruins/decor/support_platform.png" id="3_3ndoe"]
+
+[node name="Decor" type="Node2D" unique_id=336094122]
+script = ExtResource("1_a7j1i")
+
+[node name="SupportPlatform" type="Node2D" parent="." unique_id=1984943472]
+position = Vector2(128, 375.25)
+scale = Vector2(1, 1.04)
+script = ExtResource("2_2oqtw")
+texture = ExtResource("3_3ndoe")
+footprint = Vector2(2, 1)

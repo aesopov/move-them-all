@@ -630,6 +630,7 @@ func _unlock_step() -> Array:
 		if it_cell[k] < 0 or it_lock[k] != 0 or ItemDefs.kind(it_type[k]) != ItemDefs.Kind.KEY:
 			continue
 		var col := ItemDefs.key_color(it_type[k])
+		var unlocked := false
 		for d in 4:
 			var nb := step(it_cell[k], d)
 			if nb < 0:
@@ -639,10 +640,11 @@ func _unlock_step() -> Array:
 				it_lock[j] = 0
 				var padlock := ItemDefs.kind(it_type[j]) == ItemDefs.Kind.PADLOCK
 				ev.append({"e": "unlock", "id": j, "key": k, "open": padlock})
-				_kill(k, "key", ev, false)
+				unlocked = true
 				if padlock: # a standalone lock disappears once opened
 					_kill(j, "key", ev, false)
-				break
+		if unlocked:
+			_kill(k, "key", ev, false)
 	return ev
 
 

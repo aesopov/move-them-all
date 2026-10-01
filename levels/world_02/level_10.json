@@ -121,60 +121,44 @@
 	"name": "Pipes n' Locks I",
 	"pipes": [
 		{
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
 			"mouth": "left",
 			"to": [
-				11,
+				10,
 				8
 			],
 			"x": 4,
 			"y": 1
 		},
 		{
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
 			"mouth": "left",
 			"ports": [
 				"down",
 				"left"
 			],
 			"to": [
-				9,
+				8,
 				10
 			],
 			"x": 2,
 			"y": 3
 		},
 		{
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
 			"mouth": "right",
 			"ports": [
 				"up",
 				"right"
 			],
 			"to": [
-				3,
+				4,
 				1
 			],
 			"x": 10,
 			"y": 8
 		},
 		{
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
 			"mouth": "right",
 			"to": [
-				1,
+				2,
 				3
 			],
 			"x": 8,

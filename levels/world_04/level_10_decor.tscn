@@ -1,102 +1,102 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_kifo2"]
-[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_4hxbh"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/slab_1x05.png" id="3_5532n"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/corner_cut.png" id="4_xgxve"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/broken_arch.png" id="5_5532n"]
-[ext_resource type="Texture2D" path="res://assets/teleports/teleport_base.png" id="6_xgxve"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/fallen_log.png" id="7_xgxve"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/rubble.png" id="8_aasiy"]
-[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/broken_column.png" id="9_0a846"]
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_aasiy"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_0a846"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/slab_1x05.png" id="3_tesus"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/corner_cut.png" id="4_udu5y"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/broken_arch.png" id="5_rfhuh"]
+[ext_resource type="Texture2D" path="res://assets/teleports/teleport_base.png" id="6_2jyue"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/fallen_log.png" id="7_lk354"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/rubble.png" id="8_gbthv"]
+[ext_resource type="Texture2D" path="res://assets/tiles/ice/decor/broken_column.png" id="9_rtp15"]
 
-[node name="Decor" type="Node2D" unique_id=757641042]
-script = ExtResource("1_kifo2")
+[node name="Decor" type="Node2D" unique_id=1882624752]
+script = ExtResource("1_aasiy")
 
-[node name="Slab1x05" type="Node2D" parent="." unique_id=1569599855]
+[node name="Slab1x05" type="Node2D" parent="." unique_id=296142053]
 position = Vector2(256, 192)
 scale = Vector2(1, 1.24)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("3_5532n")
+script = ExtResource("2_0a846")
+texture = ExtResource("3_tesus")
 footprint = Vector2(1, 0.5)
 
-[node name="Slab1x06" type="Node2D" parent="." unique_id=14853035]
+[node name="Slab1x06" type="Node2D" parent="." unique_id=1861131642]
 position = Vector2(386.75, 256)
 rotation = 1.5707964
 scale = Vector2(1, 1.32)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("3_5532n")
+script = ExtResource("2_0a846")
+texture = ExtResource("3_tesus")
 footprint = Vector2(1, 0.5)
 
-[node name="Slab1x07" type="Node2D" parent="." unique_id=946651296]
+[node name="Slab1x07" type="Node2D" parent="." unique_id=1150372602]
 position = Vector2(256, 347.25)
 scale = Vector2(1, 1.38)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("3_5532n")
+script = ExtResource("2_0a846")
+texture = ExtResource("3_tesus")
 footprint = Vector2(1, 0.5)
 
-[node name="Slab1x08" type="Node2D" parent="." unique_id=1789172484]
+[node name="Slab1x08" type="Node2D" parent="." unique_id=2082852190]
 position = Vector2(227.5, 256)
 rotation = 1.5707964
 scale = Vector2(1, 1.24)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("3_5532n")
+script = ExtResource("2_0a846")
+texture = ExtResource("3_tesus")
 footprint = Vector2(1, 0.5)
 
-[node name="CornerCut" type="Node2D" parent="." unique_id=605979266]
+[node name="CornerCut" type="Node2D" parent="." unique_id=1062288931]
 position = Vector2(192, 320)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("4_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("4_udu5y")
 
-[node name="CornerCut2" type="Node2D" parent="." unique_id=1447234473]
+[node name="CornerCut2" type="Node2D" parent="." unique_id=1120520145]
 position = Vector2(256, 192)
 rotation = 1.5707964
-script = ExtResource("2_4hxbh")
-texture = ExtResource("4_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("4_udu5y")
 
-[node name="CornerCut3" type="Node2D" parent="." unique_id=1063745403]
+[node name="CornerCut3" type="Node2D" parent="." unique_id=1618683925]
 position = Vector2(384.5, 255.25)
 rotation = 3.1415927
-script = ExtResource("2_4hxbh")
-texture = ExtResource("4_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("4_udu5y")
 
-[node name="CornerCut4" type="Node2D" parent="." unique_id=1254945921]
+[node name="CornerCut4" type="Node2D" parent="." unique_id=1286245252]
 position = Vector2(321, 383.25)
 rotation = 4.712389
-script = ExtResource("2_4hxbh")
-texture = ExtResource("4_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("4_udu5y")
 
-[node name="BrokenArch" type="Node2D" parent="." unique_id=1702637588]
+[node name="BrokenArch" type="Node2D" parent="." unique_id=1798961478]
 position = Vector2(224, 224)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("5_5532n")
+script = ExtResource("2_0a846")
+texture = ExtResource("5_rfhuh")
 footprint = Vector2(2, 2)
 
-[node name="TeleportBase" type="Node2D" parent="." unique_id=351190164]
+[node name="TeleportBase" type="Node2D" parent="." unique_id=2091353558]
 modulate = Color(0.7157445, 0.9331899, 1, 1)
 position = Vector2(256, 64)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("6_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("6_2jyue")
 
-[node name="TeleportBase2" type="Node2D" parent="." unique_id=573664416]
+[node name="TeleportBase2" type="Node2D" parent="." unique_id=461290748]
 modulate = Color(0.7176471, 0.93333334, 1, 1)
 position = Vector2(704, 512)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("6_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("6_2jyue")
 
-[node name="FallenLog" type="Node2D" parent="." unique_id=242119800]
+[node name="FallenLog" type="Node2D" parent="." unique_id=2026190975]
 position = Vector2(544.25, 13.25)
 rotation = 0.034906585
-script = ExtResource("2_4hxbh")
-texture = ExtResource("7_xgxve")
+script = ExtResource("2_0a846")
+texture = ExtResource("7_lk354")
 footprint = Vector2(2, 1)
 
-[node name="Rubble" type="Node2D" parent="." unique_id=1641453271]
+[node name="Rubble" type="Node2D" parent="." unique_id=61873027]
 position = Vector2(64, 640)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("8_aasiy")
+script = ExtResource("2_0a846")
+texture = ExtResource("8_gbthv")
 
-[node name="BrokenColumn" type="Node2D" parent="." unique_id=161034138]
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=1345304878]
 position = Vector2(64, 192)
-script = ExtResource("2_4hxbh")
-texture = ExtResource("9_0a846")
+script = ExtResource("2_0a846")
+texture = ExtResource("9_rtp15")

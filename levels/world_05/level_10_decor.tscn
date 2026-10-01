@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_1qsj7"]
 
-[node name="Decor" type="Node2D" unique_id=466336759]
+[node name="Decor" type="Node2D" unique_id=177920204]
 script = ExtResource("1_1qsj7")

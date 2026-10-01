@@ -72,21 +72,11 @@
 	"name": "The Upper Chamber",
 	"pipes": [
 		{
-			"landing": true,
-			"mouth": "down",
-			"ports": [
-				"up",
-				"right"
-			],
+			"mouth": "up",
 			"to": [
 				7,
 				5
 			],
-			"x": 7,
-			"y": 3
-		},
-		{
-			"mouth": "up",
 			"x": 7,
 			"y": 4
 		},
@@ -94,7 +84,7 @@
 			"mouth": "down",
 			"to": [
 				7,
-				3
+				4
 			],
 			"x": 7,
 			"y": 5

@@ -1,0 +1,36 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_iuiru"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_rvqy0"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/mechanism.png" id="3_eqetf"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/relic_small.png" id="4_v45io"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/broken_column.png" id="5_raj0a"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/rubble.png" id="6_eqetf"]
+
+[node name="Decor" type="Node2D" unique_id=207644040]
+script = ExtResource("1_iuiru")
+
+[node name="Mechanism" type="Node2D" parent="." unique_id=57077539]
+position = Vector2(128, 128)
+script = ExtResource("2_rvqy0")
+texture = ExtResource("3_eqetf")
+
+[node name="RelicSmall" type="Node2D" parent="." unique_id=1873391777]
+position = Vector2(448, 320)
+script = ExtResource("2_rvqy0")
+texture = ExtResource("4_v45io")
+
+[node name="BrokenColumn" type="Node2D" parent="." unique_id=416421476]
+position = Vector2(640, 0)
+script = ExtResource("2_rvqy0")
+texture = ExtResource("5_raj0a")
+
+[node name="Rubble" type="Node2D" parent="." unique_id=856381909]
+position = Vector2(256, 704)
+script = ExtResource("2_rvqy0")
+texture = ExtResource("6_eqetf")
+
+[node name="Rubble2" type="Node2D" parent="." unique_id=494133549]
+position = Vector2(0, 704)
+script = ExtResource("2_rvqy0")
+texture = ExtResource("6_eqetf")

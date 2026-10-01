@@ -1,127 +1,92 @@
 {
-	"version": 2,
-	"name": "Rainbow of Problems II",
-	"theme": "volcano",
 	"imported": true,
-	"moves": 20,
-	"time": 210,
-	"terrain": [
-		"............",
-		"............",
-		"..########..",
-		"..#......#..",
-		"..#......#..",
-		"..#......#..",
-		"..#......#..",
-		"###......###",
-		"............",
-		"............",
-		"..########..",
-		".....##....."
-	],
 	"items": [
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "122",
 			"type": "mover_green",
 			"x": 6,
-			"y": 4,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "122"
+			"y": 4
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "122",
 			"type": "mover_green",
 			"x": 5,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "122"
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 6,
-			"y": 5,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
+			"y": 5
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "122",
 			"type": "mover_green",
 			"x": 6,
-			"y": 6,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "122"
+			"y": 6
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 2,
-			"y": 11,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "207",
-			"match_label": "1"
+			"y": 11
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 4,
-			"y": 11,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "207",
-			"match_label": "1"
+			"y": 11
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 7,
-			"y": 11,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "207",
-			"match_label": "1"
+			"y": 11
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "bubble",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "207",
 			"type": "balloon",
 			"x": 9,
-			"y": 11,
-			"aim": true,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "207",
-			"match_label": "1"
+			"y": 11
 		}
 	],
+	"moves": 60,
+	"name": "Rainbow of Problems II",
 	"pipes": [],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL063.UZ3",
-		"number": 63,
-		"sha256": "1121679f985192d1fe00f57f05668900b75865a9aba9a14ceedf3a79252c390f"
-	},
 	"skins": [
 		"............",
 		"............",
@@ -135,5 +100,29 @@
 		"............",
 		"............",
 		"............"
-	]
+	],
+	"source": {
+		"file": "LEVEL063.UZ3",
+		"format": "UZ3",
+		"number": 63.0,
+		"sha256": "1121679f985192d1fe00f57f05668900b75865a9aba9a14ceedf3a79252c390f"
+	},
+	"teleports": [],
+	"terrain": [
+		"------------",
+		"------------",
+		"--########--",
+		"--#......#--",
+		"--#......#--",
+		"--#......#--",
+		"--#......#--",
+		"-##......##-",
+		"-..........-",
+		"-..........-",
+		"-.########.-",
+		"-....##....-"
+	],
+	"theme": "volcano",
+	"time": 210,
+	"version": 2
 }

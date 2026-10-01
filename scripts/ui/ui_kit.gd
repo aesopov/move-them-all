@@ -1,7 +1,7 @@
 class_name UiKit
 extends RefCounted
 ## Shared UI colours and helpers for code that styles things at runtime.
-## The editable look lives in res://ui/theme.tres (project default theme).
+## The editable look lives in res://ui/theme.tres (installed globally by App at startup).
 
 const BG := Color(0.055, 0.082, 0.145)
 const PANEL := Color(0.085, 0.13, 0.215, 0.94)

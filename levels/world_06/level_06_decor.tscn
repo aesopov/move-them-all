@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_uy07w"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_2guh4"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/broken_arch.png" id="3_2lut2"]
+
+[node name="Decor" type="Node2D" unique_id=1110770889]
+script = ExtResource("1_uy07w")
+
+[node name="BrokenArch" type="Node2D" parent="." unique_id=186221349]
+position = Vector2(384, 448)
+script = ExtResource("2_2guh4")
+texture = ExtResource("3_2lut2")
+footprint = Vector2(2, 2)

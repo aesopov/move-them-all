@@ -1,10 +1,121 @@
 {
-	"version": 2,
-	"name": "Forbidden Touch",
-	"theme": "cave",
 	"imported": true,
+	"items": [
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 0,
+			"y": 1
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 2,
+			"y": 1
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 5,
+			"y": 3
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "109",
+			"type": "block_blue",
+			"x": 9,
+			"y": 5
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "109",
+			"type": "block_blue",
+			"x": 8,
+			"y": 6
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "109",
+			"type": "block_blue",
+			"x": 10,
+			"y": 6
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 9,
+			"y": 10
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 10,
+			"y": 10
+		}
+	],
 	"moves": 20,
-	"time": 180,
+	"name": "Forbidden Touch",
+	"pipes": [],
+	"source": {
+		"file": "LEVEL059.UZ3",
+		"format": "UZ3",
+		"number": 59.0,
+		"sha256": "c3429a95a814d8493e17cd7634a2f9f3c66c9ae8e8af6591c8783e2600382090"
+	},
+	"teleports": [
+		{
+			"strict": true,
+			"to": [
+				8,
+				10
+			],
+			"x": 9,
+			"y": 0
+		},
+		{
+			"strict": true,
+			"to": [
+				9,
+				0
+			],
+			"x": 8,
+			"y": 10
+		}
+	],
 	"terrain": [
 		"########....",
 		".....###....",
@@ -19,129 +130,7 @@
 		"wwwwwww#...#",
 		"wwwwwww#####"
 	],
-	"items": [
-		{
-			"type": "weight",
-			"x": 0,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 2,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 5,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "block_blue",
-			"x": 9,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "109",
-			"match_label": "11"
-		},
-		{
-			"type": "block_blue",
-			"x": 8,
-			"y": 6,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "109",
-			"match_label": "11"
-		},
-		{
-			"type": "block_blue",
-			"x": 10,
-			"y": 6,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "109",
-			"match_label": "11"
-		},
-		{
-			"type": "weight",
-			"x": 9,
-			"y": 10,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 10,
-			"y": 10,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		}
-	],
-	"pipes": [],
-	"teleports": [
-		{
-			"x": 9,
-			"y": 0,
-			"to": [
-				8,
-				10
-			],
-			"strict": true
-		},
-		{
-			"x": 8,
-			"y": 10,
-			"to": [
-				9,
-				0
-			],
-			"strict": true
-		}
-	],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL059.UZ3",
-		"number": 59,
-		"sha256": "c3429a95a814d8493e17cd7634a2f9f3c66c9ae8e8af6591c8783e2600382090"
-	}
+	"theme": "cave",
+	"time": 180,
+	"version": 2
 }

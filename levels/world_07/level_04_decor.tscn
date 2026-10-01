@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_s1ec7"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_px3ka"]
+[ext_resource type="Texture2D" path="res://assets/tiles/cave/decor/support_platform_small.png" id="3_8jxmh"]
+
+[node name="Decor" type="Node2D" unique_id=1747762290]
+script = ExtResource("1_s1ec7")
+
+[node name="SupportPlatformSmall" type="Node2D" parent="." unique_id=1738367703]
+position = Vector2(64, 128)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall2" type="Node2D" parent="." unique_id=1417796429]
+position = Vector2(64, 256)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall3" type="Node2D" parent="." unique_id=650079155]
+position = Vector2(64, 384)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall4" type="Node2D" parent="." unique_id=1997304557]
+position = Vector2(192, 128)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall5" type="Node2D" parent="." unique_id=1279994809]
+position = Vector2(192, 256)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall6" type="Node2D" parent="." unique_id=1386737961]
+position = Vector2(192, 384)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall7" type="Node2D" parent="." unique_id=1536628321]
+position = Vector2(640, 320)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall8" type="Node2D" parent="." unique_id=1938695075]
+position = Vector2(640, 448)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall9" type="Node2D" parent="." unique_id=432811016]
+position = Vector2(640, 576)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall10" type="Node2D" parent="." unique_id=762193103]
+position = Vector2(640, 704)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall11" type="Node2D" parent="." unique_id=1973409428]
+position = Vector2(192, 512)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+
+[node name="SupportPlatformSmall12" type="Node2D" parent="." unique_id=1861481470]
+position = Vector2(64, 512)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall13" type="Node2D" parent="." unique_id=1380865132]
+position = Vector2(512, 320)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall14" type="Node2D" parent="." unique_id=429951615]
+position = Vector2(512, 448)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall15" type="Node2D" parent="." unique_id=760316721]
+position = Vector2(512, 576)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true
+
+[node name="SupportPlatformSmall16" type="Node2D" parent="." unique_id=934653952]
+position = Vector2(512, 704)
+script = ExtResource("2_px3ka")
+texture = ExtResource("3_8jxmh")
+flip_horizontal = true

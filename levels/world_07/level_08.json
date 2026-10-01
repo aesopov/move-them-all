@@ -1,10 +1,198 @@
 {
-	"version": 2,
-	"name": "Leapfrog",
-	"theme": "volcano",
 	"imported": true,
-	"moves": 20,
-	"time": 270,
+	"items": [
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 4,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 5,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 6,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 7,
+			"y": 0
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 8,
+			"y": 0
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "green",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 9,
+			"y": 5
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "red",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 7,
+			"y": 6
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"lock": "green",
+			"match_group": 0,
+			"movable": false,
+			"source_sprite": "non",
+			"type": "padlock",
+			"x": 5,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 3,
+			"y": 10
+		},
+		{
+			"destructible": false,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "302",
+			"type": "key_green",
+			"x": 2,
+			"y": 11
+		},
+		{
+			"destructible": false,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "300",
+			"type": "key_red",
+			"x": 3,
+			"y": 11
+		},
+		{
+			"destructible": false,
+			"gravity": "bubble",
+			"match_group": 0,
+			"source_sprite": "302",
+			"type": "key_green",
+			"x": 4,
+			"y": 11
+		}
+	],
+	"moves": 73,
+	"name": "Leapfrog",
+	"pipes": [
+		{
+			"mouth": "left",
+			"to": [
+				10,
+				0
+			],
+			"x": 9,
+			"y": 0
+		},
+		{
+			"mouth": "right",
+			"to": [
+				9,
+				0
+			],
+			"x": 10,
+			"y": 0
+		},
+		{
+			"mouth": "down",
+			"to": [
+				1,
+				10
+			],
+			"x": 10,
+			"y": 5
+		},
+		{
+			"mouth": "left",
+			"ports": [
+				"down",
+				"left"
+			],
+			"to": [
+				10,
+				5
+			],
+			"x": 1,
+			"y": 10
+		}
+	],
+	"skins": [
+		"............",
+		".....pppp...",
+		"............",
+		"..........pp",
+		"..........p.",
+		"............",
+		"............",
+		"............",
+		"..pp........",
+		"............",
+		"..........p.",
+		".p........p."
+	],
+	"source": {
+		"file": "LEVEL068.UZ3",
+		"format": "UZ3",
+		"number": 68.0,
+		"sha256": "0ee2b942c88e609668b6fbb394c4af962e1736e8af4e611e67737cef21a9c9c2"
+	},
+	"teleports": [],
 	"terrain": [
 		"............",
 		"....######..",
@@ -19,235 +207,7 @@
 		"..#.#.....#l",
 		"##...#....#l"
 	],
-	"items": [
-		{
-			"type": "weight_red",
-			"x": 4,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "weight",
-			"x": 5,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 6,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "weight",
-			"x": 7,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 8,
-			"y": 0,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "padlock",
-			"x": 9,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "green"
-		},
-		{
-			"type": "padlock",
-			"x": 7,
-			"y": 6,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "red"
-		},
-		{
-			"type": "padlock",
-			"x": 5,
-			"y": 7,
-			"aim": false,
-			"gravity": "none",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "non",
-			"lock": "green"
-		},
-		{
-			"type": "weight_red",
-			"x": 3,
-			"y": 10,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "key_green",
-			"x": 2,
-			"y": 11,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "302"
-		},
-		{
-			"type": "key_red",
-			"x": 3,
-			"y": 11,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "300"
-		},
-		{
-			"type": "key_green",
-			"x": 4,
-			"y": 11,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "302"
-		}
-	],
-	"pipes": [
-		{
-			"x": 9,
-			"y": 0,
-			"to": [
-				11,
-				0
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		},
-		{
-			"x": 10,
-			"y": 0,
-			"to": [
-				11,
-				0
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		},
-		{
-			"x": 11,
-			"y": 0,
-			"to": [
-				8,
-				0
-			],
-			"destination": "cell",
-			"enter": [
-				"down"
-			],
-			"mouth": "up"
-		},
-		{
-			"x": 10,
-			"y": 5,
-			"to": [
-				0,
-				10
-			],
-			"destination": "cell",
-			"enter": [
-				"down"
-			],
-			"mouth": "up"
-		},
-		{
-			"x": 1,
-			"y": 10,
-			"to": [
-				10,
-				6
-			],
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
-			"mouth": "left"
-		}
-	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL068.UZ3",
-		"number": 68,
-		"sha256": "0ee2b942c88e609668b6fbb394c4af962e1736e8af4e611e67737cef21a9c9c2"
-	},
-	"skins": [
-		"............",
-		".....pppp...",
-		"....p.......",
-		"pppp......pp",
-		"..........p.",
-		"........p...",
-		"......p.....",
-		"....p.......",
-		"..pp........",
-		"............",
-		"..........p.",
-		".p........p."
-	]
+	"theme": "volcano",
+	"time": 270,
+	"version": 2
 }

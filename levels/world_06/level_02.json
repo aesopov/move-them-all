@@ -1,167 +1,104 @@
 {
-	"version": 2,
-	"name": "Orbit II",
-	"theme": "cave",
 	"imported": true,
-	"moves": 51,
-	"time": 150,
-	"terrain": [
-		"###...######",
-		"###.#......#",
-		"##..#####..#",
-		".##.##.....#",
-		".####.....##",
-		"##.........#",
-		"#...##......",
-		"#....#......",
-		"##..##......",
-		"w##.#.....#.",
-		"wwwwwwwwww#.",
-		"wwwwwwwwww#."
-	],
 	"items": [
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 5,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
+			"y": 1
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
 			"type": "weight_red",
 			"x": 6,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
+			"y": 1
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "205",
 			"type": "weight",
 			"x": 7,
-			"y": 1,
+			"y": 1
+		},
+		{
 			"aim": true,
-			"gravity": "fall",
-			"movable": true,
 			"destructible": true,
+			"gravity": "fall",
 			"match_group": 2,
+			"match_label": "2",
 			"source_sprite": "205",
-			"match_label": "2"
-		},
-		{
-			"type": "crate",
-			"x": 0,
-			"y": 3,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": false,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "509"
-		},
-		{
 			"type": "weight",
 			"x": 3,
-			"y": 3,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "205",
-			"match_label": "2"
+			"y": 3
 		},
 		{
-			"type": "crate",
-			"x": 0,
-			"y": 4,
-			"aim": false,
-			"gravity": "bubble",
-			"movable": false,
 			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "509"
-		},
-		{
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "110",
 			"type": "block_blue",
 			"x": 6,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "110",
-			"match_label": "11"
+			"y": 5
 		},
 		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 11,
+			"match_label": "11",
+			"source_sprite": "110",
 			"type": "block_blue",
 			"x": 8,
-			"y": 5,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 11,
-			"source_sprite": "110",
-			"match_label": "11"
+			"y": 5
 		},
 		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "206",
 			"type": "weight_red",
 			"x": 11,
-			"y": 11,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "206",
-			"match_label": "1"
+			"y": 11
 		}
 	],
+	"moves": 51,
+	"name": "Orbit II",
 	"pipes": [
 		{
-			"x": 2,
-			"y": 2,
+			"mouth": "right",
 			"to": [
-				3,
+				2,
 				5
 			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
+			"x": 2,
+			"y": 2
 		},
 		{
-			"x": 2,
-			"y": 5,
+			"mouth": "right",
 			"to": [
-				3,
+				2,
 				2
 			],
-			"destination": "cell",
-			"enter": [
-				"left"
-			],
-			"mouth": "right"
+			"x": 2,
+			"y": 5
 		}
 	],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL052.UZ3",
-		"number": 52,
-		"sha256": "b720678868581b5f755091254a8e0e0137a26c315b22a7e2ebe3b7997541018a"
-	},
 	"skins": [
 		"............",
 		"............",
@@ -175,5 +112,29 @@
 		"............",
 		"............",
 		"............"
-	]
+	],
+	"source": {
+		"file": "LEVEL052.UZ3",
+		"format": "UZ3",
+		"number": 52.0,
+		"sha256": "b720678868581b5f755091254a8e0e0137a26c315b22a7e2ebe3b7997541018a"
+	},
+	"teleports": [],
+	"terrain": [
+		"###...######",
+		"###.#......#",
+		"##..#####..#",
+		".##.##.....#",
+		".####.....##",
+		"##.........#",
+		"#...##......",
+		"#....#......",
+		"##..##......",
+		"###.#.....#.",
+		"llllllllll#.",
+		"llllllllll#."
+	],
+	"theme": "cave",
+	"time": 150,
+	"version": 2
 }

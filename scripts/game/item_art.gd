@@ -4,15 +4,28 @@ extends RefCounted
 ## scaled by `s` (the cell size), so it stays crisp at any resolution.
 
 
+## Cache visible bounds so transparent sprite padding does not shrink equipment.
+static var _equipment_regions: Dictionary = {}
+# Visible cork box bounds, excluding near-transparent generation speckles.
+const FLOATING_CRATE_REGION := Rect2(178, 180, 898, 896)
+
+
 ## goal_marker: draw the goal flag (only the level designer does; goals are hidden in play).
-static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marker := false, t := 0.0, theme := "") -> void:
+static func draw_item(ci: CanvasItem, type: int, s: float, lock := 0, goal_marker := false, t := 0.0, theme := "", visual := "") -> void:
 	if ItemDefs.kind(type) == ItemDefs.Kind.PADLOCK:
 		_padlock(ci, s, lock)
 		return
 	var col := ItemDefs.color(type)
-	var tex := AssetLib.item(ItemDefs.name_of(type), theme)
+	var tex := AssetLib.texture("items/floating_crate.png") if visual == "floating_crate" else AssetLib.item(ItemDefs.name_of(type), theme)
 	if tex:
-		ci.draw_texture_rect(tex, Rect2(Vector2(-s, -s) * 0.46, Vector2(s, s) * 0.92), false)
+		if ItemDefs.name_of(type) in ["crate", "mover_green", "mover_red", "block_blue", "block_red"]:
+			if not _equipment_regions.has(tex):
+				_equipment_regions[tex] = FLOATING_CRATE_REGION if visual == "floating_crate" else Rect2(tex.get_image().get_used_rect())
+			var region: Rect2 = _equipment_regions[tex]
+			var size := region.size * (s / maxf(region.size.x, region.size.y))
+			ci.draw_texture_rect_region(tex, Rect2(-size * 0.5, size), region)
+		else:
+			ci.draw_texture_rect(tex, Rect2(Vector2(-s, -s) * 0.46, Vector2(s, s) * 0.92), false)
 	else:
 		_draw_shape(ci, type, s, col, t)
 	if lock != 0:

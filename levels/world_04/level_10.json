@@ -57,26 +57,18 @@
 	"name": "The Vertical Vat",
 	"pipes": [
 		{
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
 			"mouth": "left",
 			"to": [
-				8,
+				9,
 				8
 			],
 			"x": 2,
 			"y": 1
 		},
 		{
-			"destination": "cell",
-			"enter": [
-				"right"
-			],
 			"mouth": "left",
 			"to": [
-				1,
+				2,
 				1
 			],
 			"x": 9,
