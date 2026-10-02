@@ -1,0 +1,9 @@
+Portuguese (Brazil) listing: Encontre o Par
+Use title, seo, about, short and how text files in the Portuguese draft.
+Icon: icon-512.png (shared, no text)
+Cover: cover-800x470.png
+Gameplay: gameplay-portrait.mp4 (720x1280), gameplay-landscape.mp4 (1280x720)
+Desktop screenshots: screenshot-landscape-01..04.png
+Mobile screenshots: screenshot-portrait-01..04.png
+Advertising: worlds-pt-vertical.mp4 (1080x1920), challenge-pt-horizontal.mp4 (1920x1080)
+Save draft; do not submit to moderation automatically.

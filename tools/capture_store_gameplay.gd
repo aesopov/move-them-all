@@ -39,7 +39,7 @@ func run() -> void:
 	root.size_changed.disconnect(app._update_ui_scale)
 	root.size = Vector2i(720,1280) if portrait else Vector2i(1280,720)
 	root.content_scale_size = Vector2i(480,854) if portrait else Vector2i(1280,720)
-	TranslationServer.set_locale(capture_locale)
+	TranslationServer.set_locale("pt_BR" if capture_locale == "pt" else capture_locale)
 	var script := GDScript.new()
 	# Recording does not alter the player's saved board/progress.
 	script.source_code = 'extends "res://scripts/game/game.gd"\nfunc _save_run() -> void:\n\tpass\nfunc _win() -> void:\n\tpaused = true\n'

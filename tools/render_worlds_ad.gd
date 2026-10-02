@@ -63,6 +63,130 @@ const TR_COPY = {
   "ИГРАЙ СЕЙЧАС": "HEMEN OYNA",
   "в Яндекс Играх": "Yandex Games’te"
 }
+const PT_COPY = {
+  "НАЙДИ ПАРУ": "ENCONTRE O PAR",
+  "Какой ход\nсделаешь ты?": "Qual é a sua\npróxima jogada?",
+  "Добавь\nогня!": "Aumente\no calor!",
+  "Найди\nсвоё решение": "Encontre\nsua solução",
+  "Каждый мир —\nновая головоломка": "Novos mundos.\nNovos desafios.",
+  "ЛЕДЯНЫЕ ПОРТАЛЫ": "PORTAIS DE GELO",
+  "ВУЛКАН": "VULCÃO",
+  "ХРАМ ПУСТЫНИ": "TEMPLO DO DESERTO",
+  "КРИСТАЛЬНЫЕ ПЕЩЕРЫ": "CAVERNAS DE CRISTAL",
+  "ДВИГАЙ  •  СОЕДИНЯЙ  •  РЕШАЙ": "MOVA  •  COMBINE  •  RESOLVA",
+  "ПОБЕЙ СВОЙ\nРЕКОРД!": "BATA SEU\nRECORDE!",
+  "Найди пару": "Encontre o Par",
+  "ИГРАЙ В ЯНДЕКС ИГРАХ": "JOGUE NO YANDEX GAMES",
+  "НАЙДИ ПАРУ  /  ВЫЗОВ ПРИНЯТ": "ENCONTRE O PAR / DESAFIE-SE",
+  "ВЫГЛЯДИТ\nПРОСТО?": "PARECE\nFÁCIL?",
+  "СДЕЛАЙ\nПЕРВЫЙ ХОД": "FAÇA SUA\nPRIMEIRA JOGADA",
+  "ИЩИ\nНОВЫЙ ПУТЬ": "ACHE UM\nNOVO CAMINHO",
+  "СОЕДИНЯЙ\nС УМОМ": "COMBINE COM\nESTRATÉGIA",
+  "А ТУТ\nСМОЖЕШЬ?": "E ESTE,\nVOCÊ RESOLVE?",
+  "ВОДОПАДЫ": "CACHOEIRAS",
+  "ДРЕВНИЕ МЕХАНИЗМЫ": "MECANISMOS ANTIGOS",
+  "КИСЛОТНЫЕ БОЛОТА": "PÂNTANO ÁCIDO",
+  "НЕБЕСНЫЕ ОСТРОВА": "ILHAS NO CÉU",
+  "НЕКСУС": "NEXUS",
+  "Один ход меняет всё": "Uma jogada muda tudo",
+  "ТВОЙ ХОД.": "SUA VEZ.",
+  "Сможешь решить?": "Consegue resolver?",
+  "ИГРАЙ СЕЙЧАС": "JOGUE AGORA",
+  "в Яндекс Играх": "no Yandex Games"
+}
+const ES_COPY = {
+  "НАЙДИ ПАРУ": "PAIR UP",
+  "Какой ход\nсделаешь ты?": "¿Cuál será tu\npróximo movimiento?",
+  "Добавь\nогня!": "¡Sube la\ntemperatura!",
+  "Найди\nсвоё решение": "Encuentra\ntu solución",
+  "Каждый мир —\nновая головоломка": "Nuevos mundos.\nNuevos retos.",
+  "ЛЕДЯНЫЕ ПОРТАЛЫ": "PORTALES HELADOS",
+  "ВУЛКАН": "VOLCÁN",
+  "ХРАМ ПУСТЫНИ": "TEMPLO DEL DESIERTO",
+  "КРИСТАЛЬНЫЕ ПЕЩЕРЫ": "CUEVAS DE CRISTAL",
+  "ДВИГАЙ  •  СОЕДИНЯЙ  •  РЕШАЙ": "MUEVE  •  COMBINA  •  RESUELVE",
+  "ПОБЕЙ СВОЙ\nРЕКОРД!": "¡SUPERA TU\nRÉCORD!",
+  "Найди пару": "Pair Up",
+  "ИГРАЙ В ЯНДЕКС ИГРАХ": "JUEGA EN YANDEX GAMES",
+  "НАЙДИ ПАРУ  /  ВЫЗОВ ПРИНЯТ": "PAIR UP / ACEPTA EL RETO",
+  "ВЫГЛЯДИТ\nПРОСТО?": "¿PARECE\nFÁCIL?",
+  "СДЕЛАЙ\nПЕРВЫЙ ХОД": "HAZ TU PRIMER\nMOVIMIENTO",
+  "ИЩИ\nНОВЫЙ ПУТЬ": "BUSCA UN\nNUEVO CAMINO",
+  "СОЕДИНЯЙ\nС УМОМ": "COMBINA CON\nESTRATEGIA",
+  "А ТУТ\nСМОЖЕШЬ?": "¿Y ESTE\nLO RESUELVES?",
+  "ВОДОПАДЫ": "CASCADAS",
+  "ДРЕВНИЕ МЕХАНИЗМЫ": "MECANISMOS ANTIGUOS",
+  "КИСЛОТНЫЕ БОЛОТА": "PANTANO ÁCIDO",
+  "НЕБЕСНЫЕ ОСТРОВА": "ISLAS DEL CIELO",
+  "НЕКСУС": "NEXUS",
+  "Один ход меняет всё": "Un movimiento lo cambia todo",
+  "ТВОЙ ХОД.": "TE TOCA.",
+  "Сможешь решить?": "¿Puedes resolverlo?",
+  "ИГРАЙ СЕЙЧАС": "JUEGA AHORA",
+  "в Яндекс Играх": "en Yandex Games"
+}
+const DE_COPY = {
+  "НАЙДИ ПАРУ": "PAIR UP",
+  "Какой ход\nсделаешь ты?": "Was ist dein\nnächster Zug?",
+  "Добавь\nогня!": "Jetzt wird\nes heiß!",
+  "Найди\nсвоё решение": "Finde deinen\neigenen Weg",
+  "Каждый мир —\nновая головоломка": "Neue Welten.\nNeue Rätsel.",
+  "ЛЕДЯНЫЕ ПОРТАЛЫ": "EISPORTALE",
+  "ВУЛКАН": "VULKAN",
+  "ХРАМ ПУСТЫНИ": "WÜSTENTEMPEL",
+  "КРИСТАЛЬНЫЕ ПЕЩЕРЫ": "KRISTALLHÖHLEN",
+  "ДВИГАЙ  •  СОЕДИНЯЙ  •  РЕШАЙ": "BEWEGEN  •  PAAREN  •  LÖSEN",
+  "ПОБЕЙ СВОЙ\nРЕКОРД!": "KNACKE DEINEN\nREKORD!",
+  "Найди пару": "Pair Up",
+  "ИГРАЙ В ЯНДЕКС ИГРАХ": "AUF YANDEX GAMES SPIELEN",
+  "НАЙДИ ПАРУ  /  ВЫЗОВ ПРИНЯТ": "PAIR UP / NIMM DIE CHALLENGE AN",
+  "ВЫГЛЯДИТ\nПРОСТО?": "SIEHT\nLEICHT AUS?",
+  "СДЕЛАЙ\nПЕРВЫЙ ХОД": "MACH DEN\nERSTEN ZUG",
+  "ИЩИ\nНОВЫЙ ПУТЬ": "FINDE EINEN\nNEUEN WEG",
+  "СОЕДИНЯЙ\nС УМОМ": "KOMBINIERE\nMIT KÖPFCHEN",
+  "А ТУТ\nСМОЖЕШЬ?": "SCHAFFST DU\nAUCH DAS?",
+  "ВОДОПАДЫ": "WASSERFÄLLE",
+  "ДРЕВНИЕ МЕХАНИЗМЫ": "ALTE MECHANISMEN",
+  "КИСЛОТНЫЕ БОЛОТА": "SÄURESUMPF",
+  "НЕБЕСНЫЕ ОСТРОВА": "HIMMELSINSELN",
+  "НЕКСУС": "NEXUS",
+  "Один ход меняет всё": "Ein Zug verändert alles",
+  "ТВОЙ ХОД.": "DEIN ZUG.",
+  "Сможешь решить?": "Kannst du es lösen?",
+  "ИГРАЙ СЕЙЧАС": "JETZT SPIELEN",
+  "в Яндекс Играх": "auf Yandex Games"
+}
+const FR_COPY = {
+  "НАЙДИ ПАРУ": "PAIR UP",
+  "Какой ход\nсделаешь ты?": "Quel sera ton\nprochain coup ?",
+  "Добавь\nогня!": "Fais monter\nla température !",
+  "Найди\nсвоё решение": "Trouve\nta solution",
+  "Каждый мир —\nновая головоломка": "Nouveaux mondes.\nNouveaux défis.",
+  "ЛЕДЯНЫЕ ПОРТАЛЫ": "PORTAILS GELÉS",
+  "ВУЛКАН": "VOLCAN",
+  "ХРАМ ПУСТЫНИ": "TEMPLE DU DÉSERT",
+  "КРИСТАЛЬНЫЕ ПЕЩЕРЫ": "GROTTES DE CRISTAL",
+  "ДВИГАЙ  •  СОЕДИНЯЙ  •  РЕШАЙ": "DÉPLACE  •  ASSOCIE  •  RÉSOUS",
+  "ПОБЕЙ СВОЙ\nРЕКОРД!": "BATS TON\nRECORD !",
+  "Найди пару": "Pair Up",
+  "ИГРАЙ В ЯНДЕКС ИГРАХ": "JOUE SUR YANDEX GAMES",
+  "НАЙДИ ПАРУ  /  ВЫЗОВ ПРИНЯТ": "PAIR UP / RELÈVE LE DÉFI",
+  "ВЫГЛЯДИТ\nПРОСТО?": "ÇA SEMBLE\nFACILE ?",
+  "СДЕЛАЙ\nПЕРВЫЙ ХОД": "JOUE TON\nPREMIER COUP",
+  "ИЩИ\nНОВЫЙ ПУТЬ": "TROUVE UN\nNOUVEAU CHEMIN",
+  "СОЕДИНЯЙ\nС УМОМ": "ASSOCIE AVEC\nSTRATÉGIE",
+  "А ТУТ\nСМОЖЕШЬ?": "ET CELUI-CI,\nTU Y ARRIVES ?",
+  "ВОДОПАДЫ": "CASCADES",
+  "ДРЕВНИЕ МЕХАНИЗМЫ": "MÉCANISMES ANCIENS",
+  "КИСЛОТНЫЕ БОЛОТА": "MARAIS ACIDE",
+  "НЕБЕСНЫЕ ОСТРОВА": "ÎLES CÉLESTES",
+  "НЕКСУС": "NEXUS",
+  "Один ход меняет всё": "Un seul coup change tout",
+  "ТВОЙ ХОД.": "À TOI DE JOUER.",
+  "Сможешь решить?": "Peux-tu le résoudre ?",
+  "ИГРАЙ СЕЙЧАС": "JOUE MAINTENANT",
+  "в Яндекс Играх": "sur Yandex Games"
+}
 var stage: Control
 var view
 var board: Board
@@ -103,7 +227,7 @@ func best_move(b: Board) -> Dictionary:
 
 func text_label(text: String, y: float, size_px: int, color := Color.WHITE) -> Label:
 	var label := Label.new()
-	var copy: Dictionary = TR_COPY if ad_locale == "tr" else EN_COPY if ad_locale == "en" else {}
+	var copy: Dictionary = ES_COPY if ad_locale == "es" else DE_COPY if ad_locale == "de" else FR_COPY if ad_locale == "fr" else PT_COPY if ad_locale == "pt" else TR_COPY if ad_locale == "tr" else EN_COPY if ad_locale == "en" else {}
 	label.text = copy.get(text, text)
 	label.position = Vector2(35, y)
 	label.size = Vector2(650, 0)
@@ -169,7 +293,7 @@ func ending() -> void:
 	stage.add_child(tint)
 	text_label("ПОБЕЙ СВОЙ\nРЕКОРД!", 165, 58, Color("ffeb9c"))
 	var cover := TextureRect.new()
-	cover.texture = load("res://publishing/yandex/cover-%s-800x470.png" % ad_locale)
+	cover.texture = load("res://publishing/yandex/cover-%s-800x470.png" % ("en" if ad_locale in ["es", "de", "fr"] else ad_locale))
 	cover.position = Vector2(30,425)
 	cover.size = Vector2(660,388)
 	cover.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

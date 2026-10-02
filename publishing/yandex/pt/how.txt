@@ -1,0 +1,7 @@
+Elimine todas as peças-alvo. Os objetivos da fase mostram quais tipos remover e quantas peças restam.
+
+Arraste uma peça móvel na horizontal ou vertical para combiná-la com peças iguais. Use tubos e teletransportes, combine chaves com cadeados e planeje suas jogadas levando em conta a gravidade e as casas perigosas.
+
+No celular, ative o zoom para ampliar com dois dedos e deslocar o tabuleiro. Toque em uma peça e depois em um destino na mesma linha ou coluna.
+
+Use Desfazer ou Reiniciar para tentar outra estratégia. Termine com tempo e jogadas de sobra para ganhar pontos extras e melhorar seu recorde.

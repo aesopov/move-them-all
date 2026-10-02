@@ -88,7 +88,7 @@ func ending() -> void:
 	cta.add_theme_constant_override("outline_size", 0)
 	text_label("в Яндекс Играх", 545, 27)
 	var cover := TextureRect.new()
-	cover.texture = load("res://publishing/yandex/cover-%s-800x470.png" % ad_locale)
+	cover.texture = load("res://publishing/yandex/cover-%s-800x470.png" % ("en" if ad_locale in ["es", "de", "fr"] else ad_locale))
 	cover.position = Vector2(615,170)
 	cover.size = Vector2(620,365)
 	cover.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

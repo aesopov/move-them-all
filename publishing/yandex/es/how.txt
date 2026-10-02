@@ -1,0 +1,7 @@
+Elimina todas las piezas objetivo. Los objetivos del nivel indican qué tipos debes quitar y cuántas piezas quedan.
+
+Arrastra una pieza móvil en horizontal o vertical para unirla con piezas iguales. Usa tuberías y teletransportadores, combina llaves con candados y planea tus movimientos teniendo en cuenta la gravedad y las casillas peligrosas.
+
+En el móvil, activa el zoom para ampliar con dos dedos y desplazar el tablero. Toca una pieza y luego un destino en la misma fila o columna.
+
+Usa Deshacer o Reiniciar para probar otra estrategia. Termina con tiempo y movimientos de sobra para ganar puntos extra y mejorar tu récord.

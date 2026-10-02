@@ -1,0 +1,5 @@
+Un movimiento puede cambiar todo el tablero. En Pair Up, desliza piezas iguales para combinarlas y elimina los objetivos de cada puzle.
+
+Explora mundos de colores, desde templos del desierto y portales helados hasta volcanes e islas en el cielo. Usa tuberías, teletransportadores, llaves, candados y bombas. Ten en cuenta cómo afecta la gravedad a tu próximo movimiento.
+
+Gana puntos extra con los movimientos y el tiempo restantes. Repite niveles para mejorar tu récord, usa Deshacer para probar otro camino o reinicia para empezar de nuevo. Juega en vertical u horizontal y activa el zoom en pantallas pequeñas.

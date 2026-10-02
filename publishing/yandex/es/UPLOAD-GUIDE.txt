@@ -1,0 +1,7 @@
+Spanish listing: Pair Up
+Text: title, seo, about, short and how files.
+Brand icon and Pair Up cover are shared with English.
+Gameplay: portrait (720x1280) and landscape (1280x720), 16.8 seconds.
+Screenshots: four desktop landscape and four mobile portrait.
+Ads: worlds-es-vertical.mp4 (1080x1920), challenge-es-horizontal.mp4 (1920x1080), 15 seconds.
+All gameplay captures and ad captions are localized. Save as draft.

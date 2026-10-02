@@ -30,7 +30,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--godot', default='/Applications/Godot.app/Contents/MacOS/Godot')
     parser.add_argument('--movie', type=Path, help='Use an already rendered AVI')
-    parser.add_argument('--locale', choices=['ru','en','tr'], default='ru')
+    parser.add_argument('--locale', choices=['ru','en','tr','pt','es','de','fr'], default='ru')
     args = parser.parse_args()
     if args.locale != 'ru':
         OUTPUT = ROOT / 'publishing/yandex' / args.locale / OUTPUT.name.replace('-ru-', f'-{args.locale}-')

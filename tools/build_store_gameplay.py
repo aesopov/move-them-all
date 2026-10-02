@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
-parser.add_argument('--locale', choices=['ru','en','tr'], default='ru')
+parser.add_argument('--locale', choices=['ru','en','tr','pt','es','de','fr'], default='ru')
 args = parser.parse_args()
 OUT = ROOT / ('publishing/yandex/store-refresh' if args.locale == 'ru' else f'publishing/yandex/{args.locale}')
 OUT.mkdir(parents=True, exist_ok=True)

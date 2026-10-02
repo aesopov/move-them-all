@@ -1,0 +1,1 @@
+Built-in image_gen, text-localization. Replace only Pair Up title with Encontre o Par; preserve cream/gold dimensional lettering, green shadow, jungle ruins, waterfall, board, blue gems and green rings. Fit title at top with generous margins. No other text. Landscape 80:47. Resized to 800x470 for Yandex.

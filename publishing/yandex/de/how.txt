@@ -1,0 +1,7 @@
+Entferne alle Zielsteine. Die Levelziele zeigen, welche Arten du entfernen musst und wie viele Steine noch übrig sind.
+
+Ziehe einen beweglichen Stein waagerecht oder senkrecht, um ihn mit gleichen Steinen zu verbinden. Nutze Rohre und Teleporter, kombiniere Schlüssel mit passenden Schlössern und achte auf Schwerkraft und gefährliche Felder.
+
+Aktiviere auf dem Handy den Zoom, um das Spielfeld mit zwei Fingern zu vergrößern und zu verschieben. Tippe auf einen Stein und dann auf ein Ziel in derselben Zeile oder Spalte.
+
+Mache einen Zug rückgängig oder starte neu, um eine andere Strategie auszuprobieren. Übrige Züge und Zeit bringen Bonuspunkte für deinen neuen Rekord.

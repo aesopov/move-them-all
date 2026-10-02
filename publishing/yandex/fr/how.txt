@@ -1,0 +1,7 @@
+Élimine toutes les pièces cibles. Les objectifs du niveau indiquent les types de pièces à retirer et combien il en reste.
+
+Fais glisser une pièce mobile horizontalement ou verticalement pour l’associer à des pièces identiques. Utilise les tuyaux et téléporteurs, associe les clés aux cadenas et tiens compte de la gravité et des cases dangereuses.
+
+Sur mobile, active le zoom pour agrandir le plateau avec deux doigts et le déplacer. Touche une pièce, puis une destination sur la même ligne ou colonne.
+
+Annule un coup ou recommence pour essayer une autre stratégie. Termine avec du temps et des coups restants pour gagner des points bonus et améliorer ton record.
