@@ -1,0 +1,20 @@
+ENGLISH YANDEX LISTING — Pair Up
+
+Text fields:
+Название: title.txt
+Описание для SEO: seo.txt
+Об игре: about.txt
+Короткое описание: short.txt
+Как играть: how.txt
+
+Media:
+Иконка: icon-512.png (same text-free icon as Russian; reuse is fine)
+Обложка: cover-800x470.png (English title)
+Вертикальное видео: gameplay-portrait.mp4
+Горизонтальное видео: gameplay-landscape.mp4
+Десктопные / Альбомная: screenshot-landscape-01.png through -04.png
+Мобильные / Портретная: screenshot-portrait-01.png through -04.png
+Рекламные видео: worlds-en-vertical.mp4 and challenge-en-horizontal.mp4
+
+Disable “Use Russian draft value” for localized cover, videos, screenshots and ads.
+The reusable icon may keep that setting enabled.

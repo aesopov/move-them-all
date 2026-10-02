@@ -1,0 +1,7 @@
+Tüm hedef taşları temizle. Bölüm hedefleri, hangi taş türlerinden kaç tane kaldığını gösterir.
+
+Hareket edebilen bir taşı yatay veya dikey sürükleyerek aynı türdeki taşlarla birleştir. Boruları ve ışınlayıcıları kullan, anahtarları kilitlerle eşleştir. Yerçekimini ve tehlikeli kareleri hesaba kat.
+
+Mobilde yakınlaştırma modunu açarak iki parmakla yakınlaştırabilir ve görünümü kaydırabilirsin. Bir taşa, ardından aynı satır veya sütundaki hedef konuma dokun.
+
+Farklı bir çözüm için Geri Al veya Yeniden Başlat’ı kullan. Hamle ve süre artırarak bonus puan kazan, kendi rekorunu geliştir.

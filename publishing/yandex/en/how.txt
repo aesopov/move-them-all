@@ -1,0 +1,7 @@
+Clear all target pieces. The level goals show which types to remove and how many remain.
+
+Drag a movable piece horizontally or vertically to bring matching pieces together. Use pipes and teleporters, match keys to locks, and plan around gravity and hazardous tiles.
+
+On mobile, enable zoom mode to pinch and pan. Tap a piece, then tap a destination in the same row or column.
+
+Use Undo or Restart to try another approach. Finish with spare moves and time to earn bonus points and improve your best score.
