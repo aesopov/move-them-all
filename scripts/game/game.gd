@@ -19,6 +19,9 @@ var _ad_pending := false
 var _intro: LevelIntro
 var _dialogs: CanvasLayer
 var _save_elapsed := 0.0
+var _analytics_active := false
+var _analytics_level := ""
+var _analytics_revision := ""
 
 @onready var view: BoardView = %BoardView
 @onready var _lbl_aims: Label = %AimsLabel
@@ -31,6 +34,11 @@ var _overlay: Overlay
 
 
 func _ready() -> void:
+	Platform.set_level_navigation(true)
+	# Capture identity now: App.current_path changes before the old scene exits.
+	if not App.testing_from_editor and App.current_path.begins_with("res://levels/world_"):
+		_analytics_level = App.current_path.trim_prefix("res://levels/").trim_suffix(".json")
+		_analytics_revision = FileAccess.get_file_as_string(App.current_path).sha256_text()
 	# Canvas layers isolate modal UI from any Z Index used by board decorations.
 	_dialogs = CanvasLayer.new()
 	_dialogs.name = "Dialogs"
@@ -117,6 +125,9 @@ func _show_intro() -> void:
 
 
 func _begin_level() -> void:
+	if not _analytics_active:
+		_analytics_active = true
+		_track_level("level_started")
 	Sound.play_music(view.theme_data.key)
 	_intro = null
 	_awaiting_intro = false
@@ -323,6 +334,9 @@ func _restart() -> void:
 	if _ad_pending or _awaiting_intro or view.busy:
 		return
 	if not await _action_ad(): return
+	if _analytics_active:
+		_track_level("level_restarted")
+		_analytics_active = false
 	_close_overlay()
 	view.end_drag()
 	_last_gesture = -1
@@ -398,6 +412,9 @@ func _win() -> void:
 	Sound.play("complete")
 	finished = true
 	var s := GameConfig.score(board.move_limit, board.moves_made, board.time_limit, elapsed)
+	if _analytics_active:
+		_track_level("level_completed", s.total)
+		_analytics_active = false
 	var best := App.record_score(App.current_path, s.total) if not App.testing_from_editor else false
 	App.clear_run()
 	var o := _open_overlay(tr("Level Complete!"))
@@ -490,6 +507,10 @@ func _notification(what: int) -> void:
 
 
 func _exit_tree() -> void:
+	if _analytics_active:
+		_track_level("level_exited")
+		_analytics_active = false
+	Platform.set_level_navigation(false)
 	Sound.stop_music()
 	Sound.presentation_busy = false
 	# A transition sets App.current_path before removing the previous scene.
@@ -529,6 +550,9 @@ func _confirm_skip() -> void:
 		var ok := App.skip_level(path) if not paid else await App.skip_level_paid(path)
 		if not is_instance_valid(o) or o.is_queued_for_deletion() or App.current_path != path: return
 		if ok:
+			if _analytics_active:
+				_track_level("level_skipped")
+				_analytics_active = false
 			App.clear_run()
 			App.start_level(App.next_level(App.current_path))
 		else:
@@ -561,3 +585,9 @@ func _action_ad() -> bool:
 	await Platform.show_fullscreen_ad()
 	_ad_pending = false
 	return is_inside_tree() and not is_queued_for_deletion()
+
+
+func _track_level(event: String, score := 0) -> void:
+	if _analytics_level == "" or board == null: return
+	Platform.track_level(event, {"level": _analytics_level, "revision": _analytics_revision,
+		"moves": board.moves_made, "seconds": int(elapsed), "resumed": _resumed, "score": score})

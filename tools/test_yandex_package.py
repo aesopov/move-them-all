@@ -25,7 +25,8 @@ class YandexPackageTests(unittest.TestCase):
                 self.assertNotIn('index.pck.gz',archive.namelist())
                 html=archive.read('index.html').decode()
                 self.assertIn('src="/sdk.js"',html)
-                for name in ['ads.js', 'storage.js', 'purchases.js', 'shop.js', 'purchase-icons/skips_5.png', 'purchase-icons/unlock_world.png', 'purchase-icons/unlock_all.png', 'purchase-icons/disable_ads.png']:
+                self.assertIn('src="analytics.js"',html)
+                for name in ['analytics.js', 'navigation.js', 'ads.js', 'storage.js', 'purchases.js', 'shop.js', 'purchase-icons/skips_5.png', 'purchase-icons/unlock_world.png', 'purchase-icons/unlock_all.png', 'purchase-icons/disable_ads.png']:
                     self.assertIn(name, archive.namelist())
                 self.assertLess(html.index('storage.js'), html.index('purchases.js'))
                 self.assertLess(html.index('purchases.js'), html.index('shop.js'))

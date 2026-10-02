@@ -25,7 +25,7 @@ def package(source, output):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source / name, target)
         shutil.copy2(ROOT / 'web/yandex/vendor/yandex_bridge.js', stage / 'yandex_bridge.js')
-        for name in ['ads.js', 'storage.js', 'platform.js', 'purchases.js', 'shop.js']:
+        for name in ['analytics.js', 'navigation.js', 'ads.js', 'storage.js', 'platform.js', 'purchases.js', 'shop.js']:
             shutil.copy2(ROOT / 'web/yandex' / name, stage / name)
         (stage / 'purchase-icons').mkdir()
         for name in ['skips_5.png', 'unlock_world.png', 'unlock_all.png', 'disable_ads.png']:
@@ -34,7 +34,7 @@ def package(source, output):
         html = stage / 'index.html'
         body = html.read_text()
         marker = '<!-- PLATFORM_SCRIPTS -->' if '<!-- PLATFORM_SCRIPTS -->' in body else '</head>'
-        body = body.replace(marker, '<script src="/sdk.js"></script>\n<script src="yandex_bridge.js"></script>\n<script src="ads.js"></script>\n<script src="storage.js"></script>\n<script src="purchases.js"></script>\n<script src="shop.js"></script>\n<script src="platform.js"></script>\n' + ('</head>' if marker == '</head>' else ''))
+        body = body.replace(marker, '<script src="/sdk.js"></script>\n<script src="yandex_bridge.js"></script>\n<script src="analytics.js"></script>\n<script src="navigation.js"></script>\n<script src="ads.js"></script>\n<script src="storage.js"></script>\n<script src="purchases.js"></script>\n<script src="shop.js"></script>\n<script src="platform.js"></script>\n' + ('</head>' if marker == '</head>' else ''))
         needle = 'engine.startGame({'
         assert body.count(needle) == 1
         body = body.replace(needle, 'window.mergeYandexReady.then(() => engine.startGame({')

@@ -150,3 +150,32 @@ func show_fullscreen_ad() -> void:
 		fullscreen_ad_finished.emit.call_deferred())
 	JavaScriptBridge.get_interface("PairUpAds").show(_ad_callback)
 	await fullscreen_ad_finished
+
+
+# Browser history is independent of GameplayAPI (pause/ads must keep Back armed).
+var _back_callback: JavaScriptObject
+var _back_pending := false
+
+func set_level_navigation(active: bool) -> void:
+	_back_pending = false
+	if not OS.has_feature("web"): return
+	var navigation = JavaScriptBridge.get_interface("PairUpNavigation")
+	if navigation == null: return
+	if _back_callback == null:
+		_back_callback = JavaScriptBridge.create_callback(func(_args: Array):
+			_back_pending = true)
+		navigation.subscribe(_back_callback)
+	navigation.setLevelActive(active)
+
+func _process(_delta: float) -> void:
+	if not _back_pending or _platform_paused or App._loading_level: return
+	_back_pending = false
+	var scene := get_tree().current_scene
+	if scene != null and scene.scene_file_path == App.SCENES.game:
+		scene._on_back()
+
+
+func track_level(event: String, data: Dictionary) -> void:
+	if not OS.has_feature("web") or OS.is_debug_build() or App.testing_from_editor: return
+	var analytics = JavaScriptBridge.get_interface("PairUpAnalytics")
+	if analytics != null: analytics.track(event, JSON.stringify(data))

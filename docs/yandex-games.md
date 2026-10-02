@@ -252,3 +252,60 @@ Checks: `node tools/test_yandex_ads.cjs` and Godot `tools/test_action_ads.gd`.
 Enable **Использовать API для показа sticky-баннера** in the Yandex console's sticky-banner advertising settings. The game controls banners with `showBannerAdv()` / `hideBannerAdv()` after player status and purchase recovery resolve. `player.getPayingStatus() === 'paying'` suppresses sticky banners only; other statuses allow them. Banner/API errors do not block gameplay.
 
 Import the `disable_ads` product from `localization/yandex-purchases.csv` (price 200), using `assets/ui/purchases/disable_ads.png` (256×256). This permanent, non-consumable purchase disables sticky banners and Undo/Restart fullscreen ads. Its SDK receipt is retained for restoration on launch; Unlock All does not include or block this separate product. The testing-only purchase reset also removes this entitlement. No banners are enabled while purchase recovery is unresolved.
+
+### Android/browser Back
+
+The Yandex package adds one iframe history entry while a level is open. Browser
+Back requests the same level-selection action as the game's Back button, saving
+the current run. Pending requests wait for level loading and platform modals/ads
+to finish. Pausing and restarting do not add history entries; level selection
+does not trap subsequent browser navigation.
+
+Checks: `node tools/test_yandex_navigation.cjs` and
+`godot --headless --path . --script tools/test_back_navigation.gd`.
+Verify hardware Back and gesture Back on Android in the real Yandex draft,
+including direct launch, paused gameplay, and reopening a level. Host apps that
+close their WebView without traversing iframe history require host-side support.
+
+### Level analytics (Yandex Metrica)
+
+Counter **113340672** loads asynchronously through `analytics.js` only in the
+Yandex package. Webvisor, click maps, link tracking and ecommerce are disabled.
+Localhost previews, debug builds' gameplay events, designer playtests, and the
+purchase-testing switch are excluded. Analytics failures do not block play.
+
+In Metrica → Goals → Add goal, choose **JavaScript event**, exact match, and create:
+
+| Name | Identifier |
+| --- | --- |
+| Level started | `level_started` |
+| Level completed | `level_completed` |
+| Level restarted | `level_restarted` |
+| Level skipped | `level_skipped` |
+| Level exited | `level_exited` |
+
+Start means pressing Play on the intro (including a resumed checkpoint), not merely
+loading the scene. Restart is recorded after the ad finishes and before resetting
+an unfinished attempt. Replaying a completed level produces a new start, not a
+failed-attempt restart. Skip is recorded only after a successful free/paid skip.
+Completed/skipped attempts do not also emit exit. Exit means leaving an unfinished
+attempt through game navigation; browser closes/crashes are not reliably reported.
+
+Goal parameters use `levels → world_XX/level_YY → SHA-256 of level JSON → event`,
+with moves, seconds, resumed, and score. Time/moves on a resumed run include the
+saved checkpoint; starts measure play sessions, not exclusively fresh attempts.
+Use session-parameter reports/segments by level and revision to compare starters,
+completers, restarts and skips. Count unique users as well as goal occurrences;
+repeat play means raw completions/starts is not a unique-player completion rate.
+Zero completions flags a level for investigation, not proof of impossibility.
+Historical events cannot be recovered before this build is published; ad blockers
+and interrupted sessions can leave gaps. Level JSON revisions separate content
+edits but do not identify engine/rules changes.
+
+Setup: https://yandex.com/dev/games/doc/en/concepts/yandex-metrica
+Event API: https://yandex.ru/support/metrica/en/objects/reachgoal
+
+Checks: `node tools/test_yandex_analytics.cjs`, `python3 tools/test_yandex_package.py`.
+After upload, verify all five configured goals with the real counter in the Yandex
+draft (purchase-testing must be off). Do not send synthetic test events to the live
+counter from automated tests.
