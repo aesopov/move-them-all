@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/level_decor.gd" id="1_plmjb"]
+[ext_resource type="Script" path="res://scripts/game/decor_sprite.gd" id="2_2n3gc"]
+[ext_resource type="Texture2D" path="res://assets/tiles/nexus/decor/fallen_log.png" id="3_44smc"]
+[ext_resource type="Texture2D" path="res://assets/tiles/nexus/decor/mechanism.png" id="4_2vm32"]
+[ext_resource type="Texture2D" path="res://assets/tiles/nexus/decor/relic_tall.png" id="5_wpbf3"]
+
+[node name="Decor" type="Node2D" unique_id=209991994]
+script = ExtResource("1_plmjb")
+
+[node name="FallenLog" type="Node2D" parent="." unique_id=1781139713]
+position = Vector2(448, 704)
+script = ExtResource("2_2n3gc")
+texture = ExtResource("3_44smc")
+footprint = Vector2(2, 1)
+
+[node name="Mechanism" type="Node2D" parent="." unique_id=1572731364]
+position = Vector2(640, 192)
+script = ExtResource("2_2n3gc")
+texture = ExtResource("4_2vm32")
+
+[node name="RelicTall" type="Node2D" parent="." unique_id=167242529]
+position = Vector2(640, 256)
+script = ExtResource("2_2n3gc")
+texture = ExtResource("5_wpbf3")
+footprint = Vector2(1, 2)

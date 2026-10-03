@@ -12,6 +12,32 @@ func _initialize() -> void:
 	_run.call_deferred()
 
 func _run() -> void:
+	# Exercise real scene teardown and the chooser, not just repeated music calls.
+	var persistent = root.get_node("Sound")
+	persistent.music_enabled = true
+	persistent.music_volume = 0.35
+	persistent.play_music("waterfall")
+	await create_timer(1.0).timeout
+	var persistent_stream: AudioStream = persistent._music_player.stream
+	var persistent_position: float = persistent._music_player.get_playback_position()
+	var game_script := GDScript.new()
+	game_script.source_code = 'extends "res://scripts/game/game.gd"\nfunc _ready() -> void:\n\tpass\n'
+	check(game_script.reload() == OK, "Gameplay transition fixture loads")
+	var game = load("res://scenes/game.tscn").instantiate()
+	game.set_script(game_script)
+	root.add_child(game)
+	game.free()
+	var chooser = load("res://scenes/level_select.tscn").instantiate()
+	root.add_child(chooser)
+	await process_frame
+	chooser.free()
+	persistent.play_music("waterfall")
+	await create_timer(0.1).timeout
+	check(persistent_stream != null and persistent._music_player.stream == persistent_stream,
+		"Gameplay teardown and level select preserve the current stream")
+	check(persistent._music_player.playing and persistent._music_player.get_playback_position() >= persistent_position,
+		"Entering another same-theme level preserves playback position")
+	persistent.stop_music()
 	DirAccess.remove_absolute(SETTINGS)
 	var script := load("res://scripts/ui/sound.gd")
 	var sound = script.new()
@@ -24,8 +50,8 @@ func _run() -> void:
 	sound.presentation_busy = false
 	await create_timer(1.0).timeout
 	check(sound._music_player.playing, "Default track starts")
-	check(sound._music_player.stream is AudioStreamMP3 and sound._music_player.stream.loop, "MP3 music loops")
-	check(sound._music_player.stream.get_length() > 170, "Real track imported")
+	check(sound._music_player.stream is AudioStreamMP3 and not sound._music_player.stream.loop, "MP3 finishes to advance the playlist")
+	check(sound._music_player.stream.get_length() > 100, "Real track imported")
 	var stream: AudioStream = sound._music_player.stream
 	var position: float = sound._music_player.get_playback_position()
 	sound.play_music("waterfall")
@@ -54,8 +80,20 @@ func _run() -> void:
 	sound.set_music_volume(0.4)
 	sound.play_music("desert")
 	await create_timer(1.6).timeout
-	check(sound._music_player.stream != stream and sound._music_player.stream.loop, "Desert switches to second looping track")
-	check(sound._music_player.playing, "Second track plays after transition")
+	check(sound._music_player.stream == stream, "Changing worlds preserves the current song")
+	var heard: Array = [sound._music_track]
+	for i in range(sound.MUSIC.size()):
+		var previous: String = sound._music_track
+		# Seek to the real end so the player exercises playlist advancement.
+		sound._music_player.seek(sound._music_player.stream.get_length() - 0.1)
+		await create_timer(1.5).timeout
+		check(sound._music_track != previous, "Adjacent songs never repeat, including across cycles")
+		check(sound._music_player.playing and not sound._music_player.stream.loop, "Next song plays without looping itself")
+		if i < sound.MUSIC.size() - 1:
+			check(not heard.has(sound._music_track), "Every song plays once per shuffled cycle")
+			heard.append(sound._music_track)
+	check(heard.size() == sound.MUSIC.size(), "A shuffled cycle includes every song")
+
 	sound.set_music_enabled(false)
 	sound.set_volume(0.55)
 	var restored = script.new()

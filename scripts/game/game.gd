@@ -415,8 +415,20 @@ func _win() -> void:
 	if _analytics_active:
 		_track_level("level_completed", s.total)
 		_analytics_active = false
+	var was_complete: bool = App.campaign_status().remaining == 0
 	var best := App.record_score(App.current_path, s.total) if not App.testing_from_editor else false
 	App.clear_run()
+	if not App.testing_from_editor:
+		var finale := App.campaign_finale(App.current_path, was_complete)
+		if not finale.is_empty():
+			_close_overlay()
+			_overlay = preload("res://scenes/components/campaign_finale.tscn").instantiate()
+			_dialogs.add_child(_overlay)
+			_overlay.setup(finale, s.total, best, view.theme_data.key)
+			if finale.remaining > 0:
+				_overlay.add_button(tr("Finish remaining levels"), func(): App.start_level(finale.first_unfinished))
+			_overlay.add_button(tr("Level select"), _on_back)
+			return
 	var o := _open_overlay(tr("Level Complete!"))
 	o.add_rows([
 		[tr("Level complete"), str(s.base)],
@@ -511,7 +523,8 @@ func _exit_tree() -> void:
 		_track_level("level_exited")
 		_analytics_active = false
 	Platform.set_level_navigation(false)
-	Sound.stop_music()
+	# The persistent music player keeps the current track across level changes.
+	# The shared playlist advances only when a song finishes.
 	Sound.presentation_busy = false
 	# A transition sets App.current_path before removing the previous scene.
 	# Its last move was already saved; do not save it under the new path.

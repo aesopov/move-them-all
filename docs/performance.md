@@ -38,3 +38,52 @@ An exported Chromium/WebGL test at 480×854 downloaded one desert pack on a cold
 visit and made zero theme-pack requests after a page reload in the same browser
 context. The loaded theme was visually checked. Browser storage eviction or
 private browsing restrictions may require future downloads.
+
+## Screen-on idle investigation (2026-10-03)
+
+User reported overnight battery depletion with the game visible and screen on.
+The game has ongoing goal/item/effect animations and no inactivity timeout.
+There is no explicit FPS cap in project.godot. The Yandex adapter pauses the
+scene tree on SDK/focus pause, but an untouched foreground game remains active.
+
+Measured the native Godot 4.7.1 Compatibility renderer on Apple M1 using
+world_01/level_04, test-play mode (no progress writes), after 3 seconds of warmup.
+Each phase had another 1-second settling period and a 12-second sample. CPU is
+the delta of process user+system CPU time divided by elapsed wall time; 100%
+means one CPU core. Music was enabled; the paused phase used the existing
+Platform._set_platform_pause(true), which also pauses audio.
+
+| Temporary test condition | Actual FPS | CPU (% of one core) |
+| --- | ---: | ---: |
+| Untouched gameplay, existing settings | 118.7 | 33.2 |
+| Untouched gameplay, Engine.max_fps = 30 | 23.7 | 15.1 |
+| Scene/audio paused, Engine.max_fps = 15 | 13.3 | 7.7 |
+
+These are short native desktop samples, not phone/browser measurements, GPU
+utilization, or battery-life estimates. Differences combine scheduling, rendering
+and (for the last phase) pause effects. No production power settings were changed.
+The existing rendering benchmark also passed: zero static background/terrain/pipe
+redraw callbacks in 180 frames, but 179 animated-effect redraws.
+
+Recommended next change: cap active rendering, add an inactivity-triggered
+low-power pause with explicit resume, and verify screen-sleep/wake-lock behavior
+in the actual Yandex mobile host. Test on the target phone before claiming a
+battery-life improvement. A frame cap alone cannot remove screen-on power use.
+
+### Implemented power policy
+
+Active rendering now has a 60 FPS ceiling. After 180 seconds without mouse,
+touch, or key input, Platform saves the current run, ends any board drag, pauses
+the scene tree and music, and displays the existing localized Pause/Resume UI.
+Resume preserves the music stream and respects independent SDK, focus, suspension,
+shop and advertisement pause causes. Paused rendering is capped at 10 FPS with
+Godot low-processor mode enabled; unchanged frames need not be redrawn.
+
+The keep-screen-on project setting is disabled. Actual display sleep still depends
+on browser/platform wake locks and device settings; it is not guaranteed by this
+change for the Yandex host. No texture, resolution or visual-quality setting changed.
+
+Validation: `tools/test_power_saving.gd` covers the inactivity threshold, music
+position, render settings, explicit resume and overlapping pause causes. The music
+suite passes, and the Russian pause overlay was visually checked at 390×844.
+Phone battery-life measurements remain necessary.

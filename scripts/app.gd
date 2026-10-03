@@ -311,6 +311,25 @@ func campaign_paths() -> Array:
 	return paths
 
 
+func campaign_status() -> Dictionary:
+	var paths := campaign_paths()
+	var completed := 0
+	var first_unfinished := ""
+	for path in paths:
+		if best_score(path) > 0: completed += 1
+		elif first_unfinished.is_empty(): first_unfinished = path
+	return {"total": paths.size(), "completed": completed,
+		"remaining": paths.size() - completed, "first_unfinished": first_unfinished,
+		"last": "" if paths.is_empty() else paths.back()}
+
+
+func campaign_finale(path: String, was_complete: bool) -> Dictionary:
+	if not campaign_paths().has(path): return {}
+	var status := campaign_status()
+	if path != status.last and (status.remaining > 0 or was_complete): return {}
+	return status
+
+
 func is_level_unlocked(path: String, enforce_release := false) -> bool:
 	if OS.is_debug_build() and not enforce_release: return true
 	var paths := campaign_paths()

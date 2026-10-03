@@ -8,6 +8,11 @@ var _platform_paused := false
 var _previous_mute := false
 var _sdk_paused := false
 var _unfocused := false
+var _suspended := false
+const IDLE_SECONDS := 180.0
+var _idle_elapsed := 0.0
+var _idle_paused := false
+var _idle_layer: CanvasLayer
 var _ad_paused := false
 var _ad_callback: JavaScriptObject
 signal fullscreen_ad_finished
@@ -44,14 +49,17 @@ func _platform_event(args: Array) -> void:
 	var pause: bool = event.get("event", "") == "pause"
 	if event.get("event", "") not in ["pause", "resume"]: return
 	_sdk_paused = pause
-	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused or _ad_paused)
+	_set_platform_pause(_sdk_paused or _unfocused or _suspended or _shop_paused or _ad_paused or _idle_paused)
 
 func _notification(what: int) -> void:
-	if bridge == null: return
+	if not is_node_ready(): return
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT: _unfocused = true
 	elif what == NOTIFICATION_APPLICATION_FOCUS_IN: _unfocused = false
+	elif what == NOTIFICATION_APPLICATION_PAUSED: _suspended = true
+	elif what == NOTIFICATION_APPLICATION_RESUMED: _suspended = false
 	else: return
-	_set_platform_pause(_sdk_paused or _unfocused or _shop_paused or _ad_paused)
+	_idle_elapsed = 0.0
+	_set_platform_pause(_sdk_paused or _unfocused or _suspended or _shop_paused or _ad_paused or _idle_paused)
 
 func _set_platform_pause(value: bool) -> void:
 	if value == _platform_paused: return
@@ -64,6 +72,8 @@ func _set_platform_pause(value: bool) -> void:
 	else:
 		AudioServer.set_bus_mute(0, _previous_mute)
 	get_tree().paused = value
+	Engine.max_fps = 10 if value else 60
+	OS.low_processor_usage_mode = value
 
 
 signal progress_loaded(data: Dictionary)
@@ -105,7 +115,7 @@ func _subscribe_purchases() -> void:
 		var was_open := _shop_paused
 		purchases = data
 		_shop_paused = bool(data.get("modal", false))
-		_set_platform_pause(_sdk_paused or _unfocused or _shop_paused or _ad_paused)
+		_set_platform_pause(_sdk_paused or _unfocused or _suspended or _shop_paused or _ad_paused or _idle_paused)
 		purchases_changed.emit()
 		if was_open and not _shop_paused: shop_closed.emit())
 	JavaScriptBridge.get_interface("PairUpPurchases").subscribe(_purchases_callback)
@@ -146,7 +156,7 @@ func show_fullscreen_ad() -> void:
 	_set_platform_pause(true)
 	_ad_callback = JavaScriptBridge.create_callback(func(_args: Array):
 		_ad_paused = false
-		_set_platform_pause(_sdk_paused or _unfocused or _shop_paused)
+		_set_platform_pause(_sdk_paused or _unfocused or _suspended or _shop_paused or _ad_paused or _idle_paused)
 		fullscreen_ad_finished.emit.call_deferred())
 	JavaScriptBridge.get_interface("PairUpAds").show(_ad_callback)
 	await fullscreen_ad_finished
@@ -167,7 +177,45 @@ func set_level_navigation(active: bool) -> void:
 		navigation.subscribe(_back_callback)
 	navigation.setLevelActive(active)
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion or event is InputEventScreenDrag \
+		or event is InputEventMouseButton or event is InputEventScreenTouch \
+		or event is InputEventKey or event is InputEventJoypadButton:
+		_idle_elapsed = 0.0
+
+
+func _pause_for_inactivity() -> void:
+	if _platform_paused or _idle_paused: return
+	# Finish any gesture before freezing the board. Save without changing progress.
+	var scene := get_tree().current_scene
+	if scene != null and scene.has_method("_save_run"):
+		scene.view.end_drag()
+		scene._save_run()
+	_idle_paused = true
+	_idle_layer = CanvasLayer.new()
+	_idle_layer.layer = 100
+	_idle_layer.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(_idle_layer)
+	var overlay = preload("res://scenes/components/overlay.tscn").instantiate()
+	_idle_layer.add_child(overlay)
+	overlay.set_title(tr("Paused"))
+	overlay.add_button(tr("Resume"), _resume_from_inactivity)
+	_set_platform_pause(true)
+
+
+func _resume_from_inactivity() -> void:
+	_idle_elapsed = 0.0
+	_idle_paused = false
+	if is_instance_valid(_idle_layer): _idle_layer.queue_free()
+	_idle_layer = null
+	_set_platform_pause(_sdk_paused or _unfocused or _suspended or _shop_paused or _ad_paused)
+
+
 func _process(_delta: float) -> void:
+	if not _platform_paused and not App._loading_level:
+		_idle_elapsed += _delta
+		if _idle_elapsed >= IDLE_SECONDS:
+			_pause_for_inactivity()
 	if not _back_pending or _platform_paused or App._loading_level: return
 	_back_pending = false
 	var scene := get_tree().current_scene

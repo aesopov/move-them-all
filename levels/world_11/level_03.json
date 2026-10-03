@@ -1,10 +1,108 @@
 {
-	"version": 2,
-	"name": "The Fourth Element",
-	"theme": "nexus",
 	"imported": true,
+	"items": [
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 9,
+			"y": 1
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "118",
+			"type": "mover_green",
+			"x": 10,
+			"y": 1
+		},
+		{
+			"destructible": false,
+			"gravity": "fall",
+			"match_group": 0,
+			"source_sprite": "118",
+			"type": "crate",
+			"x": 7,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 8,
+			"y": 7
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 4,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 2,
+			"match_label": "2",
+			"source_sprite": "206",
+			"type": "weight_red",
+			"x": 7,
+			"y": 8
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "118",
+			"type": "mover_green",
+			"x": 8,
+			"y": 8
+		},
+		{
+			"aim": true,
+			"destructible": true,
+			"gravity": "fall",
+			"match_group": 1,
+			"match_label": "1",
+			"source_sprite": "205",
+			"type": "weight",
+			"x": 7,
+			"y": 9
+		},
+		{
+			"destructible": false,
+			"gravity": "none",
+			"match_group": 0,
+			"source_sprite": "118",
+			"type": "mover_green",
+			"x": 8,
+			"y": 9
+		}
+	],
 	"moves": 20,
-	"time": 210,
+	"name": "The Fourth Element",
+	"pipes": [],
+	"source": {
+		"file": "LEVEL103.UZ3",
+		"format": "UZ3",
+		"number": 103.0,
+		"sha256": "b82b8a8308c79f42fe15368d00d75deba2b9d36c1bb07dcb09cd57284fd54b85"
+	},
+	"teleports": [],
 	"terrain": [
 		".###########",
 		"...###......",
@@ -19,118 +117,7 @@
 		"www#########",
 		"www#########"
 	],
-	"items": [
-		{
-			"type": "weight",
-			"x": 9,
-			"y": 1,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "mover_green",
-			"x": 10,
-			"y": 1,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "118"
-		},
-		{
-			"type": "crate",
-			"x": 7,
-			"y": 7,
-			"aim": false,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "118"
-		},
-		{
-			"type": "weight",
-			"x": 8,
-			"y": 7,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight",
-			"x": 4,
-			"y": 8,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "weight_red",
-			"x": 7,
-			"y": 8,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 2,
-			"source_sprite": "206",
-			"match_label": "2"
-		},
-		{
-			"type": "mover_green",
-			"x": 8,
-			"y": 8,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "118"
-		},
-		{
-			"type": "weight",
-			"x": 7,
-			"y": 9,
-			"aim": true,
-			"gravity": "fall",
-			"movable": true,
-			"destructible": true,
-			"match_group": 1,
-			"source_sprite": "205",
-			"match_label": "1"
-		},
-		{
-			"type": "mover_green",
-			"x": 8,
-			"y": 9,
-			"aim": false,
-			"gravity": "none",
-			"movable": true,
-			"destructible": false,
-			"match_group": 0,
-			"source_sprite": "118"
-		}
-	],
-	"pipes": [],
-	"teleports": [],
-	"source": {
-		"format": "UZ3",
-		"file": "LEVEL103.UZ3",
-		"number": 103,
-		"sha256": "b82b8a8308c79f42fe15368d00d75deba2b9d36c1bb07dcb09cd57284fd54b85"
-	}
+	"theme": "nexus",
+	"time": 210,
+	"version": 2
 }

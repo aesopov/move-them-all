@@ -16,12 +16,16 @@ const AUDIO_CONFIG := "user://audio.cfg"
 const MUSIC := {
 	"rippling": "res://assets/audio/music/rippling_arpeggios.mp3",
 	"sunlit": "res://assets/audio/music/sunlit_mystery.mp3",
+	"mossy": "res://assets/audio/music/mossy_terraces.mp3",
+	"frozen": "res://assets/audio/music/frozen_ruuns.mp3",
 }
 var presentation_busy := false
 var volume := 0.6
 var music_enabled := true
 var music_volume := 0.35
 var _music_player: AudioStreamPlayer
+var _music_index := 0
+var _music_order: Array = []
 var _music_track := ""
 var _requested_music := ""
 var _music_request := 0
@@ -48,6 +52,8 @@ func _ready() -> void:
 	music_volume = clampf(float(config.get_value("music", "volume", 0.35)), 0.0, 1.0)
 	_music_player = AudioStreamPlayer.new()
 	add_child(_music_player)
+	_shuffle_music()
+	_music_player.finished.connect(_on_music_finished)
 	for i in 8:
 		var player := AudioStreamPlayer.new()
 		add_child(player)
@@ -115,8 +121,9 @@ func stop_music() -> void:
 	_apply_music_gain(0.0)
 
 
-func play_music(theme := "") -> void:
-	var track := "sunlit" if theme == "desert" else "rippling"
+func play_music(_theme := "") -> void:
+	# Scene/world requests leave the shared playlist uninterrupted.
+	var track: String = _music_order[_music_index]
 	if track == _requested_music and (_music_loading or track == _music_track): return
 	_music_request += 1
 	var request := _music_request
@@ -132,7 +139,7 @@ func play_music(theme := "") -> void:
 	if not loaded:
 		# Music is optional: failed/cancelled downloads never block gameplay.
 		get_tree().create_timer(5.0).timeout.connect(func():
-			if request == _music_request: play_music(theme))
+			if request == _music_request: play_music())
 		return
 	while presentation_busy:
 		await get_tree().process_frame
@@ -158,10 +165,31 @@ func play_music(theme := "") -> void:
 		_music_player.stop()
 		_music_started = false
 		_music_player.stream = stream
-		stream.loop = true
+		stream.loop = false
 		_apply_music_gain(0.0)
 		_sync_music_pause())
 	_music_tween.tween_method(_apply_music_gain, 0.0, 1.0, 0.8)
+
+
+func _shuffle_music(previous := "") -> void:
+	_music_order = MUSIC.keys()
+	_music_order.shuffle()
+	# Keep a new cycle from repeating the song that just ended.
+	if _music_order.size() > 1 and _music_order[0] == previous:
+		var swap_index := randi_range(1, _music_order.size() - 1)
+		_music_order[0] = _music_order[swap_index]
+		_music_order[swap_index] = previous
+	_music_index = 0
+
+
+func _on_music_finished() -> void:
+	var previous := _music_track
+	_music_started = false
+	_music_track = ""
+	_music_index += 1
+	if _music_index >= _music_order.size():
+		_shuffle_music(previous)
+	play_music()
 
 
 func _apply_music_gain(value: float) -> void:
